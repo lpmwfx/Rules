@@ -87,6 +87,49 @@ CONCEPT_MAP = {
     "quick-ref": ["reference", "summary"],
 }
 
+# ---------------------------------------------------------------------------
+# Curated learning path layers (1 = read first, 6 = reference/index)
+# ---------------------------------------------------------------------------
+
+# Layer 1: Global foundations — understand the system
+# Layer 2: Project methodology — how to organize work
+# Layer 3: Language core — types, structure, errors, naming
+# Layer 4: Language advanced — testing, tooling, nesting, platform
+# Layer 5: Infrastructure — automation, devops, ipc, platform-ux
+# Layer 6: Reference — quick-refs, READMEs, indexes
+
+CORE_FILES = {"types", "structure", "modules", "errors", "ack-pattern",
+              "result-pattern", "naming", "encapsulation", "ownership"}
+
+ADVANCED_FILES = {"testing", "dependencies", "nesting", "build", "posix",
+                  "threading", "coroutines", "ktor", "amper", "stability",
+                  "compose", "viewmodel", "data-classes", "gtk",
+                  "verification", "eslint", "jsdoc", "typescript-cli",
+                  "validation", "philosophy", "safety", "distribution",
+                  "cascade", "custom-properties", "themes", "separation",
+                  "responsive", "typography", "naming-suffix"}
+
+INFRA_CATEGORIES = {"automation", "devops", "ipc", "platform-ux"}
+
+
+def assign_layer(category: str, stem: str, file_type: str) -> int:
+    """Assign a learning path layer (1-6) based on category and file."""
+    if file_type in ("readme", "quick-ref"):
+        return 6
+    if category == "global":
+        return 1
+    if category == "project-files":
+        return 2
+    if category in INFRA_CATEGORIES:
+        return 5
+    # Language-specific files
+    if stem in CORE_FILES:
+        return 3
+    if stem in ADVANCED_FILES:
+        return 4
+    return 4  # Default for unknown language files
+
+
 STOP_WORDS = frozenset([
     "the", "a", "an", "is", "are", "not", "and", "or", "for", "in",
     "on", "with", "to", "of", "by", "from", "at", "but", "vs", "it",
@@ -284,11 +327,13 @@ def parse_file(category: str, filepath: Path) -> dict:
     keywords = extract_keywords(text)
     concepts = derive_concepts(title, sections, filepath.stem)
     tags = build_tags(title, code_languages, concepts, keywords)
+    layer = assign_layer(category, filepath.stem, file_type)
 
     return {
         "file": rel_path,
         "category": category,
         "type": file_type,
+        "layer": layer,
         "title": title,
         "subtitle": subtitle,
         "sections": sections,
