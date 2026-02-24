@@ -11,7 +11,7 @@ Used by: Claude Code, Cursor, Copilot, Codex, Mistral, and any AI coding assista
 | [global/](global/) | 11 | Universal rules — all languages, all projects |
 | [project-files/](project-files/) | 11 | Institution file specs (PROJECT, TODO, FIXES, RAG) |
 | [automation/](automation/) | 5 | Session startup context injection |
-| [devops/](devops/) | 1 | AI:DevOps UI-first workflow |
+| [devops/](devops/) | 4 | AI:DevOps workflow, publishing, CI/CD, packaging |
 | [ipc/](ipc/) | 1 | Unix socket + JSON-RPC 2.0 contract |
 | [platform-ux/](platform-ux/) | 6 | Platform UX defaults (GNOME HIG) |
 | [python/](python/) | 10 | Python 3.11+ rules |

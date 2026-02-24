@@ -12,3 +12,6 @@ Human is system designer and architect: defines goals, flows, constraints, prior
 | File | Topic |
 |------|-------|
 | [workflow.md](workflow.md) | UI-first build direction and steps |
+| [publishing.md](publishing.md) | Private-to-public repo sync and release flow |
+| [cicd.md](cicd.md) | CI/CD pipeline rules and GitHub Actions template |
+| [packaging.md](packaging.md) | Package formats (DEB, RPM, MSI, DMG, tar.gz, APK, IPA) |
