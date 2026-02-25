@@ -34,7 +34,7 @@ CONCEPT_MAP = {
     "modules": ["encapsulation", "architecture"],
     "testing": ["tdd", "quality"],
     "validation": ["runtime-checking", "boundaries"],
-    "nesting": ["code-style", "readability"],
+    "nesting": ["code-style", "readability", "flat-code"],
     "errors": ["error-handling", "result-types"],
     "threading": ["concurrency", "async"],
     "naming": ["conventions", "readability"],
@@ -81,11 +81,12 @@ CONCEPT_MAP = {
     "distribution": ["packaging", "pipx"],
     "gtk": ["gtk4", "gui"],
     "verification": ["clippy", "testing"],
-    "naming-suffix": ["naming", "collision-prevention"],
+    "naming-suffix": ["naming", "code-suffix"],
     "ack-pattern": ["result-types", "return-format"],
     "dependencies": ["libraries", "tooling"],
     "structure": ["file-organization", "architecture"],
     "quick-ref": ["reference", "summary"],
+    "app-model": ["architecture", "state-management"],
 }
 
 # ---------------------------------------------------------------------------

@@ -1,6 +1,7 @@
 ---
 tags: [index, navigation, yaml, auto-generated]
 concepts: [codebase-index, navigation]
+related: [global/startup.md, automation/tool-configs.md]
 keywords: [index-yaml, regenerate]
 layer: 1
 ---

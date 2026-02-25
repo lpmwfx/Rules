@@ -1,6 +1,7 @@
 ---
 tags: [platform-ux, issue-reporter, bug-reporting, crash]
 concepts: [bug-reporting, crash-handling]
+related: [platform-ux/checklist.md, project-files/issues-file.md]
 keywords: [crash-report, error-boundary, feedback]
 layer: 5
 ---

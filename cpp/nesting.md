@@ -1,19 +1,16 @@
 ---
 tags: [cpp, nesting, flat, readability]
 concepts: [code-style, readability]
+requires: [global/nesting.md]
 related: [python/nesting.md, rust/nesting.md]
-keywords: [max-3-levels, early-return]
+keywords: [early-return, result-type]
 layer: 4
 ---
-# Flat Code
+# Flat Code — C++
 
-> Max 3 nesting levels — early returns, extract helpers
+> See [global/nesting.md](../global/nesting.md) for shared rules
 
 ---
-
-RULE: Same as Python/JS — max 3 indentation levels
-RULE: Early returns to reduce nesting
-RULE: Extract helpers for complex logic
 
 ```cpp
 // GOOD: Flat with early returns
@@ -28,18 +25,5 @@ Result<Data> process(Input input) {
     }
 
     return transform(parsed.data);
-}
-
-// BAD: Deep nesting
-Result<Data> process(Input input) {
-    if (input.valid()) {
-        auto parsed = parse(input);
-        if (parsed.success) {
-            auto transformed = transform(parsed.data);
-            if (transformed.success) {
-                // too deep!
-            }
-        }
-    }
 }
 ```

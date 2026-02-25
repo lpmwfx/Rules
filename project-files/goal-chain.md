@@ -2,6 +2,7 @@
 tags: [goal-chain, traceability, milestones]
 concepts: [traceability, milestones, goal-chain]
 feeds: [project-files/project-file.md, project-files/phases-file.md]
+related: [project-files/workflow.md]
 layer: 2
 ---
 # Goal Chain
@@ -50,10 +51,7 @@ TODO pass:
 
 ## DONES Rule
 
-DONES is the absolute dividing line in TODO and ISSUES.
-
-- **Above DONES**: active, forward-looking
-- **Below DONES**: completed, evaluated or classified as failure
+See [workflow.md](workflow.md) for full DONES mechanics.
 
 ## Status Transitions
 

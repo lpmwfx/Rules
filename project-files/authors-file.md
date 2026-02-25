@@ -1,6 +1,7 @@
 ---
 tags: [authors, contributors, credits]
 concepts: [attribution, contributors]
+related: [project-files/project-file.md, devops/publishing.md]
 layer: 2
 ---
 # AUTHORS File

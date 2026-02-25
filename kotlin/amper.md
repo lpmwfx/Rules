@@ -1,6 +1,7 @@
 ---
 tags: [kotlin, amper, build-system, configuration]
 concepts: [build-system, configuration]
+related: [kotlin/compose.md, kotlin/stability.md]
 keywords: [amper, module-yaml, kmp]
 layer: 4
 ---

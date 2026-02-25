@@ -1,6 +1,7 @@
 ---
 tags: [automation, tool-configs, editor, settings]
 concepts: [tooling, editor-configuration]
+requires: [global/startup.md, global/persistent-memory.md]
 layer: 5
 ---
 # Tool Configurations

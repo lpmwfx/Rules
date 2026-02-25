@@ -1,22 +1,21 @@
 ---
 tags: [rust, nesting, flat, readability]
 concepts: [code-style, readability]
+requires: [global/nesting.md]
 related: [python/nesting.md, cpp/nesting.md]
-keywords: [max-3-levels, early-return, pattern-match]
+keywords: [question-mark-operator, pattern-match]
 layer: 4
 ---
-# Flat Code
+# Flat Code — Rust
 
-> Max 3 nesting levels — early returns, ? operator
+> See [global/nesting.md](../global/nesting.md) for shared rules
 
 ---
 
-RULE: Same as Python/JS — max 3 indentation levels
-RULE: Early returns to reduce nesting
-RULE: Extract helpers for complex logic
+RULE: Use `?` operator instead of nested match/if-let
 
 ```rust
-// GOOD: Flat with early returns
+// GOOD: Flat with ? operator
 fn process(input: &Input) -> Result<Data, Error> {
     if !input.is_valid() {
         return Err(Error::InvalidInput);
@@ -26,17 +25,5 @@ fn process(input: &Input) -> Result<Data, Error> {
     let transformed = transform(&parsed)?;
 
     Ok(transformed)
-}
-
-// BAD: Deep nesting
-fn process(input: &Input) -> Result<Data, Error> {
-    if input.is_valid() {
-        if let Ok(parsed) = parse(input) {
-            if let Ok(transformed) = transform(&parsed) {
-                // too deep!
-            }
-        }
-    }
-    Err(Error::Failed)
 }
 ```

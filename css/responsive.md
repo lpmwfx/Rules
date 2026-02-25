@@ -1,6 +1,7 @@
 ---
 tags: [css, responsive, mobile-first, breakpoints]
 concepts: [mobile-first, breakpoints]
+related: [css/typography.md, css/themes.md]
 keywords: [media-query, container-query, mobile-first]
 layer: 4
 ---

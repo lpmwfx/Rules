@@ -1,6 +1,7 @@
 ---
 tags: [versions, lts, modern]
 concepts: [language-versions, compatibility]
+related: [global/consistency.md, devops/packaging.md]
 layer: 1
 ---
 # Modern Language Versions

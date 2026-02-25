@@ -1,6 +1,7 @@
 ---
 tags: [secrets, env, security]
 concepts: [security, environment]
+related: [devops/publishing.md, devops/cicd.md]
 layer: 1
 ---
 # Secrets Location

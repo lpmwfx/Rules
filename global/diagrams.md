@@ -1,6 +1,7 @@
 ---
 tags: [mermaid, diagrams, visualization]
 concepts: [mermaid, visualization]
+related: [project-files/project-file.md, global/app-model.md]
 keywords: [mermaid, flowchart, sequence-diagram]
 layer: 1
 ---
