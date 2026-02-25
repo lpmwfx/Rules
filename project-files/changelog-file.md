@@ -1,3 +1,9 @@
+---
+tags: [changelog, release-notes, versioning]
+concepts: [release-management, versioning]
+related: [project-files/install-file.md, project-files/done-file.md]
+layer: 2
+---
 # CHANGELOG File
 
 > User-facing release notes — NOT for internal task tracking

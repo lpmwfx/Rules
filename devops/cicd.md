@@ -1,3 +1,10 @@
+---
+tags: [devops, cicd, github-actions, pipeline]
+concepts: [ci-cd, automation]
+related: [devops/publishing.md]
+keywords: [github-actions, pipeline, workflow]
+layer: 5
+---
 # CI/CD Pipeline
 
 > Tag-triggered builds from clean checkout — artifacts go to release, never manual upload

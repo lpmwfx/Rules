@@ -1,3 +1,8 @@
+---
+tags: [authors, contributors, credits]
+concepts: [attribution, contributors]
+layer: 2
+---
 # AUTHORS File
 
 > Contributors to the project — human and AI

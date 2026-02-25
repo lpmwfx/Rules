@@ -1,3 +1,11 @@
+---
+tags: [python, nesting, flat, readability]
+concepts: [code-style, readability]
+requires: [python/structure.md]
+related: [rust/nesting.md, cpp/nesting.md]
+keywords: [max-3-levels, early-return, extract-helper]
+layer: 4
+---
 # Flat Code
 
 > Max 3 nesting levels — extract to helper if deeper

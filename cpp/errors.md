@@ -1,3 +1,11 @@
+---
+tags: [cpp, errors, result-type, expected]
+concepts: [error-handling, result-types]
+requires: [cpp/types.md]
+related: [rust/errors.md, python/ack-pattern.md, kotlin/result-pattern.md]
+keywords: [expected, error-code, no-exceptions]
+layer: 3
+---
 # Error Handling
 
 > Result types, no exceptions — same ACK pattern as Python/JS

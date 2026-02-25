@@ -1,3 +1,9 @@
+---
+tags: [cpp, posix, linux, system]
+concepts: [linux, system-programming]
+keywords: [posix, file-descriptors, signals]
+layer: 4
+---
 # POSIX First
 
 > Linux/BSD native — epoll, mmap, systemd

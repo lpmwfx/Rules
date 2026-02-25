@@ -1,3 +1,8 @@
+---
+tags: [rules, ai-coding, standards, overview]
+concepts: [coding-standards, ai-rules]
+layer: 6
+---
 # Rules — AI Coding Standards
 
 Shared coding standards for AI-assisted development across Python, JavaScript, CSS, C++, Rust, and Kotlin.

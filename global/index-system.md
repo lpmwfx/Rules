@@ -1,3 +1,9 @@
+---
+tags: [index, navigation, yaml, auto-generated]
+concepts: [codebase-index, navigation]
+keywords: [index-yaml, regenerate]
+layer: 1
+---
 # Index System
 
 > Auto-generated index.yaml as single source of truth for codebase navigation

@@ -1,3 +1,9 @@
+---
+tags: [global, overview, foundation]
+concepts: [global-rules, foundation]
+related: [global/startup.md, global/validation.md, global/consistency.md, global/read-before-write.md, global/know-before-change.md, global/persistent-memory.md, global/versions.md, global/secrets.md, global/diagrams.md, global/index-system.md, global/naming-suffix.md]
+layer: 6
+---
 # Global Rules
 
 > Universal rules for all languages and all projects

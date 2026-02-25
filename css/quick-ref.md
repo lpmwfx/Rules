@@ -1,3 +1,9 @@
+---
+tags: [css, quick-ref, reference, summary]
+concepts: [reference, summary]
+related: [css/cascade.md, css/modules.md, css/naming.md, css/custom-properties.md, css/themes.md]
+layer: 6
+---
 # CSS Quick Reference
 
 > All rules at a glance

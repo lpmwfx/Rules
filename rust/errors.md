@@ -1,3 +1,11 @@
+---
+tags: [rust, errors, result, thiserror]
+concepts: [error-handling, result-types]
+requires: [rust/types.md]
+related: [python/ack-pattern.md, cpp/errors.md, kotlin/result-pattern.md]
+keywords: [result, thiserror, anyhow, question-mark]
+layer: 3
+---
 # Error Handling
 
 > Result types — thiserror for libs, anyhow for CLI

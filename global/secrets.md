@@ -1,3 +1,8 @@
+---
+tags: [secrets, env, security]
+concepts: [security, environment]
+layer: 1
+---
 # Secrets Location
 
 > Central secrets, never copied into projects

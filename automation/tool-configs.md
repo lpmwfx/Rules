@@ -1,3 +1,8 @@
+---
+tags: [automation, tool-configs, editor, settings]
+concepts: [tooling, editor-configuration]
+layer: 5
+---
 # Tool Configurations
 
 > Implementation examples for specific AI tools

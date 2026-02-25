@@ -1,3 +1,11 @@
+---
+tags: [cpp, memory, raii, smart-pointers]
+concepts: [memory-management, lifecycle, raii]
+requires: [cpp/types.md]
+related: [rust/ownership.md]
+keywords: [unique-ptr, shared-ptr, raii]
+layer: 3
+---
 # Memory Management
 
 > Automatic via RAII — never manual new/delete

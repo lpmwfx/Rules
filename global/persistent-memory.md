@@ -1,3 +1,9 @@
+---
+tags: [rag, fixes, ai-memory, persistent]
+concepts: [ai-memory, knowledge-base]
+feeds: [project-files/rag-file.md, project-files/fixes-file.md]
+layer: 1
+---
 # Persistent AI Memory
 
 > RAG + FIXES = AI's persistent memory across sessions

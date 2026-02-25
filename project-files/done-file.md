@@ -1,3 +1,9 @@
+---
+tags: [done, archive, completed-phases]
+concepts: [phase-completion, archive]
+requires: [project-files/todo-file.md, project-files/phases-file.md]
+layer: 2
+---
 # DONE File
 
 > Completed phases with their tasks — append-only log

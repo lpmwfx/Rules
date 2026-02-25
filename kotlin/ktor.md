@@ -1,3 +1,10 @@
+---
+tags: [kotlin, ktor, http, networking]
+concepts: [http, networking]
+requires: [kotlin/coroutines.md]
+keywords: [ktor-client, serialization, content-negotiation]
+layer: 4
+---
 # Ktor Client
 
 > Single HttpClient instance, ContentNegotiation, error handling

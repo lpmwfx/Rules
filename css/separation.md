@@ -1,3 +1,9 @@
+---
+tags: [css, separation, concerns, architecture]
+concepts: [architecture, concerns]
+related: [css/cascade.md, css/modules.md]
+layer: 4
+---
 # Separation of Concerns
 
 > Layout separate from colors — zero overlap

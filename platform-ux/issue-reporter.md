@@ -1,3 +1,9 @@
+---
+tags: [platform-ux, issue-reporter, bug-reporting, crash]
+concepts: [bug-reporting, crash-handling]
+keywords: [crash-report, error-boundary, feedback]
+layer: 5
+---
 # Issue Reporter Integration
 
 > Separate process for crash survival — shared across all apps

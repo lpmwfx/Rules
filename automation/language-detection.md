@@ -1,3 +1,9 @@
+---
+tags: [automation, language-detection, rules-loading]
+concepts: [language-detection, dynamic-loading]
+requires: [automation/startup-script.md]
+layer: 5
+---
 # Language Detection
 
 > Detect project languages and load relevant rules

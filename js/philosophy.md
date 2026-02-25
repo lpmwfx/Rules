@@ -1,3 +1,9 @@
+---
+tags: [javascript, philosophy, design-principles]
+concepts: [design-principles, approach]
+related: [global/consistency.md]
+layer: 4
+---
 # Philosophy
 
 > Pure JavaScript ES2024+ with TypeScript-level safety

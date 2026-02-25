@@ -1,3 +1,10 @@
+---
+tags: [rust, naming, conventions, hex-suffix]
+concepts: [naming-conventions, readability]
+requires: [global/consistency.md, global/naming-suffix.md]
+related: [python/naming.md, css/naming.md]
+layer: 3
+---
 # Naming Rules
 
 > Anti-variable-noise + hex-suffix convention

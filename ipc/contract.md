@@ -1,3 +1,10 @@
+---
+tags: [ipc, contract, json-rpc, protocol]
+concepts: [protocol, json-rpc, contract]
+related: [global/validation.md]
+keywords: [json-rpc, schema, versioning]
+layer: 5
+---
 # IPC Contract — Unix Socket + JSON-RPC 2.0
 
 > Shared by all service layers (Python, Node.js, Rust)

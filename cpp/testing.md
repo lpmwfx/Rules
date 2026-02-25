@@ -1,3 +1,11 @@
+---
+tags: [cpp, testing, tdd, catch2]
+concepts: [tdd, quality, testing]
+requires: [cpp/types.md, cpp/errors.md]
+related: [python/testing.md, rust/verification.md]
+keywords: [catch2, ctest, real-data]
+layer: 4
+---
 # Testing
 
 > Catch2 or doctest — real resources, same structure as Python

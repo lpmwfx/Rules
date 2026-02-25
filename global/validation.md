@@ -1,3 +1,9 @@
+---
+tags: [validation, boundaries, runtime-checking]
+concepts: [runtime-checking, boundaries, validation]
+feeds: [python/types.md, js/validation.md, js/safety.md]
+layer: 1
+---
 # Validation Over Abstraction
 
 > Never hide complexity behind abstractions — expose and check

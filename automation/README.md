@@ -1,3 +1,9 @@
+---
+tags: [automation, session, overview]
+concepts: [automation, session-management]
+related: [automation/startup-script.md, automation/system-prompt.md, automation/language-detection.md, automation/tool-configs.md, automation/maintenance.md]
+layer: 6
+---
 # AI Session Automation
 
 > Making AI coding assistants context-aware from session start

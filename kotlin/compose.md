@@ -1,3 +1,11 @@
+---
+tags: [kotlin, compose, ui, declarative]
+concepts: [ui, declarative]
+requires: [kotlin/data-classes.md]
+related: [kotlin/viewmodel.md]
+keywords: [composable, remember, state]
+layer: 4
+---
 # Compose UI Rules
 
 > Pure functions, state hoisting, small composables

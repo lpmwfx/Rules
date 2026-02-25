@@ -1,3 +1,10 @@
+---
+tags: [fixes, problem-solution, ai-memory]
+concepts: [problem-solving, ai-memory]
+requires: [project-files/issues-file.md]
+related: [project-files/rag-file.md, global/persistent-memory.md]
+layer: 2
+---
 # FIXES File
 
 > Problem-solution pairs — AI reads before coding, writes after fixing

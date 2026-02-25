@@ -1,3 +1,9 @@
+---
+tags: [devops, overview, ci-cd]
+concepts: [devops, overview]
+related: [devops/publishing.md, devops/cicd.md, devops/packaging.md, devops/workflow.md]
+layer: 6
+---
 # AI:DevOps Workflow
 
 > UI-first development — build from screen to server

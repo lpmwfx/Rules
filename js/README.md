@@ -1,3 +1,9 @@
+---
+tags: [javascript, overview, rules]
+concepts: [javascript-rules, overview]
+related: [js/modules.md, js/jsdoc.md, js/validation.md, js/safety.md, js/eslint.md, js/testing.md, js/philosophy.md, js/typescript-cli.md, js/project-structure.md]
+layer: 6
+---
 # JavaScript Rules (TS-like-JS)
 
 > Pure JavaScript with TypeScript-level safety — zero build step

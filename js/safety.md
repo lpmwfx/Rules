@@ -1,3 +1,10 @@
+---
+tags: [javascript, safety, runtime, boundaries]
+concepts: [runtime-validation, boundaries]
+requires: [global/validation.md]
+related: [js/validation.md]
+layer: 4
+---
 # JS Safety — Runtime Over Static
 
 > Where JavaScript beats TypeScript — runtime truth at boundaries

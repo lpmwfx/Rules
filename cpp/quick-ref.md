@@ -1,3 +1,9 @@
+---
+tags: [cpp, quick-ref, reference, summary]
+concepts: [reference, summary]
+related: [cpp/types.md, cpp/modules.md, cpp/errors.md, cpp/memory.md, cpp/testing.md]
+layer: 6
+---
 # C++ Quick Reference
 
 > All rules at a glance

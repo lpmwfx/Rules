@@ -1,3 +1,9 @@
+---
+tags: [naming, suffix, base62, collision-prevention]
+concepts: [naming, collision-prevention]
+keywords: [brand, base62, public-symbols]
+layer: 1
+---
 # Naming Suffix Convention
 
 > Base62 suffix on public symbols — prevents naming collisions across projects

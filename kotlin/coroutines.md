@@ -1,3 +1,10 @@
+---
+tags: [kotlin, coroutines, concurrency, flow]
+concepts: [concurrency, async]
+related: [rust/threading.md, cpp/threading.md]
+keywords: [coroutine-scope, flow, suspend, dispatcher]
+layer: 4
+---
 # Coroutines
 
 > viewModelScope, Dispatchers, never block main thread

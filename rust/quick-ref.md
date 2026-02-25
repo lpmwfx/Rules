@@ -1,3 +1,9 @@
+---
+tags: [rust, quick-ref, reference, summary]
+concepts: [reference, summary]
+related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/verification.md]
+layer: 6
+---
 # Rust Quick Reference
 
 > All rules at a glance

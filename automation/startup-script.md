@@ -1,3 +1,12 @@
+---
+tags: [automation, startup-script, bash, context-injection]
+concepts: [automation, context-injection]
+requires: [global/startup.md]
+feeds: [automation/language-detection.md]
+related: [automation/system-prompt.md]
+keywords: [bash, startup-hook, project-context]
+layer: 5
+---
 # Startup Script
 
 > Run a script when session starts — output becomes AI context

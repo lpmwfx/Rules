@@ -1,3 +1,9 @@
+---
+tags: [platform-ux, checklist, shipping, verification]
+concepts: [verification, shipping]
+keywords: [ship-checklist, qa, acceptance]
+layer: 5
+---
 # New App Checklist
 
 > Verify before shipping — all platform UX requirements

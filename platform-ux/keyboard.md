@@ -1,3 +1,10 @@
+---
+tags: [platform-ux, keyboard, shortcuts, accessibility]
+concepts: [shortcuts, accessibility]
+related: [platform-ux/context-menus.md]
+keywords: [hotkey, focus, tab-order]
+layer: 5
+---
 # Keyboard Shortcuts
 
 > Standard shortcuts and navigation — GNOME HIG compliant

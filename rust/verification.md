@@ -1,3 +1,11 @@
+---
+tags: [rust, verification, clippy, testing]
+concepts: [testing, clippy]
+requires: [rust/types.md]
+related: [python/testing.md, cpp/testing.md]
+keywords: [clippy, cargo-test, miri]
+layer: 4
+---
 # Verification Stack
 
 > Gating levels — local, merge, release

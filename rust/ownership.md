@@ -1,3 +1,11 @@
+---
+tags: [rust, ownership, borrowing, lifetimes]
+concepts: [memory-management, borrowing, ownership]
+requires: [rust/types.md]
+related: [cpp/memory.md]
+keywords: [borrow, lifetime, clone, arc]
+layer: 3
+---
 # Memory Management
 
 > Ownership and borrowing — Rust's core model

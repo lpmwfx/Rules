@@ -1,3 +1,11 @@
+---
+tags: [cpp, modules, c++20, encapsulation]
+concepts: [encapsulation, architecture]
+requires: [global/consistency.md]
+related: [rust/modules.md, python/structure.md]
+keywords: [module, export, import, partition]
+layer: 3
+---
 # Module Structure
 
 > One class/module per file pair — closed modules with pImpl

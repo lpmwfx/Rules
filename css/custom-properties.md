@@ -1,3 +1,10 @@
+---
+tags: [css, custom-properties, variables, design-tokens]
+concepts: [design-tokens, variables]
+related: [css/themes.md, css/cascade.md]
+keywords: [css-variables, design-tokens]
+layer: 4
+---
 # CSS Custom Properties
 
 > Design tokens for colors, surfaces, and shadows

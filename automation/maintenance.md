@@ -1,3 +1,9 @@
+---
+tags: [automation, maintenance, project-files]
+concepts: [maintenance, knowledge-management]
+requires: [global/persistent-memory.md]
+layer: 5
+---
 # Maintenance
 
 > Keep project files updated for maximum AI effectiveness

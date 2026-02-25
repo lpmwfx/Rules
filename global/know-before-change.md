@@ -1,3 +1,9 @@
+---
+tags: [understand-first, dependencies, refactoring]
+concepts: [code-safety, know-before-change]
+related: [global/read-before-write.md]
+layer: 1
+---
 # Know Before You Change
 
 > 90% understanding, 10% changing — the 90/10 rule

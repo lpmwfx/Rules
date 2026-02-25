@@ -1,3 +1,10 @@
+---
+tags: [startup, checklist, session, mandatory]
+concepts: [workflow, initialization]
+feeds: [project-files/workflow.md]
+related: [global/read-before-write.md, global/know-before-change.md]
+layer: 1
+---
 # Mandatory Startup Checklist
 
 > Do this BEFORE answering the user — every session

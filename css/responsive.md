@@ -1,3 +1,9 @@
+---
+tags: [css, responsive, mobile-first, breakpoints]
+concepts: [mobile-first, breakpoints]
+keywords: [media-query, container-query, mobile-first]
+layer: 4
+---
 # Responsive Design
 
 > Mobile-first, single breakpoint at 768px

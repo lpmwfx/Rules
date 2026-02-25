@@ -1,3 +1,11 @@
+---
+tags: [project, state, identity, source-of-truth]
+concepts: [project-state, source-of-truth]
+requires: [project-files/goal-chain.md]
+feeds: [project-files/phases-file.md, project-files/todo-file.md]
+related: [project-files/workflow.md]
+layer: 2
+---
 # PROJECT File
 
 > Project state — what's built, where we are, what's planned
@@ -75,3 +83,25 @@ All project circumstances go here:
 
 **Why:** One file with all truths. No hunting through configs, docs, or memory.
 **Security:** Document WHERE secrets are, never WHAT they contain.
+
+## Ownership
+
+PROJECT is AI-maintained. AI writes it, user approves it.
+
+| File | Owner | AI Action |
+|------|-------|-----------|
+| PROJECT | AI | Writes and maintains — single source of truth |
+| PHASES | User | AI reads for overview, suggests updates |
+| TODO | AI | Writes tasks, updates status |
+| DONE | AI | Appends completed phases |
+| ISSUES | Both | AI adds discovered issues, user prioritizes |
+| FIXES | AI | Writes after solving problems |
+| RAG | AI | Writes discoveries and patterns |
+| INSTALL | User | AI reads, suggests updates |
+| UIUX | User | AI reads for GUI work |
+| AUTHORS | User | AI reads for attribution |
+| CHANGELOG | Both | AI drafts, user approves on release |
+
+RULE: AI maintains PROJECT — keeps it current after every significant change
+RULE: User reviews and approves PROJECT updates
+RULE: AI never changes project Goal without explicit user approval

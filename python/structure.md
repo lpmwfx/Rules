@@ -1,3 +1,11 @@
+---
+tags: [python, structure, modules, flat]
+concepts: [file-organization, architecture]
+requires: [global/consistency.md]
+related: [js/modules.md, rust/modules.md]
+keywords: [flat-structure, init-py, max-lines]
+layer: 3
+---
 # File and Module Structure
 
 > pyproject.toml for config, micro-service architecture

@@ -1,3 +1,11 @@
+---
+tags: [rust, threading, concurrency, tokio]
+concepts: [concurrency, async]
+requires: [rust/ownership.md]
+related: [cpp/threading.md, kotlin/coroutines.md]
+keywords: [tokio, async-await, channel, arc-mutex]
+layer: 4
+---
 # Threading
 
 > Async, channels, Arc+Mutex — prefer message passing

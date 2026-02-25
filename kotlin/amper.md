@@ -1,3 +1,9 @@
+---
+tags: [kotlin, amper, build-system, configuration]
+concepts: [build-system, configuration]
+keywords: [amper, module-yaml, kmp]
+layer: 4
+---
 # Amper Build System
 
 > module.yaml — no Gradle for desktop, minimal config

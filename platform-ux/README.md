@@ -1,3 +1,9 @@
+---
+tags: [platform-ux, overview, interaction]
+concepts: [platform-ux, overview]
+related: [platform-ux/keyboard.md, platform-ux/pointer-touch.md, platform-ux/checklist.md, platform-ux/drag-drop.md, platform-ux/context-menus.md, platform-ux/issue-reporter.md]
+layer: 6
+---
 # Platform UX Defaults
 
 > Shared interaction standards for all toolkit implementations (GNOME HIG)

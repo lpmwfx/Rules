@@ -1,3 +1,9 @@
+---
+tags: [cpp, build, cmake, configuration]
+concepts: [build-system, configuration]
+keywords: [cmake, presets, vcpkg, conan]
+layer: 4
+---
 # Build Configuration
 
 > CMake with strict warnings, sanitizers, no exceptions

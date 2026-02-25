@@ -1,3 +1,9 @@
+---
+tags: [automation, system-prompt, ai-instructions]
+concepts: [ai-configuration, prompt-engineering]
+related: [automation/startup-script.md]
+layer: 5
+---
 # System Prompt Injection
 
 > Prepend context to system prompt for API-based tools

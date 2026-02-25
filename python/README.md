@@ -1,3 +1,9 @@
+---
+tags: [python, overview, rules]
+concepts: [python-rules, overview]
+related: [python/types.md, python/structure.md, python/naming.md, python/ack-pattern.md, python/nesting.md, python/testing.md, python/dependencies.md, python/distribution.md]
+layer: 6
+---
 # Python Rules
 
 > Type-safe, flat, tested Python — 3.11+

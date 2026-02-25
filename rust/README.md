@@ -1,3 +1,9 @@
+---
+tags: [rust, overview, rules]
+concepts: [rust-rules, overview]
+related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/naming.md, rust/threading.md, rust/nesting.md, rust/gtk.md, rust/verification.md]
+layer: 6
+---
 # Rust Rules
 
 > Modern Rust 2021 — ownership, Result types, Linux/BSD

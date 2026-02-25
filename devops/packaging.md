@@ -1,3 +1,10 @@
+---
+tags: [devops, packaging, distribution, artifacts]
+concepts: [packaging, distribution]
+related: [python/distribution.md, devops/publishing.md]
+keywords: [wheel, npm-pack, cargo-publish]
+layer: 5
+---
 # Package Formats
 
 > Platform-specific packaging — DEB, RPM, MSI, DMG, tar.gz, APK, IPA

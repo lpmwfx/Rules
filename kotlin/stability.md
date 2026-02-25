@@ -1,3 +1,10 @@
+---
+tags: [kotlin, stability, compose-stability, immutable]
+concepts: [build-system, ci]
+requires: [kotlin/compose.md]
+keywords: [stable, immutable, compose-compiler]
+layer: 4
+---
 # Build Stability Guardrails
 
 > Version pinning, CI truth, cache hygiene

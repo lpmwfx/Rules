@@ -1,3 +1,9 @@
+---
+tags: [rag, knowledge-base, ai-memory]
+concepts: [knowledge-base, ai-memory]
+related: [project-files/fixes-file.md, global/persistent-memory.md]
+layer: 2
+---
 # RAG File
 
 > Project knowledge base — freeform but organized

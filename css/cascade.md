@@ -1,3 +1,12 @@
+---
+tags: [css, cascade, specificity, layers]
+concepts: [css-architecture, separation]
+requires: [global/consistency.md]
+feeds: [css/themes.md]
+related: [css/separation.md]
+keywords: [cascade-layers, specificity, at-layer]
+layer: 4
+---
 # Cascade by Design
 
 > Many files with separate domains — zero conflicts

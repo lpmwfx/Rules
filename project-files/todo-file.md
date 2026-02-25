@@ -1,3 +1,11 @@
+---
+tags: [todo, tasks, tracking, pass-criteria]
+concepts: [task-tracking, pass-criteria]
+requires: [project-files/phases-file.md, project-files/project-file.md]
+feeds: [project-files/done-file.md]
+related: [project-files/issues-file.md]
+layer: 2
+---
 # TODO File
 
 > Current phase tasks — must reference PROJECT phase

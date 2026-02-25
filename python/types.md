@@ -1,3 +1,12 @@
+---
+tags: [python, types, annotations, dataclass, mypy]
+concepts: [type-safety, type-checking]
+requires: [global/validation.md]
+feeds: [python/testing.md]
+related: [rust/types.md, cpp/types.md]
+keywords: [future-annotations, dataclass, typed-dict, mypy, pyright]
+layer: 3
+---
 # Type Safety
 
 > from __future__ import annotations in every file

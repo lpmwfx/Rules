@@ -1,3 +1,10 @@
+---
+tags: [devops, workflow, branching, git]
+concepts: [git-workflow, branching]
+related: [project-files/workflow.md]
+keywords: [main-branch, feature-branch, pr]
+layer: 5
+---
 # UI-First Workflow
 
 > Start with UI, work backwards to endpoint — every step visible and testable

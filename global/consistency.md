@@ -1,3 +1,9 @@
+---
+tags: [cross-language, patterns, consistency]
+concepts: [cross-language, patterns, consistency]
+keywords: [same-pattern, all-languages]
+layer: 1
+---
 # Cross-Language Consistency
 
 > Same patterns everywhere — one pattern learned = works in all languages

@@ -1,3 +1,11 @@
+---
+tags: [javascript, validation, zod, runtime]
+concepts: [runtime-checking, boundaries, validation]
+requires: [global/validation.md]
+related: [js/safety.md, python/types.md]
+keywords: [zod, schema, parse, boundary]
+layer: 4
+---
 # Runtime Validation
 
 > Zod/Valibot at system boundaries

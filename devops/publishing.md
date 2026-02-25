@@ -1,3 +1,10 @@
+---
+tags: [devops, publishing, release, versioning]
+concepts: [publishing-flow, release-management]
+related: [project-files/install-file.md, project-files/changelog-file.md]
+keywords: [semver, release, tag]
+layer: 5
+---
 # Private-to-Public Publishing
 
 > Separate private dev repo from clean public release repo

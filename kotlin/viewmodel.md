@@ -1,3 +1,10 @@
+---
+tags: [kotlin, viewmodel, state-management, mvvm]
+concepts: [state-management, mvvm]
+requires: [kotlin/compose.md]
+keywords: [viewmodel, state-flow, ui-state]
+layer: 4
+---
 # ViewModel Pattern
 
 > Sealed actions, data class state, StateFlow

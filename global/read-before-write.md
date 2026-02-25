@@ -1,3 +1,9 @@
+---
+tags: [read-first, safety, refactoring]
+concepts: [code-safety, read-before-write]
+related: [global/know-before-change.md]
+layer: 1
+---
 # Read Before Write
 
 > Never modify files without reading them first

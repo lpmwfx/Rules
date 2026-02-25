@@ -1,3 +1,9 @@
+---
+tags: [kotlin, overview, rules]
+concepts: [kotlin-rules, overview]
+related: [kotlin/result-pattern.md, kotlin/encapsulation.md, kotlin/data-classes.md, kotlin/compose.md, kotlin/viewmodel.md, kotlin/coroutines.md, kotlin/ktor.md, kotlin/amper.md, kotlin/stability.md]
+layer: 6
+---
 # Kotlin Rules
 
 > Compose + Amper — 100% pure Kotlin, encapsulation-first

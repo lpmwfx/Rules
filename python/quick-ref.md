@@ -1,3 +1,9 @@
+---
+tags: [python, quick-ref, reference, summary]
+concepts: [reference, summary]
+related: [python/types.md, python/structure.md, python/naming.md, python/ack-pattern.md, python/testing.md]
+layer: 6
+---
 # Python Quick Reference
 
 > All rules at a glance

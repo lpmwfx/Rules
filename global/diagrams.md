@@ -1,3 +1,9 @@
+---
+tags: [mermaid, diagrams, visualization]
+concepts: [mermaid, visualization]
+keywords: [mermaid, flowchart, sequence-diagram]
+layer: 1
+---
 # Diagrams: Mermaid Only
 
 > Text-based, version-controlled, AI-readable diagrams

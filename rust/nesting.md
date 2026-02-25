@@ -1,3 +1,10 @@
+---
+tags: [rust, nesting, flat, readability]
+concepts: [code-style, readability]
+related: [python/nesting.md, cpp/nesting.md]
+keywords: [max-3-levels, early-return, pattern-match]
+layer: 4
+---
 # Flat Code
 
 > Max 3 nesting levels — early returns, ? operator

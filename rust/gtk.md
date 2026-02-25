@@ -1,3 +1,10 @@
+---
+tags: [rust, gtk4, gui, relm4]
+concepts: [gtk4, gui]
+requires: [rust/ownership.md]
+keywords: [relm4, gtk4-rs, widget]
+layer: 4
+---
 # GTK4 (gtk-rs)
 
 > glib::clone!, composite templates, weak refs

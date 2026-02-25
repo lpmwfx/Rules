@@ -1,3 +1,11 @@
+---
+tags: [rust, modules, crate, visibility]
+concepts: [encapsulation, architecture]
+requires: [global/consistency.md]
+related: [python/structure.md, cpp/modules.md, js/modules.md]
+keywords: [mod, pub, crate, workspace]
+layer: 3
+---
 # Module Structure
 
 > One module per file — pub(crate) for internal, pub for external

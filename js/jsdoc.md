@@ -1,3 +1,11 @@
+---
+tags: [javascript, jsdoc, types, documentation]
+concepts: [type-annotations, documentation]
+requires: [global/validation.md]
+related: [python/types.md, js/typescript-cli.md]
+keywords: [jsdoc, typedef, param, returns]
+layer: 4
+---
 # JSDoc Type Annotations
 
 > Static types via JSDoc — no .ts files needed

@@ -1,3 +1,9 @@
+---
+tags: [goal-chain, traceability, milestones]
+concepts: [traceability, milestones, goal-chain]
+feeds: [project-files/project-file.md, project-files/phases-file.md]
+layer: 2
+---
 # Goal Chain
 
 > PROJECT Goal is the foundation — everything traces back to it

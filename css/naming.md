@@ -1,3 +1,10 @@
+---
+tags: [css, naming, conventions, bem]
+concepts: [naming-conventions, readability]
+requires: [global/consistency.md]
+related: [python/naming.md, rust/naming.md, global/naming-suffix.md]
+layer: 3
+---
 # Naming Convention
 
 > BEM-inspired — block-element--modifier

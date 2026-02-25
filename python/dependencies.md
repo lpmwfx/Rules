@@ -1,3 +1,10 @@
+---
+tags: [python, dependencies, uv, pyproject]
+concepts: [dependency-management, tooling]
+related: [python/distribution.md]
+keywords: [uv, pyproject-toml, pinning]
+layer: 4
+---
 # Dependencies and Linting
 
 > Python 3.11+, minimal deps, strict linting

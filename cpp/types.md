@@ -1,3 +1,11 @@
+---
+tags: [cpp, types, strong-types, concepts]
+concepts: [type-safety, type-checking]
+requires: [global/validation.md]
+related: [python/types.md, rust/types.md]
+keywords: [strong-typedef, concepts, constexpr]
+layer: 3
+---
 # Type Safety
 
 > Strong typing — enum class, optional, string_view, span

@@ -1,3 +1,10 @@
+---
+tags: [kotlin, data-classes, immutable, copy]
+concepts: [data-modeling, immutability]
+related: [python/types.md, rust/types.md]
+keywords: [data-class, copy, destructuring]
+layer: 4
+---
 # Immutable Data Classes
 
 > val only, default values, copy for modifications

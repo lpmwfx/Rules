@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 RULES_DIR = Path(__file__).resolve().parent.parent
@@ -136,6 +137,54 @@ STOP_WORDS = frozenset([
     "no", "do", "how", "why", "what", "when", "who", "than", "that",
     "its", "you", "be", "all",
 ])
+
+
+# ---------------------------------------------------------------------------
+# Frontmatter parser (no PyYAML dependency)
+# ---------------------------------------------------------------------------
+
+def parse_frontmatter(text: str) -> tuple[dict, str]:
+    """Parse YAML frontmatter from text. Returns (metadata, remaining_content).
+
+    Frontmatter must start at the very first line with '---'.
+    Only supports: list[str] fields and int fields.
+    Files without frontmatter return ({}, original_text).
+    """
+    if not text.startswith("---\n"):
+        return {}, text
+
+    end = text.find("\n---\n", 4)
+    if end == -1:
+        return {}, text
+
+    block = text[4:end]
+    remaining = text[end + 5:]  # skip past closing ---\n
+
+    meta: dict = {}
+    for line in block.split("\n"):
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+
+        m = re.match(r"^(\w+):\s*(.*)$", line)
+        if not m:
+            continue
+
+        key = m.group(1)
+        value = m.group(2).strip()
+
+        # list field: [item1, item2, ...]
+        if value.startswith("[") and value.endswith("]"):
+            inner = value[1:-1].strip()
+            if not inner:
+                continue  # skip empty lists
+            items = [item.strip().strip('"').strip("'") for item in inner.split(",")]
+            meta[key] = [item for item in items if item]
+        # int field
+        elif value.isdigit():
+            meta[key] = int(value)
+
+    return meta, remaining
 
 
 # ---------------------------------------------------------------------------
@@ -300,14 +349,66 @@ def build_tags(
 
 
 # ---------------------------------------------------------------------------
+# Edge computation
+# ---------------------------------------------------------------------------
+
+def compute_reverse_edges(entries: list[dict]) -> None:
+    """Compute required_by and fed_by reverse edges across all entries."""
+    file_map: dict[str, dict] = {e["file"]: e for e in entries}
+
+    for entry in entries:
+        edges = entry.get("edges")
+        if not edges:
+            continue
+
+        src = entry["file"]
+
+        for target in edges.get("requires", []):
+            if target in file_map:
+                target_edges = file_map[target].setdefault("edges", {})
+                rb = target_edges.setdefault("required_by", [])
+                if src not in rb:
+                    rb.append(src)
+
+        for target in edges.get("feeds", []):
+            if target in file_map:
+                target_edges = file_map[target].setdefault("edges", {})
+                fb = target_edges.setdefault("fed_by", [])
+                if src not in fb:
+                    fb.append(src)
+
+
+def validate_edges(entries: list[dict]) -> list[str]:
+    """Warn about edges pointing to non-existent files. Returns warnings."""
+    known_files = {e["file"] for e in entries}
+    warnings: list[str] = []
+
+    for entry in entries:
+        edges = entry.get("edges")
+        if not edges:
+            continue
+        src = entry["file"]
+        for edge_type in ("requires", "feeds", "related"):
+            for target in edges.get(edge_type, []):
+                if target not in known_files:
+                    warnings.append(f"  {src} -> {edge_type} -> {target} (NOT FOUND)")
+
+    return warnings
+
+
+# ---------------------------------------------------------------------------
 # Main parse
 # ---------------------------------------------------------------------------
 
 def parse_file(category: str, filepath: Path) -> dict:
     """Parse a single markdown file into a register entry."""
     text = filepath.read_text(encoding="utf-8")
-    lines = text.split("\n")
     rel_path = filepath.relative_to(RULES_DIR).as_posix()
+
+    # Parse frontmatter (must be very first line)
+    fm, content = parse_frontmatter(text)
+
+    lines = content.split("\n")
 
     if filepath.name == "README.md":
         file_type = "readme"
@@ -321,15 +422,47 @@ def parse_file(category: str, filepath: Path) -> dict:
     sections = extract_sections(lines)
     rules = extract_rules(lines)
     banned = extract_banned(lines)
-    refs = extract_refs(text)
-    code_languages = extract_code_languages(text)
-    has_examples = bool(re.search(r"```\w+", text))
-    keywords = extract_keywords(text)
-    concepts = derive_concepts(title, sections, filepath.stem)
-    tags = build_tags(title, code_languages, concepts, keywords)
-    layer = assign_layer(category, filepath.stem, file_type)
+    refs = extract_refs(content)
+    code_languages = extract_code_languages(content)
+    has_examples = bool(re.search(r"```\w+", content))
 
-    return {
+    # Frontmatter overrides auto-generated values when present
+    if "tags" in fm:
+        tags = sorted(fm["tags"])
+    else:
+        auto_keywords = extract_keywords(content)
+        auto_concepts = derive_concepts(title, sections, filepath.stem)
+        tags = build_tags(title, code_languages, auto_concepts, auto_keywords)
+
+    if "concepts" in fm:
+        concepts = sorted(fm["concepts"])
+    else:
+        concepts = derive_concepts(title, sections, filepath.stem)
+
+    if "keywords" in fm:
+        keywords = sorted(fm["keywords"])
+    else:
+        keywords = extract_keywords(content)
+
+    if "layer" in fm:
+        layer = fm["layer"]
+    else:
+        layer = assign_layer(category, filepath.stem, file_type)
+
+    # Build edges from frontmatter
+    edges: dict[str, list[str]] = {}
+    for edge_type in ("requires", "feeds", "related"):
+        if edge_type in fm and fm[edge_type]:
+            edges[edge_type] = fm[edge_type]
+    # Always include reverse-edge slots (filled later by compute_reverse_edges)
+    if edges or True:  # always include edges dict for consistency
+        edges.setdefault("requires", [])
+        edges.setdefault("required_by", [])
+        edges.setdefault("feeds", [])
+        edges.setdefault("fed_by", [])
+        edges.setdefault("related", [])
+
+    entry = {
         "file": rel_path,
         "category": category,
         "type": file_type,
@@ -345,7 +478,10 @@ def parse_file(category: str, filepath: Path) -> dict:
         "keywords": keywords,
         "tags": tags,
         "concepts": concepts,
+        "edges": edges,
     }
+
+    return entry
 
 
 def main() -> None:
@@ -356,6 +492,12 @@ def main() -> None:
         entry = parse_file(category, filepath)
         entries.append(entry)
 
+    # Compute reverse edges
+    compute_reverse_edges(entries)
+
+    # Validate edges
+    warnings = validate_edges(entries)
+
     with open(OUTPUT, "w", encoding="utf-8") as f:
         for entry in entries:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -364,12 +506,30 @@ def main() -> None:
     total_banned = sum(len(e["banned"]) for e in entries)
     total_tags = sum(len(e["tags"]) for e in entries)
 
+    # Edge statistics
+    with_edges = sum(
+        1 for e in entries
+        if any(e.get("edges", {}).get(k, []) for k in ["requires", "feeds", "related"])
+    )
+    total_edges = sum(
+        len(e.get("edges", {}).get(k, []))
+        for e in entries
+        for k in ["requires", "feeds", "related", "required_by", "fed_by"]
+    )
+
     print(f"Wrote {len(entries)} entries to register.jsonl")
     print(
-        f"Validation: {len(entries)} entries, "
+        f"  {len(entries)} entries, "
         f"{total_rules} rules, {total_banned} banned, "
         f"{total_tags} total tags"
     )
+    print(f"  {with_edges}/{len(entries)} files with edges, {total_edges} edges total")
+
+    if warnings:
+        print(f"\nEdge warnings ({len(warnings)}):")
+        for w in warnings:
+            print(w)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

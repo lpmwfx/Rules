@@ -1,3 +1,10 @@
+---
+tags: [platform-ux, pointer, touch, interaction]
+concepts: [interaction, accessibility]
+related: [platform-ux/drag-drop.md]
+keywords: [pointer-events, touch, gesture]
+layer: 5
+---
 # Pointer and Touch
 
 > Click behavior, hover rules, touch interaction

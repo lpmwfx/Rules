@@ -1,3 +1,11 @@
+---
+tags: [javascript, modules, esm, encapsulation]
+concepts: [encapsulation, architecture, modules]
+requires: [global/consistency.md]
+related: [python/structure.md, rust/modules.md, css/modules.md]
+keywords: [esm, closed-modules, export, import]
+layer: 3
+---
 # Module System
 
 > ESM only, closed modules, encapsulation-first

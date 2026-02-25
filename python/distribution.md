@@ -1,3 +1,11 @@
+---
+tags: [python, distribution, packaging, pipx]
+concepts: [packaging, distribution]
+requires: [python/dependencies.md]
+related: [project-files/install-file.md, devops/packaging.md]
+keywords: [pipx, pypi, wheel]
+layer: 4
+---
 # Clean Distribution Policy
 
 > Separate private monorepo from public release repo

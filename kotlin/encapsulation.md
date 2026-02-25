@@ -1,3 +1,10 @@
+---
+tags: [kotlin, encapsulation, visibility, internal]
+concepts: [architecture, privacy, encapsulation]
+requires: [global/consistency.md]
+related: [rust/modules.md, js/modules.md]
+layer: 3
+---
 # Encapsulation
 
 > Private by default — platform layer hides Java imports

@@ -1,3 +1,9 @@
+---
+tags: [javascript, quick-ref, reference, summary]
+concepts: [reference, summary]
+related: [js/modules.md, js/jsdoc.md, js/validation.md, js/testing.md, js/eslint.md]
+layer: 6
+---
 # JavaScript Quick Reference
 
 > All rules at a glance

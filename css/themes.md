@@ -1,3 +1,11 @@
+---
+tags: [css, themes, dark-mode, theming]
+concepts: [theming, dark-mode]
+requires: [css/custom-properties.md]
+related: [css/cascade.md]
+keywords: [prefers-color-scheme, theme-toggle]
+layer: 4
+---
 # Theme Switching
 
 > Light on :root, dark on data-theme attribute

@@ -1,3 +1,9 @@
+---
+tags: [kotlin, quick-ref, reference, summary]
+concepts: [reference, summary]
+related: [kotlin/result-pattern.md, kotlin/encapsulation.md, kotlin/compose.md, kotlin/coroutines.md]
+layer: 6
+---
 # Kotlin Quick Reference
 
 > All rules at a glance

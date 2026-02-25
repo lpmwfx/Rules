@@ -1,3 +1,10 @@
+---
+tags: [javascript, structure, project-layout]
+concepts: [file-organization, architecture]
+requires: [global/consistency.md]
+related: [python/structure.md]
+layer: 3
+---
 # Project Structure
 
 > Package.json, scripts, file layout

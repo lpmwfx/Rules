@@ -1,3 +1,8 @@
+---
+tags: [versions, lts, modern]
+concepts: [language-versions, compatibility]
+layer: 1
+---
 # Modern Language Versions
 
 > Not outdated, not bleeding edge — the middle path

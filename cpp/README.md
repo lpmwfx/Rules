@@ -1,3 +1,9 @@
+---
+tags: [cpp, overview, rules, c++20]
+concepts: [cpp-rules, overview]
+related: [cpp/types.md, cpp/modules.md, cpp/errors.md, cpp/memory.md, cpp/testing.md, cpp/build.md, cpp/threading.md, cpp/nesting.md, cpp/posix.md]
+layer: 6
+---
 # C++ Rules
 
 > C++20/23 modern subset — Linux/BSD, RAII, jthread, Result types
