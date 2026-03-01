@@ -6,16 +6,35 @@ related: [project-files/todo-file.md]
 keywords: [fifo, open, committed, resolved]
 layer: 2
 ---
-# ISSUES File
+# ISSUES.md File
 
 > Problem queue — FIFO order, no skipping
 
 ---
 
-Format: Plain text
+## Quick Reference
 
-```
-# ISSUES
+- **Location:** `proj/ISSUES.md`
+- **Format:** Markdown — `## YYYY-MM-DD: title` sections + DONES separator
+- **Required:** Always
+- **Order:** FIFO — oldest open issue handled first
+
+The problem queue. AI adds discovered issues here instead of fixing them
+immediately. Issues must be resolved in order. Resolved entries move below
+the DONES line and must have a corresponding FIXES.md entry.
+
+---
+
+RULE: File lives at `proj/ISSUES.md`
+RULE: AI discovers issue → add to ISSUES.md, do NOT fix without user approval
+RULE: FIFO order — handle oldest open issue first, no skipping
+RULE: Resolved issues MUST have a corresponding FIXES.md entry
+RULE: Resolved issues move below `# --- DONES ---` line
+
+## Format
+
+```markdown
+# ISSUES: project-name
 
 ## 2026-02-25: Login fails after session timeout
 Status: open
@@ -34,40 +53,26 @@ Assigned: Phase 2 hotfix
 Status: resolved
 Found during: Phase 1, task "build pipeline"
 Description: dotenv not loaded before config parsing.
-Resolution: Load dotenv at script entry. See FIXES 2026-02-20.
+Resolution: Load dotenv at script entry. See FIXES.md 2026-02-20.
 ```
 
 ## Status Values
 
 - `open` — Reported, not yet assigned
 - `committed` — Assigned to a phase or task, being worked on
-- `resolved` — Fixed and verified (must have FIXES entry)
-
-## DONES Line
-
-See [workflow.md](workflow.md) for full DONES mechanics. Issues move below DONES when resolved.
+- `resolved` — Fixed and verified (must have FIXES.md entry)
 
 ## FIFO Rule
 
-Issues are handled in order — oldest first, no skipping ahead.
-
+Issues are handled in order — oldest open first.
 Exceptions require explicit user approval with documented reason.
-
-## Rules
-
-RULE: Date + short title for each entry
-RULE: Include `Found during:` to trace back to phase/task
-RULE: FIFO order — handle oldest open issue first
-RULE: Resolved issues MUST have a corresponding FIXES entry
-RULE: AI discovers issue → add to ISSUES, do NOT fix without approval
-RULE: Move resolved issues below DONES line
 
 ## Relations
 
 ```
 Problem discovered
-  └── ISSUES entry (open)
+  └── ISSUES.md entry (open)
         └── Assigned to phase/task (committed)
               └── Fixed and verified (resolved)
-                    └── FIXES entry (Problem → Cause → Solution)
+                    └── FIXES.md entry (Problem → Cause → Solution)
 ```

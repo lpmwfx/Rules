@@ -6,64 +6,68 @@ feeds: [project-files/phases-file.md, project-files/todo-file.md]
 related: [project-files/workflow.md]
 layer: 2
 ---
-# PROJECT File
+# PROJECT.md File
 
-> Project state — what's built, where we are, what's planned
+> Project identity and state — what's built, where we are, what's planned
 
 ---
 
-Format: YAML
+## Quick Reference
 
-```yaml
-# PROJECT - Project State
+- **Location:** `proj/PROJECT.md`
+- **Format:** Markdown narrative — headings and prose, no YAML lists
+- **Required:** Always
+- **Read by AI:** First, every session — before any work
 
-name: project-name
-type: web-app | cli-tool | library | static-site | api
-status: development | beta | production | frozen
+Single source of truth for everything about the project: goal, stack,
+infrastructure, patterns, history, and current phase. AI keeps it current.
 
-phase: 25
-id: current-phase-id
+---
 
-stack:
-  language: Python 3.11+ | Node 18+ | etc
-  framework: Jinja2 | React | Express | etc
-  tools: [list of key tools]
+RULE: File lives at `proj/PROJECT.md`
+RULE: AI reads PROJECT.md before any work — no exceptions
+RULE: AI maintains PROJECT.md — keeps it current after every significant change
+RULE: User reviews and approves PROJECT.md updates
+RULE: AI never changes the `## Goal` section without explicit user approval
 
-structure:
-  src: path/to/source
-  output: path/to/output
-  config: path/to/config
+## Format
 
-method:
-  workflow: "PROJECT → FIXES → TODO → code → test → DONE"
-  branching: "Feature branches, never commit to main"
-  testing: "How testing is done"
-  deploy: "How deploy works"
+```markdown
+# PROJECT: project-name
 
-expect:
-  language: "Standards reference, e.g. ~/.rules/Python/RULES"
-  quality: "What quality means in this project"
+## Goal
+The vision — what we want to achieve. Free text, 2-5 sentences.
+This section changes rarely. AI never edits without user approval.
 
-patterns:
-  pattern-name: "Short description of pattern"
+## Stack
+- Language: Python 3.11+ / Rust 2021 / Node 22
+- Framework: FastAPI / Axum / React
+- Tools: [key tools and libraries]
 
-done:
-  - phase: 1-16
-    id: core
-    title: "Core functionality"
+## Structure
+- src:    src/
+- output: dist/
+- config: config/
+- proj:   proj/
 
-planned:
-  - phase: 25
-    id: content-expansion
-    title: "Content expansion"
+## Method
+- Workflow: PROJECT → FIXES → TODO → code → test → DONE
+- Branching: feature branches, never commit to main
+- Testing: pytest / cargo test / vitest
+- Deploy: rsync to VPS / cargo publish / npm publish
+
+## Patterns
+- pattern-name: short description of recurring pattern in this project
+
+## Current
+- phase: 25
+- id: content-expansion
+- status: development
+
+## History
+- phase 1–16, id: core, title: "Core functionality" — completed 2026-01-10
+- phase 17–20, id: ui, title: "UI layer" — completed 2026-02-01
 ```
-
-## Rules
-
-RULE: `phase:` and `id:` must match an entry in `done:` or `planned:`
-RULE: Update `done:` when phase completes
-RULE: Keep `planned:` current with future work
-RULE: `status:` reflects overall project state
 
 ## PROJECT Is Single Source of Truth
 
@@ -81,27 +85,20 @@ All project circumstances go here:
 | Deployment | rsync paths, deploy commands, environments |
 | Protection | IP whitelists, basic auth setup, access rules |
 
-**Why:** One file with all truths. No hunting through configs, docs, or memory.
 **Security:** Document WHERE secrets are, never WHAT they contain.
 
 ## Ownership
 
-PROJECT is AI-maintained. AI writes it, user approves it.
-
 | File | Owner | AI Action |
 |------|-------|-----------|
-| PROJECT | AI | Writes and maintains — single source of truth |
-| PHASES | User | AI reads for overview, suggests updates |
-| TODO | AI | Writes tasks, updates status |
-| DONE | AI | Appends completed phases |
-| ISSUES | Both | AI adds discovered issues, user prioritizes |
-| FIXES | AI | Writes after solving problems |
-| RAG | AI | Writes discoveries and patterns |
-| INSTALL | User | AI reads, suggests updates |
-| UIUX | User | AI reads for GUI work |
-| AUTHORS | User | AI reads for attribution |
-| CHANGELOG | Both | AI drafts, user approves on release |
-
-RULE: AI maintains PROJECT — keeps it current after every significant change
-RULE: User reviews and approves PROJECT updates
-RULE: AI never changes project Goal without explicit user approval
+| PROJECT.md | AI | Writes and maintains — single source of truth |
+| PHASES.md | User | AI reads for overview, suggests updates |
+| TODO.md | AI | Writes tasks, updates status |
+| DONE.md | AI | Appends completed phases |
+| ISSUES.md | Both | AI adds discovered issues, user prioritizes |
+| FIXES.md | AI | Writes after solving problems |
+| RAG.md | AI | Writes discoveries and patterns |
+| INSTALL.md | User | AI reads, suggests updates |
+| UIUX.md | User | AI reads for GUI work |
+| AUTHORS.md | User | AI reads for attribution |
+| CHANGELOG.md | Both | AI drafts, user approves on release |

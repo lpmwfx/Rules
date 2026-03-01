@@ -6,54 +6,77 @@ feeds: [project-files/done-file.md]
 related: [project-files/issues-file.md]
 layer: 2
 ---
-# TODO File
+# TODO.md File
 
-> Current phase tasks — must reference PROJECT phase
+> Current phase tasks — tracks work, status, and pass criteria
 
 ---
 
-Format: YAML
+## Quick Reference
 
-```yaml
-# TODO - Current Tasks
+- **Location:** `proj/TODO.md`
+- **Format:** Markdown headings + YAML list items in body
+- **Required:** Always
+- **Phase lock:** `phase` and `id` must match `proj/PROJECT.md`
+
+One TODO.md per active phase. Tasks are YAML list items grouped under
+Markdown category headings. When all tasks are done, archive to DONE.md.
+
+---
+
+RULE: File lives at `proj/TODO.md`
+RULE: `phase` and `id` at top MUST match PROJECT.md current phase
+RULE: Tasks MUST belong to the current phase — no scope creep
+RULE: AI updates task status as work progresses
+RULE: When all tasks done → archive to DONE.md, update PROJECT.md, create new TODO.md
+RULE: `pass:` defines the success criterion — how to verify the task is truly done
+
+## Format
+
+```markdown
+# TODO: phase-title
 
 phase: 25
 id: content-expansion
-title: Content expansion
 
-# Quick Reference
-secrets: ~/.env/
-  - api-key-file    # Description
-rules: ~/.rules/
-  - Python/RULES
-  - JS/RULES
-services:
-  - service-name    # What it's for
+## Category Name
 
-tasks:
-  - task: Description of task
-    status: pending
+- id: 1
+  task: Description of what needs to be done
+  pass: How to verify it's done (test, output, observable result)
+  status: pending
 
-  - task: Another task
-    status: in_progress
+- id: 2
+  task: Another task in this category
+  pass: What done looks like
+  status: in_progress
 
-  - task: Completed task
-    status: done
+## Another Category
 
-blockers: []
+- id: 3
+  task: Task in second category
+  status: pending
 
-notes: |
-  Optional context for this phase.
+## Blockers
+
+- blocker description, or leave empty
+
+# --- DONES ---
+
+- id: N
+  task: Completed task description
+  status: done
 ```
 
 ## Task Status Values
 
 - `pending` — Not started
-- `in_progress` — Currently working on
-- `done` — Completed
+- `in_progress` — Currently working on (only one at a time per AI session)
+- `done` — Completed and verified — move below DONES
 
 ## Rules
 
-RULE: `phase:` and `id:` MUST match PROJECT.phase and PROJECT.id
-RULE: Tasks MUST belong to current phase (no scope creep)
-RULE: When all tasks `done` → move to DONE, update PROJECT, start next phase
+RULE: One task `in_progress` at a time per AI session
+RULE: `pass:` is binary — it either passes or it doesn't
+RULE: Completed tasks move below `# --- DONES ---`, not deleted
+RULE: New tasks discovered during work go to ISSUES.md first, not directly to TODO.md

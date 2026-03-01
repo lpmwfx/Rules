@@ -4,39 +4,56 @@ concepts: [phase-completion, archive]
 requires: [project-files/todo-file.md, project-files/phases-file.md]
 layer: 2
 ---
-# DONE File
+# DONE.md File
 
-> Completed phases with their tasks — append-only log
+> Completed phases with their tasks — append-only archive
 
 ---
 
-Format: YAML
+## Quick Reference
 
-```yaml
-# DONE - Completed Work
+- **Location:** `proj/DONE.md`
+- **Format:** Markdown headings + YAML list items in body
+- **Required:** Always
+- **Write rule:** Append only — newest phase at top, never edit past entries
 
-phases:
-  - phase: 24
-    id: css-refactor
-    title: "CSS/JS Modular Refactor"
-    completed: 2026-01-24
-    tasks:
-      - Separate colors from layout
-      - Add CSS variables to theme
-      - Update all components
+Archive of completed phases. When a phase finishes, copy tasks from TODO.md
+and append a new entry here. Never edit entries already in DONE.md.
 
-  - phase: 23
-    id: netgiganten-deploy
-    title: "Netgiganten Deploy"
-    completed: 2026-01-20
-    tasks:
-      - Setup rsync
-      - Configure SSH
-      - Test deploy pipeline
+---
+
+RULE: File lives at `proj/DONE.md`
+RULE: Append completed phases at TOP — newest first
+RULE: Include `completed:` date on every entry
+RULE: Copy task descriptions from TODO.md when phase completes
+RULE: Never edit or delete existing entries — DONE.md is append-only
+RULE: DONE.md grows forever — it is the project history
+
+## Format
+
+```markdown
+# DONE: project-name
+
+- phase: 25
+  id: content-expansion
+  title: "Content expansion"
+  completed: 2026-02-15
+  tasks:
+    - Write content for section A
+    - Update navigation links
+    - Review and publish
+
+- phase: 24
+  id: css-refactor
+  title: "CSS/JS Modular Refactor"
+  completed: 2026-01-24
+  tasks:
+    - Separate colors from layout
+    - Add CSS variables to theme
+    - Update all components
 ```
 
 ## Rules
 
-RULE: Append completed phases at TOP (newest first)
-RULE: Include `completed:` date
-RULE: Copy tasks from TODO when phase completes
+RULE: Tasks list is a summary — copy task descriptions, not full YAML task objects
+RULE: If a phase had blockers, note them briefly in a `notes:` field

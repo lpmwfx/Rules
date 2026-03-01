@@ -3,7 +3,7 @@ tags: [workflow, session, relations, publishing]
 concepts: [workflow, file-relations, publishing-flow]
 requires: [project-files/project-file.md, project-files/phases-file.md, project-files/todo-file.md]
 related: [global/startup.md, project-files/install-file.md]
-keywords: [dones, ownership, dual-repo]
+keywords: [dones, ownership, dual-repo, proj]
 layer: 2
 ---
 # Workflow, Relations, and Publishing
@@ -14,67 +14,69 @@ layer: 2
 
 ## Session Workflow
 
+All project files live in `proj/` — always use that path.
+
 ```
 1. Start session
-   → Read PROJECT (understand state)
-   → Read PHASES (know the milestone)
-   → Read TODO (know current tasks)
-   → Check FIXES (avoid past mistakes)
+   → Read proj/PROJECT.md  (understand state, phase, infra)
+   → Read proj/PHASES.md   (know the active milestone)
+   → Read proj/TODO.md     (know current tasks)
+   → Read proj/FIXES.md    (avoid past mistakes)
 
 2. Work on task
-   → Update TODO task status to in_progress
+   → Update proj/TODO.md task status to in_progress
    → Code, test, verify
 
 3. Complete task
-   → Update TODO task status to done
-   → If problem solved → add to FIXES
-   → If learned something → add to RAG
+   → Update proj/TODO.md task status to done (move below DONES)
+   → If problem solved → add to proj/FIXES.md
+   → If learned something → add to proj/RAG.md
 
 4. Complete phase (all tasks done)
-   → Move TODO content to DONE
-   → Move PHASES entry below DONES
-   → Update PROJECT (done: + new phase:)
-   → Create new TODO for next phase
+   → Append completed phase to proj/DONE.md
+   → Move PHASES.md entry below DONES
+   → Update proj/PROJECT.md (Current phase + History)
+   → Create new proj/TODO.md for next phase
 ```
 
 ## File Relations
 
 ```
-PROJECT Goal (the vision)
+proj/PROJECT.md Goal (the vision)
   │
-  ├── PHASES milestone (each serves the Goal)
-  │     └── PHASES delivers (what gets built)
-  │           └── TODO tasks (current work)
-  │                 └── TODO pass (proves milestone reached)
+  ├── proj/PHASES.md milestone (each serves the Goal)
+  │     └── PHASES.md delivers (what gets built)
+  │           └── proj/TODO.md tasks (current work)
+  │                 └── TODO.md pass (proves milestone reached)
   │
-  ├── ISSUES (problems found during work)
-  │     └── FIXES (resolved issues → Problem/Cause/Solution)
+  ├── proj/ISSUES.md (problems found during work)
+  │     └── proj/FIXES.md (resolved → Problem/Cause/Solution)
   │
-  ├── RAG (knowledge discovered during work)
+  ├── proj/RAG.md (knowledge discovered during work)
   │
-  └── DONE (completed phases archive)
+  └── proj/DONE.md (completed phases archive)
 
-  INSTALL ← publishing and setup (references PROJECT identity)
-  UIUX ← UI/UX spec for GUI projects (referenced by TODO tasks)
-  AUTHORS ← contributors (human + AI)
-  CHANGELOG ← user-facing release notes
+  proj/INSTALL.md  ← publishing and setup (references PROJECT.md identity)
+  proj/UIUX.md     ← UI/UX spec for GUI projects (referenced by TODO.md tasks)
+  proj/AUTHORS.md  ← contributors (human + AI)
+  proj/CHANGELOG.md ← user-facing release notes (published to public repo)
 ```
 
 ## Ownership
 
 | File | Owner | Writes | Approves |
 |------|-------|--------|----------|
-| PROJECT | AI | AI maintains | User approves |
-| PHASES | User | User defines milestones | User owns |
-| TODO | AI | AI writes tasks + status | User approves scope |
-| DONE | AI | AI appends | Automatic on phase complete |
-| ISSUES | Both | AI discovers, user reports | User prioritizes |
-| FIXES | AI | AI writes after solving | Automatic |
-| RAG | AI | AI writes discoveries | Automatic |
-| INSTALL | User | User defines, AI suggests | User owns |
-| UIUX | User | User defines UI/UX | User owns |
-| AUTHORS | User | User manages | User owns |
-| CHANGELOG | Both | AI drafts | User approves on release |
+| PROJECT.md | AI | AI maintains | User approves |
+| PHASES.md | User | User defines milestones | User owns |
+| TODO.md | AI | AI writes tasks + status | User approves scope |
+| DONE.md | AI | AI appends | Automatic on phase complete |
+| ISSUES.md | Both | AI discovers, user reports | User prioritizes |
+| FIXES.md | AI | AI writes after solving | Automatic |
+| RAG.md | AI | AI writes discoveries | Automatic |
+| INSTALL.md | User | User defines, AI suggests | User owns |
+| UIUX.md | User | User defines UI/UX | User owns |
+| AUTHORS.md | User | User manages | User owns |
+| CHANGELOG.md | Both | AI drafts | User approves on release |
 
 ## DONES Mechanics
 
@@ -82,9 +84,9 @@ Three files use the `# --- DONES ---` separator:
 
 | File | Above DONES | Below DONES |
 |------|-------------|-------------|
-| TODO | pending, in_progress | done |
-| ISSUES | open, committed | resolved |
-| PHASES | planned, active, blocked | done |
+| TODO.md | pending, in_progress | done |
+| ISSUES.md | open, committed | resolved |
+| PHASES.md | planned, active, blocked | done |
 
 RULE: Items move DOWN across DONES — never back up
 RULE: Moving below DONES means evaluated and closed
@@ -93,18 +95,18 @@ RULE: Moving below DONES means evaluated and closed
 
 ```
 1. Phase complete
-   → All TODO tasks done
+   → All TODO.md tasks done
    → All tests pass
-   → PHASES milestone verified
+   → PHASES.md milestone verified
 
 2. Prepare for publish
-   → Update CHANGELOG with user-facing changes
-   → Verify INSTALL instructions current
+   → Update proj/CHANGELOG.md with user-facing changes
+   → Verify proj/INSTALL.md instructions current
    → Bump version in package metadata
 
 3. Publish to public repo
-   → Copy publishable files (see INSTALL for what/what not)
-   → Verify no secrets, no project files in public
+   → Copy publishable files (see INSTALL.md for what/what not)
+   → Verify proj/ not in public repo — never push project files
    → Push to public remote
 
 4. CI/CD
@@ -117,7 +119,7 @@ RULE: Moving below DONES means evaluated and closed
    → Run smoke tests
 
 6. Verify
-   → Installed version matches CHANGELOG
+   → Installed version matches CHANGELOG.md
    → Identity is correct (paths, names, logging)
    → Basic user flow works
 ```
@@ -126,27 +128,30 @@ RULE: Moving below DONES means evaluated and closed
 
 ```
 ~/REPO (private)              Public repo
-├── PROJECT, TODO, etc   →    ├── src/
-├── src/                 →    ├── tests/
-├── tests/               →    ├── README.md
-├── .env                      ├── LICENSE
-├── doc/project.md            ├── CHANGELOG
-└── dev scripts               └── pyproject.toml
+├── proj/               →    (excluded)
+│   ├── PROJECT.md
+│   ├── TODO.md
+│   └── ...
+├── src/                →    ├── src/
+├── tests/              →    ├── tests/
+├── .env                     ├── README.md
+├── doc/project.md           ├── LICENSE
+└── dev scripts              ├── CHANGELOG.md
+                             └── pyproject.toml
 ```
 
 RULE: Private repo is source of truth for development
 RULE: Public repo is clean, publishable subset
-RULE: Never push project files (PROJECT, TODO, FIXES, etc) to public
+RULE: Never push proj/ to public repo
 
 ## Validation
 
 AI should verify at session start:
 
 ```
-TODO.phase == PROJECT.phase      # Must match
-TODO.id == PROJECT.id            # Must match
-TODO.id in PHASES (active)       # Must be the active phase
-All done tasks → ready for DONE  # Phase complete check
+proj/TODO.md phase == proj/PROJECT.md Current.phase   # Must match
+proj/TODO.md id    == proj/PROJECT.md Current.id       # Must match
+Active phase in proj/PHASES.md == proj/PROJECT.md phase  # Must match
 ```
 
 RULE: If validation fails → STOP and ask user
