@@ -18,48 +18,48 @@ All project files live in `proj/` — always use that path.
 
 ```
 1. Start session
-   → Read proj/PROJECT.md  (understand state, phase, infra)
-   → Read proj/PHASES.md   (know the active milestone)
-   → Read proj/TODO.md     (know current tasks)
-   → Read proj/FIXES.md    (avoid past mistakes)
+   → Read proj/PROJECT  (understand state, phase, infra)
+   → Read proj/PHASES   (know the active milestone)
+   → Read proj/TODO     (know current tasks)
+   → Read proj/FIXES    (avoid past mistakes)
 
 2. Work on task
-   → Update proj/TODO.md task status to in_progress
+   → Update proj/TODO task status to in_progress
    → Code, test, verify
 
 3. Complete task
-   → Update proj/TODO.md task status to done (move below DONES)
-   → If problem solved → add to proj/FIXES.md
-   → If learned something → add to proj/RAG.md
+   → Update proj/TODO task status to done (move below DONES)
+   → If problem solved → add to proj/FIXES
+   → If learned something → add to proj/RAG
 
 4. Complete phase (all tasks done)
-   → Append completed phase to proj/DONE.md
+   → Append completed phase to proj/DONE
    → Move PHASES.md entry below DONES
-   → Update proj/PROJECT.md (Current phase + History)
-   → Create new proj/TODO.md for next phase
+   → Update proj/PROJECT (Current phase + History)
+   → Create new proj/TODO for next phase
 ```
 
 ## File Relations
 
 ```
-proj/PROJECT.md Goal (the vision)
+proj/PROJECT Goal (the vision)
   │
-  ├── proj/PHASES.md milestone (each serves the Goal)
+  ├── proj/PHASES milestone (each serves the Goal)
   │     └── PHASES.md delivers (what gets built)
-  │           └── proj/TODO.md tasks (current work)
+  │           └── proj/TODO tasks (current work)
   │                 └── TODO.md pass (proves milestone reached)
   │
-  ├── proj/ISSUES.md (problems found during work)
-  │     └── proj/FIXES.md (resolved → Problem/Cause/Solution)
+  ├── proj/ISSUES (problems found during work)
+  │     └── proj/FIXES (resolved → Problem/Cause/Solution)
   │
-  ├── proj/RAG.md (knowledge discovered during work)
+  ├── proj/RAG (knowledge discovered during work)
   │
-  └── proj/DONE.md (completed phases archive)
+  └── proj/DONE (completed phases archive)
 
-  proj/INSTALL.md  ← publishing and setup (references PROJECT.md identity)
-  proj/UIUX.md     ← UI/UX spec for GUI projects (referenced by TODO.md tasks)
-  proj/AUTHORS.md  ← contributors (human + AI)
-  proj/CHANGELOG.md ← user-facing release notes (published to public repo)
+  proj/INSTALL  ← publishing and setup (references PROJECT.md identity)
+  proj/UIUX     ← UI/UX spec for GUI projects (referenced by TODO.md tasks)
+  proj/AUTHORS  ← contributors (human + AI)
+  proj/CHANGELOG ← user-facing release notes (published to public repo)
 ```
 
 ## Ownership
@@ -100,8 +100,8 @@ RULE: Moving below DONES means evaluated and closed
    → PHASES.md milestone verified
 
 2. Prepare for publish
-   → Update proj/CHANGELOG.md with user-facing changes
-   → Verify proj/INSTALL.md instructions current
+   → Update proj/CHANGELOG with user-facing changes
+   → Verify proj/INSTALL instructions current
    → Bump version in package metadata
 
 3. Publish to public repo
@@ -149,9 +149,9 @@ RULE: Never push proj/ to public repo
 AI should verify at session start:
 
 ```
-proj/TODO.md phase == proj/PROJECT.md Current.phase   # Must match
-proj/TODO.md id    == proj/PROJECT.md Current.id       # Must match
-Active phase in proj/PHASES.md == proj/PROJECT.md phase  # Must match
+proj/TODO phase == proj/PROJECT Current.phase   # Must match
+proj/TODO id    == proj/PROJECT Current.id       # Must match
+Active phase in proj/PHASES == proj/PROJECT phase  # Must match
 ```
 
 RULE: If validation fails → STOP and ask user

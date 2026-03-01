@@ -5,7 +5,7 @@ related: [project-files/workflow.md, project-files/changelog-file.md]
 keywords: [dual-repo, public-repo, identity]
 layer: 2
 ---
-# INSTALL.md File
+# INSTALL File
 
 > Setup and publishing instructions — from private DEV to public install
 
@@ -13,7 +13,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/INSTALL.md`
+- **Location:** `proj/INSTALL`
 - **Format:** Markdown — `## Section` headings with commands and notes
 - **Required:** Always
 - **Owner:** User writes it — AI reads it for environment and publish steps
@@ -23,7 +23,7 @@ Not a task file — a reference for setup and release operations.
 
 ---
 
-RULE: File lives at `proj/INSTALL.md`
+RULE: File lives at `proj/INSTALL`
 RULE: Never publish `proj/` folder to public repo — it stays private
 RULE: Verify no secrets in public repo before every push
 RULE: Test install from public repo on a clean machine

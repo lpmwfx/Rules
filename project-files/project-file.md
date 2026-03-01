@@ -6,7 +6,7 @@ feeds: [project-files/phases-file.md, project-files/todo-file.md]
 related: [project-files/workflow.md]
 layer: 2
 ---
-# PROJECT.md File
+# PROJECT File
 
 > Project identity and state — what's built, where we are, what's planned
 
@@ -14,7 +14,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/PROJECT.md`
+- **Location:** `proj/PROJECT`
 - **Format:** Markdown narrative — headings and prose, no YAML lists
 - **Required:** Always
 - **Read by AI:** First, every session — before any work
@@ -24,7 +24,7 @@ infrastructure, patterns, history, and current phase. AI keeps it current.
 
 ---
 
-RULE: File lives at `proj/PROJECT.md`
+RULE: File lives at `proj/PROJECT`
 RULE: AI reads PROJECT.md before any work — no exceptions
 RULE: AI maintains PROJECT.md — keeps it current after every significant change
 RULE: User reviews and approves PROJECT.md updates

@@ -4,7 +4,7 @@ concepts: [knowledge-base, ai-memory]
 related: [project-files/fixes-file.md, global/persistent-memory.md]
 layer: 2
 ---
-# RAG.md File
+# RAG File
 
 > Project knowledge base — discoveries, links, patterns
 
@@ -12,7 +12,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/RAG.md`
+- **Location:** `proj/RAG`
 - **Format:** Markdown — `## Category` sections with bullet lists
 - **Required:** Always
 - **Purpose:** Freeform knowledge — what AI has learned about this project
@@ -22,7 +22,7 @@ Not a task list — a lookup reference. Short, precise entries only.
 
 ---
 
-RULE: File lives at `proj/RAG.md`
+RULE: File lives at `proj/RAG`
 RULE: Organized by category — one `##` heading per topic area
 RULE: Short, precise entries — lookup reference, not prose
 RULE: AI writes discoveries here during work

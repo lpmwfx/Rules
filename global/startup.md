@@ -15,10 +15,10 @@ layer: 1
 STOP. Before doing ANYTHING, run this checklist:
 
 0. VERIFY index.yaml         → python tools/index_generator.py --verify (if exists)
-1. READ proj/PROJECT.md      → Understand state, phase, stack, infra
-2. READ proj/PHASES.md       → Know the active milestone and delivers
-3. READ proj/TODO.md         → Current tasks (WHAT to do)
-4. READ proj/FIXES.md        → Known problems (DON'T repeat mistakes)
+1. READ proj/PROJECT      → Understand state, phase, stack, infra
+2. READ proj/PHASES       → Know the active milestone and delivers
+3. READ proj/TODO         → Current tasks (WHAT to do)
+4. READ proj/FIXES        → Known problems (DON'T repeat mistakes)
 5. SCAN relevant code        → Understand current state
 6. THEN form solution        → Simple, minimal, targeted
 
@@ -27,7 +27,7 @@ If you follow this: You will produce excellent results.
 ```
 
 RULE: All project files live in `proj/` — never in the project root
-RULE: Validate that proj/TODO.md phase matches proj/PROJECT.md Current.phase
+RULE: Validate that proj/TODO phase matches proj/PROJECT Current.phase
 RULE: If proj/ does not exist, create it and initialize the project files
 
 These rules apply to ALL code — Python, JavaScript, CSS, and any other language.

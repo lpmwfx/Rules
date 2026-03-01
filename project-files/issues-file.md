@@ -6,7 +6,7 @@ related: [project-files/todo-file.md]
 keywords: [fifo, open, committed, resolved]
 layer: 2
 ---
-# ISSUES.md File
+# ISSUES File
 
 > Problem queue — FIFO order, no skipping
 
@@ -14,7 +14,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/ISSUES.md`
+- **Location:** `proj/ISSUES`
 - **Format:** Markdown — `## YYYY-MM-DD: title` sections + DONES separator
 - **Required:** Always
 - **Order:** FIFO — oldest open issue handled first
@@ -25,7 +25,7 @@ the DONES line and must have a corresponding FIXES.md entry.
 
 ---
 
-RULE: File lives at `proj/ISSUES.md`
+RULE: File lives at `proj/ISSUES`
 RULE: AI discovers issue → add to ISSUES.md, do NOT fix without user approval
 RULE: FIFO order — handle oldest open issue first, no skipping
 RULE: Resolved issues MUST have a corresponding FIXES.md entry

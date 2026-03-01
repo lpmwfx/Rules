@@ -6,7 +6,7 @@ feeds: [project-files/done-file.md]
 related: [project-files/issues-file.md]
 layer: 2
 ---
-# TODO.md File
+# TODO File
 
 > Current phase tasks — tracks work, status, and pass criteria
 
@@ -14,21 +14,21 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/TODO.md`
+- **Location:** `proj/TODO`
 - **Format:** Markdown headings + YAML list items in body
 - **Required:** Always
-- **Phase lock:** `phase` and `id` must match `proj/PROJECT.md`
+- **Phase lock:** `phase` and `id` must match `proj/PROJECT`
 
-One TODO.md per active phase. Tasks are YAML list items grouped under
-Markdown category headings. When all tasks are done, archive to DONE.md.
+One TODO per active phase. Tasks are YAML list items grouped under
+Markdown category headings. When all tasks are done, archive to DONE.
 
 ---
 
-RULE: File lives at `proj/TODO.md`
+RULE: File lives at `proj/TODO`
 RULE: `phase` and `id` at top MUST match PROJECT.md current phase
 RULE: Tasks MUST belong to the current phase — no scope creep
 RULE: AI updates task status as work progresses
-RULE: When all tasks done → archive to DONE.md, update PROJECT.md, create new TODO.md
+RULE: When all tasks done → archive to DONE, update PROJECT, create new TODO.md
 RULE: `pass:` defines the success criterion — how to verify the task is truly done
 
 ## Format

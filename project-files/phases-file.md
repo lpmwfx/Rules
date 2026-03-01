@@ -6,7 +6,7 @@ feeds: [project-files/todo-file.md, project-files/done-file.md]
 related: [project-files/goal-chain.md]
 layer: 2
 ---
-# PHASES.md File
+# PHASES File
 
 > Milestone reference — what the project delivers and when
 
@@ -14,7 +14,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/PHASES.md`
+- **Location:** `proj/PHASES`
 - **Format:** Markdown headings + YAML list items in body
 - **Required:** Always
 - **Owner:** User defines milestones — AI reads, suggests updates
@@ -24,7 +24,7 @@ Only ONE phase is `active` at a time. Completed phases move below DONES.
 
 ---
 
-RULE: File lives at `proj/PHASES.md`
+RULE: File lives at `proj/PHASES`
 RULE: Each phase must have a `milestone:` that traces to PROJECT.md Goal
 RULE: `delivers:` lists concrete outputs — not vague descriptions
 RULE: Only ONE phase may be `active` at a time

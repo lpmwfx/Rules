@@ -5,7 +5,7 @@ requires: [project-files/issues-file.md]
 related: [project-files/rag-file.md, global/persistent-memory.md]
 layer: 2
 ---
-# FIXES.md File
+# FIXES File
 
 > Problem-solution pairs — AI reads before coding, writes after fixing
 
@@ -13,7 +13,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/FIXES.md`
+- **Location:** `proj/FIXES`
 - **Format:** Markdown — `## YYYY-MM-DD: title` sections, newest first
 - **Required:** Always
 - **Read by AI:** Before coding any area — to avoid repeating past mistakes
@@ -24,7 +24,7 @@ work to avoid repeating known mistakes.
 
 ---
 
-RULE: File lives at `proj/FIXES.md`
+RULE: File lives at `proj/FIXES`
 RULE: AI MUST read FIXES.md before coding — every session
 RULE: Every resolved ISSUES.md entry → add entry to FIXES.md
 RULE: Newest entries at TOP

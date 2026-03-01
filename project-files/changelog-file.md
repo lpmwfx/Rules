@@ -4,7 +4,7 @@ concepts: [release-management, versioning]
 related: [project-files/install-file.md, project-files/done-file.md]
 layer: 2
 ---
-# CHANGELOG.md File
+# CHANGELOG File
 
 > User-facing release notes — NOT for internal task tracking
 
@@ -12,7 +12,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/CHANGELOG.md`
+- **Location:** `proj/CHANGELOG`
 - **Format:** Markdown — `## vX.Y.Z - YYYY-MM-DD` sections, newest first
 - **Required:** Always
 - **Write rule:** Append only — update on release, never retroactively edit
@@ -22,7 +22,7 @@ summarize what users will notice. Published to the public repo.
 
 ---
 
-RULE: File lives at `proj/CHANGELOG.md`
+RULE: File lives at `proj/CHANGELOG`
 RULE: Only update CHANGELOG.md on release/deploy — not during development
 RULE: Summarize what users see and experience — not implementation details
 RULE: Newest release at TOP — append-only

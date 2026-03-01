@@ -5,7 +5,7 @@ related: [project-files/todo-file.md]
 keywords: [layout, interaction, flow]
 layer: 2
 ---
-# UIUX.md File
+# UIUX File
 
 > UI/UX specification — what the user sees and experiences
 
@@ -13,7 +13,7 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/UIUX.md`
+- **Location:** `proj/UIUX`
 - **Format:** Markdown — structured sections with numbered flows and bullet lists
 - **Required:** GUI projects only (TUI, WA, PWA, Desktop, Mobile) — not CLI or libraries
 - **Owner:** User defines UI/UX — AI reads before any GUI work
@@ -23,7 +23,7 @@ AI reads this before any GUI work — no guessing at layout or flow.
 
 ---
 
-RULE: File lives at `proj/UIUX.md`
+RULE: File lives at `proj/UIUX`
 RULE: Create UIUX.md for GUI projects — skip for CLI tools and libraries
 RULE: AI reads UIUX.md before any GUI work — no exceptions
 RULE: Describe WHAT the user experiences, not HOW it is implemented

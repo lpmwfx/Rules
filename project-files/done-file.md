@@ -4,7 +4,7 @@ concepts: [phase-completion, archive]
 requires: [project-files/todo-file.md, project-files/phases-file.md]
 layer: 2
 ---
-# DONE.md File
+# DONE File
 
 > Completed phases with their tasks — append-only archive
 
@@ -12,22 +12,22 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/DONE.md`
+- **Location:** `proj/DONE`
 - **Format:** Markdown headings + YAML list items in body
 - **Required:** Always
 - **Write rule:** Append only — newest phase at top, never edit past entries
 
 Archive of completed phases. When a phase finishes, copy tasks from TODO.md
-and append a new entry here. Never edit entries already in DONE.md.
+and append a new entry here. Never edit entries already in DONE.
 
 ---
 
-RULE: File lives at `proj/DONE.md`
+RULE: File lives at `proj/DONE`
 RULE: Append completed phases at TOP — newest first
 RULE: Include `completed:` date on every entry
-RULE: Copy task descriptions from TODO.md when phase completes
-RULE: Never edit or delete existing entries — DONE.md is append-only
-RULE: DONE.md grows forever — it is the project history
+RULE: Copy task descriptions from TODO when phase completes
+RULE: Never edit or delete existing entries — DONE is append-only
+RULE: DONE grows forever — it is the project history
 
 ## Format
 
