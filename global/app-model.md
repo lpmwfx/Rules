@@ -40,7 +40,7 @@ BANNED: Disk IO outside Gateway
 | Mobile | Compose / SwiftUI | Yes |
 
 RULE: CLI is the only type without MVVM — it maps args directly to CORE calls
-RULE: All UI types use declarative rendering from Register state
+RULE: All UI types use declarative rendering from AdapterState_sta
 
 ## Per-Layer State Model
 
@@ -74,7 +74,7 @@ See persistent-state.md for full state lifecycle rules.
 Pure business logic — no dependencies on UI or platform.
 
 RULE: CORE is input to output — pure functions where possible
-RULE: CORE reads from Register, writes results back to Register
+RULE: CORE reads from CoreState_sta, writes results back to CoreState_sta
 BANNED: Import UI frameworks in CORE
 BANNED: Import platform APIs in CORE
 BANNED: Side effects without PAL
@@ -115,7 +115,7 @@ See adapter-layer.md for full Adapter rules.
 
 Describes what the user sees — never how to mutate the DOM/widget tree.
 
-RULE: UI binds to Adapter properties — no direct Register access
+RULE: UI binds to Adapter properties — no direct state struct access
 RULE: UI is stateless — all state comes from Adapter
 RULE: UI sends events to Adapter — never calls CORE directly
 BANNED: `setState`, `getElementById`, imperative widget updates
