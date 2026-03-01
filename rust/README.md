@@ -34,7 +34,7 @@ RULE: Same patterns as Python/JS — flat, explicit, validated
 | [errors.md](errors.md) | Result, thiserror, anyhow |
 | [modules.md](modules.md) | Closed modules, pub(crate) |
 | [nesting.md](nesting.md) | Flat code |
-| [naming.md](naming.md) | Naming + hex-suffix convention |
+| [naming.md](naming.md) | Naming + layer-tag convention |
 | [types.md](types.md) | Newtype, Option, slices |
 | [gtk.md](gtk.md) | GTK4 gtk-rs patterns |
 | [verification.md](verification.md) | Gating levels (clippy, deny, miri) |

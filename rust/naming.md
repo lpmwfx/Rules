@@ -1,13 +1,13 @@
 ---
-tags: [rust, naming, conventions, hex-suffix]
+tags: [rust, naming, conventions, layer-tag]
 concepts: [naming-conventions, readability]
-requires: [global/consistency.md, global/naming-suffix.md]
+requires: [global/consistency.md, global/topology.md]
 related: [python/naming.md, css/naming.md]
 layer: 3
 ---
 # Naming Rules
 
-> Anti-variable-noise + hex-suffix convention
+> Anti-variable-noise + layer-tag convention
 
 ---
 
@@ -50,31 +50,23 @@ RULE: Verbs first
 RULE: No type-leak in name
 BANNED: `get_user_data()` → GOOD: `load_user()`
 
-## Hex-Suffix Convention (Namespace Guarantee)
+## Layer-Tag Suffix
 
-PURPOSE: Guarantee against namespace conflicts with Rust crates/stdlib
-SCOPE: All pub items (structs, enums, traits, pub functions)
-NOT: Local variables, private helpers
-FORMAT: `Name_XXX` where XXX = `hex(sum(ascii(lowercase(name))) % 4096)`
-SEPARATOR: Always underscore before hex-suffix
-SUFFIX: Always 3 hex digits (zero-padded)
+RULE: All types use a layer-tag suffix matching their architectural role — see global/topology.md
+RULE: Use the tag that matches where the type lives in the folder structure
+NOT: Computed hex checksums, project-brand codes, or arbitrary suffixes
+SCOPE: All types (structs, enums, traits) — local variables and private helpers excluded
 
-```rust
-fn hex_suffix(name: &str) -> String {
-    let sum: u32 = name.to_lowercase()
-        .chars()
-        .filter(|c| c.is_ascii_alphabetic())
-        .map(|c| c as u32)
-        .sum();
-    format!("{:03X}", sum % 4096)
-}
-```
-
-Examples:
-- `Session` → `Session_304`
-- `Engine` → `Engine_276`
-- `LocalPty` → `LocalPty_6A7`
-- `SessionBackend` → `SessionBackend_5F3`
+| Tag | Layer | Rust example |
+|-----|-------|-------------|
+| `_ui` | UI | `LoginView_ui`, `AppWindow_ui` |
+| `_adp` | Adapter | `UserAdapter_adp`, `AppState_adp` |
+| `_core` | Core | `AuthLogic_core`, `PriceCalc_core` |
+| `_pal` | PAL | `WindowManager_pal`, `Clipboard_pal` |
+| `_gtw` | Gateway | `ConfigLoader_gtw`, `FileStore_gtw` |
+| `_sta` | State struct | `AppState_sta`, `CoreState_sta` |
+| `_cfg` | Config struct | `AppConfig_cfg`, `NetworkConfig_cfg` |
+| `_x` | Shared/cross-cutting | `AppError_x`, `Persistable_x` |
 
 ## Standard Conventions
 

@@ -19,7 +19,7 @@ layer: 6
 | Errors | `Result<T,E>`, thiserror (libs), anyhow (CLI only) |
 | Modules | One per file, `pub(crate)`, max 300 LOC |
 | Nesting | Max 3 levels, early returns, `?` operator |
-| Naming | Hex-suffix for pub items, lifecycle names, `is_` booleans |
+| Naming | Layer-tag suffix on all types, lifecycle names, `is_` booleans |
 | Types | Newtype, `Option<T>`, `&str`/`String`, `&[T]`/`Vec<T>` |
 | GTK4 | `glib::clone!`, composite templates, weak refs |
 | Verification | Level 0 (local) → Level 1 (merge) → Level 2 (release) |
