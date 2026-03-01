@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__rules__search_rules",
+      "Bash(grep:*)",
+      "Bash(cd ~/.cache/rules-mcp/Rules && git pull 2>&1)",
+      "mcp__rules__list_rules",
+      "mcp__rules__get_learning_path",
+      "Bash(echo:*)",
+      "Bash(pipx list:*)",
+      "Bash(git:*)",
+      "Bash(cd:*)",
+      "Bash(pip3 install:*)",
+      "mcp__rules__get_context",
+      "mcp__rules__get_rule",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:wiki.dendron.so)",
+      "WebFetch(domain:dev.to)",
+      "WebFetch(domain:forum.obsidian.md)",
+      "WebFetch(domain:discuss.logseq.com)",
+      "WebFetch(domain:sushantvema.github.io)",
+      "WebFetch(domain:breadcrumbs-wiki.onrender.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:deepwiki.com)",
+      "Bash(head:*)",
+      "Bash(pip3 show:*)",
+      "Bash(PIPX_HOME=~/snap/code/226/.local/share/pipx PIPX_BIN_DIR=~/.local/bin pipx install:*)",
+      "mcp__rules__get_related",
+      "Bash(cd ~/.cache/rules-mcp/Rules && git checkout -- . && rm -f global/app-model.md global/nesting.md project-files/issues-file.md project-files/phases-file.md project-files/uiux-file.md && git checkout -b feature/yaml-frontmatter origin/feature/yaml-frontmatter 2>&1)",
+      "Bash(PIPX_HOME=~/snap/code/226/.local/share/pipx PIPX_BIN_DIR=~/.local/bin pipx list:*)"
+    ]
+  }
+}
