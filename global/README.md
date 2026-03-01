@@ -1,7 +1,7 @@
 ---
 tags: [global, overview, foundation]
 concepts: [global-rules, foundation]
-related: [global/startup.md, global/validation.md, global/consistency.md, global/read-before-write.md, global/know-before-change.md, global/persistent-memory.md, global/versions.md, global/secrets.md, global/diagrams.md, global/index-system.md, global/naming-suffix.md, global/app-model.md, global/nesting.md]
+related: [global/startup.md, global/validation.md, global/consistency.md, global/read-before-write.md, global/know-before-change.md, global/persistent-memory.md, global/versions.md, global/secrets.md, global/diagrams.md, global/index-system.md, global/naming-suffix.md, global/app-model.md, global/nesting.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md]
 layer: 6
 ---
 # Global Rules
@@ -29,3 +29,7 @@ These are non-negotiable habits that make AI collaboration reliable.
 | [index-system.md](index-system.md) | Index.yaml system |
 | [app-model.md](app-model.md) | Application architecture model |
 | [nesting.md](nesting.md) | Max 3 levels, early returns |
+| [topology.md](topology.md) | 6-layer hexagonal MVVM folder topology |
+| [adapter-layer.md](adapter-layer.md) | Adapter as data exchange hub |
+| [config-driven.md](config-driven.md) | No hardcoded values — config via Gateway |
+| [persistent-state.md](persistent-state.md) | Per-layer state structs, Gateway disk IO |
