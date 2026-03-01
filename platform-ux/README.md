@@ -1,7 +1,7 @@
 ---
 tags: [platform-ux, overview, interaction]
 concepts: [platform-ux, overview]
-related: [platform-ux/keyboard.md, platform-ux/pointer-touch.md, platform-ux/checklist.md, platform-ux/drag-drop.md, platform-ux/context-menus.md, platform-ux/issue-reporter.md]
+related: [platform-ux/keyboard.md, platform-ux/pointer-touch.md, platform-ux/checklist.md, platform-ux/drag-drop.md, platform-ux/context-menus.md, platform-ux/issue-reporter.md, platform-ux/theming.md]
 layer: 6
 ---
 # Platform UX Defaults
@@ -24,4 +24,5 @@ Source: GNOME Human Interface Guidelines (developer.gnome.org/hig/)
 | [drag-drop.md](drag-drop.md) | Drag and drop behavior |
 | [pointer-touch.md](pointer-touch.md) | Pointer and touch interaction |
 | [issue-reporter.md](issue-reporter.md) | Issue reporter integration |
+| [theming.md](theming.md) | Auto light/dark system appearance |
 | [checklist.md](checklist.md) | New app verification checklist |

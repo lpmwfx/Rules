@@ -1,7 +1,7 @@
 ---
 tags: [platform-ux, checklist, shipping, verification]
 concepts: [verification, shipping]
-requires: [platform-ux/keyboard.md, platform-ux/context-menus.md, platform-ux/drag-drop.md, platform-ux/issue-reporter.md]
+requires: [platform-ux/keyboard.md, platform-ux/context-menus.md, platform-ux/drag-drop.md, platform-ux/issue-reporter.md, platform-ux/theming.md]
 keywords: [ship-checklist, qa, acceptance]
 layer: 5
 ---
@@ -27,6 +27,10 @@ layer: 5
 - [ ] "Report Issue / Request Feature" in Help menu launches Issue Reporter
 - [ ] Crash handler spawns Issue Reporter with crash log
 - [ ] Issue Reporter launches as detached process (survives host crash)
+- [ ] App appearance changes immediately when OS light/dark setting is toggled
+- [ ] No hardcoded color values outside theme/token layer
+- [ ] Both light and dark appearances tested on all target platforms
+- [ ] App does NOT reset to wrong appearance on restart
 
 ## Toolkit Implementation
 
