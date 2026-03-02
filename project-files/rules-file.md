@@ -33,19 +33,83 @@ RULE: Active MCP rules (which files to load this phase) live here, not in proj/P
 BANNED: Putting project-specific rules only in RAG — rules go in RULES, discoveries go in RAG
 BANNED: Letting proj/RULES grow stale — if a rule no longer applies, remove it
 
+## Bootstrap — how to derive Active Rules for a new project
+
+When proj/RULES is empty or missing, derive the active rule set as follows:
+
+```
+1. Read proj/PROJECT → extract:
+   - Languages  (Rust, Kotlin, Python, JS…)
+   - Platforms  (Windows, macOS, GNOME, KDE, Android, iOS, Web…)
+   - Toolkit    (Slint, GTK4, Compose, React, Qt…)
+
+2. Always load — every project:
+   global/topology.md
+   global/module-tree.md
+   global/file-limits.md
+   global/config-driven.md
+   global/persistent-state.md
+
+3. For each Language → load:
+   <lang>/README.md        (e.g. rust/README.md, kotlin/README.md)
+
+4. For each Platform → load the matching menu/UX file:
+   Windows  → uiux/menus-windows.md
+   macOS    → uiux/menus-macos.md
+   GNOME    → uiux/menus-gnome.md
+   KDE      → uiux/menus-kde.md
+   Web      → uiux/theming.md, css/custom-properties.md, css/themes.md
+
+5. If project has a GUI → always add:
+   uiux/tokens.md
+   uiux/components.md
+   uiux/state-flow.md
+   uiux/file-structure.md
+   uiux/help-about.md
+   uiux/checklist.md
+
+6. For Toolkit:
+   Slint    → uiux/menus-slint.md
+   GTK4     → uiux/gtk.md
+   Compose  → kotlin/README.md (already covered by Language)
+
+7. Write the collected paths to ## Active Rules in this file.
+```
+
+RULE: The resulting list must feel like it was written for THIS project — not a generic dump
+RULE: Phase 1 (bootstrap): load global + language READMEs. Phase 2+ (active dev): load topic-specific files as work progresses.
+
 ## Format
 
 ```markdown
 # RULES: project-name
 
-## Active MCP Rules
-Rules loaded this phase via get_rule(). Replace when phase changes.
+## Active Rules
+Exact file paths — load these via get_rule(file: "...") at session start.
+Structured by category so the scope is immediately visible.
 
+### Always
 - global/topology.md
 - global/module-tree.md
 - global/file-limits.md
+- global/config-driven.md
+- global/persistent-state.md
+
+### Language: Rust
+- rust/README.md
+- rust/ownership.md
+- rust/errors.md
+- rust/naming.md
+
+### UI (Slint — Windows + macOS + GNOME)
+- uiux/tokens.md
 - uiux/components.md
-- rust/types.md
+- uiux/state-flow.md
+- uiux/menus-slint.md
+- uiux/menus-windows.md
+- uiux/menus-macos.md
+- uiux/menus-gnome.md
+- uiux/help-about.md
 
 ## Project Rules
 Conventions observed in this codebase. AI adds here; user may override.
@@ -53,7 +117,7 @@ Conventions observed in this codebase. AI adds here; user may override.
 - All API calls go through `src/gateway/client.rs` — never fetch in UI or Core
 - Component names match their filename exactly — `FeedItem` lives in `FeedItem.slint`
 - Error variants are defined in `src/shared/errors.rs` — never inline
-- CSS custom properties are declared in `tokens.css` — never in component files
+- Token values declared in `src/ui/tokens/` — never in component .slint files
 
 ## Derived from FIXES
 Rules extracted from recurring problems — see proj/FIXES for full context.

@@ -43,8 +43,9 @@ NotificationBadge renders the count bubble
 
 ## Size Limits
 
-RULE: Target ≤ 80 lines of UI markup — 100 is the warning line, 150 is the hard limit
-RULE: If you must scroll to understand a component → too large, split it
+See [global/file-limits.md](../global/file-limits.md) for the authoritative numbers.
+
+RULE: If you must scroll to understand a component → split it now
 RULE: One screen component ≤ 3 levels of nesting visible at a glance
 BANNED: God components that own multiple screens' worth of markup
 

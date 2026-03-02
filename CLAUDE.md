@@ -66,7 +66,8 @@ Pre-built index — one JSON line per rule file. Fields: `file`, `category`, `ti
 
 ### Type Naming Convention
 
-All types follow `TypeName_<tag>` (defined in `name_convention.json`). Tag = architectural layer (1–4 lowercase chars): `pal`, `core`, `adp`, `db`, `ui`, `net`, `auth`, `cfg`, `gen`, `stub`, `test`, `x`.
+All types follow `TypeName_<tag>`. Tag = architectural layer folder (see `Rules/global/topology.md`):
+`_ui`, `_adp`, `_core`, `_pal`, `_gtw`, `_x` (shared), `_sta` (state structs), `_cfg` (config structs), `_test` (test types).
 
 ## Key Files
 

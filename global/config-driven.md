@@ -2,7 +2,7 @@
 tags: [config, configuration, no-hardcoding, cfg, constants, settings]
 concepts: [config-driven-design, settings-management, configuration]
 requires: [global/topology.md]
-related: [global/persistent-state.md, global/app-model.md]
+related: [global/persistent-state.md, global/app-model.md, uiux/tokens.md]
 keywords: [config, constants, magic-numbers, hardcoded, gateway, cfg, struct, default]
 layer: 1
 ---
@@ -13,6 +13,7 @@ layer: 1
 ---
 
 VITAL: Zero hardcoded values in business logic, UI, or adapter code
+VITAL: Zero hardcoded values in UI styling — colors, sizes, spacing, fonts are design tokens (see uiux/tokens.md)
 VITAL: Gateway is the sole entry point for loading configuration
 RULE: Every configurable value lives in a `_cfg` struct
 RULE: Config structs are passed as parameters — never accessed globally

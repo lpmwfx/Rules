@@ -52,21 +52,10 @@ BANNED: `get_user_data()` → GOOD: `load_user()`
 
 ## Layer-Tag Suffix
 
-RULE: All types use a layer-tag suffix matching their architectural role — see global/topology.md
-RULE: Use the tag that matches where the type lives in the folder structure
+RULE: All types use a layer-tag suffix matching their architectural role
+RULE: Tag = folder the type lives in — see [global/topology.md](../global/topology.md) for the canonical tag list
 NOT: Computed hex checksums, project-brand codes, or arbitrary suffixes
 SCOPE: All types (structs, enums, traits) — local variables and private helpers excluded
-
-| Tag | Layer | Rust example |
-|-----|-------|-------------|
-| `_ui` | UI | `LoginView_ui`, `AppWindow_ui` |
-| `_adp` | Adapter | `UserAdapter_adp`, `AppState_adp` |
-| `_core` | Core | `AuthLogic_core`, `PriceCalc_core` |
-| `_pal` | PAL | `WindowManager_pal`, `Clipboard_pal` |
-| `_gtw` | Gateway | `ConfigLoader_gtw`, `FileStore_gtw` |
-| `_sta` | State struct | `AppState_sta`, `CoreState_sta` |
-| `_cfg` | Config struct | `AppConfig_cfg`, `NetworkConfig_cfg` |
-| `_x` | Shared/cross-cutting | `AppError_x`, `Persistable_x` |
 
 ## Standard Conventions
 

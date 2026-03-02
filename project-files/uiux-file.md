@@ -47,17 +47,35 @@ Target OS and toolkit — determines which platform rules apply.
 - Icons: Adwaita / SF Symbols / Fluent / Material You
 
 ## UI Foundation Rules
-Load these via get_rule() before any UI work. Always active for all GUI projects.
+Always active — load these via get_rule() before any UI work.
 
 | Rule | What it enforces |
 |------|-----------------|
-| uiux/theming.md | System light/dark — never hardcoded colors, live switching |
-| uiux/components.md | One file per component, one responsibility, max 200 lines |
+| uiux/tokens.md | Zero literal values in components — all values are named tokens |
+| uiux/components.md | One file per component, one responsibility |
 | uiux/file-structure.md | Folders by feature area — changes stay contained |
-| uiux/state-flow.md | State-in from Adapter, events-out — never domain logic in UI |
+| uiux/state-flow.md | State-in from Adapter, events-out — no domain logic in UI |
+| uiux/theming.md | System light/dark — live switching, token-based |
 | uiux/keyboard.md | Standard shortcuts, keyboard navigation — platform HIG |
 | uiux/help-about.md | About dialog, license, shortcuts window — per platform |
 | uiux/checklist.md | Pre-ship verification — all items must pass |
+
+## Platform Rules
+Load the files that match the Platform section above — specific, not generic.
+
+| Platform | Load these rule files |
+|----------|-----------------------|
+| Windows  | uiux/menus-windows.md |
+| macOS    | uiux/menus-macos.md |
+| GNOME    | uiux/menus-gnome.md |
+| KDE      | uiux/menus-kde.md |
+| GTK4     | uiux/gtk.md |
+| Slint    | uiux/menus-slint.md |
+| Web/PWA  | css/custom-properties.md, css/themes.md |
+| Android  | kotlin/README.md |
+
+RULE: Copy the matching rows to proj/RULES → ## Active Rules → ### UI — that is the concrete ruleset for this project
+RULE: A project targeting 3 platforms loads 3 platform rule files — not "uiux/README.md (all)"
 
 ## UI Architecture
 How UI is structured in this project.

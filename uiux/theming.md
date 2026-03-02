@@ -1,8 +1,8 @@
 ---
 tags: [theming, dark-mode, light-mode, system-appearance, uiux]
 concepts: [theming, system-appearance, accessibility]
-requires: [uiux/checklist.md]
-related: [css/themes.md, css/custom-properties.md]
+requires: [uiux/tokens.md]
+related: [css/themes.md, css/custom-properties.md, global/config-driven.md]
 keywords: [dark-mode, light-mode, system, appearance, NSAppearance, prefers-color-scheme, color-scheme, gtk, qt, swiftui, compose]
 layer: 3
 ---
@@ -14,11 +14,14 @@ layer: 3
 
 VITAL: Every GUI app MUST follow the system light/dark preference automatically
 VITAL: No manual theme toggle is needed unless the user explicitly requests override
+VITAL: ALL values (colors, spacing, sizes, fonts) live in token files — never in component files (see [tokens.md](tokens.md))
 RULE: Default appearance = system preference — zero configuration by the user
 RULE: Switching OS appearance (System Preferences / Settings) updates the app immediately
 RULE: App restart is NOT acceptable — appearance change must be live
 RULE: CSS design tokens (colors, surfaces) come from the theme layer, never hardcoded
+RULE: Token files switch values for light/dark — component code never branches on dark-mode to pick colors
 BANNED: Hardcoded color values that do not adapt to system appearance
+BANNED: Hardcoded pixel or font values in component files — those are tokens
 BANNED: Shipping with only light mode — dark mode is not optional
 BANNED: Requiring the user to set appearance inside the app when the OS already expresses it
 

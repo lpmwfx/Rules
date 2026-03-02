@@ -1,7 +1,7 @@
 ---
 tags: [uiux, overview, ui-paradigm, declarative, cross-platform, platform-ux]
 concepts: [ui-paradigm, component-design, cross-platform-ui, platform-ux]
-related: [uiux/components.md, uiux/file-structure.md, uiux/state-flow.md, uiux/theming.md, uiux/keyboard.md, uiux/checklist.md, uiux/help-about.md, global/topology.md, global/adapter-layer.md]
+related: [uiux/tokens.md, uiux/components.md, uiux/file-structure.md, uiux/state-flow.md, uiux/theming.md, uiux/keyboard.md, uiux/checklist.md, uiux/help-about.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md]
 layer: 6
 ---
 # UI/UX Rules
@@ -10,16 +10,25 @@ layer: 6
 
 ---
 
-Two goals:
+Three goals:
 1. **Split UI code** so a change in one area cannot accidentally break another
 2. **Correct UX per platform** — use native widgets, icons, and interaction patterns
+3. **Declarative** — UI describes *what* to show; values, state, and behavior live outside components
 
 Applies to all GUI types: WA, PWA, Desktop (GNOME, KDE, macOS, Windows), Mobile (Android, iOS), TUI.
+
+## Core Invariants
+
+VITAL: UI components contain **zero literal values** — every color, size, spacing is a named token
+VITAL: UI components are **stateless** — state flows in from Adapter, events flow out
+VITAL: All apps **persist state** on close and restore on launch — users return to where they left off
+RULE: One file per concern — component, token group, state type, feature area each get their own file
 
 ## Paradigm — how to structure UI code
 
 | File | Topic |
 |------|-------|
+| [tokens.md](tokens.md) | Design tokens — no magic values in components |
 | [components.md](components.md) | One file, one component, one responsibility |
 | [file-structure.md](file-structure.md) | Folders by feature area — isolation by design |
 | [state-flow.md](state-flow.md) | State in from Adapter, events out to Adapter |
@@ -49,8 +58,13 @@ Applies to all GUI types: WA, PWA, Desktop (GNOME, KDE, macOS, Windows), Mobile 
 
 ## Core Principles
 
-1. **Isolated by default** — each UI area lives in its own folder; changes are contained
-2. **One responsibility per file** — a fix touches exactly one file, nothing else breaks
-3. **Stateless components** — state comes from Adapter, never lives in UI
-4. **Platform-native** — use platform widgets, icons, and shortcuts; do not fight the OS
-5. **Declarative** — describe what to show, never how to mutate
+1. **Token-only values** — components reference token names; token files hold all literal values
+2. **Isolated by default** — each UI area lives in its own folder; changes are contained
+3. **One responsibility per file** — a fix touches exactly one file, nothing else breaks
+4. **Stateless components** — state comes from Adapter, never lives in UI
+5. **Platform-native** — use platform widgets, icons, and shortcuts; do not fight the OS
+6. **Declarative** — describe what to show; token and config files describe how it looks
+7. **State persists** — window size, scroll, selection saved on close, restored on launch
+
+State persistence: [global/persistent-state.md](../global/persistent-state.md)
+Config-driven values: [global/config-driven.md](../global/config-driven.md)
