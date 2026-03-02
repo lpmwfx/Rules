@@ -53,12 +53,15 @@ When proj/RULES is empty or missing, derive the active rule set as follows:
 3. For each Language → load:
    <lang>/README.md        (e.g. rust/README.md, kotlin/README.md)
 
-4. For each Platform → load the matching menu/UX file:
-   Windows  → uiux/menus-windows.md
-   macOS    → uiux/menus-macos.md
-   GNOME    → uiux/menus-gnome.md
-   KDE      → uiux/menus-kde.md
-   Web      → uiux/theming.md, css/custom-properties.md, css/themes.md
+4. For each Platform → load the matching file (see full table in project-files/uiux-file.md):
+   Windows      → uiux/menus-windows.md
+   macOS        → uiux/menus-macos.md
+   GNOME        → uiux/menus-gnome.md
+   KDE          → uiux/menus-kde.md
+   Web / PWA    → css/README.md
+   Android      → uiux/help-about.md
+   iOS          → uiux/theming.md
+   Linux CLI    → skip (no desktop = no platform menu rules)
 
 5. If project has a GUI → always add:
    uiux/tokens.md
@@ -69,9 +72,10 @@ When proj/RULES is empty or missing, derive the active rule set as follows:
    uiux/checklist.md
 
 6. For Toolkit:
-   Slint    → uiux/menus-slint.md
-   GTK4     → uiux/gtk.md
-   Compose  → kotlin/README.md (already covered by Language)
+   Slint              → uiux/menus-slint.md
+   GTK4               → uiux/gtk.md
+   Compose/React/Vue  → already covered by Language + Platform steps
+   Qt6 / SwiftUI      → uiux/theming.md
 
 7. Write the collected paths to ## Active Rules in this file.
 ```

@@ -61,21 +61,26 @@ Always active — load these via get_rule() before any UI work.
 | uiux/checklist.md | Pre-ship verification — all items must pass |
 
 ## Platform Rules
-Load the files that match the Platform section above — specific, not generic.
+Copy the matching rows to proj/RULES → ## Active Rules → ### UI.
 
-| Platform | Load these rule files |
-|----------|-----------------------|
-| Windows  | uiux/menus-windows.md |
-| macOS    | uiux/menus-macos.md |
-| GNOME    | uiux/menus-gnome.md |
-| KDE      | uiux/menus-kde.md |
-| GTK4     | uiux/gtk.md |
-| Slint    | uiux/menus-slint.md |
-| Web/PWA  | css/custom-properties.md, css/themes.md |
-| Android  | kotlin/README.md |
+| Platform / Toolkit | Load these rule files |
+|--------------------|-----------------------|
+| Windows            | uiux/menus-windows.md |
+| macOS              | uiux/menus-macos.md |
+| GNOME              | uiux/menus-gnome.md |
+| KDE                | uiux/menus-kde.md |
+| Slint              | uiux/menus-slint.md |
+| GTK4               | uiux/gtk.md |
+| Web / PWA          | css/README.md |
+| Android            | uiux/help-about.md |
+| iOS                | uiux/theming.md |
+| Qt6 / QML          | uiux/theming.md |
+| React/Svelte/Vue   | covered by js/README.md + Web/PWA row |
+| Compose Android    | covered by kotlin/README.md |
+| Compose Desktop    | covered by kotlin/README.md + Windows/macOS rows |
 
-RULE: Copy the matching rows to proj/RULES → ## Active Rules → ### UI — that is the concrete ruleset for this project
-RULE: A project targeting 3 platforms loads 3 platform rule files — not "uiux/README.md (all)"
+RULE: A project targeting 3 platforms loads exactly 3 platform files — not "uiux/ (all)"
+NOTE: Android/iOS/Qt6 have dedicated files planned (TODO #25–27) — current entries are interim
 
 ## UI Architecture
 How UI is structured in this project.
