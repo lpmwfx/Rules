@@ -10,6 +10,14 @@ layer: 6
 
 ---
 
+## Philosophy
+
+RULE: One module per file — nesting = package of files, not nested classes inside one file
+RULE: Stateless functions — all app state passed in as arguments or held in a central dataclass; functions transform, never store
+RULE: Encapsulate behind `__all__` — nothing public unless explicitly exported
+
+See: [global/module-tree.md](../global/module-tree.md)
+
 ## Files
 
 | File | Topic |

@@ -1,7 +1,7 @@
 ---
 tags: [cpp, overview, rules, c++20]
 concepts: [cpp-rules, overview]
-related: [cpp/types.md, cpp/modules.md, cpp/errors.md, cpp/memory.md, cpp/testing.md, cpp/build.md, cpp/threading.md, cpp/nesting.md, cpp/posix.md]
+related: [cpp/types.md, cpp/modules.md, cpp/errors.md, cpp/memory.md, cpp/testing.md, cpp/build.md, cpp/threading.md, cpp/nesting.md, cpp/posix.md, global/module-tree.md]
 layer: 6
 ---
 # C++ Rules
@@ -25,6 +25,8 @@ RULE: Automatic memory via RAII — never manual new/delete
 RULE: Automatic threads via std::jthread — auto-join
 RULE: Result types for errors — no exceptions
 RULE: Same patterns as Python/JS — flat, explicit, validated
+RULE: One class per header/source pair — nesting = namespace folder, not nested classes
+RULE: Stateless logic — all app state in a central struct; functions transform, never store state
 
 ## Files
 
