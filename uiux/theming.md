@@ -1,7 +1,7 @@
 ---
-tags: [theming, dark-mode, light-mode, system-appearance, platform-ux]
+tags: [theming, dark-mode, light-mode, system-appearance, uiux]
 concepts: [theming, system-appearance, accessibility]
-requires: [platform-ux/checklist.md]
+requires: [uiux/checklist.md]
 related: [css/themes.md, css/custom-properties.md]
 keywords: [dark-mode, light-mode, system, appearance, NSAppearance, prefers-color-scheme, color-scheme, gtk, qt, swiftui, compose]
 layer: 3

@@ -35,17 +35,17 @@ my-project/
 │   ├── RAG            ← Markdown freeform knowledge base
 │   ├── INSTALL        ← Markdown setup + publish instructions
 │   ├── UIUX           ← Markdown UI/UX spec (GUI projects only)
+│   ├── RULES          ← AI rule observations + active MCP rules for this phase
 │   ├── AUTHORS        ← Markdown contributor list
 │   └── CHANGELOG      ← Markdown release notes (newest first)
-└── doc/
-    └── project.md     ← human narrative (WHY) — .md because it's a doc file
 ```
 
 ## File Overview
 
 | File | Format | Required | Purpose | AI Action |
 |------|--------|----------|---------|-----------|
-| PROJECT | Markdown | Always | Project identity + state | READ first, WRITE to maintain |
+| PROJECT | Markdown | Always | Project identity + state — only source of truth | READ first, WRITE to maintain |
+| RULES | Markdown | Always | Active MCP rules + project-specific conventions | READ second, WRITE on observation |
 | PHASES | Markdown + YAML list | Always | Milestones + delivers | READ for overview |
 | TODO | Markdown + YAML list | Always | Current phase tasks | READ for work, UPDATE status |
 | DONE | Markdown | Always | Completed phases archive | APPEND when phase complete |
@@ -53,7 +53,7 @@ my-project/
 | FIXES | Markdown | Always | Problem → Cause → Solution | READ before coding, WRITE after fixing |
 | RAG | Markdown | Always | Knowledge, links, discoveries | READ for context, WRITE findings |
 | INSTALL | Markdown | Always | Publishing + setup | READ for environment |
-| UIUX | Markdown | GUI only | UI/UX specification | READ for GUI work |
+| UIUX | Markdown | All GUI projects | UI/UX source of truth — platform, flows, conventions | READ before any UI work, WRITE on discovery |
 | AUTHORS | Markdown | Always | Contributors (human + AI) | READ for attribution |
 | CHANGELOG | Markdown | Always | Release notes (user-facing) | APPEND on release |
 
@@ -71,6 +71,7 @@ my-project/
 | [changelog-file.md](changelog-file.md) | CHANGELOG spec |
 | [install-file.md](install-file.md) | INSTALL spec |
 | [uiux-file.md](uiux-file.md) | UIUX spec |
+| [rules-file.md](rules-file.md) | RULES spec |
 | [authors-file.md](authors-file.md) | AUTHORS spec |
 | [goal-chain.md](goal-chain.md) | Goal chain + DONES |
 | [workflow.md](workflow.md) | Workflow, relations, publishing |

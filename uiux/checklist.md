@@ -1,7 +1,7 @@
 ---
-tags: [platform-ux, checklist, shipping, verification]
+tags: [uiux, checklist, shipping, verification]
 concepts: [verification, shipping]
-requires: [platform-ux/keyboard.md, platform-ux/context-menus.md, platform-ux/drag-drop.md, platform-ux/issue-reporter.md, platform-ux/theming.md]
+requires: [uiux/keyboard.md, uiux/context-menus.md, uiux/drag-drop.md, uiux/issue-reporter.md, uiux/theming.md]
 keywords: [ship-checklist, qa, acceptance]
 layer: 5
 ---

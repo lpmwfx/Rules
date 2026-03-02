@@ -1,29 +1,31 @@
 ---
 tags: [kotlin, overview, rules]
 concepts: [kotlin-rules, overview]
-related: [kotlin/result-pattern.md, kotlin/encapsulation.md, kotlin/data-classes.md, kotlin/compose.md, kotlin/viewmodel.md, kotlin/coroutines.md, kotlin/ktor.md, kotlin/amper.md, kotlin/stability.md]
+related: [kotlin/result-pattern.md, kotlin/encapsulation.md, kotlin/data-classes.md, kotlin/coroutines.md, kotlin/ktor.md, kotlin/amper.md, kotlin/stability.md, uiux/components.md, uiux/state-flow.md, global/module-tree.md]
 layer: 6
 ---
 # Kotlin Rules
 
-> Compose + Amper — 100% pure Kotlin, encapsulation-first
+> Amper — 100% pure Kotlin, encapsulation-first
 
 ---
 
 ## Philosophy
 
 RULE: 100% pure Kotlin — no Java interop, no JNI/C++
-RULE: Jetpack Compose for UI (Android + Desktop)
 RULE: Amper for builds (Gradle hidden for Android, Gradle-free for Desktop)
-RULE: Encapsulation and modularity first
+RULE: Encapsulation and modularity first — `private` by default, expose only at module boundary
 RULE: Null-safe, type-safe, AI-friendly code
+RULE: One class/object per file — nesting = package of files, not nested classes
+RULE: Stateless — all app state in a central `AppState` data class; UI layer receives state, emits events
+RULE: No state in functions or components — functions transform, never store
+
+See: [global/module-tree.md](../global/module-tree.md) | [uiux/state-flow.md](../uiux/state-flow.md)
 
 ## Files
 
 | File | Topic |
 |------|-------|
-| [compose.md](compose.md) | Compose UI rules + state hoisting |
-| [viewmodel.md](viewmodel.md) | ViewModel + sealed actions |
 | [data-classes.md](data-classes.md) | Immutable data classes |
 | [encapsulation.md](encapsulation.md) | Private by default + platform encapsulation |
 | [result-pattern.md](result-pattern.md) | Sealed Result type |

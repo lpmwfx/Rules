@@ -21,21 +21,57 @@ layer: 5
 
 echo "=== PROJECT CONTEXT ==="
 
+# Bootstrap: if proj/PROJECT missing, consolidate source document into it
+if [[ ! -f "proj/PROJECT" ]]; then
+    mkdir -p proj
+    SOURCE=""
+    for candidate in doc/project.md doc/PROJECT.md README.md brief.md; do
+        if [[ -f "$candidate" ]]; then SOURCE="$candidate"; break; fi
+    done
+    if [[ -n "$SOURCE" ]]; then
+        echo "ACTION REQUIRED: proj/PROJECT does not exist."
+        echo "  Source found: $SOURCE"
+        echo "  Read $SOURCE and write everything into proj/PROJECT (standard format)."
+        echo "  After init, $SOURCE is frozen — proj/PROJECT is the only source of truth."
+    else
+        echo "ACTION REQUIRED: proj/PROJECT does not exist and no source document found."
+        echo "  Ask the user for project goal, stack, and structure, then create proj/PROJECT."
+    fi
+    echo ""
+fi
+
+# Architecture — proj/PROJECT is the only source of truth
+if [[ -f "proj/PROJECT" ]]; then
+    echo "PROJECT (architecture + state):"
+    head -40 proj/PROJECT | sed 's/^/  /'
+fi
+
+# Active rules + project conventions — load MCP rules listed here
+if [[ -f "proj/RULES" ]]; then
+    echo "RULES (active MCP rules + project conventions):"
+    cat proj/RULES | sed 's/^/  /'
+fi
+
+# UI/UX source of truth — mandatory for all GUI projects
+if [[ -f "proj/UIUX" ]]; then
+    echo "UIUX (platform, architecture, flows, conventions):"
+    cat proj/UIUX | sed 's/^/  /'
+elif find src/ -name "*.slint" -o -name "*.ui" -o -name "*.tsx" -o -name "*.qml" \
+     -o -name "*.swift" 2>/dev/null | head -1 | grep -q .; then
+    echo "WARNING: GUI files detected but proj/UIUX does not exist."
+    echo "  Create proj/UIUX before doing any UI work — see project-files/uiux-file.md"
+fi
+
 # Current tasks
-if [[ -f "TODO" ]]; then
+if [[ -f "proj/TODO" ]]; then
     echo "TODO (current tasks):"
-    head -30 TODO | sed 's/^/  /'
+    head -30 proj/TODO | sed 's/^/  /'
 fi
 
 # Known mistakes to avoid
-if [[ -f "FIXES" ]]; then
+if [[ -f "proj/FIXES" ]]; then
     echo "FIXES (avoid these mistakes):"
-    head -20 FIXES | sed 's/^/  /'
-fi
-
-# Architecture reminder
-if [[ -f "doc/project.md" ]]; then
-    echo "READ doc/project.md for architecture"
+    head -20 proj/FIXES | sed 's/^/  /'
 fi
 
 # Detect languages and show relevant rules
@@ -51,5 +87,29 @@ if find . -maxdepth 4 -name "*.css" -type f | head -1 | grep -q .; then
     echo "CSS detected - see ~/.rules/CSS/RULES"
 fi
 
-echo "=== WORKFLOW: doc/project.md → FIXES → TODO → code → test ==="
+echo "=== WORKFLOW: proj/PROJECT → proj/FIXES → proj/TODO → code → test ==="
+
+# Scan for oversized files — AI must split these before adding new code
+echo ""
+echo "=== OVERSIZED FILES (must split before adding code) ==="
+LIMITS=(
+  "py:250" "ts:250" "tsx:100" "js:250" "jsx:100"
+  "css:150" "scss:150" "kt:200" "swift:200"
+  "rs:300" "cpp:350" "c:350"
+)
+FOUND=0
+for entry in "${LIMITS[@]}"; do
+  ext="${entry%%:*}"
+  limit="${entry##*:}"
+  while IFS= read -r f; do
+    lines=$(wc -l < "$f")
+    if (( lines >= limit )); then
+      echo "  OVERSIZED ($lines lines, limit $limit): $f"
+      FOUND=1
+    fi
+  done < <(find src/ -name "*.$ext" -type f 2>/dev/null)
+done
+if (( FOUND == 0 )); then
+  echo "  OK — no oversized files found"
+fi
 ```

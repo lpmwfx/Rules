@@ -26,7 +26,7 @@ Language rules:
 - Python: ~/.rules/Python/RULES
 - JavaScript: ~/.rules/JS/RULES
 
-Read doc/project.md before making architectural decisions.
+Read proj/PROJECT before making any architectural decisions — it is the only source of truth.
 ```
 
 ## IDE Extensions
@@ -40,9 +40,9 @@ Configure IDE to inject context:
 
 | File | Purpose | AI Action |
 |------|---------|-----------|
+| PROJECT | Architecture, state, rules — single source of truth | READ first, every session |
 | TODO | Current tasks | READ before work |
 | FIXES | Solved problems | READ before coding, WRITE after fixing |
 | RAG | Project knowledge | READ for context, WRITE discoveries |
-| doc/project.md | Architecture | READ for big picture |
 | DONE | Completed work | Reference for what exists |
 | ISSUES | Known problems | Log here, check here |

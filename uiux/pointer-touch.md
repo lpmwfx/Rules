@@ -1,7 +1,7 @@
 ---
-tags: [platform-ux, pointer, touch, interaction]
+tags: [uiux, pointer, touch, interaction]
 concepts: [interaction, accessibility]
-related: [platform-ux/drag-drop.md]
+related: [uiux/drag-drop.md]
 keywords: [pointer-events, touch, gesture]
 layer: 5
 ---

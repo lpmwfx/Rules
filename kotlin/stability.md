@@ -1,7 +1,7 @@
 ---
 tags: [kotlin, stability, compose-stability, immutable]
 concepts: [build-system, ci]
-requires: [kotlin/compose.md]
+related: [uiux/components.md]
 keywords: [stable, immutable, compose-compiler]
 layer: 4
 ---
@@ -67,21 +67,20 @@ RULE: Read actual error, not just "build failed"
 
 ## Testing
 
-RULE: Test ViewModels independently
-RULE: Use fakes, not mocks
-RULE: Test state transitions
-RULE: Preview composables for visual testing
+RULE: Test the Adapter layer independently — inject a fake repository
+RULE: Use fakes, not mocks — fake implements the interface, mock guesses call order
+RULE: Test state transitions — verify that input produces the correct output state
 
 ```kotlin
-class ProductViewModelTest {
+class ProductAdapterTest {
     private val fakeRepository = FakeProductRepository()
-    private val viewModel = ProductViewModel(fakeRepository)
+    private val adapter = ProductAdapter(fakeRepository)
 
     @Test
-    fun `loadProducts updates state with products`() = runTest {
+    fun `loadProducts emits products state`() = runTest {
         fakeRepository.setProducts(listOf(testProduct))
-        viewModel.loadProducts()
-        assertEquals(listOf(testProduct), viewModel.state.value.items)
+        adapter.loadProducts()
+        assertEquals(listOf(testProduct), adapter.state.value.products)
     }
 }
 ```

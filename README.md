@@ -18,7 +18,7 @@ Used by: Claude Code, Cursor, Copilot, Codex, Mistral, and any AI coding assista
 | [automation/](automation/) | 5 | Session startup context injection |
 | [devops/](devops/) | 4 | AI:DevOps workflow, publishing, CI/CD, packaging |
 | [ipc/](ipc/) | 1 | Unix socket + JSON-RPC 2.0 contract |
-| [platform-ux/](platform-ux/) | 6 | Platform UX defaults (GNOME HIG) |
+| [uiux/](uiux/) | 11 | UI/UX paradigm + platform behaviour (components, state flow, theming) |
 | [python/](python/) | 10 | Python 3.11+ rules |
 | [js/](js/) | 10 | JavaScript (TS-like-JS) rules |
 | [css/](css/) | 9 | CSS rules (cascade by design) |

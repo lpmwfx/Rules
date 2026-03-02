@@ -1,7 +1,7 @@
 ---
-tags: [platform-ux, context-menus, right-click, ui]
+tags: [uiux, context-menus, right-click, ui]
 concepts: [ui-patterns, interaction]
-related: [platform-ux/keyboard.md]
+related: [uiux/keyboard.md]
 keywords: [context-menu, right-click, actions]
 layer: 5
 ---

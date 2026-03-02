@@ -1,7 +1,7 @@
 ---
-tags: [platform-ux, keyboard, shortcuts, accessibility]
+tags: [uiux, keyboard, shortcuts, accessibility]
 concepts: [shortcuts, accessibility]
-related: [platform-ux/context-menus.md]
+related: [uiux/context-menus.md]
 keywords: [hotkey, focus, tab-order]
 layer: 5
 ---

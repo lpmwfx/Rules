@@ -17,7 +17,7 @@ CATEGORIES = [
     "automation",
     "devops",
     "ipc",
-    "platform-ux",
+    "uiux",
     "python",
     "js",
     "css",
@@ -111,7 +111,7 @@ ADVANCED_FILES = {"testing", "dependencies", "nesting", "build", "posix",
                   "cascade", "custom-properties", "themes", "separation",
                   "responsive", "typography", "naming-suffix"}
 
-INFRA_CATEGORIES = {"automation", "devops", "ipc", "platform-ux"}
+INFRA_CATEGORIES = {"automation", "devops", "ipc", "uiux"}
 
 
 def assign_layer(category: str, stem: str, file_type: str) -> int:

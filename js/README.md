@@ -1,7 +1,7 @@
 ---
 tags: [javascript, overview, rules]
 concepts: [javascript-rules, overview]
-related: [js/modules.md, js/jsdoc.md, js/validation.md, js/safety.md, js/eslint.md, js/testing.md, js/philosophy.md, js/typescript-cli.md, js/project-structure.md]
+related: [js/modules.md, js/jsdoc.md, js/validation.md, js/safety.md, js/eslint.md, js/testing.md, js/philosophy.md, js/typescript-cli.md, js/project-structure.md, global/module-tree.md, uiux/state-flow.md]
 layer: 6
 ---
 # JavaScript Rules (TS-like-JS)
@@ -9,6 +9,15 @@ layer: 6
 > Pure JavaScript with TypeScript-level safety — zero build step
 
 ---
+
+## Philosophy
+
+RULE: One module per file — nesting = folder of files, not nested function closures
+RULE: Stateless modules — all app state in a central state object; modules transform, never store
+RULE: Encapsulate behind explicit exports — nothing public unless in the module's export list
+RULE: UI components receive props and emit events — they own no state
+
+See: [global/module-tree.md](../global/module-tree.md) | [uiux/state-flow.md](../uiux/state-flow.md)
 
 ## Files
 

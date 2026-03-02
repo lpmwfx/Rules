@@ -1,80 +1,126 @@
 ---
-tags: [uiux, gui, user-flows, accessibility]
-concepts: [ui-specification, user-flows, accessibility]
-related: [project-files/todo-file.md]
-keywords: [layout, interaction, flow]
+tags: [uiux, gui, user-flows, accessibility, project-files, platform-ux, os-gui]
+concepts: [ui-specification, user-flows, accessibility, platform-ux, os-gui-experience]
+requires: [uiux/components.md, uiux/state-flow.md]
+related: [uiux/README.md, uiux/file-structure.md, project-files/project-file.md, project-files/rules-file.md]
+keywords: [layout, interaction, flow, uiux-file, UIUX, gui, platform, os, toolkit, component-conventions, accessibility]
 layer: 2
 ---
 # UIUX File
 
-> UI/UX specification — what the user sees and experiences
+> UI/UX source of truth for this project — platform, architecture, flows, and conventions
 
 ---
 
 ## Quick Reference
 
 - **Location:** `proj/UIUX`
-- **Format:** Markdown — structured sections with numbered flows and bullet lists
-- **Required:** GUI projects only (TUI, WA, PWA, Desktop, Mobile) — not CLI or libraries
-- **Owner:** User defines UI/UX — AI reads before any GUI work
+- **Required:** ALL GUI projects — TUI, WA, PWA, Desktop, Mobile — no exceptions
+- **Owner:** User defines vision — AI reads before any GUI work, writes conventions as discovered
+- **Read by AI:** Before touching any UI file, every session
 
-Describes user flows, layout structure, and interaction patterns.
-AI reads this before any GUI work — no guessing at layout or flow.
+VITAL: No GUI work without reading proj/UIUX first — no exceptions
+VITAL: proj/UIUX is the UI/UX source of truth — not code comments, not README, not memory
+RULE: AI reads proj/UIUX at session start alongside proj/PROJECT and proj/RULES
+RULE: AI updates proj/UIUX when UI/UX decisions are made or conventions discovered
+RULE: User defines the vision sections — AI never changes Goal, Platform, or Flows without approval
+RULE: When proj/UIUX contradicts a UI file, fix the UI file — UIUX wins
+BANNED: Making UI layout or UX decisions not grounded in proj/UIUX
+BANNED: Skipping proj/UIUX because "it's a small change" — all GUI changes require it
 
 ---
-
-RULE: File lives at `proj/UIUX`
-RULE: Create UIUX.md for GUI projects — skip for CLI tools and libraries
-RULE: AI reads UIUX.md before any GUI work — no exceptions
-RULE: Describe WHAT the user experiences, not HOW it is implemented
-RULE: User flows are numbered sequences — testable step by step
-RULE: Accessibility is not optional — include from the start
-RULE: Update UIUX.md when user-facing behavior changes
 
 ## Format
 
 ```markdown
 # UIUX: project-name
 
+## Goal
+The UI/UX vision — what the user experience should feel like.
+Platform-native, fast, accessible. 2-4 sentences. User defines this.
+
+## Platform
+Target OS and toolkit — determines which platform rules apply.
+
+- OS: GNOME (Linux) / macOS / Windows / Android / iOS / Web
+- Toolkit: GTK4 + libadwaita / SwiftUI / WinUI3 / Jetpack Compose / Qt6 / React
+- Icons: Adwaita / SF Symbols / Fluent / Material You
+
+## UI Foundation Rules
+Load these via get_rule() before any UI work. Always active for all GUI projects.
+
+| Rule | What it enforces |
+|------|-----------------|
+| uiux/theming.md | System light/dark — never hardcoded colors, live switching |
+| uiux/components.md | One file per component, one responsibility, max 200 lines |
+| uiux/file-structure.md | Folders by feature area — changes stay contained |
+| uiux/state-flow.md | State-in from Adapter, events-out — never domain logic in UI |
+| uiux/keyboard.md | Standard shortcuts, keyboard navigation — platform HIG |
+| uiux/help-about.md | About dialog, license, shortcuts window — per platform |
+| uiux/checklist.md | Pre-ship verification — all items must pass |
+
+## UI Architecture
+How UI is structured in this project.
+
+- Toolkit: GTK4 / libadwaita (Rust + Blueprint)
+- Entry point: src/ui/app.rs
+- Component root: src/ui/
+- Shared components: src/ui/shared/
+- Feature folders: src/ui/dashboard/, src/ui/settings/, src/ui/auth/
+- State: AdapterState_sta in src/adapter/ — UI reads, never writes directly
+
+## Component Conventions
+Project-specific UI conventions. AI adds here as patterns are discovered.
+
+- All components use Blueprint (.ui) for layout, Rust for logic
+- Component names: PascalCase, match filename exactly (FeedItem → feed_item.ui + feed_item.rs)
+- Shared button style: use AdwButtonRow, never plain GtkButton for primary actions
+- Error display: AdwStatusPage with icon — never inline text labels
+
 ## User Flows
 
-### Primary Flow: Login
-1. User opens app → sees login screen
-2. User enters credentials → inline validation
-3. User submits → redirect to dashboard
-4. Invalid credentials → error message inline, no redirect
+### Primary Flow: [Name]
+1. User does X → sees Y
+2. User does A → result B
+3. Edge case: if Z → then W
 
-### Secondary Flow: Create Item
-1. User clicks "New" → modal opens
-2. User fills form → validation on blur
-3. User submits → item appears in list, modal closes
+### Secondary Flow: [Name]
+1. ...
 
 ## Layout
 
-### Main Screen
-- Header: logo, nav, user menu
-- Sidebar: section navigation (collapsible on mobile)
-- Content: primary workspace
-- Footer: status bar
+### Main Window
+- Header: AdwHeaderBar with title + primary action
+- Content: AdwNavigationView with sidebar
+- Sidebar: AdwOverlaySplitView (collapsible on narrow)
+- Status: AdwStatusPage for empty/error/loading states
 
-### Detail Screen
-- Breadcrumb: Home > Section > Item
-- Content: form or display
-- Actions: save, cancel, delete (bottom-right)
+### [Screen Name]
+- ...
 
 ## Interaction Patterns
+Project-specific UX decisions.
 
-- Forms: inline validation, submit on Enter
-- Lists: click to select, double-click to edit
-- Modals: confirm before destructive actions
-- Loading: skeleton screens, not spinners
-- Errors: inline near source, toast for global
+- Loading: AdwSpinner in header — never block the whole view
+- Errors: AdwToast for transient, AdwStatusPage for permanent
+- Confirmation: AdwAlertDialog before destructive actions
+- Forms: validate on focus-out, submit on Enter, disable button while loading
 
 ## Accessibility
-
-- Keyboard navigation for all actions
-- Tab order follows visual order
-- Focus visible on all interactive elements
-- ARIA labels on non-text elements
-- Minimum contrast ratio: 4.5:1
+- All interactive elements reachable by keyboard
+- Tab order follows visual order top-to-bottom, left-to-right
+- Focus ring always visible (never hidden with CSS)
+- All icons have accessible labels
+- Minimum contrast: 4.5:1 for text, 3:1 for UI components
 ```
+
+## Why UIUX Is Fundamental
+
+A GUI project without proj/UIUX produces:
+- Inconsistent UX across screens (each screen invented independently)
+- Wrong platform conventions (non-native widgets, wrong icons, missing shortcuts)
+- AI making layout decisions from context instead of specification
+- Components that grow because there is no defined structure to follow
+
+proj/UIUX gives every GUI session a shared ground truth — platform, toolkit, conventions, flows.
+AI reads it first, follows it throughout, and updates it as conventions emerge.

@@ -45,7 +45,7 @@ Each file has a YAML frontmatter block defining:
 
 Content uses `RULE:` and `BANNED:` marker lines that get extracted into `register.jsonl`.
 
-Categories: `global`, `project-files`, `automation`, `devops`, `ipc`, `platform-ux`, `python`, `js`, `css`, `cpp`, `rust`, `kotlin`.
+Categories: `global`, `project-files`, `automation`, `devops`, `ipc`, `uiux`, `python`, `js`, `css`, `cpp`, `rust`, `kotlin`.
 
 ### Metadata Index (`Rules/register.jsonl`)
 

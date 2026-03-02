@@ -1,7 +1,7 @@
 ---
-tags: [platform-ux, drag-drop, interaction, files]
+tags: [uiux, drag-drop, interaction, files]
 concepts: [interaction, file-management]
-related: [platform-ux/pointer-touch.md]
+related: [uiux/pointer-touch.md]
 keywords: [drag, drop, file-upload]
 layer: 5
 ---

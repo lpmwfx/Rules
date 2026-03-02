@@ -1,7 +1,7 @@
 ---
 tags: [rust, overview, rules]
 concepts: [rust-rules, overview]
-related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/naming.md, rust/threading.md, rust/nesting.md, rust/gtk.md, rust/verification.md]
+related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/naming.md, rust/threading.md, rust/nesting.md, rust/verification.md, uiux/gtk.md, uiux/menus-slint.md]
 layer: 6
 ---
 # Rust Rules
@@ -15,7 +15,7 @@ layer: 6
 PLATFORM: Linux (Ubuntu 24.04+), BSD
 EDITION: Rust 2021
 TOOLCHAIN: stable (latest)
-BUILD: Cargo (libraries), Meson (GTK app integration)
+BUILD: Cargo
 
 ## Philosophy
 
@@ -24,6 +24,11 @@ RULE: Pro-Linux/BSD — POSIX first
 RULE: Ownership handles memory — no unsafe unless necessary
 RULE: Result types for errors — never panic in library code
 RULE: Same patterns as Python/JS — flat, explicit, validated
+RULE: One module per file — nesting = folder of files, not nested mod blocks
+RULE: Stateless logic — all app state in a central `AppState_sta` type; functions transform, never store state
+RULE: Encapsulate behind `pub(crate)` — nothing public unless needed at crate boundary
+
+See: [global/module-tree.md](../global/module-tree.md) | [uiux/state-flow.md](../uiux/state-flow.md)
 
 ## Files
 
@@ -36,6 +41,5 @@ RULE: Same patterns as Python/JS — flat, explicit, validated
 | [nesting.md](nesting.md) | Flat code |
 | [naming.md](naming.md) | Naming + layer-tag convention |
 | [types.md](types.md) | Newtype, Option, slices |
-| [gtk.md](gtk.md) | GTK4 gtk-rs patterns |
 | [verification.md](verification.md) | Gating levels (clippy, deny, miri) |
 | [quick-ref.md](quick-ref.md) | Quick reference |

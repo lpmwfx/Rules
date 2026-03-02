@@ -24,11 +24,13 @@ infrastructure, patterns, history, and current phase. AI keeps it current.
 
 ---
 
-RULE: File lives at `proj/PROJECT`
-RULE: AI reads PROJECT.md before any work — no exceptions
-RULE: AI maintains PROJECT.md — keeps it current after every significant change
-RULE: User reviews and approves PROJECT.md updates
+VITAL: proj/PROJECT is the only source of truth — not doc/, not README, not any other file
+VITAL: If proj/PROJECT contradicts another file, proj/PROJECT wins — update the other file, not PROJECT
+RULE: AI reads proj/PROJECT first, every session — before any work
+RULE: AI maintains proj/PROJECT — keeps it current after every significant change
+RULE: User reviews and approves updates to proj/PROJECT
 RULE: AI never changes the `## Goal` section without explicit user approval
+BANNED: Storing architectural decisions, stack choices, or project state anywhere except proj/PROJECT
 
 ## Format
 
@@ -91,14 +93,28 @@ All project circumstances go here:
 
 | File | Owner | AI Action |
 |------|-------|-----------|
-| PROJECT.md | AI | Writes and maintains — single source of truth |
-| PHASES.md | User | AI reads for overview, suggests updates |
-| TODO.md | AI | Writes tasks, updates status |
-| DONE.md | AI | Appends completed phases |
-| ISSUES.md | Both | AI adds discovered issues, user prioritizes |
-| FIXES.md | AI | Writes after solving problems |
-| RAG.md | AI | Writes discoveries and patterns |
-| INSTALL.md | User | AI reads, suggests updates |
-| UIUX.md | User | AI reads for GUI work |
-| AUTHORS.md | User | AI reads for attribution |
-| CHANGELOG.md | Both | AI drafts, user approves on release |
+| PROJECT | AI | Writes and maintains — the only source of truth |
+| PHASES | User | AI reads for overview, suggests updates |
+| TODO | AI | Writes tasks, updates status |
+| DONE | AI | Appends completed phases |
+| ISSUES | Both | AI adds discovered issues, user prioritizes |
+| FIXES | AI | Writes after solving problems |
+| RAG | AI | Writes discoveries and patterns |
+| INSTALL | User | AI reads, suggests updates |
+| UIUX | Both | UI/UX source of truth for GUI projects — READ before any UI work, WRITE conventions |
+| AUTHORS | User | AI reads for attribution |
+| CHANGELOG | Both | AI drafts, user approves on release |
+
+BANNED: `doc/project.md`, `README.md`, or any file outside `proj/` as ongoing architectural reference
+RULE: External docs (doc/, README) may exist for humans — AI ignores them in favour of proj/PROJECT
+
+## Project Initialisation — Bootstrapping proj/PROJECT
+
+When `proj/PROJECT` does not yet exist, a source document may be provided (doc/project.md, a brief, a README, etc.).
+
+RULE: Read the source document once — extract goal, stack, structure, patterns, and decisions
+RULE: Write everything extracted into proj/PROJECT in the standard format
+RULE: Everything that comes up during development is added to proj/PROJECT, not to the source document
+RULE: After bootstrapping, the source document is frozen — it is not updated, not referenced again
+BANNED: Treating the bootstrap source as a living document alongside proj/PROJECT
+BANNED: Splitting truth between the source document and proj/PROJECT at any point after init

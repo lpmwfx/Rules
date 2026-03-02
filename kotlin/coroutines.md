@@ -7,40 +7,26 @@ layer: 4
 ---
 # Coroutines
 
-> viewModelScope, Dispatchers, never block main thread
+> Dispatchers, never block main thread
 
 ---
 
-RULE: `viewModelScope` for ViewModels
 RULE: `Dispatchers.IO` for I/O operations
 RULE: `Dispatchers.Default` for CPU-intensive work
-RULE: Never block main thread
+RULE: `Dispatchers.Main` only for emitting results to the UI layer — logic stays on IO/Default
+RULE: Never block main thread — no `runBlocking` in production code
+RULE: Use `SupervisorJob()` in long-lived scopes so one child failure does not cancel siblings
 
 ```kotlin
-class ProductViewModel(
-    private val repository: ProductRepository
-) {
-    private val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+// Adapter layer — I/O on Dispatchers.IO, result emitted to state flow
+class ProductAdapter(private val repository: ProductRepository) {
+    private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
 
     fun loadProducts() {
         scope.launch {
-            _state.update { it.copy(isLoading = true) }
-
-            val result = withContext(Dispatchers.IO) {
-                repository.getProducts()
-            }
-
-            _state.update { state ->
-                when (result) {
-                    is Result.Success -> state.copy(
-                        items = result.data,
-                        isLoading = false
-                    )
-                    is Result.Error -> state.copy(
-                        error = result.message,
-                        isLoading = false
-                    )
-                }
+            val result = repository.getProducts()          // IO dispatcher
+            withContext(Dispatchers.Main) {
+                _state.update { it.copy(products = result) } // emit to state
             }
         }
     }
