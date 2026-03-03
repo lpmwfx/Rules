@@ -46,7 +46,9 @@
       "mcp__rulestools__scan_file",
       "mcp__rulestools__scan_tree",
       "Bash(bash:*)",
-      "Bash(C:/Python314/python.exe:*)"
+      "Bash(C:/Python314/python.exe:*)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(done)"
     ]
   }
 }

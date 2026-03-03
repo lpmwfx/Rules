@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../RulesTools"
+		},
+		{
+			"path": "../RulesToolsMCP"
 		}
 	],
 	"settings": {}
