@@ -1,7 +1,7 @@
 ---
 tags: [global, overview, foundation]
 concepts: [global-rules, foundation]
-related: [global/startup.md, global/validation.md, global/consistency.md, global/read-before-write.md, global/know-before-change.md, global/persistent-memory.md, global/versions.md, global/secrets.md, global/diagrams.md, global/index-system.md, global/naming-suffix.md, global/app-model.md, global/nesting.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/module-tree.md, gateway/io.md, gateway/lifecycle.md, adapter/viewmodel.md, adapter/event-flow.md, core/design.md, core/state.md, pal/design.md, pal/traits.md]
+related: [global/startup.md, global/validation.md, global/consistency.md, global/read-before-write.md, global/know-before-change.md, global/persistent-memory.md, global/versions.md, global/secrets.md, global/diagrams.md, global/index-system.md, global/naming-suffix.md, global/app-model.md, global/nesting.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/module-tree.md, global/language.md, gateway/io.md, gateway/lifecycle.md, adapter/viewmodel.md, adapter/event-flow.md, core/design.md, core/state.md, pal/design.md, pal/traits.md]
 layer: 6
 ---
 # Global Rules
@@ -35,3 +35,4 @@ These are non-negotiable habits that make AI collaboration reliable.
 | [persistent-state.md](persistent-state.md) | Per-layer state structs, Gateway disk IO |
 | [file-limits.md](file-limits.md) | Max file sizes — check before writing, split when at limit |
 | [module-tree.md](module-tree.md) | Module = file, nested = folder — never nested code in one file |
+| [language.md](language.md) | English-only code and docs — ASCII source, English-first UI |
