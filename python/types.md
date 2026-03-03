@@ -38,3 +38,8 @@ Returns:
 RULE: Use `@contextmanager` for resource management
 RULE: Explicit enter/exit, used with `with` statement
 RULE: Database connections always via context manager
+
+BANNED: `Optional[T]` — write `T | None` (requires `from __future__ import annotations`)
+BANNED: Bare `except:` without exception type — always catch specific exceptions
+BANNED: Mutable default arguments (`def f(x=[])`) — use `None` and assign inside body
+BANNED: `global` keyword — use dependency injection or return values instead

@@ -77,3 +77,4 @@ BANNED: Modifying imported values
 BANNED: Reaching into module internals
 BANNED: Global state outside modules
 BANNED: Side effects on import (except initialization)
+BANNED: `require()` / `module.exports` — ESM only (`import`/`export`)

@@ -43,6 +43,14 @@ RULE: One file per concern — component, token group, state type, feature area 
 | [menus-gnome.md](menus-gnome.md) | GNOME — Slint HeaderBar + hamburger PopupMenu |
 | [menus-kde.md](menus-kde.md) | KDE — hamburger default, optional global menu |
 
+## Menus — Other toolkits and platforms
+
+| File | Topic |
+|------|-------|
+| [menus-android.md](menus-android.md) | Android — Bottom Navigation + Top App Bar overflow (Compose) |
+| [menus-ios.md](menus-ios.md) | iOS — TabView + toolbar items (SwiftUI) |
+| [menus-qt6.md](menus-qt6.md) | Qt6 — QMenuBar / QML MenuBar, platform-adaptive |
+
 ## Platform behaviour — UX per target
 
 | File | Topic |

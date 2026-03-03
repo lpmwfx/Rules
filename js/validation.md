@@ -43,3 +43,6 @@ PREFER: Valibot for smaller bundle size in browser
 FORMAT: `{ success: true, data: result }`
 FORMAT: `{ success: false, error: "message" }`
 RULE: All functions returning results use this pattern
+
+BANNED: `JSON.parse(text)` without schema validation — parse result is `any`
+BANNED: `fetch().then(r => r.json())` without schema validation — validate with Zod/Valibot at boundary

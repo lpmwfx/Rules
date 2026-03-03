@@ -88,3 +88,10 @@ RULE: Schemas live in `core/schemas/` (shared across platforms)
 - [ ] `ui/` must only talk to `adapter/`
 - [ ] All promises handled
 - [ ] IPC calls have timeouts + typed errors
+
+BANNED: `eval()` — arbitrary code execution, use JSON.parse or a proper parser
+BANNED: `console.log` in production code — use a structured logger
+BANNED: Unhandled Promise rejections — every `.then()` needs `.catch()` or `await` in try/catch
+BANNED: `@ts-ignore` — fix the type error instead; `@ts-expect-error` with a comment if unavoidable
+BANNED: TypeScript `any` type — use `unknown` and narrow, or define the type
+BANNED: Non-null assertion `!` without an explaining comment

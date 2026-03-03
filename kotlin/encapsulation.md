@@ -84,3 +84,5 @@ BANNED: `javax.swing.*` imports outside platform/
 BANNED: `java.awt.*` imports outside platform/
 BANNED: Passing `java.io.File` across layer boundaries (use String paths)
 BANNED: Initializing Swing LookAndFeel per-call (causes state corruption)
+BANNED: `!!` non-null assertion — use `?: return`, `?: throw`, or restructure to non-nullable
+BANNED: Multiple top-level classes in one file — one class per file

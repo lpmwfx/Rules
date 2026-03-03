@@ -35,3 +35,6 @@ fn find_user(name: &str) -> User { ... }  // returns "empty" user if not found
 BANNED: `String` for paths (use `PathBuf`)
 BANNED: `println!` for logging (use tracing)
 BANNED: Global mutable state (use dependency injection)
+BANNED: `&Vec<T>` as function parameter — use `&[T]` (accepts Vec, array, slice)
+BANNED: `&String` as function parameter — use `&str` (accepts String, literals, slices)
+BANNED: `static mut` — use `Mutex<T>`, `RwLock<T>`, or `OnceLock<T>`
