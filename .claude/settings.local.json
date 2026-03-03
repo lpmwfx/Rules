@@ -39,7 +39,14 @@
       "WebFetch(domain:docs.slint.dev)",
       "Bash(do echo:*)",
       "Bash(pip install:*)",
-      "Bash(pip show:*)"
+      "Bash(pip show:*)",
+      "Bash(where:*)",
+      "Bash(rulestools-mcp:*)",
+      "Bash(claude mcp:*)",
+      "mcp__rulestools__scan_file",
+      "mcp__rulestools__scan_tree",
+      "Bash(bash:*)",
+      "Bash(C:/Python314/python.exe:*)"
     ]
   }
 }

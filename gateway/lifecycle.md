@@ -20,6 +20,8 @@ RULE: If a state file does not exist, Gateway returns the default `_sta` — nev
 RULE: Partial state corruption → log warning, use default — never abort the whole app
 BANNED: Layers fetching their own config or state from disk — Gateway hands it to them
 BANNED: Writing state mid-session from outside Gateway — flush via Gateway only
+BANNED: `_gtw` file importing a `_adp` type — Gateway must not know Adapter exists
+BANNED: `_gtw` file importing a `_ui` type — Gateway must not know UI exists
 
 ## Boot order
 

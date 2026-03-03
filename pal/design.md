@@ -22,6 +22,10 @@ RULE: PAL implementations are the ONLY place that imports OS-specific crates (`w
 BANNED: `#[cfg(target_os)]` outside `src/pal/`
 BANNED: PAL implementations holding mutable state — stateless delegate only
 BANNED: Business logic or data transformation inside PAL — it executes, not decides
+BANNED: `_pal` file importing a `_core` type — PAL must not know domain exists
+BANNED: `_pal` file importing a `_adp` type — PAL must not know Adapter exists
+BANNED: `_pal` file importing a `_ui` type — PAL must not know UI exists
+BANNED: `_pal` file importing a `_gtw` type — PAL must not know Gateway exists
 
 ## Platform is an implementation detail
 

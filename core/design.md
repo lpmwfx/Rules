@@ -22,6 +22,9 @@ RULE: Core returns `Result<T, AppError_x>` — it never panics, never crashes si
 BANNED: `use slint`, `use gtk`, `use winit`, `use tokio`, `use std::fs`, `use reqwest` in Core
 BANNED: Core knowing about screen names, view models, or UI structure
 BANNED: Core calling Gateway or Adapter — it only calls PAL when platform behaviour is needed
+BANNED: `_core` file importing a `_adp` type — Core must not know Adapter exists
+BANNED: `_core` file importing a `_ui` type — Core must not know UI exists
+BANNED: `_core` file importing a `_gtw` type — Core must not know IO exists
 
 ## What lives in Core
 

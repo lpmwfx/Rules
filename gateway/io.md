@@ -22,6 +22,8 @@ RULE: Path resolution always goes through PAL — never hardcode `~/.config` or 
 BANNED: `std::fs::read`, `std::fs::write`, `reqwest::get` outside Gateway
 BANNED: `unwrap()` on any IO operation — surface all errors as `Result`
 BANNED: Gateway modules containing business logic — IO marshalling only
+BANNED: `_gtw` file importing a `_adp` type — Gateway must not know Adapter exists
+BANNED: `_gtw` file importing a `_ui` type — Gateway must not know UI exists
 
 ## What belongs in Gateway
 
