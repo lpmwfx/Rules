@@ -1,39 +1,42 @@
 ---
-tags: [mcp, gateway, stdio, subprocess, app-server, dev-testing, ai-access]
-concepts: [mcp, gateway, stdio, dev-workflow]
+tags: [mcp, ui, stdio, subprocess, app-server, dev-testing, ai-access]
+concepts: [mcp, ui, stdio, dev-workflow]
 requires: [global/topology.md, mcp/event-adapter.md]
 related: [ipc/contract.md, global/app-model.md]
-keywords: [mcp, stdio, subprocess, gateway, flag, --mcp, claude, dev, testing]
+keywords: [mcp, stdio, subprocess, ui, flag, --mcp, claude, dev, testing]
 layer: 4
 ---
-# MCP App Server — Gateway Component
+# MCP App Server — UI Component
 
-> `app --mcp` gives AI the same access as a human user — via Adapter events
+> `app --mcp` gives AI the same access as a human user — MCP is the AI's user interface
 
 ---
 
-VITAL: MCP server is `_gtw` — lives in `src/gateway/`
+VITAL: MCP server is `_ui` — lives in `src/ui/`
+VITAL: MCP is a user interface, not a bus — it is the AI's rendering surface, parallel to the GUI
 VITAL: MCP exposes only Adapter events as tools — no operations of its own
-RULE: App supports `--mcp` CLI flag to start in MCP-only mode
-RULE: In `--mcp` mode only Gateway + Adapter + Core are initialised — no UI layer
+RULE: App supports `--mcp` CLI flag to start in MCP mode — MCP UI instead of GUI
+RULE: In `--mcp` mode: MCP UI + Adapter + Core + Gateway + PAL — no GUI layer initialised
 RULE: MCP uses stdio transport — the app is launched as a subprocess by the AI client
 RULE: MCP tool names map directly to Adapter event names
-RULE: MCP server is introduced early in the project — gives AI test access before UI exists
-RULE: `--mcp` flag is parsed in main/PAL — before any UI initialisation
-RULE: MCP reads application state from `AdapterState_sta` — same source as UI
+RULE: MCP server is introduced early in the project — gives AI test access before GUI exists
+RULE: `--mcp` flag is parsed in main/PAL — before any GUI initialisation
+RULE: MCP reads application state from `AdapterState_sta` — same source as GUI
 BANNED: MCP server calling Core directly — must go via Adapter events
+BANNED: MCP server calling Gateway directly — must go via Adapter events
 BANNED: MCP tool without a corresponding Adapter event
-BANNED: UI initialisation in MCP mode
-BANNED: Business logic in the MCP Gateway module
+BANNED: GUI initialisation in MCP mode
+BANNED: Business logic in the MCP UI module
 
 ## Startup Modes
 
 ```
-app(.exe)          ──►  GUI mode    (UI + Adapter + Core + Gateway + PAL)
-app(.exe) --mcp    ──►  MCP mode   (Gateway + Adapter + Core — no UI)
+app(.exe)          ──►  GUI mode    (GUI _ui + Adapter + Core + Gateway + PAL)
+app(.exe) --mcp    ──►  MCP mode   (MCP _ui + Adapter + Core + Gateway + PAL)
 ```
 
-The `--mcp` flag is parsed before UI init so no UI framework is ever loaded in MCP mode.
+Both modes run the full stack. The `--mcp` flag switches the UI surface from GUI to MCP.
+No GUI framework is loaded in MCP mode. Gateway, Core, and PAL initialise identically in both modes.
 This applies on all platforms: Windows, macOS, Linux, Android, iOS.
 
 ## Transport
@@ -45,14 +48,16 @@ communicates via stdin/stdout. No Unix sockets, no TCP sockets, no platform-spec
 RULE: Do not implement MCP over Unix sockets or TCP — stdio is the required transport
 RULE: One MCP server instance per app process — started by the `--mcp` flag
 
-## Gateway Placement
+## UI Placement
 
-The MCP server module is `_gtw` because it handles external IO (the stdio protocol).
-It follows the same import rules as all Gateway modules:
+The MCP server module is `_ui` — it is the AI's user interface, parallel to the GUI.
+It follows the same import rules as all UI modules:
 
-RULE: MCP `_gtw` module imports Adapter (`_adp`) to fire events — this is the only allowed direction
-BANNED: MCP `_gtw` module importing Core (`_core`) directly
-BANNED: MCP `_gtw` module importing UI (`_ui`) — UI is not initialised in MCP mode
+RULE: MCP `_ui` module fires events to Adapter (`_adp`) — events up, data down
+RULE: MCP `_ui` module reads computed properties from Adapter (`_adp`) — same as GUI bindings
+BANNED: MCP `_ui` module importing Core (`_core`) directly — must route through Adapter
+BANNED: MCP `_ui` module importing Gateway (`_gtw`) directly — must route through Adapter
+BANNED: MCP `_ui` module importing PAL (`_pal`) directly
 
 ## Dev Workflow
 
@@ -69,7 +74,7 @@ RULE: MCP tool descriptions reflect Adapter event semantics — not UI label tex
 
 ## State and Observability Access
 
-MCP is an external AI UI — it gets the same visibility as a human user, plus full observability.
+MCP is the AI's UI surface — it gets the same visibility as a human user, plus full observability.
 MCP tools may read any data the Gateway layer can access:
 
 RULE: MCP tools may read `AdapterState_sta` — same source as UI

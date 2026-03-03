@@ -1,5 +1,5 @@
 ---
-tags: [mcp, overview, integration, ai-access, gateway]
+tags: [mcp, overview, integration, ai-access, ui]
 concepts: [mcp, overview]
 related: [mcp/event-adapter.md, mcp/app-server.md]
 layer: 6
@@ -15,7 +15,8 @@ layer: 6
 MCP (Model Context Protocol) integration gives an AI assistant the same access to your app
 as a human user — via the existing Adapter event surface. No separate API, no duplicated logic.
 
-The MCP server is a Gateway component (`_gtw`) that lives in `src/gateway/`.
+The MCP server is a UI component (`_ui`) that lives in `src/ui/`.
+It is the AI's user interface — parallel to the GUI, not a bus or gateway.
 It is activated by the `--mcp` CLI flag and communicates via stdio transport.
 
 ## Files in This Category
@@ -35,6 +36,6 @@ It is activated by the `--mcp` CLI flag and communicates via stdio transport.
 
 ## Related Categories
 
-- `global/topology.md` — folder/tag mapping (`_gtw` = `src/gateway/`)
+- `global/topology.md` — folder/tag mapping (`_ui` = `src/ui/`)
 - `global/adapter-layer.md` — Adapter event surface rules
 - `ipc/contract.md` — JSON-RPC contract (Unix socket IPC, separate from MCP)

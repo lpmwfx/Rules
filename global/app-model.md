@@ -38,6 +38,7 @@ BANNED: Disk IO outside Gateway
 | PWA | React / Svelte / SolidJS + SW | Yes |
 | Desktop | Qt / Slint / GTK4 | Yes |
 | Mobile | Compose / SwiftUI | Yes |
+| MCP | MCP server (`--mcp` flag) | Yes — same Adapter as GUI |
 
 RULE: CLI is the only type without MVVM — it maps args directly to CORE calls
 RULE: All UI types use declarative rendering from AdapterState_sta
@@ -114,18 +115,23 @@ See adapter-layer.md for full Adapter rules.
 ## UI — Declarative Layer
 
 Describes what the user sees — never how to mutate the DOM/widget tree.
+`_ui` covers both GUI (human interface) and MCP server (AI interface).
 
 RULE: UI binds to Adapter properties — no direct state struct access
 RULE: UI is stateless — all state comes from Adapter
 RULE: UI sends events to Adapter — never calls CORE directly
+RULE: MCP server is `_ui` — it is the AI's rendering surface, not a bus or gateway
+RULE: `--mcp` flag switches the UI surface from GUI to MCP — full stack otherwise identical
 BANNED: `setState`, `getElementById`, imperative widget updates
 BANNED: Inline business logic in templates/views
+BANNED: MCP server calling Core or Gateway directly — must route through Adapter
 
 ## Architecture Diagram
 
 ```mermaid
 graph TB
-    UI["UI _ui\nDeclarative"]
+    GUI["GUI _ui\nDeclarative"]
+    MCP["MCP _ui\nAI Interface"]
     AD["Adapter _adp\nViewModel + Hub"]
     CORE["Core _core\nBusiness Logic"]
     PAL["PAL _pal\nPlatform Abstraction"]
@@ -133,8 +139,10 @@ graph TB
     SH["Shared _x\nCross-cutting"]
     PLAT[Platform APIs / Disk]
 
-    UI -->|events| AD
-    AD -->|computed props + AdapterState_sta| UI
+    GUI -->|events| AD
+    MCP -->|events| AD
+    AD -->|computed props| GUI
+    AD -->|computed props| MCP
     AD -->|dispatch + CoreConfig_cfg| CORE
     AD -->|read/write state| GTW
     CORE -->|platform calls| PAL

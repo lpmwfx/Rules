@@ -27,7 +27,7 @@ BANNED: Types living outside their designated folder
 
 | Folder | Tag | Role |
 |--------|-----|------|
-| `src/ui/` | `_ui` | Declarative UI layer — views, components, templates |
+| `src/ui/` | `_ui` | Declarative UI layer — views, components, templates; or MCP server (AI interface) |
 | `src/adapter/` | `_adp` | Data exchange hub — routing, transformation, ViewModel |
 | `src/core/` | `_core` | Business logic — pure functions, domain rules |
 | `src/pal/` | `_pal` | Platform abstraction — OS, window, filesystem interface |
@@ -41,15 +41,20 @@ RULE: Config structs use `_cfg` tag regardless of layer — see config-driven.md
 ## Dependency DAG
 
 ```
-UI  ◄──props───  Adapter  ──dispatch──►  Core
- │                  │◄────── results ─────┤
- └──events──────►   │                     │
-                     │                     ▼
-                     ▼              PAL  ──abstracts──►  Platform
-                  Gateway ──IO──►  (iOS, Android, Win, Linux)
-                     │              ▲
-                     └──────────────┘
+GUI (_ui)  ◄──props───┐
+                       │  Adapter  ──dispatch──►  Core
+MCP (_ui)  ◄──data────┘    │◄────── results ────┤
+    │                       │                     │
+    └──events──────────────►│                     ▼
+GUI └──events──────────────►│              PAL  ──abstracts──►  Platform
+                             ▼              (iOS, Android, Win, Linux)
+                          Gateway ──IO──►
+                             │              ▲
+                             └──────────────┘
 ```
+
+RULE: GUI and MCP are both `_ui` — alternative rendering surfaces for the same Adapter state
+RULE: `--mcp` flag switches the UI surface from GUI to MCP — Core, Gateway, PAL are identical in both modes
 
 RULE: UI ↔ Adapter (events up, computed props down)
 RULE: Adapter → Core (dispatch); Core → Adapter (results/reads)
@@ -96,7 +101,8 @@ RESULT: `grep "_adp" src/core/` returning hits = architecture violation
 
 ```mermaid
 graph TB
-    UI["UI _ui\nDeclarative views"]
+    GUI["GUI _ui\nDeclarative views"]
+    MCP["MCP _ui\nAI interface"]
     AD["Adapter _adp\nData exchange hub"]
     CORE["Core _core\nBusiness logic"]
     PAL["PAL _pal\nPlatform abstraction"]
@@ -104,8 +110,10 @@ graph TB
     SH["Shared _x\nCross-cutting"]
     PLAT["Platform\niOS · Android · Win · Linux"]
 
-    UI -->|events| AD
-    AD -->|computed props| UI
+    GUI -->|events| AD
+    MCP -->|events| AD
+    AD -->|computed props| GUI
+    AD -->|computed props| MCP
     AD -->|dispatch| CORE
     CORE -->|results| AD
     AD -->|read/write state| GTW
