@@ -2,6 +2,7 @@
 tags: [state, persistence, gateway, sta, disk-io, shutdown, startup]
 concepts: [persistent-state, state-management, disk-io, gateway-pattern]
 requires: [global/topology.md, global/config-driven.md]
+feeds: [gateway/io.md, gateway/lifecycle.md]
 related: [global/adapter-layer.md, global/app-model.md]
 keywords: [state, gateway, disk, shutdown, startup, persistable, sta, cfg, restore]
 layer: 1

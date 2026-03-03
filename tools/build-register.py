@@ -17,6 +17,8 @@ CATEGORIES = [
     "automation",
     "devops",
     "ipc",
+    "gateway",
+    "adapter",
     "uiux",
     "slint",
     "python",
@@ -92,6 +94,10 @@ CONCEPT_MAP = {
     "rust-bridge": ["rust-slint-bridge", "adapter-event-routing", "type-mapping"],
     "globals": ["slint-globals", "design-tokens", "event-routing-global"],
     "threading": ["thread-safety", "event-loop", "async-ui-update"],
+    "io": ["io-boundary", "gateway-pattern", "pal-delegation"],
+    "lifecycle": ["gateway-lifecycle", "startup-sequence", "shutdown-sequence"],
+    "viewmodel": ["viewmodel", "domain-mapping", "adapter-state"],
+    "event-flow": ["event-flow", "adapter-event-routing", "core-dispatch"],
 }
 
 # ---------------------------------------------------------------------------

@@ -2,6 +2,7 @@
 tags: [adapter, mvvm, viewmodel, event-routing, data-hub, transformation]
 concepts: [adapter-pattern, event-flow, state-routing, data-transformation]
 requires: [global/topology.md]
+feeds: [adapter/viewmodel.md, adapter/event-flow.md]
 related: [global/app-model.md, global/persistent-state.md]
 keywords: [adapter, viewmodel, state, event, routing, transformation, hub, dispatch]
 layer: 1
