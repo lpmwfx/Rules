@@ -41,25 +41,56 @@ RULE: Config structs use `_cfg` tag regardless of layer — see config-driven.md
 ## Dependency DAG
 
 ```
-UI  ──events──►  Adapter  ──dispatch──►  Core
-                    │                      │
-                    │◄─────── reads ───────┘
-                    │
-                    ▼
-                 Gateway  ──IO──►  Disk / Network / OS
-                    │
-                    ▼
-                  PAL  ──abstracts──►  Platform APIs
+UI  ◄──props───  Adapter  ──dispatch──►  Core
+ │                  │◄────── results ─────┤
+ └──events──────►   │                     │
+                     │                     ▼
+                     ▼              PAL  ──abstracts──►  Platform
+                  Gateway ──IO──►  (iOS, Android, Win, Linux)
+                     │              ▲
+                     └──────────────┘
 ```
 
-RULE: UI → Adapter → Core (event flow)
-RULE: Adapter → Gateway (for state read/write)
-RULE: Core → PAL (for platform operations)
-RULE: Gateway → PAL (for disk/network IO)
+RULE: UI ↔ Adapter (events up, computed props down)
+RULE: Adapter → Core (dispatch); Core → Adapter (results/reads)
+RULE: Core → PAL (platform operations from business logic)
+RULE: Adapter → Gateway (state read/write)
+RULE: Gateway → PAL (disk/network IO via platform abstraction)
+RULE: PAL → Platform APIs (iOS, Android, Windows, Linux — all platform targets are PAL implementations)
 RULE: Shared (`_x`) may be imported by any layer
 BANNED: Core → Adapter, Core → UI, Core → Gateway (direct)
 BANNED: UI → Core (must go through Adapter)
-BANNED: PAL → Core, PAL → Adapter, PAL → UI
+BANNED: PAL → Core, PAL → Adapter, PAL → UI, PAL → Gateway
+
+## Forbidden Cross-Suffix Imports
+
+Derived directly from the DAG — a static scanner enforces these by grepping import lines for suffix co-occurrence:
+
+| File suffix | BANNED from importing |
+|-------------|----------------------|
+| `_ui` | `_core`, `_pal`, `_gtw` — must route through `_adp` |
+| `_core` | `_adp`, `_ui`, `_gtw` — Core is pure; calls only `_pal` |
+| `_pal` | `_core`, `_adp`, `_ui`, `_gtw` — PAL is the bottom layer |
+| `_gtw` | `_adp`, `_ui` — Gateway calls `_pal`; does not know Adapter or UI |
+| `_adp` | *(hub — may reference all layers)* |
+| `_x` | *(shared — no import restrictions)* |
+
+BANNED: `_ui` file importing a `_core` type — UI must not know Core exists
+BANNED: `_ui` file importing a `_pal` type — UI must not know platform exists
+BANNED: `_ui` file importing a `_gtw` type — UI must not know IO exists
+BANNED: `_core` file importing a `_adp` type — Core must not know Adapter exists
+BANNED: `_core` file importing a `_ui` type — Core must not know UI exists
+BANNED: `_core` file importing a `_gtw` type — Core must not know IO exists
+BANNED: `_pal` file importing a `_core` type — PAL must not know domain exists
+BANNED: `_pal` file importing a `_adp` type — PAL must not know Adapter exists
+BANNED: `_pal` file importing a `_ui` type — PAL must not know UI exists
+BANNED: `_pal` file importing a `_gtw` type — PAL must not know Gateway exists
+BANNED: `_gtw` file importing a `_adp` type — Gateway must not know Adapter exists
+BANNED: `_gtw` file importing a `_ui` type — Gateway must not know UI exists
+
+RULE: `_sta` and `_cfg` types follow their host layer's import rules
+RULE: A `_core` file importing a `_adp` type is always a placement error — move the logic up
+RESULT: `grep "_adp" src/core/` returning hits = architecture violation
 
 ## Architecture Diagram
 
@@ -71,18 +102,20 @@ graph TB
     PAL["PAL _pal\nPlatform abstraction"]
     GTW["Gateway _gtw\nIO adapter"]
     SH["Shared _x\nCross-cutting"]
-    DISK["Disk / Network / OS"]
+    PLAT["Platform\niOS · Android · Win · Linux"]
 
     UI -->|events| AD
     AD -->|computed props| UI
     AD -->|dispatch| CORE
+    CORE -->|results| AD
     AD -->|read/write state| GTW
     CORE -->|platform calls| PAL
     GTW -->|IO calls| PAL
-    PAL -->|delegates| DISK
+    PAL -->|implements| PLAT
     SH -.->|available to all| AD
     SH -.->|available to all| CORE
     SH -.->|available to all| GTW
+    SH -.->|available to all| PAL
 ```
 
 ## Placement Rules
