@@ -1,80 +1,77 @@
 ---
-tags: [naming, suffix, code-suffix, collision-prevention]
-concepts: [naming, collision-prevention]
-related: [global/consistency.md, automation/tool-configs.md]
-keywords: [brand, code-suffix, identifiers]
+tags: [naming, suffix, layer-tag, type-naming, architecture, grep]
+concepts: [layer-tag-naming, type-placement, grep-topology]
+requires: [global/topology.md]
+related: [global/persistent-state.md, global/config-driven.md, adapter/viewmodel.md, core/design.md, pal/design.md, gateway/io.md, uiux/state-flow.md, slint/component-model.md]
+keywords: [suffix, _adp, _core, _pal, _gtw, _ui, _x, _sta, _cfg, _test, layer-tag, type-name, grep, placement, PascalCase]
 layer: 1
 ---
-# Naming Suffix Convention
+# Type Naming — Layer Tag Suffix
 
-> Brand + code suffix on all identifiers — same code for the entire project
+> Every public type carries its layer tag — `BuilderAdapter_adp`, `CoreState_sta`, `AppConfig_cfg`
 
 ---
 
-## Format
+VITAL: All public types have a layer tag suffix — the tag identifies where the type lives and what it does
+VITAL: Tag and folder always agree — `_adp` lives in `src/adapter/`, `_gtw` lives in `src/gateway/`
+RULE: Suffix is appended to the PascalCase type name — `TypeName_tag`
+RULE: `grep _adp` finds every Adapter type across all files — the tag is the search key
+RULE: `_sta` and `_cfg` override the layer tag — state and config structs use their own suffix regardless of layer
+BANNED: Public types without a layer tag suffix
+BANNED: Tag and folder disagreeing — `_core` type in `src/adapter/` is a placement error
 
-FORMAT: `name_BRANDCODE`
-- `name` = variable, function, class, constant name
-- `BRAND` = project/org scope (chosen by project creator)
-- `CODE` = 3+ chars from a-z, A-Z, 0-9 — fixed per project
+## Layer tag table
 
-VITAL: One code suffix per project — every identifier uses the same code
-VITAL: Applies to all identifiers created by the coder inside code files
-BANNED: Suffix on file names — only code identifiers
-
-## Rules
-
-RULE: All identifiers (variables, functions, classes, constants) MUST have brand+code suffix
-RULE: The code suffix is chosen once per project and reused everywhere
-RULE: Code characters: a-z, A-Z, 0-9 (case-sensitive)
-RULE: Minimum 3 characters for the code part
-RULE: Brand declared in project `.rulevalidator.json` under `naming.brand`
-RULE: Project creator defines brand+code when bootstrapping project
-RULE: Missing brand config = BLOCKING ISSUE (must fix before validation)
-BANNED: Different codes for different symbols in the same project
-BANNED: Suffixes on file names or directory names
+| Tag | Folder | Role | Rules file |
+|-----|--------|------|------------|
+| `_ui` | `src/ui/` | Declarative views, components, templates | [uiux/](../uiux/README.md) · [slint/](../slint/README.md) |
+| `_adp` | `src/adapter/` | ViewModel, event routing, domain→UI mapping | [adapter/viewmodel.md](../adapter/viewmodel.md) |
+| `_core` | `src/core/` | Domain types, business logic, pure functions | [core/design.md](../core/design.md) |
+| `_pal` | `src/pal/` | Platform abstraction interfaces and implementations | [pal/design.md](../pal/design.md) |
+| `_gtw` | `src/gateway/` | IO adapter — config load, state persist, network | [gateway/io.md](../gateway/io.md) |
+| `_x` | `src/shared/` | Cross-cutting — errors, results, shared traits | any layer |
+| `_sta` | any layer | Mutable session state — persisted by Gateway | [global/persistent-state.md](persistent-state.md) |
+| `_cfg` | any layer | Immutable config — loaded once by Gateway at startup | [global/config-driven.md](config-driven.md) |
+| `_test` | `tests/` | Test doubles, fixtures, test-only helpers | mirror of `src/` |
 
 ## Examples
 
-```
-# Project: RulesValidator, brand=rv, code=A1b
-# → Every identifier in this project uses _rvA1b
+```rust
+// Layer types — tag = folder
+pub struct BuilderAdapter_adp { ... }   // src/adapter/
+pub struct SchemaCore_core     { ... }  // src/core/
+pub struct WindowsPal_pal      { ... }  // src/pal/
+pub struct RuntimeGateway_gtw  { ... }  // src/gateway/
+pub struct FieldRow_ui         { ... }  // src/ui/
 
-Issue_rvA1b              # class
-parse_document_rvA1b     # function
-total_count_rvA1b        # variable
-MAX_RETRIES_rvA1b        # constant
+// State and config — tag overrides layer
+pub struct AdapterState_sta    { ... }  // lives in src/adapter/, tagged _sta
+pub struct CoreState_sta       { ... }  // lives in src/core/, tagged _sta
+pub struct AppConfig_cfg       { ... }  // lives in src/gateway/, tagged _cfg
+pub struct CoreConfig_cfg      { ... }  // lives in src/core/, tagged _cfg
 
-# Project: TwistedBrain, brand=twb, code=42Z
-ok_twb42Z                # function
-config_twb42Z            # variable
+// Shared / cross-cutting
+pub struct AppError_x          { ... }  // src/shared/
+pub type   BuilderResult_x<T>  = Result<T, AppError_x>;
 
-# Project: AI1st, brand=ai1st, code=Xy3
-bootstrap_ai1stXy3       # function
-```
-
-## Known Brands
-
-- `twb` — TwistedBrain (personal)
-- `lpm` — lpm username
-- `ai1st` — AI1st organization
-- `rv` — RulesValidator project
-
-## Config (.rulevalidator.json)
-
-```json
-{
-  "naming": {
-    "brand": "rv",
-    "code": "A1b",
-    "suffix_min_length": 3
-  }
-}
+// Test double
+pub struct TestFilePal_pal     { ... }  // tests/ or src/pal/ — tagged as PAL impl
 ```
 
-## Why
+## Grep as topology
 
-- Prevents naming collisions across projects
-- Identifies code origin at a glance
-- Same suffix everywhere = easy to search/replace
-- Works in all languages (Python, JS, Rust, etc.)
+The tag suffix is a grep-searchable architecture map:
+
+```
+grep _gtw   → all Gateway types       (IO boundary)
+grep _adp   → all Adapter types       (ViewModel, event routing)
+grep _core  → all Core domain types   (business logic)
+grep _sta   → all state structs       (persisted by Gateway)
+grep _cfg   → all config structs      (loaded at startup)
+```
+
+RULE: When in doubt where a type belongs — pick the layer, apply the tag, move it to the matching folder
+RULE: If a type spans two layers, move it to `_x` (shared)
+
+RESULT: Type origin is readable without opening the file — the tag is the address
+REASON: AI and humans can navigate the codebase by grep alone — no IDE required

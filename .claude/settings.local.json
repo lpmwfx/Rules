@@ -36,7 +36,8 @@
       "Bash(PYTHONPATH=/d/REPO/Rules/RulesTools python:*)",
       "WebFetch(domain:releases.slint.dev)",
       "WebFetch(domain:slint.dev)",
-      "WebFetch(domain:docs.slint.dev)"
+      "WebFetch(domain:docs.slint.dev)",
+      "Bash(do echo:*)"
     ]
   }
 }

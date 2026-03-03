@@ -1,7 +1,7 @@
 ---
 tags: [topology, architecture, hexagonal, mvvm, layers, dag, folder-structure, project-structure, ui]
 concepts: [architecture, layer-topology, dependency-graph, hexagonal-mvvm, app-structure]
-feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md]
+feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, core/design.md, pal/design.md]
 related: [global/app-model.md]
 keywords: [ui, adapter, core, pal, gateway, shared, folder-structure, import-rules, dag, placement, project, setup, app-layout, src, init, directory]
 layer: 1

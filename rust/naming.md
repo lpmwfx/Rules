@@ -2,7 +2,7 @@
 tags: [rust, naming, conventions, layer-tag]
 concepts: [naming-conventions, readability]
 requires: [global/consistency.md, global/topology.md]
-related: [python/naming.md, css/naming.md]
+related: [python/naming.md, css/naming.md, global/naming-suffix.md]
 layer: 3
 ---
 # Naming Rules

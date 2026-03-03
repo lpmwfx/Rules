@@ -1,7 +1,7 @@
 ---
 tags: [validation, boundaries, runtime-checking]
 concepts: [runtime-checking, boundaries, validation]
-feeds: [python/types.md, js/validation.md, js/safety.md]
+feeds: [python/types.md, js/validation.md, js/safety.md, slint/validation.md]
 layer: 1
 ---
 # Validation Over Abstraction

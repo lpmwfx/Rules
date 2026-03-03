@@ -3,7 +3,7 @@ tags: [app-model, architecture, mvvm, stateless, hexagonal, gateway]
 concepts: [architecture, state-management, mvvm, declarative, hexagonal-mvvm]
 requires: [global/topology.md]
 feeds: [project-files/uiux-file.md]
-related: [global/consistency.md, global/validation.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, gateway/io.md, gateway/lifecycle.md, adapter/viewmodel.md, adapter/event-flow.md]
+related: [global/consistency.md, global/validation.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, gateway/io.md, gateway/lifecycle.md, adapter/viewmodel.md, adapter/event-flow.md, core/design.md, pal/design.md]
 keywords: [core, pal, adapter, gateway, state, cli, tui, pwa, qt, slint, cfg, sta, gtw]
 layer: 1
 ---

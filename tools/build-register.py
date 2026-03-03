@@ -19,6 +19,8 @@ CATEGORIES = [
     "ipc",
     "gateway",
     "adapter",
+    "core",
+    "pal",
     "uiux",
     "slint",
     "python",
@@ -98,6 +100,8 @@ CONCEPT_MAP = {
     "lifecycle": ["gateway-lifecycle", "startup-sequence", "shutdown-sequence"],
     "viewmodel": ["viewmodel", "domain-mapping", "adapter-state"],
     "event-flow": ["event-flow", "adapter-event-routing", "core-dispatch"],
+    "design": ["pure-business-logic", "domain-rules", "platform-abstraction"],
+    "traits": ["pal-traits", "platform-interface", "file-api"],
 }
 
 # ---------------------------------------------------------------------------
@@ -123,6 +127,9 @@ ADVANCED_FILES = {"testing", "dependencies", "nesting", "build", "posix",
                   "responsive", "typography", "naming-suffix"}
 
 INFRA_CATEGORIES = {"automation", "devops", "ipc", "uiux"}
+
+# Architecture categories — always included in every learning path (like global/)
+ARCH_CATEGORIES = {"gateway", "adapter", "core", "pal"}
 
 
 def assign_layer(category: str, stem: str, file_type: str) -> int:
