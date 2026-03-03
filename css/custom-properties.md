@@ -1,6 +1,7 @@
 ---
 tags: [css, custom-properties, variables, design-tokens]
 concepts: [design-tokens, variables]
+requires: [global/validation.md]
 related: [css/themes.md, css/cascade.md]
 keywords: [css-variables, design-tokens]
 layer: 4
