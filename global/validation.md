@@ -25,3 +25,25 @@ VITAL: Each layer catches what the previous missed
 
 PRINCIPLE: Abstraction says "trust me" — Validation says "verify"
 REASON: AI can't debug hidden magic — AI CAN fix explicit errors
+
+## Static Rule Scanner
+
+RULE: Install rulestools in every project — scan on every commit, watch on every edit
+RULE: Fix all errors before committing — warnings inform, errors block
+
+rulestools enforces these rules statically across all supported languages.
+Install once per project:
+
+```bash
+rulestools setup <project-path>   # detect languages + VSCode task + pre-commit hook
+rulestools scan  <project-path>   # one-shot scan, writes proj/ISSUES
+```
+
+The scanner writes violations to `proj/ISSUES`. Each violation carries a rule ID
+that maps back to this rules set via the MCP server:
+
+```
+rust/errors/no-unwrap  →  mcp__rules__get_rule(file="rust/errors.md")
+```
+
+AI assistants fixing issues should read `proj/RULES-MCP.md` for the full lookup workflow.
