@@ -33,7 +33,10 @@
       "Bash(sed:*)",
       "Bash(rm:*)",
       "Bash(gh repo:*)",
-      "Bash(PYTHONPATH=/d/REPO/Rules/RulesTools python:*)"
+      "Bash(PYTHONPATH=/d/REPO/Rules/RulesTools python:*)",
+      "WebFetch(domain:releases.slint.dev)",
+      "WebFetch(domain:slint.dev)",
+      "WebFetch(domain:docs.slint.dev)"
     ]
   }
 }

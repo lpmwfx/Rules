@@ -1,9 +1,9 @@
 ---
-tags: [theming, dark-mode, light-mode, system-appearance, uiux]
+tags: [theming, dark-mode, light-mode, system-appearance, uiux, slint]
 concepts: [theming, system-appearance, accessibility]
 requires: [uiux/tokens.md]
-related: [css/themes.md, css/custom-properties.md, global/config-driven.md]
-keywords: [dark-mode, light-mode, system, appearance, NSAppearance, prefers-color-scheme, color-scheme, gtk, qt, swiftui, compose]
+related: [css/themes.md, css/custom-properties.md, global/config-driven.md, slint/globals.md]
+keywords: [dark-mode, light-mode, system, appearance, NSAppearance, prefers-color-scheme, color-scheme, gtk, qt, swiftui, compose, slint, invoke-from-event-loop, Colors-global]
 layer: 3
 ---
 # System Appearance — Auto Light/Dark Theming
@@ -110,6 +110,59 @@ Rectangle {
 RULE: Use `palette.window`, `palette.text`, `palette.button` — they follow the system palette
 RULE: Never hardcode colors in QML — always use `palette.*` or CSS custom properties
 BANNED: Setting a fixed `QPalette` at startup that does not respond to system changes
+
+## Slint — Rust + cross-platform
+
+Slint does **not** auto-detect system appearance. The PAL layer reads the OS preference;
+the Adapter injects it into the `Colors` design-token global at startup and on change.
+
+```rust
+// src/pal/appearance.rs — platform abstraction (one impl per OS)
+pub fn is_dark_mode() -> bool { /* check registry / NSAppearance / portal */ }
+pub fn watch_appearance(tx: std::sync::mpsc::Sender<bool>) { /* OS signals */ }
+```
+
+```rust
+// Adapter::init — inject once at startup
+ui.global::<Colors>().set_dark_mode(pal::appearance::is_dark_mode());
+
+// Watch for live OS changes — update without restart
+let ui_weak = ui.as_weak();
+std::thread::spawn(move || {
+    let (tx, rx) = std::sync::mpsc::channel();
+    pal::appearance::watch_appearance(tx);
+    for is_dark in rx {
+        let ui_weak = ui_weak.clone();
+        slint::invoke_from_event_loop(move || {
+            if let Some(ui) = ui_weak.upgrade() {
+                ui.global::<Colors>().set_dark_mode(is_dark);
+            }
+        }).ok();
+    }
+});
+```
+
+```slint
+// ui/tokens/colors.slint — only the token file branches on dark-mode
+export global Colors {
+    in property <bool>   dark-mode: false;          // Adapter sets via PAL
+    out property <color> bg-primary:   dark-mode ? #1a1a1a : #ffffff;
+    out property <color> text-primary: dark-mode ? #f0f0f0 : #1a1a1a;
+    out property <color> accent:       #4a90d9;     // same in both modes
+}
+
+// Component — zero knowledge of dark-mode
+component Card inherits Rectangle {
+    background: Colors.bg-primary;    // ✓ token
+    Text { color: Colors.text-primary; }
+}
+```
+
+RULE: PAL layer reads system preference — Adapter injects into `Colors.dark-mode` via `set_dark_mode()`
+RULE: Live OS change → PAL sends signal → `invoke_from_event_loop` updates `Colors.dark-mode` — no restart
+RULE: Only `Colors` global (token file) branches on `dark-mode` — components never check it
+BANNED: Components reading `dark-mode` directly to pick colors — use `Colors.*` tokens
+BANNED: Hardcoded colors in components — `Colors.bg-primary`, not `#1a1a1a`
 
 ## CSS / Web (WA / PWA)
 

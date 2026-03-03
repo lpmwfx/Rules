@@ -18,6 +18,7 @@ CATEGORIES = [
     "devops",
     "ipc",
     "uiux",
+    "slint",
     "python",
     "js",
     "css",
@@ -87,6 +88,10 @@ CONCEPT_MAP = {
     "structure": ["file-organization", "architecture"],
     "quick-ref": ["reference", "summary"],
     "app-model": ["architecture", "state-management"],
+    "component-model": ["slint-component-model", "property-direction", "slint-naming"],
+    "rust-bridge": ["rust-slint-bridge", "adapter-event-routing", "type-mapping"],
+    "globals": ["slint-globals", "design-tokens", "event-routing-global"],
+    "threading": ["thread-safety", "event-loop", "async-ui-update"],
 }
 
 # ---------------------------------------------------------------------------
