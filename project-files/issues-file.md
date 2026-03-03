@@ -2,7 +2,7 @@
 tags: [issues, fifo, problem-queue]
 concepts: [issue-tracking, fifo, problem-resolution]
 feeds: [project-files/fixes-file.md]
-related: [project-files/todo-file.md]
+related: [project-files/todo-file.md, project-files/project-process.md]
 keywords: [fifo, open, committed, resolved]
 layer: 2
 ---
@@ -62,17 +62,4 @@ Resolution: Load dotenv at script entry. See FIXES.md 2026-02-20.
 - `committed` — Assigned to a phase or task, being worked on
 - `resolved` — Fixed and verified (must have FIXES.md entry)
 
-## FIFO Rule
-
-Issues are handled in order — oldest open first.
-Exceptions require explicit user approval with documented reason.
-
-## Relations
-
-```
-Problem discovered
-  └── ISSUES.md entry (open)
-        └── Assigned to phase/task (committed)
-              └── Fixed and verified (resolved)
-                    └── FIXES.md entry (Problem → Cause → Solution)
-```
+> Full trigger flow and DONES mechanics → see [project-process.md](project-process.md)

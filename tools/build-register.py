@@ -17,6 +17,7 @@ CATEGORIES = [
     "automation",
     "devops",
     "ipc",
+    "mcp",
     "gateway",
     "adapter",
     "core",

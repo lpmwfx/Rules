@@ -1,7 +1,7 @@
 ---
 tags: [ipc, contract, json-rpc, protocol]
 concepts: [protocol, json-rpc, contract]
-related: [global/validation.md]
+related: [global/validation.md, mcp/app-server.md]
 keywords: [json-rpc, schema, versioning]
 layer: 5
 ---
@@ -91,8 +91,7 @@ RULE: Do not mix error styles inside `result`; protocol errors go to `error`
 
 ## MCP Usage
 
-RULE: MCP endpoints are still JSON-RPC over Unix sockets
-RULE: MCP methods must follow the same ACK result pattern
+RULE: MCP uses stdio transport (not Unix sockets) — see mcp/ category
 
 ## Framing Notes
 

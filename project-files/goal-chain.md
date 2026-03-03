@@ -2,7 +2,7 @@
 tags: [goal-chain, traceability, milestones]
 concepts: [traceability, milestones, goal-chain]
 feeds: [project-files/project-file.md, project-files/phases-file.md]
-related: [project-files/workflow.md]
+related: [project-files/workflow.md, project-files/project-process.md]
 layer: 2
 ---
 # Goal Chain
@@ -49,30 +49,4 @@ TODO pass:
 > all pass > milestone done > phase done > recorded in DONE
 ```
 
-## DONES Rule
-
-See [workflow.md](workflow.md) for full DONES mechanics.
-
-## Status Transitions
-
-Allowed:
-```
-TODO > DOING > DONE
-DONE > FAIL      (requires: what failed, what was learned)
-DONE > REFACTOR  (requires: what to improve, what to reuse)
-```
-
-Forbidden:
-```
-DOING > FAIL
-TODO  > REFACTOR
-DOING > ISSUES
-```
-
-RULE: Everything must pass through DONE first
-
-## FAIL / REFACTOR Flow
-
-1. An ISSUE is created
-2. Issue placed right after DONES in FIFO queue
-3. Must be handled in order — no skipping ahead
+> Status transitions, DONES mechanics, FAIL/REFACTOR flow → see [project-process.md](project-process.md)

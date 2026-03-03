@@ -2,7 +2,7 @@
 tags: [workflow, session, relations, publishing]
 concepts: [workflow, file-relations, publishing-flow]
 requires: [project-files/project-file.md, project-files/phases-file.md, project-files/todo-file.md]
-related: [global/startup.md, project-files/install-file.md]
+related: [global/startup.md, project-files/install-file.md, project-files/project-process.md]
 keywords: [dones, ownership, dual-repo, proj]
 layer: 2
 ---
@@ -12,32 +12,7 @@ layer: 2
 
 ---
 
-## Session Workflow
-
-All project files live in `proj/` — always use that path.
-
-```
-1. Start session
-   → Read proj/PROJECT  (understand state, phase, infra)
-   → Read proj/PHASES   (know the active milestone)
-   → Read proj/TODO     (know current tasks)
-   → Read proj/FIXES    (avoid past mistakes)
-
-2. Work on task
-   → Update proj/TODO task status to in_progress
-   → Code, test, verify
-
-3. Complete task
-   → Update proj/TODO task status to done (move below DONES)
-   → If problem solved → add to proj/FIXES
-   → If learned something → add to proj/RAG
-
-4. Complete phase (all tasks done)
-   → Append completed phase to proj/DONE
-   → Move PHASES.md entry below DONES
-   → Update proj/PROJECT (Current phase + History)
-   → Create new proj/TODO for next phase
-```
+> Session workflow, state transitions, and DONES mechanics → see [project-process.md](project-process.md)
 
 ## File Relations
 
@@ -77,19 +52,6 @@ proj/PROJECT Goal (the vision)
 | UIUX.md | User | User defines UI/UX | User owns |
 | AUTHORS.md | User | User manages | User owns |
 | CHANGELOG.md | Both | AI drafts | User approves on release |
-
-## DONES Mechanics
-
-Three files use the `# --- DONES ---` separator:
-
-| File | Above DONES | Below DONES |
-|------|-------------|-------------|
-| TODO.md | pending, in_progress | done |
-| ISSUES.md | open, committed | resolved |
-| PHASES.md | planned, active, blocked | done |
-
-RULE: Items move DOWN across DONES — never back up
-RULE: Moving below DONES means evaluated and closed
 
 ## Publishing Workflow
 
@@ -144,14 +106,3 @@ RULE: Private repo is source of truth for development
 RULE: Public repo is clean, publishable subset
 RULE: Never push proj/ to public repo
 
-## Validation
-
-AI should verify at session start:
-
-```
-proj/TODO phase == proj/PROJECT Current.phase   # Must match
-proj/TODO id    == proj/PROJECT Current.id       # Must match
-Active phase in proj/PHASES == proj/PROJECT phase  # Must match
-```
-
-RULE: If validation fails → STOP and ask user
