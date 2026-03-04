@@ -2,7 +2,7 @@
 tags: [startup, checklist, session, mandatory]
 concepts: [workflow, initialization]
 feeds: [project-files/workflow.md]
-related: [global/read-before-write.md, global/know-before-change.md, global/file-limits.md]
+related: [global/graph-position-paradigm.md, global/read-before-write.md, global/know-before-change.md, global/file-limits.md]
 layer: 1
 ---
 # Mandatory Startup Checklist
