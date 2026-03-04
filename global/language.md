@@ -15,7 +15,7 @@ RULE: All code, identifiers, comments, and documentation must be written in Engl
 RULE: Only ASCII characters are permitted in source code — no unicode in identifiers, strings, or comments
 RULE: UI strings start as English literals — extract to localization files only when i18n is required
 RULE: Variable names, function names, file names, and commit messages are always English
-RULE: AI-human conversation may be in any language — code and documentation must be English
+RULE: AI-human conversation is in Danish — code and documentation must be English
 
 BANNED: Non-ASCII characters in source code identifiers or comments
 BANNED: Native-language strings hardcoded in logic layers — use English keys, localize at the boundary
