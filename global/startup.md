@@ -1,7 +1,7 @@
 ---
 tags: [startup, checklist, session, mandatory]
 concepts: [workflow, initialization]
-feeds: [project-files/workflow.md]
+feeds: [project-files/workflow.md, global/initialize.md]
 related: [global/graph-position-paradigm.md, global/read-before-write.md, global/know-before-change.md, global/file-limits.md]
 requires: [global/graph-position-paradigm.md]
 layer: 1
@@ -35,7 +35,7 @@ VITAL: Step 7 is mandatory for any session involving UI, CSS, or source files �
 
 RULE: All project files live in `proj/` — never in the project root
 RULE: Validate that proj/TODO phase matches proj/PROJECT Current.phase
-RULE: If proj/ does not exist, create it and initialize the project files
+RULE: If proj/ does not exist → follow global/initialize.md — do not improvise
 
 These rules apply to ALL code — Python, JavaScript, CSS, and any other language.
 They are non-negotiable habits that make AI collaboration reliable.
