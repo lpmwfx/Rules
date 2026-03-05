@@ -18,6 +18,7 @@ CATEGORIES = [
     "devops",
     "ipc",
     "mcp",
+    "personas",
     "gateway",
     "adapter",
     "core",
