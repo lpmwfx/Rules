@@ -19,6 +19,7 @@ Load a persona via: `get_rule("personas/<name>.md")`
 | File | Role | Description |
 |------|------|-------------|
 | [aidevops.md](aidevops.md) | AIDevOps | OPS/DEV mode switching — phase-driven, test-per-commit, branch discipline |
+| [dev.md](dev.md) | Dev | Pure execution — reads TODO, commits tested tasks, asks before advancing phase |
 
 ## What a Persona Contains
 
