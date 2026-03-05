@@ -16,9 +16,11 @@ layer: 1
 VITAL: One file, one encapsulated module — if the file is growing, it has taken on a second job
 VITAL: Size limits exist because AI loses context above ~200 lines — not for style reasons
 VITAL: Before adding code to any existing file, count its lines — if near the limit, split the module first
+VITAL: A split is NOT moving code sideways — it creates a mother/child folder cascade (see below)
 RULE: After splitting, update all imports and references before moving on
 BANNED: Adding to a file that is already at its limit
 BANNED: "I'll split it later" — split at the trigger, not when it becomes a crisis
+BANNED: Moving code to a sibling file as a "split" — that is relocation, not decomposition
 
 ## Limits by File Type
 
@@ -51,7 +53,30 @@ Before writing to existing-file.ext:
 
 RULE: "Count before you write" is the habit — not a suggestion
 
-## How to Split
+## The Mother/Child Cascade — The Only Correct Split Pattern
+
+When a file reaches its limit, the split always produces a **folder cascade**:
+
+```
+feature.py                   →   feature/
+                                 ├── __init__.py   ← mother: composes + re-exports children
+                                 ├── child_a.py    ← child: one job
+                                 └── child_b.py    ← child: one job
+```
+
+The mother file has **one job**: compose and expose its children. It contains no logic of its own.
+The children each have **one job**: one class, one function group, one concern.
+
+RULE: A split always produces a folder + a mother file — never just a new sibling in the same directory
+RULE: The mother file re-exports everything the old single file exposed — callers change nothing
+RULE: Children are named after their single responsibility, not after the feature they came from
+RULE: The folder name matches the original file name — `feature.py` becomes `feature/`
+BANNED: Creating a flat cluster of siblings with no mother — there is always a single composition point
+
+This is the same pattern as functional/modular programming: a module is a tree, not a flat list.
+The file boundary enforces the tree — each node is either a leaf (child) or a compositor (mother).
+
+## How to Split — Examples
 
 ### UI / Component
 
@@ -62,12 +87,13 @@ Before (HomeScreen.tsx — 130 lines):
     ├── feed list + items (60 lines)
     └── sidebar (40 lines)
 
-After:
-  HomeScreen.tsx      (20 lines — composes the three below)
-  HomeHeader.tsx      (30 lines)
-  HomeFeed.tsx        (35 lines)
-  HomeFeedItem.tsx    (25 lines)
-  HomeSidebar.tsx     (40 lines)
+After (mother/child folder cascade):
+  HomeScreen/
+  ├── index.tsx       (20 lines — mother: composes the three below, no logic)
+  ├── Header.tsx      (30 lines — child: only header)
+  ├── Feed.tsx        (35 lines — child: only feed list)
+  ├── FeedItem.tsx    (25 lines — child: only feed item)
+  └── Sidebar.tsx     (40 lines — child: only sidebar)
 ```
 
 ### CSS
@@ -76,12 +102,13 @@ After:
 Before (main.css — 200 lines):
   variables + reset + header + cards + forms + footer
 
-After:
-  tokens.css    (variables, reset)
-  header.css    (header component)
-  cards.css     (card component)
-  forms.css     (form component)
-  footer.css    (footer component)
+After (mother/child cascade):
+  main.css          (mother: @import children only — no rules of its own)
+  ├── tokens.css    (child: variables + reset)
+  ├── header.css    (child: header component)
+  ├── cards.css     (child: card component)
+  ├── forms.css     (child: form component)
+  └── footer.css    (child: footer component)
 ```
 
 ### Python / JS / Rust module
