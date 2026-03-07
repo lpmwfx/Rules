@@ -4,56 +4,44 @@ concepts: [phase-completion, archive]
 requires: [project-files/todo-file.md, project-files/phases-file.md]
 layer: 2
 ---
-# DONE File
+# DONES Folder
 
-> Completed phases with their tasks — append-only archive
+> Completed TODO files — append-only archive folder
 
 ---
 
 ## Quick Reference
 
-- **Location:** `proj/DONE`
-- **Format:** Markdown headings + YAML list items in body
-- **Required:** Always
-- **Write rule:** Append only — newest phase at top, never edit past entries
+- **Location:** `proj/DONES/` (folder)
+- **Files:** One file per completed TODO — dumped as-is when done
+- **Naming:** `<TODO-NAME>-<phase>-<id>.md` or descriptive name
+- **Required:** Always (folder must exist)
+- **Write rule:** Drop files in — never edit files already in DONES/
 
-Archive of completed phases. When a phase finishes, copy tasks from TODO.md
-and append a new entry here. Never edit entries already in DONE.
+When a TODO file is fully complete, move it into `proj/DONES/` unchanged.
+Create a new TODO for the next batch of work.
 
 ---
 
-RULE: File lives at `proj/DONE`
-RULE: Append completed phases at TOP — newest first
-RULE: Include `completed:` date on every entry
-RULE: Copy task descriptions from TODO when phase completes
-RULE: Never edit or delete existing entries — DONE is append-only
-RULE: DONE grows forever — it is the project history
+RULE: Folder lives at `proj/DONES/`
+RULE: Each file in DONES/ is a completed TODO file dropped in as-is
+RULE: Never edit files already in DONES/ — the folder is append-only
+RULE: DONES/ grows forever — it is the project history
+RULE: Naming: use the original TODO filename plus phase/date for disambiguation
 
 ## Format
 
-```markdown
-# DONE: project-name
-
-- phase: 25
-  id: content-expansion
-  title: "Content expansion"
-  completed: 2026-02-15
-  tasks:
-    - Write content for section A
-    - Update navigation links
-    - Review and publish
-
-- phase: 24
-  id: css-refactor
-  title: "CSS/JS Modular Refactor"
-  completed: 2026-01-24
-  tasks:
-    - Separate colors from layout
-    - Add CSS variables to theme
-    - Update all components
 ```
+proj/
+└── DONES/
+    ├── TODO-phase1-rules-quality.md      ← completed primary TODO
+    ├── TOOL-TODO-phase1-scanner.md       ← completed parallel workstream
+    └── AUT-TODO-phase2-automation.md     ← another completed workstream
+```
+
+Each file is the original TODO content — no transformation required.
 
 ## Rules
 
-RULE: Tasks list is a summary — copy task descriptions, not full YAML task objects
-RULE: If a phase had blockers, note them briefly in a `notes:` field
+RULE: Do not summarize or transform TODO content when archiving — dump the file as-is
+RULE: If a TODO was only partially done when replaced, note `archived:` date at top

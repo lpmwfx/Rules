@@ -29,7 +29,7 @@ my-project/
 │   ├── PROJECT        ← Markdown narrative (goal, architecture, history)
 │   ├── PHASES         ← Markdown + YAML list body (milestones)
 │   ├── TODO           ← Markdown + YAML list body (current phase)
-│   ├── DONE           ← Markdown append-only log
+│   ├── DONES/         ← Folder of completed TODO files (append-only)
 │   ├── ISSUES         ← Markdown FIFO queue + DONES separator
 │   ├── FIXES          ← Markdown append-only log
 │   ├── RAG            ← Markdown freeform knowledge base
@@ -47,8 +47,8 @@ my-project/
 | PROJECT | Markdown | Always | Project identity + state — only source of truth | READ first, WRITE to maintain |
 | RULES | Markdown | Always | Active MCP rules + project-specific conventions | READ second, WRITE on observation |
 | PHASES | Markdown + YAML list | Always | Milestones + delivers | READ for overview |
-| TODO | Markdown + YAML list | Always | Current phase tasks | READ for work, UPDATE status |
-| DONE | Markdown | Always | Completed phases archive | APPEND when phase complete |
+| TODO | Markdown + YAML list | Always | Primary task truth — current phase | READ for work, UPDATE status |
+| DONES/ | Folder of Markdown files | Always | Completed TODO files — archive | MOVE completed TODO here, never edit |
 | ISSUES | Markdown | Always | Problem queue (FIFO) | READ + WRITE |
 | FIXES | Markdown | Always | Problem → Cause → Solution | READ before coding, WRITE after fixing |
 | RAG | Markdown | Always | Knowledge, links, discoveries | READ for context, WRITE findings |
@@ -64,7 +64,7 @@ my-project/
 | [project-file.md](project-file.md) | PROJECT spec |
 | [phases-file.md](phases-file.md) | PHASES spec |
 | [todo-file.md](todo-file.md) | TODO spec |
-| [done-file.md](done-file.md) | DONE spec |
+| [done-file.md](done-file.md) | DONES/ folder spec |
 | [issues-file.md](issues-file.md) | ISSUES spec |
 | [fixes-file.md](fixes-file.md) | FIXES spec |
 | [rag-file.md](rag-file.md) | RAG spec |

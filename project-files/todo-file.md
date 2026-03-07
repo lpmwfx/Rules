@@ -14,22 +14,25 @@ layer: 2
 
 ## Quick Reference
 
-- **Location:** `proj/TODO`
+- **Location:** `proj/TODO` (primary), `proj/<NAME>-TODO` (additional)
 - **Format:** Markdown headings + YAML list items in body
 - **Required:** Always
 - **Phase lock:** `phase` and `id` must match `proj/PROJECT`
 
-One TODO per active phase. Tasks are YAML list items grouped under
-Markdown category headings. When all tasks are done, archive to DONE.
+`TODO` is the primary task truth for the active phase. Additional TODO files
+(`TOOL-TODO`, `AUT-TODO`, etc.) may run in parallel for separate workstreams.
+When a TODO file is fully done, move it as-is to `proj/DONES/` and create a new one.
 
 ---
 
-RULE: File lives at `proj/TODO`
-RULE: `phase` and `id` at top MUST match PROJECT.md current phase
+RULE: Primary file lives at `proj/TODO`
+RULE: `phase` and `id` at top MUST match PROJECT current phase
 RULE: Tasks MUST belong to the current phase — no scope creep
 RULE: AI updates task status as work progresses
-RULE: When all tasks done → archive to DONE, update PROJECT, create new TODO.md
+RULE: When all tasks in a TODO file are done → move the file to `proj/DONES/` and create a new TODO
 RULE: `pass:` defines the success criterion — how to verify the task is truly done
+RULE: Additional TODO files may be named `proj/<NAME>-TODO` for parallel workstreams
+RULE: `proj/TODO` is always the top task truth — other TODO files are subordinate
 
 ## Format
 
@@ -60,23 +63,18 @@ id: content-expansion
 ## Blockers
 
 - blocker description, or leave empty
-
-# --- DONES ---
-
-- id: N
-  task: Completed task description
-  status: done
 ```
 
 ## Task Status Values
 
 - `pending` — Not started
 - `in_progress` — Currently working on (only one at a time per AI session)
-- `done` — Completed and verified — move below DONES
+- `done` — Completed and verified — remove from file when whole TODO is archived
 
 ## Rules
 
 RULE: One task `in_progress` at a time per AI session
 RULE: `pass:` is binary — it either passes or it doesn't
-RULE: Completed tasks move below `# --- DONES ---`, not deleted
-RULE: New tasks discovered during work go to ISSUES.md first, not directly to TODO.md
+RULE: Completed tasks are removed when the whole TODO file moves to `proj/DONES/`
+RULE: New tasks discovered during work go to ISSUES first, not directly to TODO
+RULE: Keep TODO files to a manageable size — split into named TODO files if needed
