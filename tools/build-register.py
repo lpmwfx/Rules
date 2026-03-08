@@ -31,6 +31,7 @@ CATEGORIES = [
     "cpp",
     "rust",
     "kotlin",
+    "csharp",
 ]
 
 CONCEPT_MAP = {
