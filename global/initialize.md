@@ -3,7 +3,7 @@ tags: [initialize, project-init, setup, bootstrap, one-time, mandatory]
 concepts: [project-initialization, project-setup, bootstrap]
 requires: [global/startup.md]
 feeds: [project-files/project-file.md, project-files/rules-file.md, project-files/todo-file.md, project-files/fixes-file.md, project-files/uiux-file.md]
-related: [automation/startup-script.md]
+related: [automation/startup-script.md, csharp/init.md]
 keywords: [initialize, init, bootstrap, setup, new project, proj, create, initialiser]
 layer: 1
 ---
@@ -25,6 +25,11 @@ PROJECT INITIALIZATION SEQUENCE:
 
 1. DETECT languages   → rulestools detect .
                          writes proj/rulestools.toml with detected languages
+
+1b. LANGUAGE INIT     → if a language-specific init.md exists, run it BEFORE step 3:
+                         C# / .NET  → get_rule("csharp/init.md")  — scaffolds sln, csproj,
+                                       Directory.Build.props, .editorconfig, .gitignore
+                         (other languages: add init.md when available)
 
 2. FIND source doc    → look for: README.md  doc/project.md  brief.md  doc/PROJECT.md
                          if found: read it — it becomes the basis for proj/PROJECT

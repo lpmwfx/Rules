@@ -76,15 +76,28 @@ fi
 
 # Detect languages and show relevant rules
 if [[ -f "pyproject.toml" ]] || find . -maxdepth 3 -name "*.py" -type f | head -1 | grep -q .; then
-    echo "PYTHON detected - see ~/.rules/Python/RULES"
+    echo "PYTHON detected - load: python/README.md"
 fi
 
 if [[ -f "package.json" ]] || find . -maxdepth 3 -name "*.js" -type f | head -1 | grep -q .; then
-    echo "JAVASCRIPT detected - see ~/.rules/JS/RULES"
+    echo "JAVASCRIPT detected - load: js/README.md"
 fi
 
 if find . -maxdepth 4 -name "*.css" -type f | head -1 | grep -q .; then
-    echo "CSS detected - see ~/.rules/CSS/RULES"
+    echo "CSS detected - load: css/README.md"
+fi
+
+if find . -maxdepth 3 -name "*.rs" -type f | head -1 | grep -q .; then
+    echo "RUST detected - load: rust/README.md"
+fi
+
+if find . -maxdepth 3 -name "*.kt" -type f | head -1 | grep -q .; then
+    echo "KOTLIN detected - load: kotlin/README.md"
+fi
+
+if [[ -f "*.sln" ]] || find . -maxdepth 3 -name "*.csproj" -o -name "*.sln" -type f 2>/dev/null | head -1 | grep -q .; then
+    echo "CSHARP detected - load: csharp/README.md"
+    echo "  If initializing new project: get_rule(\"csharp/init.md\")"
 fi
 
 echo "=== WORKFLOW: proj/PROJECT → proj/FIXES → proj/TODO → code → test ==="
@@ -95,7 +108,7 @@ echo "=== OVERSIZED FILES (must split before adding code) ==="
 LIMITS=(
   "py:250" "ts:250" "tsx:100" "js:250" "jsx:100"
   "css:150" "scss:150" "kt:200" "swift:200"
-  "rs:300" "cpp:350" "c:350"
+  "rs:300" "cpp:350" "c:350" "cs:300"
 )
 FOUND=0
 for entry in "${LIMITS[@]}"; do
