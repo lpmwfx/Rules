@@ -18,7 +18,8 @@ layer: 6
 | Types | `record` for data, `struct` for value types, newtype via `readonly record struct` |
 | Errors | `Result<T>` in domain, exceptions only at system boundaries |
 | Modules | One type per file, `internal` by default, `public` at assembly boundary |
-| Namespaces | File-scoped, matches folder path |
+| Namespaces | File-scoped, matches folder path — `namespace MyApp.Core.Users;` |
+| Global Usings | `<ImplicitUsings>enable</ImplicitUsings>` in `Directory.Build.props`; project-specific in `GlobalUsings.cs` per project; Uno.Sdk adds WinUI namespaces automatically |
 | Nesting | Max 3 levels, guard clauses, early returns |
 | Async | `async Task` everywhere, `CancellationToken` on all public async methods |
 | LINQ | Method syntax, deferred — materialise only when needed |

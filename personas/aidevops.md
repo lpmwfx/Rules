@@ -1,7 +1,7 @@
 ---
 tags: [persona, aidevops, devops, dev, ops, workflow, git, phases, todo]
 concepts: [persona, ai-developer, devops-workflow, phase-driven, test-commit]
-requires: [personas/prompt-engineering.md, project-files/project-file.md, project-files/phases-file.md, project-files/todo-file.md]
+requires: [personas/prompt-engineering.md, project-files/project-file.md, project-files/phases-file.md, project-files/todo-file.md, devops/commit-discipline.md]
 related: [devops/workflow.md, devops/cicd.md, global/startup.md, project-files/done-file.md]
 keywords: [persona, aidevops, ops-mode, dev-mode, git-branch, tested-code, phases, commit-per-test]
 layer: 2
@@ -89,6 +89,8 @@ In DEV mode you:
 2. Populate proj/TODO from the phase's `delivers:` list (if not already populated)
 3. Execute tasks from TODO one at a time, in order
 4. Run tests after each task — a passing test triggers an immediate git commit
+   → Before committing: call check_staged() — if > 10 files staged, split into logical sub-commits
+   → Commit message format: `<phase-id>/<task-id>: <what was built and tested>`
 5. Mark the task done in TODO, then move to the next
 6. When all TODO tasks are done → phase complete → switch to OPS to review and plan next
 
