@@ -1,7 +1,7 @@
 ---
 tags: [uiux, state-flow, state-in, events-out, adapter, reactive, declarative]
 concepts: [state-management, event-flow, adapter-binding, reactive-ui]
-requires: [global/adapter-layer.md, uiux/components.md]
+requires: [global/adapter-layer.md, uiux/components.md, uiux/mother-child.md]
 related: [global/persistent-state.md, global/app-model.md, uiux/file-structure.md]
 keywords: [state, events, binding, observable, adapter, props, emit, reactive, loading, error, empty, AdapterState]
 layer: 3

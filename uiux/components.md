@@ -2,7 +2,7 @@
 tags: [uiux, components, single-responsibility, composition, declarative, minimal]
 concepts: [component-design, single-responsibility, declarative-ui, composition]
 requires: [global/topology.md, global/file-limits.md, global/module-tree.md]
-feeds: [uiux/state-flow.md]
+feeds: [uiux/state-flow.md, uiux/mother-child.md]
 related: [uiux/file-structure.md, global/app-model.md]
 keywords: [component, view, widget, composable, template, single-file, minimal, size-limit, split, extract, responsibility]
 layer: 2

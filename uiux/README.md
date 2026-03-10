@@ -28,6 +28,7 @@ RULE: One file per concern — component, token group, state type, feature area 
 
 | File | Topic |
 |------|-------|
+| [mother-child.md](mother-child.md) | Mother owns all state and layout — children are stateless modules |
 | [tokens.md](tokens.md) | Design tokens — no magic values in components |
 | [components.md](components.md) | One file, one component, one responsibility |
 | [file-structure.md](file-structure.md) | Folders by feature area — isolation by design |
@@ -66,13 +67,14 @@ RULE: One file per concern — component, token group, state type, feature area 
 
 ## Core Principles
 
-1. **Token-only values** — components reference token names; token files hold all literal values
-2. **Isolated by default** — each UI area lives in its own folder; changes are contained
-3. **One responsibility per file** — a fix touches exactly one file, nothing else breaks
-4. **Stateless components** — state comes from Adapter, never lives in UI
-5. **Platform-native** — use platform widgets, icons, and shortcuts; do not fight the OS
-6. **Declarative** — describe what to show; token and config files describe how it looks
-7. **State persists** — window size, scroll, selection saved on close, restored on launch
+1. **Mother–child** — one root owns all state and layout; children are stateless modules that fill their slot
+2. **Token-only values** — components reference token names; token files hold all literal values
+3. **Isolated by default** — each UI area lives in its own folder; changes are contained
+4. **One responsibility per file** — a fix touches exactly one file, nothing else breaks
+5. **Stateless components** — state comes from Adapter, never lives in UI
+6. **Platform-native** — use platform widgets, icons, and shortcuts; do not fight the OS
+7. **Declarative** — describe what to show; token and config files describe how it looks
+8. **State persists** — window size, scroll, selection saved on close, restored on launch
 
 State persistence: [global/persistent-state.md](../global/persistent-state.md)
 Config-driven values: [global/config-driven.md](../global/config-driven.md)

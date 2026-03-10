@@ -50,7 +50,9 @@
       "Bash(xargs -I {} basename {})",
       "Bash(done)",
       "WebFetch(domain:spec.modelcontextprotocol.io)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "mcp__rulestools__setup",
+      "WebFetch(domain:docs.anthropic.com)"
     ]
   }
 }

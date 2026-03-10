@@ -2,7 +2,7 @@
 tags: [global, error-handling, error-flow, recovery, crash-safety, graceful-degradation]
 concepts: [error-taxonomy, recovery-strategy, graceful-degradation, user-feedback]
 requires: [global/validation.md]
-feeds: [rust/errors.md, js/safety.md, python/ack-pattern.md, kotlin/result-pattern.md]
+feeds: [rust/errors.md, js/safety.md, python/ack-pattern.md, kotlin/result-pattern.md, csharp/errors.md]
 related: [uiux/issue-reporter.md, global/persistent-state.md]
 layer: 2
 ---
@@ -113,6 +113,32 @@ function recover(error: AppError, ui: UIAdapter): void {
         }
     }
 }
+```
+
+## C#
+
+Sealed record hierarchy — one per assembly boundary. `when`-filters route exceptions to the correct
+variant. Three output sinks: stdio (CLI/MCP), MCP string response, Uno Platform GUI.
+See [csharp/errors.md](../csharp/errors.md) for full implementation.
+
+```csharp
+public abstract record AppError_x(string Message, Exception? Inner = null)
+{
+    public sealed record Transient(string Message, Exception? Inner = null)  : AppError_x(Message, Inner);
+    public sealed record UserError(string Message, Exception? Inner = null)  : AppError_x(Message, Inner);
+    public sealed record SystemError(string Message, Exception? Inner = null): AppError_x(Message, Inner);
+    public sealed record Bug(string Message, string Context, Exception? Inner = null): AppError_x(Message, Inner);
+}
+
+// Adapter layer — exhaustive switch, no _ discard
+void Handle(AppError_x error, IErrorSink_adp sink) =>
+    sink.Report(error);   // sink routes to stdio / MCP / Uno GUI based on context
+
+// Exception filter — routes to correct variant without nested ifs
+catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.TooManyRequests)
+    => sink.Report(new AppError_x.Transient("Rate limited", ex));
+catch (HttpRequestException ex) when ((int?)ex.StatusCode >= 500)
+    => sink.Report(new AppError_x.SystemError("API unavailable", ex));
 ```
 
 ## User-Facing Messages

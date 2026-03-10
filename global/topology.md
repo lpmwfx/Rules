@@ -1,9 +1,9 @@
 ---
-tags: [topology, architecture, hexagonal, mvvm, layers, dag, folder-structure, project-structure, ui]
-concepts: [architecture, layer-topology, dependency-graph, hexagonal-mvvm, app-structure]
-feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, core/design.md, pal/design.md]
+tags: [topology, architecture, hexagonal, mvvm, layers, dag, folder-structure, project-structure, ui, mother-child, composition-root]
+concepts: [architecture, layer-topology, dependency-graph, hexagonal-mvvm, app-structure, mother-child-pattern]
+feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, core/design.md, pal/design.md, uiux/mother-child.md]
 related: [global/app-model.md]
-keywords: [ui, adapter, core, pal, gateway, shared, folder-structure, import-rules, dag, placement, project, setup, app-layout, src, init, directory]
+keywords: [ui, adapter, core, pal, gateway, shared, folder-structure, import-rules, dag, placement, project, setup, app-layout, src, init, directory, mother, child, owner, stateless, modular]
 layer: 1
 ---
 # Application Topology
@@ -136,3 +136,32 @@ BANNED: Adapter logic in Core or PAL
 
 RESULT: Folder structure is self-documenting — grep `_gtw` to find all gateway types
 REASON: Placement is architectural enforcement — wrong folder = wrong design
+
+## Mother–Child Ownership (applies at every level)
+
+The same ownership principle applies within each layer and within each module:
+
+VITAL: At every level there is exactly **one owner** of state and layout for that scope — the "mother"
+VITAL: All other modules at that level are **stateless children** — they receive what they need, emit events up
+RULE: Mother passes state down as props/arguments — children never fetch, query, or derive their own state
+RULE: Children emit events up — mother decides what happens next
+RULE: Siblings never communicate directly — all coordination routes through their shared mother
+RULE: Children have no knowledge of each other — they are independently understandable files
+
+At the **system level**:
+- Adapter is mother — it owns AppState and coordinates all layers
+- Core, Gateway, PAL are stateless children — pure functions / IO that receive what they need
+
+At the **UI level**:
+- AppShell / root component is mother — owns all view state, sizes, active panel
+- Nav, Editor, Views are stateless children — fill their slot, emit events up (see uiux/mother-child.md)
+
+At the **module level** (recursive):
+- If a child has sub-components, that child becomes mother for its own subtree
+- The same rule applies: one owner, stateless leaves, events up
+
+RULE: Apply this pattern recursively — every subtree has exactly one mother
+BANNED: Children that own state shared with siblings — route through mother
+BANNED: Children that reach outside their subtree for state — mother passes it down
+RESULT: Any module can be understood, tested, and replaced by reading exactly one file
+REASON: Single ownership eliminates hidden coupling — AI only needs one file's context to reason correctly
