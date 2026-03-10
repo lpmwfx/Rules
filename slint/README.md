@@ -21,6 +21,7 @@ RULE: Native menus are handled by `muda` alongside Slint — see uiux/menus-slin
 | File | What it defines |
 |------|-----------------|
 | [component-model.md](component-model.md) | Property direction, naming, exports, build setup |
+| [responsive-layout.md](responsive-layout.md) | AppWindow owns all sizes; modules use preferred-width + stretch |
 | [rust-bridge.md](rust-bridge.md) | Adapter-owned `on_*` / `set_*` API, type mapping |
 | [globals.md](globals.md) | `Colors`, `Spacing`, `Strings`, `AppBridge` globals |
 | [threading.md](threading.md) | `invoke_from_event_loop`, `spawn_local`, `as_weak` |
@@ -32,3 +33,4 @@ RULE: Native menus are handled by `muda` alongside Slint — see uiux/menus-slin
 2. **`callback`** — component fires event; Adapter registers handler with `on_*()`
 3. **Token globals** — all literal values live in `Colors`, `Spacing`, `Type` globals
 4. **No logic in .slint** — callback body = one delegation call, nothing else
+5. **Mother–child layout** — `AppWindow` owns all sizes and breakpoints; modules use `preferred-width: 100%` and stretch factors

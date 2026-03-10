@@ -2,8 +2,8 @@
 tags: [slint, component, property, callback, naming, build, dsl]
 concepts: [slint-component-model, property-direction, slint-naming, slint-build]
 requires: [global/topology.md, uiux/components.md, uiux/state-flow.md]
-feeds: [slint/rust-bridge.md, slint/globals.md]
-related: [uiux/tokens.md, uiux/file-structure.md]
+feeds: [slint/rust-bridge.md, slint/globals.md, slint/responsive-layout.md]
+related: [uiux/tokens.md, uiux/file-structure.md, uiux/mother-child.md]
 keywords: [slint, in-property, out-property, in-out, private, callback, kebab-case, export, import, build-rs, slint-build, include-modules, AppWindow, PascalCase]
 layer: 2
 ---
