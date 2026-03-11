@@ -3,8 +3,8 @@ tags: [uiux, mother-child, composition-root, stateless, layout-ownership, modula
 concepts: [mother-child-pattern, composition-root, stateless-children, layout-ownership]
 requires: [uiux/components.md, uiux/state-flow.md]
 feeds: [uiux/file-structure.md]
-related: [global/topology.md, global/adapter-layer.md, uiux/tokens.md]
-keywords: [mother, child, root, shell, view, nav, editor, sidebar, layout, size, state-owner, props, stateless, modular, single-owner]
+related: [global/topology.md, global/adapter-layer.md, uiux/tokens.md, slint/globals.md, global/module-tree.md]
+keywords: [mother, child, root, shell, view, nav, editor, sidebar, layout, size, state-owner, props, stateless, modular, single-owner, in-out, in-property, callback, overlay, 3-level]
 layer: 2
 ---
 # Mother–Child UI Composition
@@ -57,6 +57,29 @@ RULE: Mother is the **only** place where `if activeView === 'A'` logic lives
 RULE: NavBar does not know that ViewA exists — it only emits `navigate(viewId)`
 RULE: EditorPanel does not know what selected the item — it only receives it
 
+## 3-Level Hierarchy: Mother → View → Module
+
+The pattern is recursive. A real app typically has 3 levels:
+
+```
+Mother (Window / AppShell — owns ALL state)
+├── NavBar (view)             ← stateless, in property + callback
+├── WorkspaceView (view)      ← stateless, but composes sub-modules
+│   ├── LeftPanel (module)    ← stateless child of WorkspaceView
+│   ├── Canvas (module)       ← stateless child of WorkspaceView
+│   └── Inspector (module)    ← stateless child of WorkspaceView
+├── OutputView (view)         ← stateless
+└── Overlays (view-level)     ← modal/dialog children, visibility controlled by mother
+```
+
+VITAL: Views are direct children of mother — they see only what mother gives them
+VITAL: Modules are children of views — they see only what their parent view gives them
+RULE: A view that composes modules becomes mother for its own subtree
+RULE: Overlays (modals, dialogs, toasts) are children of mother — not of the view that triggered them
+RULE: Overlay visibility is state owned by mother — children emit `show-overlay()`, mother toggles it
+BANNED: A module reaching up past its parent view to access mother state
+BANNED: An overlay owned by or embedded inside a child view
+
 ## Layout Ownership
 
 Mother decides where children are placed and how large they are:
@@ -83,6 +106,38 @@ NavBar {
 BANNED: `width: 240px` inside `NavBar.tsx` — that measurement belongs to mother
 BANNED: `position: absolute` inside a child that fixes itself to a screen edge
 RULE: Children use `width: 100%`, `flex: 1`, `fill-available`, or the equivalent — they fill their slot
+
+## Slint-Specific Enforcement
+
+In Slint, property direction is the enforcement mechanism for mother-child:
+
+VITAL: Mother = the component that `inherits Window` — the only component that owns state
+VITAL: Children use only `in property` (receive from mother) and `callback` (emit to mother)
+BANNED: `in-out property` in any child component — this is state ownership, reserved for mother
+RULE: The only exception for `in-out` in a child is `<=>` delegation (two-way binding from mother)
+RULE: State values live in a Slint `global` file (see slint/globals.md) — separate from the Window layout
+RULE: Children reference design tokens via `Theme.xyz` globals — never raw values
+
+```slint
+// MOTHER — app-window.slint (inherits Window, owns all state)
+export component AppWindow inherits Window {
+    in-out property <string>  active-view: "home";     // ← state ownership OK here
+    in-out property <bool>    sidebar-open: true;       // ← state ownership OK here
+    callback navigate(string);
+
+    NavBar {
+        breadcrumb: root.active-view;                   // ← in property: read-only
+        go-back => { root.navigate("home"); }           // ← callback: event up
+    }
+}
+
+// CHILD — navbar.slint (stateless, receives everything)
+export component NavBar inherits Rectangle {
+    in property <string>  breadcrumb: "";               // ← receive from mother
+    callback go-back();                                  // ← emit to mother
+    // NO in-out property here — this is a stateless child
+}
+```
 
 ## Cross-Toolkit Examples
 
@@ -120,33 +175,39 @@ export function NavBar({ activeView, onNavigate }: NavBarProps) {
 ### Slint
 
 ```slint
-// AppShell.slint — MOTHER
-component AppShell {
-    in property <AppState> state;
+// app-window.slint — MOTHER (inherits Window = state owner)
+import { Theme } from "globals/theme.slint";
+import { NavBar } from "views/navbar.slint";
+import { WorkspaceView } from "views/workspace-view.slint";
 
-    HorizontalLayout {
+export component AppWindow inherits Window {
+    in-out property <string>  active-view: "home";
+    in-out property <bool>    sidebar-open: true;
+    in-out property <string>  selected-item-id;
+
+    background: Theme.bg-primary;
+
+    VerticalLayout {
         NavBar {
-            width: 240px;          // ← size lives in mother
-            active-view: state.active-view;
-            navigate => { state.navigate(view-id); }
+            height: Theme.navbar-height;     // ← size lives in mother
+            breadcrumb: root.active-view;
+            go-back => { root.active-view = "home"; }
         }
-        Rectangle {
-            width: parent.width - 240px;
-            EditorPanel {
-                visible: state.active-view == "editor";
-                item: state.selected-item;
-                save => { state.save-item(); }
-            }
+        WorkspaceView {
+            visible: root.active-view == "workspace";
+            item-id: root.selected-item-id;
+            item-selected(id) => { root.selected-item-id = id; }
         }
     }
 }
 
-// NavBar.slint — CHILD (no width/height of its own)
-component NavBar {
-    in property <string> active-view;
+// views/navbar.slint — CHILD (stateless: in property + callback only)
+export component NavBar inherits Rectangle {
+    in property <string>  breadcrumb: "";
+    in property <bool>    can-go-back: false;
+    callback go-back();
     callback navigate(string);
-    // fills the slot mother provides — no size declared here
-    VerticalLayout { /* nav items */ }
+    // NO in-out property — fills the slot mother provides
 }
 ```
 
@@ -197,6 +258,32 @@ All cross-child coordination happens in mother.
 RULE: This pattern mirrors the Adapter → UI relationship — Adapter is "mother" for the whole UI layer
 RULE: Apply this pattern recursively — if a child has sub-children, the child becomes mother for its subtree
 RULE: At each level there is exactly one owner of state and layout for that subtree
+
+## Rust Backend Mother–Child
+
+The same pattern applies to Rust module structure (see global/topology.md):
+
+RULE: `mod.rs` / `main.rs` / `lib.rs` are mother files — they compose and wire children
+RULE: Child modules are stateless — they receive state as parameters, return results
+BANNED: Mother files with many `fn` definitions — extract to child modules
+BANNED: Child modules with `static`, `lazy_static!`, `thread_local!`, or `OnceLock` — state belongs in mother
+
+```rust
+// callbacks/mod.rs — MOTHER (composes children, owns SharedState)
+pub struct SharedState { /* all shared state lives here */ }
+
+pub fn register_all(ui: &AppWindow, state: SharedState) {
+    canvas::register(ui, &state);    // ← delegate to child
+    inspector::register(ui, &state); // ← delegate to child
+    file_ops::register(ui, &state);  // ← delegate to child
+}
+
+// callbacks/canvas.rs — CHILD (stateless, receives what it needs)
+pub fn register(ui: &AppWindow, state: &SharedState) {
+    // NO static, NO lazy_static, NO OnceLock here
+    // receives state as parameter, emits results via ui callbacks
+}
+```
 
 RESULT: Changing any child is safe — it cannot affect siblings or parents
 RESULT: Adding a new view requires touching exactly two files: the new child + mother's routing

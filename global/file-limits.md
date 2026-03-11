@@ -3,7 +3,7 @@ tags: [file-limits, file-size, split, refactor, global, enforcement]
 concepts: [file-size, code-splitting, single-responsibility, maintainability]
 requires: [global/topology.md]
 feeds: [global/module-tree.md]
-related: [global/read-before-write.md, global/know-before-change.md, uiux/components.md, uiux/file-structure.md]
+related: [global/read-before-write.md, global/know-before-change.md, uiux/components.md, uiux/file-structure.md, uiux/mother-child.md]
 keywords: [file-size, line-count, split, too-large, oversized, max-lines, css, ui, component, refactor, before-write]
 layer: 1
 ---
@@ -16,7 +16,7 @@ layer: 1
 VITAL: One file, one encapsulated module — if the file is growing, it has taken on a second job
 VITAL: Size limits exist because AI loses context above ~200 lines — not for style reasons
 VITAL: Before adding code to any existing file, count its lines — if near the limit, split the module first
-VITAL: A split is NOT moving code sideways — it creates a mother/child folder cascade (see below)
+VITAL: A split is NOT moving code sideways — it creates a mother/child folder cascade (see uiux/mother-child.md)
 RULE: After splitting, update all imports and references before moving on
 BANNED: Adding to a file that is already at its limit
 BANNED: "I'll split it later" — split at the trigger, not when it becomes a crisis
@@ -73,8 +73,9 @@ RULE: Children are named after their single responsibility, not after the featur
 RULE: The folder name matches the original file name — `feature.py` becomes `feature/`
 BANNED: Creating a flat cluster of siblings with no mother — there is always a single composition point
 
-This is the same pattern as functional/modular programming: a module is a tree, not a flat list.
-The file boundary enforces the tree — each node is either a leaf (child) or a compositor (mother).
+This is the mother-child pattern (see uiux/mother-child.md): a module is a tree, not a flat list.
+The file boundary enforces the tree — each node is either a leaf (stateless child) or a compositor (mother).
+The mother owns the subtree, children are independently understandable, siblings never know each other.
 
 ## How to Split — Examples
 

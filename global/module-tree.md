@@ -2,7 +2,7 @@
 tags: [module-tree, encapsulation, file-split, architecture, gui, ui, global, slint, js, html]
 concepts: [module-design, encapsulation, file-splitting, tree-structure, single-responsibility, ai-comprehension]
 requires: [global/file-limits.md]
-related: [uiux/components.md, uiux/file-structure.md, global/nesting.md]
+related: [uiux/components.md, uiux/file-structure.md, global/nesting.md, uiux/mother-child.md]
 keywords: [module, nested, encapsulation, split, folder, file, tree, slint, js, html, import, export, comprehension, 200-lines, dealbreaker]
 layer: 1
 ---
@@ -121,6 +121,20 @@ After — HomeScreen spawns sub-modules:
 
 RULE: The parent file after a split is a composer — it imports and arranges, adds no new logic
 RULE: Sub-modules are named after what they do, not what they contain
+
+## Module Tree IS Mother–Child
+
+The folder pattern described here is the same as the mother-child pattern (see uiux/mother-child.md):
+
+- The parent/index file = **mother** — composes children, owns no logic of its own
+- Each sub-module file = **child** — stateless, one job, independently understandable
+- The folder boundary = **ownership boundary** — mother owns the subtree
+
+This applies at every level: UI components, Rust modules, Python packages, JS modules.
+When a file splits into a folder, it becomes a mother. Its children are stateless leaves.
+
+RULE: A split always follows mother-child — the parent file is a compositor, children are stateless
+BANNED: A flat cluster of sibling files with no compositor — there is always one mother
 
 RESULT: Each file is a unit of change and a unit of AI comprehension — one edit, one file, no surprises
 REASON: The encapsulation boundary and the file boundary are the same thing — they must stay aligned

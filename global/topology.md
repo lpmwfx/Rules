@@ -152,15 +152,35 @@ At the **system level**:
 - Adapter is mother — it owns AppState and coordinates all layers
 - Core, Gateway, PAL are stateless children — pure functions / IO that receive what they need
 
-At the **UI level**:
-- AppShell / root component is mother — owns all view state, sizes, active panel
-- Nav, Editor, Views are stateless children — fill their slot, emit events up (see uiux/mother-child.md)
+At the **UI level** (see uiux/mother-child.md):
+- Window / root component is mother — owns all view state, sizes, active panel
+- Views are stateless children — fill their slot, emit events up
+- Modules are children of views — views become mother for their subtree
 
-At the **module level** (recursive):
-- If a child has sub-components, that child becomes mother for its own subtree
-- The same rule applies: one owner, stateless leaves, events up
+At the **module level** (Rust):
+- `mod.rs` / `main.rs` / `lib.rs` = mother files — compose and wire children
+- Child `.rs` files = stateless — receive state as parameters, return results
+- Children never own `static`, `lazy_static!`, `thread_local!`, or `OnceLock` — state belongs in mother
+
+```rust
+// src/callbacks/mod.rs — MOTHER (composes children)
+pub struct SharedState { /* owned here, passed to children */ }
+
+pub fn register_all(ui: &AppWindow, state: SharedState) {
+    canvas::register(ui, &state);     // delegate
+    inspector::register(ui, &state);  // delegate
+    file_ops::register(ui, &state);   // delegate
+}
+
+// src/callbacks/canvas.rs — CHILD (stateless)
+pub fn register(ui: &AppWindow, state: &SharedState) {
+    // receives state, registers callbacks — no static, no OnceLock
+}
+```
 
 RULE: Apply this pattern recursively — every subtree has exactly one mother
+BANNED: Mother files with many `fn` definitions — extract to child modules
+BANNED: Child files with `static` or state-owning constructs — state belongs in mother
 BANNED: Children that own state shared with siblings — route through mother
 BANNED: Children that reach outside their subtree for state — mother passes it down
 RESULT: Any module can be understood, tested, and replaced by reading exactly one file
