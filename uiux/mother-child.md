@@ -1,7 +1,7 @@
 ---
 tags: [uiux, mother-child, composition-root, stateless, layout-ownership, modular]
 concepts: [mother-child-pattern, composition-root, stateless-children, layout-ownership]
-requires: [uiux/components.md, uiux/state-flow.md]
+requires: [global/mother-tree.md, uiux/components.md, uiux/state-flow.md]
 feeds: [uiux/file-structure.md]
 related: [global/topology.md, global/adapter-layer.md, uiux/tokens.md, slint/globals.md, global/module-tree.md]
 keywords: [mother, child, root, shell, view, nav, editor, sidebar, layout, size, state-owner, props, stateless, modular, single-owner, in-out, in-property, callback, overlay, 3-level]
@@ -138,6 +138,71 @@ export component NavBar inherits Rectangle {
     // NO in-out property here — this is a stateless child
 }
 ```
+
+## Slint ViewModel Structs
+
+When mother owns many related fields for an editor or overlay, they MUST be grouped into a struct.
+
+RULE: Group related editor/overlay state into ViewModel structs in `types.slint` — never pass individual fields as separate properties
+RULE: A ViewModel struct is the unit of transfer between mother and a child overlay or editor
+BANNED: Passing more than 3 individual fields for the same conceptual state — define a struct instead
+BANNED: Declaring the same logical fields in mother AND OverlayHost AND the target view — one struct eliminates all three
+
+```slint
+// types.slint — define structs here, not inline in components
+export struct UiNodeEditState {
+    visible: bool,
+    node-id: string,
+    label: string,
+    x: float,
+    y: float,
+    node-type: string,
+    color: color,
+    locked: bool,
+    tags: [string],
+    description: string,
+}
+
+export struct UiPlaybackState {
+    playing: bool,
+    speed: float,
+    current-frame: int,
+    total-frames: int,
+    loop: bool,
+    muted: bool,
+}
+```
+
+```slint
+// WRONG — mother with 16 individual fields for 2 concepts
+export component AppWindow inherits Window {
+    in-out property <bool>    node-edit-visible;
+    in-out property <string>  node-edit-id;
+    in-out property <string>  node-edit-label;
+    in-out property <float>   node-edit-x;
+    // ... 12 more fields
+    OverlayHost {
+        node-edit-visible: root.node-edit-visible;   // repeated in 3 layers
+        node-edit-id:      root.node-edit-id;
+        // ...
+    }
+}
+
+// CORRECT — 2 fields replace 16
+export component AppWindow inherits Window {
+    in-out property <UiNodeEditState>  node-edit-state;
+    in property    <UiPlaybackState>   playback-state;
+
+    OverlayHost {
+        node-edit-state: root.node-edit-state;       // one line, not 10
+        playback-state:  root.playback-state;
+    }
+}
+```
+
+RESULT: Mother's property block is self-documenting — each struct name reveals its purpose
+RESULT: Child interfaces shrink from 10+ `in property` lines to 1 per logical concept
+REASON: Struct boundaries are semantic contracts — they enforce cohesion and prevent field sprawl
 
 ## Cross-Toolkit Examples
 

@@ -3,7 +3,7 @@ tags: [file-limits, file-size, split, refactor, global, enforcement]
 concepts: [file-size, code-splitting, single-responsibility, maintainability]
 requires: [global/topology.md]
 feeds: [global/module-tree.md]
-related: [global/read-before-write.md, global/know-before-change.md, uiux/components.md, uiux/file-structure.md, uiux/mother-child.md]
+related: [global/mother-tree.md, global/read-before-write.md, global/know-before-change.md, uiux/components.md, uiux/file-structure.md, uiux/mother-child.md]
 keywords: [file-size, line-count, split, too-large, oversized, max-lines, css, ui, component, refactor, before-write]
 layer: 1
 ---
@@ -17,10 +17,14 @@ VITAL: One file, one encapsulated module — if the file is growing, it has take
 VITAL: Size limits exist because AI loses context above ~200 lines — not for style reasons
 VITAL: Before adding code to any existing file, count its lines — if near the limit, split the module first
 VITAL: A split is NOT moving code sideways — it creates a mother/child folder cascade (see uiux/mother-child.md)
+VITAL: The split IS the solution — modular structure is the goal, not a workaround for hitting the limit
 RULE: After splitting, update all imports and references before moving on
 BANNED: Adding to a file that is already at its limit
 BANNED: "I'll split it later" — split at the trigger, not when it becomes a crisis
 BANNED: Moving code to a sibling file as a "split" — that is relocation, not decomposition
+BANNED: Compressing, removing whitespace, or condensing code to stay under the line limit — the limit is a design signal, not a quota to game
+BANNED: Asking to raise or adjust the limit — the correct response to hitting the limit is always to split
+BANNED: Treating the split as a penalty — modular structure is the preferred design, the limit enforces what good architecture already demands
 
 ## Limits by File Type
 
