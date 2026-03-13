@@ -114,7 +114,10 @@ BANNED: Setting a fixed `QPalette` at startup that does not respond to system ch
 ## Slint — Rust + cross-platform
 
 Slint does **not** auto-detect system appearance. The PAL layer reads the OS preference;
-the Adapter injects it into the `Colors` design-token global at startup and on change.
+the Adapter injects it into the token globals at startup and on change.
+
+See slint/themes.md for multi-theme support (folder structure, theme variants, Effects global).
+See slint/globals.md for token global patterns.
 
 ```rust
 // src/pal/appearance.rs — platform abstraction (one impl per OS)
@@ -142,27 +145,11 @@ std::thread::spawn(move || {
 });
 ```
 
-```slint
-// ui/tokens/colors.slint — only the token file branches on dark-mode
-export global Colors {
-    in property <bool>   dark-mode: false;          // Adapter sets via PAL
-    out property <color> bg-primary:   dark-mode ? #1a1a1a : #ffffff;
-    out property <color> text-primary: dark-mode ? #f0f0f0 : #1a1a1a;
-    out property <color> accent:       #4a90d9;     // same in both modes
-}
-
-// Component — zero knowledge of dark-mode
-component Card inherits Rectangle {
-    background: Colors.bg-primary;    // ✓ token
-    Text { color: Colors.text-primary; }
-}
-```
-
-RULE: PAL layer reads system preference — Adapter injects into `Colors.dark-mode` via `set_dark_mode()`
-RULE: Live OS change → PAL sends signal → `invoke_from_event_loop` updates `Colors.dark-mode` — no restart
-RULE: Only `Colors` global (token file) branches on `dark-mode` — components never check it
-BANNED: Components reading `dark-mode` directly to pick colors — use `Colors.*` tokens
-BANNED: Hardcoded colors in components — `Colors.bg-primary`, not `#1a1a1a`
+RULE: PAL layer reads system preference — Adapter injects into token globals via `set_dark_mode()`
+RULE: Live OS change → PAL sends signal → `invoke_from_event_loop` updates globals — no restart
+RULE: Only token globals branch on `dark-mode` — components never check it
+BANNED: Components reading `dark-mode` directly to pick colors — use token references
+BANNED: Hardcoded colors in components
 
 ## CSS / Web (WA / PWA)
 

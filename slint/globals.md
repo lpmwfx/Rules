@@ -22,33 +22,40 @@ BANNED: Domain state or business logic in globals — globals hold tokens, strin
 
 ## Design token globals
 
-See uiux/tokens.md for the full token system. Slint implementation uses one `global` per concern:
+See uiux/tokens.md for the full token system and slint/themes.md for multi-theme support.
+
+Token globals live in `ui/globals/theme/` with one file per theme variant (solid, mica, acrylic).
+Shared tokens (spacing, typography) live alongside theme variants. The entry point `ui/globals/theme.slint`
+re-exports from the active theme — components import only `theme.slint`.
+
+```
+ui/globals/
+├── theme.slint              ← entry point (re-exports active theme)
+└── theme/
+    ├── solid.slint          ← Solid theme: Colors + Effects (light + dark)
+    ├── mica.slint           ← Mica theme: Colors + Effects (light + dark)
+    ├── acrylic.slint        ← Acrylic theme: Colors + Effects (light + dark)
+    ├── spacing.slint        ← shared across all themes
+    └── typography.slint     ← shared across all themes
+```
 
 ```slint
-// ui/tokens/colors.slint
-export global Colors {
-    in property <bool>  dark-mode: false;            // Adapter injects via PAL on startup
-    out property <color> bg-primary:   dark-mode ? #1a1a1a : #ffffff;
-    out property <color> text-primary: dark-mode ? #f0f0f0 : #1a1a1a;
-    out property <color> accent:       #4a90d9;
-}
-
-// ui/tokens/spacing.slint
-export global Spacing {
-    out property <length> xs:  4px;
-    out property <length> sm:  8px;
-    out property <length> md:  16px;
-    out property <length> lg:  24px;
-}
+// ui/globals/theme.slint — switch theme by changing this import
+export { Colors, Effects } from "theme/solid.slint";
+export { Spacing } from "theme/spacing.slint";
+export { Type } from "theme/typography.slint";
 ```
 
 ```rust
 // Adapter injects dark-mode on startup (PAL reads OS preference)
-ui.global::<Colors>().set_dark_mode(pal::appearance::is_dark_mode());
+let is_dark = pal::appearance::is_dark_mode();
+ui.global::<Colors>().set_dark_mode(is_dark);
+ui.global::<Effects>().set_dark_mode(is_dark);
 ```
 
-RULE: Only `Colors` global branches on `dark-mode` — components use `Colors.bg-primary`, never `if dark-mode`
+RULE: Only token globals branch on `dark-mode` — components use `Colors.bg-primary`, never `if dark-mode`
 RULE: Token files are the ONLY place literal hex/px values appear in `.slint` source
+RULE: Each theme file contains both light AND dark values — no separate files per mode
 
 ## Localization strings global
 
@@ -120,11 +127,18 @@ Globals complement the mother-child pattern (see uiux/mother-child.md). The moth
 ```
 ui/
 ├── globals/
-│   └── theme.slint        ← design tokens (colors, spacing, sizes)
+│   ├── theme.slint            ← entry point (re-exports active theme)
+│   ├── theme/
+│   │   ├── solid.slint        ← Solid: Colors + Effects (light + dark)
+│   │   ├── mica.slint         ← Mica: Colors + Effects (light + dark)
+│   │   ├── spacing.slint      ← shared spacing tokens
+│   │   └── typography.slint   ← shared type tokens
+│   ├── app-bridge.slint       ← centralised event routing
+│   └── strings.slint          ← localization strings
 ├── views/
-│   ├── navbar.slint        ← stateless child (in property + callback)
+│   ├── navbar.slint           ← stateless child (in property + callback)
 │   └── workspace-view.slint
-└── app-window.slint        ← mother (inherits Window, in-out property = state)
+└── app-window.slint           ← mother (inherits Window, in-out property = state)
 ```
 
 RULE: State (`in-out property`) lives only in the mother Window component
