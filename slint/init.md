@@ -47,6 +47,27 @@ RULE: Both RustScanners and SlintScanners coexist in the same `build.rs`
 
 ---
 
+## Step 1b — Install rustdocumenter
+
+Documentation generator — scans `///` doc comments in `.rs` and `.slint` files, writes `man/` + `proj/ISSUES`.
+
+```bash
+cargo install --force --git https://github.com/lpmwfx/RustDocumenter rustdocumenter
+```
+
+Generate initial documentation after scaffolding:
+
+```bash
+rustdocumenter gen .
+```
+
+`proj/ISSUES` lists every exported component, callback, and property that lacks a `///` doc comment.
+`man/` has one `.md` + `.json` per source file — see `slint/docs.md`.
+
+RULE: Add `///` doc comments to every `export component`, callback, and `in/out property` — see `slint/docs.md`
+
+---
+
 ## Step 2 — Create definition folders
 
 All named values live in these folders. Components reference them, never define literals.
