@@ -1,9 +1,9 @@
 ---
-tags: [uiux, state-flow, state-in, events-out, adapter, reactive, declarative]
-concepts: [state-management, event-flow, adapter-binding, reactive-ui]
+tags: [uiux, state-flow, state-in, events-out, adapter, reactive, declarative, slintscanners]
+concepts: [state-management, event-flow, adapter-binding, reactive-ui, slint-build-scan]
 requires: [global/adapter-layer.md, uiux/components.md, uiux/mother-child.md]
-related: [global/persistent-state.md, global/app-model.md, uiux/file-structure.md]
-keywords: [state, events, binding, observable, adapter, props, emit, reactive, loading, error, empty, AdapterState]
+related: [global/persistent-state.md, global/app-model.md, uiux/file-structure.md, slint/init.md]
+keywords: [state, events, binding, observable, adapter, props, emit, reactive, loading, error, empty, AdapterState, slintscanners, build-scan]
 layer: 3
 ---
 # UI State Flow

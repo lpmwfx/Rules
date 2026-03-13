@@ -1,9 +1,9 @@
 ---
-tags: [slint, validation, tokens, callbacks, properties]
-concepts: [validation, design-tokens, type-safety, boundaries]
+tags: [slint, validation, tokens, callbacks, properties, slintscanners]
+concepts: [validation, design-tokens, type-safety, boundaries, slint-build-scan]
 requires: [global/validation.md, uiux/tokens.md, uiux/state-flow.md]
-related: [css/validation.md, js/validation.md]
-keywords: [slint, token, callback, property-binding, Theme]
+related: [css/validation.md, js/validation.md, slint/init.md]
+keywords: [slint, token, callback, property-binding, Theme, slintscanners, build-scan]
 layer: 4
 ---
 # Slint Validation

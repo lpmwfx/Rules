@@ -1,10 +1,10 @@
 ---
-tags: [slint, states, state-files, constants, enums, no-hardcoding, zero-literals]
-concepts: [state-files, state-folder, zero-literals, named-constants, data-driven]
+tags: [slint, states, state-files, constants, enums, no-hardcoding, zero-literals, slintscanners]
+concepts: [state-files, state-folder, zero-literals, named-constants, data-driven, slint-build-scan]
 requires: [slint/validation.md, slint/themes.md]
-feeds: [slint/globals.md]
-related: [slint/component-model.md, global/config-driven.md, uiux/state-flow.md]
-keywords: [state, states, enum, constant, hardcoded, variable, state-folder, Sizes, Durations, ViewStates]
+feeds: [slint/globals.md, slint/init.md]
+related: [slint/component-model.md, global/config-driven.md, uiux/state-flow.md, slint/init.md]
+keywords: [state, states, enum, constant, hardcoded, variable, state-folder, Sizes, Durations, ViewStates, slintscanners, build-scan, cargo-scan]
 layer: 3
 ---
 # Slint State Files — Zero Literals in UI

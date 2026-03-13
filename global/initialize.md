@@ -3,7 +3,7 @@ tags: [initialize, project-init, setup, bootstrap, one-time, mandatory]
 concepts: [project-initialization, project-setup, bootstrap]
 requires: [global/startup.md]
 feeds: [project-files/project-file.md, project-files/rules-file.md, project-files/todo-file.md, project-files/fixes-file.md, project-files/uiux-file.md]
-related: [automation/startup-script.md, csharp/init.md]
+related: [automation/startup-script.md, rust/init.md, csharp/init.md, slint/init.md]
 keywords: [initialize, init, bootstrap, setup, new project, proj, create, initialiser]
 layer: 1
 ---
@@ -27,6 +27,10 @@ PROJECT INITIALIZATION SEQUENCE:
                          writes proj/rulestools.toml with detected languages
 
 1b. LANGUAGE INIT     → if a language-specific init.md exists, run it BEFORE step 3:
+                         Rust       → get_rule("rust/init.md")    — installs RustScanners,
+                                       creates src/state/ folder, build.rs, proj/rulestools.toml
+                         Slint      → get_rule("slint/init.md")   — installs SlintScanners,
+                                       creates ui/ definition folders, tokens, theme globals
                          C# / .NET  → get_rule("csharp/init.md")  — scaffolds sln, csproj,
                                        Directory.Build.props, .editorconfig, .gitignore
                          (other languages: add init.md when available)

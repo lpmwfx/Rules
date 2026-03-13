@@ -1,10 +1,10 @@
 ---
-tags: [uiux, tokens, design-tokens, no-hardcoding, theming, declarative]
-concepts: [design-tokens, declarative-ui, theme-config]
+tags: [uiux, tokens, design-tokens, no-hardcoding, theming, declarative, slintscanners]
+concepts: [design-tokens, declarative-ui, theme-config, slint-build-scan]
 requires: [global/config-driven.md]
-feeds: [uiux/theming.md, uiux/components.md]
-related: [css/custom-properties.md, css/themes.md, global/file-limits.md, global/module-tree.md]
-keywords: [design-tokens, magic-values, px, hex, color, spacing, typography, slint-global, css-variables, theme-config, modular-tokens, declarative]
+feeds: [uiux/theming.md, uiux/components.md, slint/init.md]
+related: [css/custom-properties.md, css/themes.md, global/file-limits.md, global/module-tree.md, slint/init.md]
+keywords: [design-tokens, magic-values, px, hex, color, spacing, typography, slint-global, css-variables, theme-config, modular-tokens, declarative, slintscanners, build-scan]
 layer: 2
 ---
 # Design Tokens — No Magic Values in UI
