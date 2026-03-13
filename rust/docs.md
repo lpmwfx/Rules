@@ -88,3 +88,24 @@ pub struct Manifest { ... }
 2. Add `///` to every item listed in `proj/ISSUES`
 3. Run `rustdocumenter gen` again — `proj/ISSUES` shrinks or disappears
 4. Pre-commit: `rustdocumenter check` exits 0 only when all pub items are documented
+
+## Viewing documentation
+
+After running `rustdocumenter gen`, browse the generated `man/` documentation:
+
+```bash
+# Install the viewer (one-time)
+cargo install --force --git https://github.com/lpmwfx/RustDocumenter rustdoc-viewer
+
+# Open the Slint GUI browser in your project
+rustdoc-viewer .
+
+# Or use the rustman wrapper to auto-discover
+rustman              # finds nearest man/MANIFEST.json and opens viewer
+rustman gen          # generate docs and immediately open viewer
+```
+
+The viewer displays:
+- **Left sidebar**: project folder hierarchy (`src/`, `src/checks/`, etc.)
+- **Right panel**: all `///` doc comments for items in the selected file
+- **Search**: find items by name or doc text across the entire project
