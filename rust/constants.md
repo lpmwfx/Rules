@@ -1,10 +1,10 @@
 ---
-tags: [rust, constants, no-hardcoding, zero-literals, states, no-literals]
-concepts: [zero-literals, named-values, state-files, data-driven]
+tags: [rust, constants, no-hardcoding, zero-literals, states, no-literals, rustscanners]
+concepts: [zero-literals, named-values, state-files, data-driven, rust-build-scan]
 requires: [global/config-driven.md, rust/types.md]
-feeds: [rust/naming.md]
-related: [slint/states.md, uiux/tokens.md, global/topology.md]
-keywords: [const, static, magic-number, duration, timeout, literal, state, state-folder, zero-literal]
+feeds: [rust/naming.md, rust/init.md]
+related: [slint/states.md, uiux/tokens.md, global/topology.md, rust/init.md]
+keywords: [const, static, magic-number, duration, timeout, literal, state, state-folder, zero-literal, rustscanners, build-scan, cargo-scan]
 layer: 3
 ---
 # Rust Zero Literals — All Values Named
