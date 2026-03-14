@@ -1,0 +1,160 @@
+# TODO: Rules — Phase 1: rules-quality
+
+phase: 1
+id: rules-quality
+
+## Missing Files
+
+- id: 1
+  task: Add LICENSE and RULES spec files to project-files/
+  pass: Two new spec files matching format of other project-files/ specs
+  status: pending
+
+- id: 2
+  task: Add naming-suffix.md to global/README.md table
+  pass: File listed in table with correct link and description
+  status: pending
+
+- id: 3
+  task: Add rust/testing.md
+  pass: Testing patterns, test structure, naming — consistent with python/js/cpp testing.md
+  status: pending
+
+- id: 4
+  task: Add js/nesting.md
+  pass: Max 3 levels, early returns — consistent with python/cpp/rust nesting.md
+  status: pending
+
+- id: 5
+  task: Add kotlin/nesting.md and kotlin/testing.md
+  pass: Standalone files, consistent with other languages
+  status: pending
+
+- id: 25
+  task: Add uiux/menus-android.md — Android platform menu/navigation rules
+  note: Bootstrap derivation currently has no Android platform file. Android uses
+        Compose navigation (NavHost/NavController), bottom nav bar, no system menubar.
+        Material You theming, back gesture, predictive back animation.
+  pass: File covers Android-specific navigation, About screen via intent, keyboard shortcuts
+  status: pending
+
+- id: 26
+  task: Add uiux/menus-ios.md — iOS/iPadOS platform rules
+  note: Bootstrap derivation has no iOS file. SwiftUI NavigationStack, tab bars,
+        SF Symbols, Settings bundle, no About dialog (use Settings app), Cmd+? on iPad.
+  pass: File covers iOS navigation, About/settings delivery, SF Symbols icons
+  status: pending
+
+- id: 27
+  task: Add uiux/menus-qt6.md — Qt6/QML platform menu rules
+  note: Bootstrap derivation has no Qt6 toolkit file. Qt6 uses QMenuBar on Windows/Linux,
+        QAction/QShortcut, QML MenuBar component, platform theme via QGuiApplication::palette.
+        Tested in stack: C++ + Qt6 + KDE/Windows.
+  pass: File covers QMenuBar setup, QML MenuBar, platform-specific menu attachment, About via QMessageBox
+  status: pending
+
+- id: 28
+  task: Add event-listener architecture rules — Adapter as unified event API layer
+  note: |
+    Missing rules for how events connect to logic across input sources.
+    The pattern (from MVVM): one central adapter layer collects all event sources in one file —
+    buttons, keyboard shortcuts, and MCP calls all register on the same named events.
+    The logic layer listens in one place (one listener per event) and executes the action — it does
+    not know whether the trigger came from UI, keyboard, or MCP.
+
+    Core principles to describe:
+    - The adapter file is the only place events are defined and exposed (API layer)
+    - One listener per event — never duplicated logic across input sources
+    - Input sources (button, shortcut, MCP) bind to the event, not to each other
+    - The logic layer is unaware of input source (decoupling)
+    - Naming: events named by intention, not by input source
+      (e.g. `on_save`, not `on_ctrl_s_pressed` or `on_save_button_clicked`)
+
+    Candidate location: ipc/event-adapter.md or global/event-adapter.md
+    (ipc/ because it is communication between layers, not a language-specific pattern)
+  pass: |
+    New rule file describes the adapter pattern with RULE: lines for:
+    - One adapter file per module/feature collecting all input sources
+    - Only one logic callback per named event
+    - Input sources register on events, logic registers on events — the two do not know each other
+    - Forbidden: direct call from button handler to logic function (bypass of adapter)
+  status: pending
+
+## Contradictions
+
+- id: 6
+  task: Decide fate of global/naming-suffix.md (brand+code system)
+  note: hex-suffix has been removed from rust/naming.md and replaced by layer-tags (done).
+        naming-suffix.md describes brand+code on ALL identifiers (Issue_rvA1b) — a different
+        purpose than layer-tags. Remove it or keep it as a separate concept?
+  pass: Either deleted or updated to clearly coexist with layer-tag convention
+  status: pending
+
+- id: 7
+  task: Fix brand "optional" vs "blocking" contradiction in naming-suffix.md
+  pass: Clear rule — either optional or required, not both
+  status: pending
+
+- id: 8
+  task: Reconcile status terminology (goal-chain.md DOING/FAIL/REFACTOR vs todo-file.md pending/in_progress/done)
+  pass: Same terms used in both files
+  status: pending
+
+- id: 9
+  task: Fix kotlin README "no Java interop" vs encapsulation.md Java import rules
+  pass: Consistent position — either pure Kotlin or regulated Java, not both
+  status: pending
+
+## Register / MCP Search
+
+- id: 10
+  task: Add missing concepts to CONCEPT_MAP in build-register.py
+  pass: All content files have >= 1 concept in register.jsonl
+  status: pending
+
+- id: 11
+  task: Extract VITAL: markers in build-register.py (not just RULE:/BANNED:)
+  pass: Global foundation files show vitals count > 0 in register
+  status: pending
+
+- id: 12
+  task: Fix false concept assignments (cmake in install-file, clippy in checklist)
+  pass: No file has concepts from unrelated domains
+  status: pending
+
+- id: 19
+  task: Auto-bidirectionalize 'related' edges in build-register.py
+  note: 192 asymmetric pairs — mostly README→files (expected), but also content→content
+  pass: compute_reverse_edges() mirrors related edges the same way requires/feeds are mirrored
+  status: pending
+
+- id: 20
+  task: Verify discoverability of all global/ files via typical AI search queries
+  note: Learned that a new global/ rule can score 1 for "UI project setup" and not be found
+  pass: All global/ files score >= 4 for at least 2 relevant search queries
+  procedure: |
+    For each global/*.md: run search_rules with 3 natural queries
+    Fix tags/keywords in frontmatter if score too low
+    Rebuild + push
+  status: pending
+
+- id: 21
+  task: Update help() quick-start in RulesMCP when new category questions arise
+  note: AIs follow help() blindly — missing "get_context(global)" caused all architecture rules to be missed
+  pass: Quick-start covers: architecture, project setup, language, search, reference
+  status: pending
+
+- id: 22
+  task: Upgrade rustdocumenter from warnings to errors for doc-comment enforcement
+  note: |
+    Rules (rust/docs.md, slint/docs.md) now define /// doc comments as BLOCKING errors.
+    Implementation is READY in rustdocumenter source — just needs:
+    1. Exit code changed from 0 (warning) to 1 (error) when /// missing
+    2. Output prefix changed from WARNING: to ERROR:
+    3. Pre-commit hook integration to block commits
+
+    WAITING: Give projects time to add missing /// comments before this enforcement kicks in.
+    Timeline: After 2-4 weeks of projects using new rules, enable error mode.
+  pass: rustdocumenter check exits 1 and blocks commit if any pub item lacks /// comment
+  status: pending
+  priority: high
