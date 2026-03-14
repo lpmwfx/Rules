@@ -1,9 +1,9 @@
 ---
-tags: [rust, init, initialize, bootstrap, setup, new-project, rustscanners]
-concepts: [project-initialization, project-setup, zero-literal, rust-build-scan]
+tags: [rust, init, initialize, bootstrap, setup, new-project, build-scanners, rustscanners, slintscanners, rustdocumenter, scanner-install]
+concepts: [project-initialization, project-setup, zero-literal, rust-build-scan, build-time-enforcement, documentation]
 requires: [global/initialize.md, rust/constants.md, rust/modules.md]
-related: [rust/README.md, project-files/project-file.md, project-files/rules-file.md]
-keywords: [rust, init, cargo, build.rs, rustscanners, state, zero-literal, install, cargo-scan, build-scan]
+related: [rust/README.md, project-files/project-file.md, project-files/rules-file.md, slint/init.md]
+keywords: [rust, init, cargo, build.rs, rustscanners, slintscanners, rustdocumenter, state, zero-literal, install, cargo-scan, build-scan, doc-comment, man, viewer]
 layer: 2
 ---
 # Rust Project Initialization
@@ -39,21 +39,55 @@ cargo init my-app && cd my-app
 
 ---
 
-## Step 2 — Install RustScanners
+## Step 2 — Set up Unified Build Scanners
 
-Zero-literal enforcement runs during every `cargo build`.
+**CRITICAL: Build-time scanners run during `cargo build` — configure them before writing code**
 
-```bash
-curl -sSf https://raw.githubusercontent.com/lpmwfx/RustScanners/main/install.sh | bash
+### 2.1 — Add Rust scanner wrappers to Cargo.toml
+
+Two Rust scanners are now unified in a single Rust workspace (`RulesTools`):
+
+```toml
+[build-dependencies]
+rustscan  = { git = "https://github.com/lpmwfx/RulesTools" }
+slintscan = { git = "https://github.com/lpmwfx/RulesTools" }  # if using Slint UI
 ```
 
-This does three things:
-1. Adds `rustscanners` as `[build-dependencies]` in `Cargo.toml`
-2. Creates `build.rs` calling `rustscanners::scan_project()`
-3. Creates `proj/rulestools.toml` with default scanner config
+### 2.2 — Install RustDocumenter binary separately
 
-RULE: RustScanners is installed at project creation — not added later
+```bash
+cargo install --git https://github.com/lpmwfx/RustDocumenter
+```
+
+### 2.3 — Create build.rs
+
+```rust
+// build.rs
+fn main() {
+    rustscan::scan_project();     // Rust: zero-literal, unwrap, naming, threading, doc-comments, etc.
+    slintscan::scan_project();    // Slint: zero-literal, tokens, structure, events (if using Slint)
+
+    // Documentation: generates man/ + proj/ISSUES
+    // (call rustdocumenter separately after cargo build)
+}
+```
+
+### 2.4 — Create proj/rulestools.toml
+
+```toml
+[scan]
+languages = ["rust", "slint"]   # remove "slint" if not using Slint UI
+
+[project]
+deny = false                     # Set to true before release
+```
+
+---
+
+**VITAL RULE: All scanners must be installed before first `cargo build`**
 RULE: `deny = false` during development, `deny = true` before release
+RULE: `cargo build` must pass all scanners with zero violations
+RULE: Never commit code that violates scanner rules
 
 ---
 
@@ -97,28 +131,6 @@ pub const CONFIG_FILE: &str = "config.toml";
 RULE: Format is open — `.rs` with `const`, `.toml`, `.json`, `.yaml` all valid
 RULE: One file per concern — don't mix sizes with durations
 RULE: Gateway loads non-Rust formats into `_cfg` structs
-
----
-
-## Step 4 — Install rustdocumenter
-
-Documentation generator — scans `///` doc comments, writes `man/` + `proj/ISSUES`.
-
-```bash
-cargo install --force --git https://github.com/lpmwfx/RustDocumenter rustdocumenter
-```
-
-Then generate initial documentation (empty `man/` is normal at project start):
-
-```bash
-rustdocumenter gen .
-```
-
-`proj/ISSUES` is created whenever public items lack `///` doc comments.
-`man/` contains one `.md` + `.json` per source file — readable by AI and the `rustdoc-viewer` GUI.
-
-RULE: Add `///` doc comments to every `pub` item — see `rust/docs.md`
-RULE: Run `rustdocumenter gen` after adding pub items to keep `man/` current
 
 ---
 

@@ -8,7 +8,7 @@ layer: 2
 ---
 # Documentation Rules
 
-> Every public item must have a `///` doc comment — enforced by `rustdocumenter check` and `rulestools scan`
+> Every public item must have a `///` doc comment — reported as **warnings**, not errors
 
 ---
 
@@ -25,15 +25,15 @@ RULE: Doc comment must appear before any `#[...]` attribute lines that precede t
 
 ## Enforcement
 
-Two enforcement layers — both reference the same rule ID:
+Three enforcement layers — all report as **warnings** (not errors):
 
-| Tool | Trigger | Output |
-|---|---|---|
-| `rulestools scan` | Manual / pre-commit | `proj/ISSUES` |
-| `rustdocumenter check` | Manual | stderr + exit 1 |
-| `rustdocumenter gen` | Manual | `man/` + `proj/ISSUES` |
+| Tool | Trigger | Severity | Output |
+|---|---|---|---|
+| `rustscanners` (cargo build) | Automatic on `cargo build` | warning | stderr |
+| `rustdocumenter gen` | Manual | warning | `proj/ISSUES` + `man/` |
+| `rustdocumenter check` | Manual | warning | stderr |
 
-`rustdocumenter gen` generates `man/` documentation and writes `proj/ISSUES` listing every undocumented item with file and line number.
+Missing `///` doc comments are reported as **warnings**, not errors — they do not block builds or pre-commit hooks.
 
 ## Format
 

@@ -1,9 +1,9 @@
 ---
-tags: [slint, init, initialize, bootstrap, setup, new-project, slintscanners]
-concepts: [project-initialization, project-setup, zero-literal, slint-build-scan]
-requires: [global/initialize.md, slint/states.md, slint/validation.md, uiux/tokens.md]
+tags: [slint, init, initialize, bootstrap, setup, new-project, build-scanners, rustscanners, slintscanners, rustdocumenter, scanner-install]
+concepts: [project-initialization, project-setup, zero-literal, slint-build-scan, build-time-enforcement, documentation]
+requires: [global/initialize.md, slint/states.md, slint/validation.md, uiux/tokens.md, rust/init.md]
 related: [slint/README.md, rust/init.md, slint/themes.md, slint/globals.md]
-keywords: [slint, init, cargo, build.rs, slintscanners, tokens, zero-literal, install, cargo-scan, build-scan, theme, globals, state]
+keywords: [slint, init, cargo, build.rs, rustscanners, slintscanners, rustdocumenter, tokens, zero-literal, install, cargo-scan, build-scan, theme, globals, state, doc-comment, man, viewer]
 layer: 2
 ---
 # Slint Project Initialization
@@ -29,41 +29,44 @@ Questions to ask:
 
 ---
 
-## Step 1 — Install SlintScanners
+## Step 1 — Unified Build Scanners
 
-Zero-literal enforcement for Slint files, runs during `cargo build`.
+**CRITICAL: Build-time scanners run during `cargo build` — configure them before writing UI code**
 
-```bash
-curl -sSf https://raw.githubusercontent.com/lpmwfx/SlintScanners/main/install.sh | bash
+The Rust scanners are now unified in the `RulesTools` workspace. Ensure `Cargo.toml` has:
+
+```toml
+[build-dependencies]
+rustscan    = { git = "https://github.com/lpmwfx/RulesTools" }
+slintscan   = { git = "https://github.com/lpmwfx/RulesTools" }
+slint-build = "1"
 ```
 
-This does three things:
-1. Adds `slintscanners` as `[build-dependencies]` in `Cargo.toml`
-2. Patches `build.rs` to call `slintscanners::scan_project()`
-3. Adds `[slintscanners]` section to `proj/rulestools.toml`
+Create or update `build.rs`:
 
-RULE: SlintScanners is installed at project creation — not added later
-RULE: Both RustScanners and SlintScanners coexist in the same `build.rs`
+```rust
+// build.rs
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    rustscan::scan_project();     // Rust: zero-literal, unwrap, naming, docs, etc.
+    slintscan::scan_project();    // Slint: zero-literal, tokens, structure, events, etc.
+
+    slint_build::compile("ui/main.slint")?;
+    Ok(())
+}
+```
+
+Ensure `proj/rulestools.toml` includes both languages:
+
+```toml
+[scan]
+languages = ["rust", "slint"]
+```
 
 ---
 
-## Step 1b — Install rustdocumenter
-
-Documentation generator — scans `///` doc comments in `.rs` and `.slint` files, writes `man/` + `proj/ISSUES`.
-
-```bash
-cargo install --force --git https://github.com/lpmwfx/RustDocumenter rustdocumenter
-```
-
-Generate initial documentation after scaffolding:
-
-```bash
-rustdocumenter gen .
-```
-
-`proj/ISSUES` lists every exported component, callback, and property that lacks a `///` doc comment.
-`man/` has one `.md` + `.json` per source file — see `slint/docs.md`.
-
+**VITAL RULE: Both scanners must be available before first `cargo build`**
+RULE: `cargo build` must pass both scanners with zero violations
+RULE: RustScanners + SlintScanners coexist in the same `build.rs`
 RULE: Add `///` doc comments to every `export component`, callback, and `in/out property` — see `slint/docs.md`
 
 ---
