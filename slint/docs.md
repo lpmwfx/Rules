@@ -8,7 +8,7 @@ layer: 2
 ---
 # Slint Documentation Rules
 
-> Every exported component, struct, enum, callback, and property MUST have a `///` doc comment — reported as **warnings**, not errors
+> Every exported component, struct, enum, callback, and property MUST have a `///` doc comment — reported as **errors**, blocks build and commit
 
 ---
 
@@ -25,16 +25,16 @@ RULE: `private` properties are exempt
 
 ## Enforcement
 
-Two enforcement layers — both report as **warnings** (not errors):
+Two enforcement layers — both report as **errors** (block build and commit):
 
 | Tool | Trigger | Severity | Output |
 |---|---|---|---|
-| `rustdocumenter gen` | Manual | warning | `man/` + `proj/ISSUES` |
-| `rulestools scan` | Manual / pre-commit | warning | `proj/ISSUES` |
+| `rustdocumenter gen` | Manual | error | `man/` + `proj/ISSUES`, blocks build |
+| `slintscan` (cargo build) | Automatic on `cargo build` | error | stderr, blocks build |
 
 `rustdocumenter gen` walks all `.slint` files in `ui/` and generates `man/` documentation alongside `proj/ISSUES`.
 
-Missing `///` doc comments are reported as **warnings**, not errors — they do not block builds or pre-commit hooks.
+Missing `///` doc comments are reported as **errors** and block `cargo build` and pre-commit hooks. Every exported item must be documented before code can be shipped.
 
 ## Format
 

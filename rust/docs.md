@@ -8,7 +8,7 @@ layer: 2
 ---
 # Documentation Rules
 
-> Every public item must have a `///` doc comment — reported as **warnings**, not errors
+> Every public item must have a `///` doc comment — reported as **errors**, blocks build and commit
 
 ---
 
@@ -25,15 +25,15 @@ RULE: Doc comment must appear before any `#[...]` attribute lines that precede t
 
 ## Enforcement
 
-Three enforcement layers — all report as **warnings** (not errors):
+Three enforcement layers — all report as **errors** (blocks build and commit):
 
 | Tool | Trigger | Severity | Output |
 |---|---|---|---|
-| `rustscanners` (cargo build) | Automatic on `cargo build` | warning | stderr |
-| `rustdocumenter gen` | Manual | warning | `proj/ISSUES` + `man/` |
-| `rustdocumenter check` | Manual | warning | stderr |
+| `rustscanners` (cargo build) | Automatic on `cargo build` | error | stderr, blocks build |
+| `rustdocumenter gen` | Manual | error | `proj/ISSUES` + `man/`, blocks further steps |
+| `rustdocumenter check` | Pre-commit hook | error | stderr, blocks commit |
 
-Missing `///` doc comments are reported as **warnings**, not errors — they do not block builds or pre-commit hooks.
+Missing `///` doc comments are reported as **errors** and block `cargo build`, pre-commit hooks, and CI/CD pipelines. Every `pub` item must be documented before code can be shipped.
 
 ## Format
 
