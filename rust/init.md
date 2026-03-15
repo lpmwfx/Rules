@@ -39,24 +39,22 @@ cargo init my-app && cd my-app
 
 ---
 
-## Step 2 — Set up Unified Build Scanners
+## Step 2 — Set up Build Scanners
 
 **CRITICAL: Build-time scanners run during `cargo build` — configure them before writing code**
 
-### 2.1 — Add Rust scanner wrappers to Cargo.toml
-
-Two Rust scanners are now unified in a single Rust workspace (`RulesTools`):
+### 2.1 — Add scanner crates to Cargo.toml
 
 ```toml
 [build-dependencies]
-rustscan  = { git = "https://github.com/lpmwfx/RulesTools" }
-slintscan = { git = "https://github.com/lpmwfx/RulesTools" }  # if using Slint UI
+rustscanners  = { git = "https://github.com/lpmwfx/RustScanners" }
+slintscanners = { git = "https://github.com/lpmwfx/SlintScanners" }  # if using Slint UI
 ```
 
-### 2.2 — Install RustDocumenter binary separately
+### 2.2 — Install RustDocumenter binary
 
 ```bash
-cargo install --git https://github.com/lpmwfx/RustDocumenter
+cargo install --git https://github.com/lpmwfx/RustDocumenter rustdocumenter
 ```
 
 ### 2.3 — Create build.rs
@@ -64,11 +62,8 @@ cargo install --git https://github.com/lpmwfx/RustDocumenter
 ```rust
 // build.rs
 fn main() {
-    rustscan::scan_project();     // Rust: zero-literal, unwrap, naming, threading, doc-comments, etc.
-    slintscan::scan_project();    // Slint: zero-literal, tokens, structure, events (if using Slint)
-
-    // Documentation: generates man/ + proj/ISSUES
-    // (call rustdocumenter separately after cargo build)
+    rustscanners::scan_project();   // Rust: zero-literal, unwrap, naming, threading, doc-comments, etc.
+    slintscanners::scan_project();  // Slint: zero-literal, tokens, structure, events (if using Slint)
 }
 ```
 
@@ -146,10 +141,11 @@ RULE: Gateway loads non-Rust formats into `_cfg` structs
 
 ```bash
 cargo build
+rustdocumenter        # AI auto-generates /// doc comments for all undocumented pub items
 rustdocumenter check .
 ```
 
-Both must succeed. `cargo build` must produce zero scanner violations. `rustdocumenter check` exits 0 only when all `pub` items have `///` doc comments.
+`cargo build` must produce zero scanner violations. `rustdocumenter` (no args) auto-generates missing `///` docs via AI. `rustdocumenter check` exits 0 only when all `pub` items have `///` doc comments.
 
 ---
 
