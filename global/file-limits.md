@@ -14,7 +14,8 @@ layer: 1
 ---
 
 VITAL: One file, one encapsulated module — if the file is growing, it has taken on a second job
-VITAL: Size limits exist because AI loses context above ~200 lines — not for style reasons
+VITAL: Size limits exist because AI loses context above ~250 code lines — not for style reasons
+VITAL: Only code lines count — comments, doc-comments (/// //! /* */), blank lines, and pure string literals are excluded
 VITAL: The line limit is the hard constraint — even a well-encapsulated single-concern module MUST be split when it reaches the limit, because AI cannot reliably edit what it cannot hold in context
 VITAL: Before adding code to any existing file, count its lines — if near the limit, split the module first
 VITAL: A split is NOT moving code sideways — it creates a mother/child folder cascade (see uiux/mother-child.md)
@@ -29,18 +30,19 @@ BANNED: Treating the split as a penalty — modular structure is the preferred d
 
 ## Limits by File Type
 
-| File type | AI comprehension limit | Action when approaching |
+| File type | Soft / Hard (code lines) | Action when approaching |
 |-----------|----------------------|------------------------|
-| Slint component | 200 lines | Split — AI loses property graph, bugs guaranteed |
-| UI component (JS/TS/Kotlin/Swift) | 200 lines | Extract sub-component to own file |
-| CSS / SCSS per file | 150 lines | Split by component or section |
-| Python module | 250 lines | Extract class or function group |
-| JS / TS module | 250 lines | Extract to new module file |
-| Rust module (`mod`) | 300 lines | Split into submodules |
-| C++ source file | 350 lines | Extract to new translation unit |
+| Slint component | 200 / 250 | Split — AI loses property graph, bugs guaranteed |
+| UI component (JS/TS/Kotlin/Swift) | 200 / 250 | Extract sub-component to own file |
+| CSS / SCSS per file | 120 / 150 | Split by component or section |
+| Python module | 200 / 250 | Extract class or function group |
+| JS / TS module | 200 / 250 | Extract to new module file |
+| Rust module (`mod`) | 200 / 250 | Split into submodules |
+| C++ source file | 280 / 350 | Extract to new translation unit |
 
 RULE: "Approaching" means within 20% of the limit — plan the split before hitting it
-RULE: Slint is the strictest — declarative markup gives AI no way to skip or summarise sections
+RULE: Only code lines are counted — comments, doc-comments, blank lines, and string literals are free
+RULE: Slint and Rust share the same limits — declarative markup and heavily-documented Rust both benefit from comment exclusion
 
 RULE: Soft limit = warning, start planning the split
 RULE: Hard limit = stop, split before writing a single new line
