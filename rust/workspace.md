@@ -3,7 +3,7 @@ tags: [rust, workspace, cargo, cross-platform, multi-platform, crates, apps, des
 concepts: [workspace-topology, crate-layout, cross-platform-architecture, platform-abstraction, cargo-dag-enforcement, multi-target, scanner-topology, scan-root]
 requires: [global/topology.md, rust/modules.md, pal/design.md]
 feeds: [rust/init.md, pal/traits.md]
-related: [global/mother-tree.md, pal/traits.md, uiux/menus-kde.md, uiux/menus-gnome.md, uiux/menus-windows.md, uiux/menus-macos.md, uiux/menus-ios.md, uiux/menus-android.md]
+related: [global/topology.md, global/mother-tree.md, pal/design.md, pal/traits.md, uiux/menus-kde.md, uiux/menus-gnome.md, uiux/menus-windows.md, uiux/menus-macos.md, uiux/menus-ios.md, uiux/menus-android.md]
 keywords: [workspace, crates, apps, desktop, mobile, android, ios, kde, gnome, windows, macos, steam, sailfish, pal, cdylib, jni, ffi, cfg, features, virtual-workspace, member, multi-binary, workspace-dependencies, cargo-toml, cross-compile, binary, library, rulestools-toml, topology-flat, topology-workspace, scan-root, build-rs, rustscanners, slintscanners]
 layer: 2
 binding: true
@@ -227,16 +227,22 @@ BANNED: `cargo install` without a crate name in multi-binary workspaces — it w
 
 ## Scanner Configuration — `proj/rulestools.toml`
 
-Workspace topology must be declared explicitly so scanners know how to walk the project:
+Workspace topology must be declared explicitly so scanners know how to walk the project.
+Every member with Rust code has its own `build.rs` — this ensures that building a single crate
+(e.g. `cargo build -p core`) still triggers scanning of that crate's source.
 
 ```toml
-# proj/rulestools.toml — at workspace root
+# proj/rulestools.toml — at workspace root (shared by all members)
 
 [scan]
 languages = ["rust", "slint"]
 
 [project]
-topology = "workspace"   # "flat" (default, single crate) | "workspace" (apps/ + crates/)
+# Each member's build.rs reads this file.
+# Library crates use "flat" — they scan only their own src/.
+# The scan root (apps/desktop) uses "workspace" — it also scans the full workspace.
+# topology is set per-crate by overriding in the member's own proj/rulestools.toml,
+# or the workspace root value is used as default.
 
 [rustscanners]
 deny = false             # set true before release
@@ -252,22 +258,46 @@ deny = false
 | `"flat"` (default) | scans own `src/` only | scans own `ui/` or `src/` only |
 | `"workspace"` | scans all `apps/*/src/` + `crates/*/src/` | scans all `apps/*/ui/` + `apps/*/src/` |
 
-RULE: Workspace projects set `topology = "workspace"` in `[project]` — scanners won't see all crates otherwise
-RULE: Only one crate in the workspace calls `rustscanners::scan_project()` and `slintscanners::scan_project()` — the **scan root**
-RULE: The scan root is the main desktop app binary (`apps/desktop/build.rs`) — it sees the full workspace
-RULE: Library crates in `crates/` do NOT have a scanning `build.rs` — they rely on the scan root
-BANNED: Multiple `build.rs` files calling `scan_project()` in the same workspace — causes duplicate scanning of all files
+**Two-tier scanning — flat + workspace are additive, not exclusive:**
+
+```
+cargo build -p core
+  └─ crates/core/build.rs → topology = "flat" → scans crates/core/src/ only ✓
+
+cargo build -p desktop
+  └─ apps/desktop/build.rs → topology = "workspace" → scans entire workspace ✓
+
+cargo build (full)
+  └─ all build.rs files run:
+       crates/core/build.rs    → flat → scans itself ✓
+       crates/adapter/build.rs → flat → scans itself ✓
+       crates/pal/build.rs     → flat → scans itself ✓
+       crates/gateway/build.rs → flat → scans itself ✓
+       apps/desktop/build.rs   → workspace → scans everything (cross-crate checks) ✓
+       apps/cli/build.rs       → flat → scans itself ✓
+```
+
+RULE: Every member crate that contains Rust source code has its own `build.rs` calling `rustscanners::scan_project()`
+RULE: Library crates (`crates/*`) use `topology = "flat"` — they scan only their own `src/`
+RULE: The scan root (`apps/desktop`) uses `topology = "workspace"` — it supplements flat scans with cross-workspace visibility
+RULE: `apps/desktop` is always the scan root — it is always built as part of `cargo build`
+BANNED: A member crate with Rust source and no `build.rs` — building it individually would skip all scanning
 
 ```rust
-// apps/desktop/build.rs — ONLY build.rs that runs scanners
+// crates/core/build.rs — flat: scans only crates/core/src/
 fn main() {
-    rustscanners::scan_project();
-    slintscanners::scan_project();
+    rustscanners::scan_project();   // reads proj/rulestools.toml, topology = "flat"
 }
 
-// crates/core/build.rs — does NOT exist (no scanning build.rs in library crates)
-// crates/adapter/build.rs — does NOT exist
+// apps/desktop/build.rs — workspace: scans all members + slint files
+fn main() {
+    rustscanners::scan_project();   // topology = "workspace" → sees entire workspace
+    slintscanners::scan_project();  // topology = "workspace" → finds all .slint files
+}
 ```
+
+The scan root's `proj/rulestools.toml` sets `topology = "workspace"`. All other members either have
+their own `proj/rulestools.toml` with `topology = "flat"`, or rely on the default (`"flat"`).
 
 ---
 
