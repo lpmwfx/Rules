@@ -99,5 +99,26 @@ BANNED: `managers` — a manager is a mother that does not know it; make it expl
 BANNED: `misc` — if it has no role, it has no place
 BANNED: `infra` — use `gateway` for IO, `pal` for platform abstraction
 
+## Composition — Stereotypes + Suffix Tags
+
+Stereotypes name the **folder/module**. Suffix tags name the **type inside it**. They compose:
+
+```
+src/adapter/               ← layer stereotype: "adapter"
+├── mod.rs                 ← file stereotype: mother (composes children)
+├── canvas.rs              ← file stereotype: named by domain entity
+│   └── CanvasAdapter_adp  ← suffix tag: _adp (matches layer folder)
+│   └── CanvasState_sta    ← suffix tag: _sta (overrides layer — state struct)
+└── inspector.rs
+    └── InspectorAdapter_adp
+
+src/ui/callbacks/          ← module stereotype: "callbacks" (inside ui layer)
+├── mod.rs                 ← mother — register_all()
+├── canvas.rs              ← child — register(ui, &state)
+└── file_ops.rs            ← child — register(ui, &state)
+```
+
+RULE: Stereotype names the container (folder). Suffix tag names the content (type). Both are required.
+
 RESULT: Any AI can navigate an unknown project instantly — the names are always the same
 REASON: Stereotypes eliminate ambiguity; the dictionary replaces design discussions with lookups

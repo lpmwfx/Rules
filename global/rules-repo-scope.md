@@ -12,6 +12,7 @@ layer: 1
 
 ---
 
+VITAL: This rule applies ONLY to the Rules repo (D:/REPO/Rules-dev) — user projects follow their own language-specific init.md which IS authorized to set up build infrastructure
 VITAL: This repo has two distinct concerns — CONTENT and INFRASTRUCTURE
 VITAL: AI is authorized to change CONTENT — AI is NOT authorized to change INFRASTRUCTURE
 VITAL: If unsure which category an action falls into — ASK before acting

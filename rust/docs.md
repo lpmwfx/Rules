@@ -89,6 +89,44 @@ pub struct Manifest { ... }
 3. Run `rustdocumenter gen` again — `proj/ISSUES` shrinks or disappears
 4. Pre-commit: `rustdocumenter check` exits 0 only when all pub items are documented
 
+## `man/` — Design Evaluation Reference
+
+The `man/` folder is a generated **design reference** for evaluating project architecture. It extracts every `pub` item and its `///` doc comment into a browsable structure that mirrors `src/` 1:1.
+
+### Purpose
+
+`man/` answers design questions without reading implementation:
+
+| Question | How `man/` answers it |
+|----------|-----------------------|
+| Is the public API coherent? | Scan man pages per module — do the pub items form a clear contract? |
+| Are responsibilities correctly placed? | Check if `_core` pages contain IO, or `_gtw` pages contain logic |
+| Is the module tree balanced? | Compare page sizes — a huge man page = an oversized module |
+| Are error types well-designed? | Read `# Errors` sections — are variants specific and recoverable? |
+| Does the naming follow conventions? | Scan for missing `_adp`/`_core`/`_sta` suffixes across all pages |
+| Are doc comments meaningful? | Spot one-word or copy-paste descriptions that add no value |
+
+RULE: Use `man/` to evaluate whether the project's public API design is sound — it is a design review tool, not a coding aid
+RULE: A man page that looks wrong reveals a design problem — fix the design, not just the doc comment
+RULE: After writing new pub items, run `rustdocumenter gen` and verify the item appears in `man/` — missing entry = missing doc comment
+
+### `man/` folder structure
+
+```
+man/
+├── MANIFEST.json              ← index: maps source files to doc pages
+├── src/
+│   ├── lib.md                 ← pub items in src/lib.rs
+│   ├── config.md              ← pub items in src/config.rs
+│   └── checks/
+│       ├── mod.md             ← pub items in src/checks/mod.rs
+│       ├── nesting.md         ← pub items in src/checks/nesting.rs
+│       └── naming.md          ← pub items in src/checks/naming.rs
+└── (mirrors src/ hierarchy 1:1)
+```
+
+Each `.md` file lists every `pub` item from its corresponding source file with the `///` content.
+
 ## Viewing documentation
 
 After running `rustdocumenter gen`, browse the generated `man/` documentation:

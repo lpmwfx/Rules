@@ -150,7 +150,8 @@ RULE: Siblings never communicate directly — all coordination routes through th
 RULE: Children have no knowledge of each other — they are independently understandable files
 
 At the **system level**:
-- Adapter is mother — it owns AppState and coordinates all layers
+- Adapter is mother — it owns AdapterState_sta (the ViewModel state) and coordinates all layers
+- Each layer also owns its own `_sta` struct (see persistent-state.md) — "mother" means Adapter coordinates, not that it holds all state in one place
 - Core, Gateway, PAL are stateless children — pure functions / IO that receive what they need
 
 At the **UI level** (see uiux/mother-child.md):

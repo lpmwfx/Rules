@@ -11,6 +11,8 @@ layer: 1
 
 > Adapter is the data exchange hub — the only layer that knows all others
 
+NOTE: This is the **detailed specification** for the Adapter layer. For a high-level overview of all layers, see global/app-model.md. Rules stated here are authoritative for Adapter behavior.
+
 ---
 
 VITAL: Adapter is the ONLY layer that imports from all other layers

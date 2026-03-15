@@ -63,6 +63,7 @@ At **module level**: `mod.rs`/`__init__.py`/`index.ts` is mother, child files ar
 ## File Size Limits
 
 Size limits exist because AI loses context above ~200 lines — not for style reasons.
+The line limit is the hard constraint — even a well-encapsulated single-concern module must be split at the limit.
 One file = one encapsulated module. If it is growing, it has taken on a second job.
 
 | File type | Hard limit | Action |
@@ -121,7 +122,8 @@ View model types are tagged `_adp` — flat, serializable structs with no domain
 
 ## Error Flow
 
-Every error has a class — class determines the recovery strategy.
+Validation **prevents** errors at boundaries. Error flow **handles** what gets through.
+Pipeline: validate input → classify error → recover at Adapter boundary.
 
 | Class | Strategy |
 |-------|----------|
@@ -133,6 +135,7 @@ Every error has a class — class determines the recovery strategy.
 Match error variants exhaustively — no wildcard arm that silently discards.
 Each subsystem runs inside its own error boundary — a failed subsystem does not crash the app.
 User-facing messages at Adapter boundary — never a stack trace, never silence.
+When classifying third-party exceptions: retryable? → Transient. User's fault? → UserError. Infrastructure down? → SystemError. Should never happen? → Bug.
 
 ## Flat Code — Nesting
 

@@ -15,7 +15,11 @@ layer: 1
 ```
 STOP. Before doing ANYTHING, run this checklist:
 
-0. INSTALL hooks             → mcp__rulestools__setup(".")  — idempotent, installs PostToolUse hook + pre-commit hook
+PRE-CHECK: Does proj/ exist?
+  YES → continue below (this is a returning session)
+  NO  → run global/initialize.md FIRST — do not improvise, do not skip to this checklist
+
+0. INSTALL hooks             → mcp__rulestools__setup(".")  — idempotent, safe to run every session
 1. VERIFY index.yaml         → python tools/index_generator.py --verify (if exists)
 2. READ proj/PROJECT         → Only source of truth: state, phase, stack, infra
 3. READ proj/RULES           → Active MCP rules + project-specific conventions

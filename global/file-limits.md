@@ -15,6 +15,7 @@ layer: 1
 
 VITAL: One file, one encapsulated module — if the file is growing, it has taken on a second job
 VITAL: Size limits exist because AI loses context above ~200 lines — not for style reasons
+VITAL: The line limit is the hard constraint — even a well-encapsulated single-concern module MUST be split when it reaches the limit, because AI cannot reliably edit what it cannot hold in context
 VITAL: Before adding code to any existing file, count its lines — if near the limit, split the module first
 VITAL: A split is NOT moving code sideways — it creates a mother/child folder cascade (see uiux/mother-child.md)
 VITAL: The split IS the solution — modular structure is the goal, not a workaround for hitting the limit

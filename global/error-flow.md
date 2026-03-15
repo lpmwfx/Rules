@@ -20,6 +20,36 @@ RULE: UserErrors show actionable feedback — app stays in valid state
 RULE: SystemErrors disable the affected feature — keep the app running
 RULE: Bugs capture full context, invoke crash reporter, then exit cleanly
 
+## Full Pipeline — Validation → Classification → Recovery
+
+Validation (see global/validation.md) **prevents** errors. Error flow **handles** what gets through.
+They are sequential stages in the same pipeline:
+
+```
+Input arrives
+  │
+  ▼
+VALIDATE (global/validation.md)
+  ├── Type check (design/build-time)    → catches shape errors before runtime
+  ├── Lint check (build-time)           → catches pattern violations
+  ├── Runtime validation (boundaries)   → catches invalid data at system edges
+  │     └── Validation failure?         → UserError (bad input) or Bug (invariant broken)
+  │
+  ▼
+CLASSIFY (this file)
+  ├── Transient?    → retry with backoff → if still failing → SystemError path
+  ├── UserError?    → show actionable message, stay valid
+  ├── SystemError?  → disable subsystem, keep app running
+  └── Bug?          → capture context, crash reporter, exit
+  │
+  ▼
+RECOVER at Adapter boundary
+  └── Translate to user-facing message (what failed + what to do)
+```
+
+RULE: Validation catches errors at boundaries BEFORE they enter the system — error flow handles what validation missed
+RULE: When a third-party exception reaches your code, classify it: retryable? → Transient. User's fault? → UserError. Infrastructure down? → SystemError. Should never happen? → Bug
+
 ## Error Taxonomy
 
 | Class | Cause | Recovery |
