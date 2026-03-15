@@ -23,6 +23,7 @@ CATEGORIES = [
     "rust",
     "kotlin",
     "csharp",
+    "catalog",
 ]
 
 CONCEPT_MAP = {

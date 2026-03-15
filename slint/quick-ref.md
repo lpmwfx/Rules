@@ -31,17 +31,22 @@ Slint is a declarative DSL for building UI — it maps 1:1 to the `_ui` topology
 `.slint` files define **what** the UI looks like. Rust (via Adapter) defines **what happens**.
 Scripting logic uses Rhai where lightweight runtime behavior is needed.
 
-## Widget Library — SlintUITemplates
+## UI + Adapter Foundation — `slint-ui-templates`
 
-Projects use [SlintUITemplates](https://github.com/lpmwfx/SlintUITemplates) as the standard widget and template collection.
-Provides: Button, Card, Badge, Toggle, TextInput, Avatar, ProgressBar, SelectField, and layout DSL.
+Slint projects use `slint-ui-templates` as the standard `_ui` + `_adp` foundation layer.
+Provides a near-complete implementation of both topology layers — the project adds `_core`, `_gtw`, `_pal`, `_x`.
+
+Covered: AppWindow (mother), desktop/mobile shells, shared widgets (Button, Card, Badge, Toggle,
+TextInput, Avatar, ProgressBar, SelectField), design tokens, AppAdapter.
 
 Three usage modes:
 - **Design tool**: `slint-viewer ui/desktop/app-window.slint --auto-reload` — live preview, no Rust
-- **Library**: `slint-ui-templates = "0.1"` in `Cargo.toml` — use widgets and layout DSL
-- **Template**: clone and customize `ui/views/*.slint` — full app scaffold
+- **Library**: add `slint-ui-templates` to `Cargo.toml` — use widgets, AppAdapter, layout DSL
+- **Template**: clone → edit `ui/views/*.slint` → add `_core`/`_gtw`/`_pal` → ship
 
 Layout DSL: `layout::build("1:2/1:1:1", w, h)` — `:` splits horizontal, `/` splits vertical, numbers are ratios.
+
+For repo URL and install: `list_libraries(["slint", "rust"])` — or see `catalog/slint-ui-templates.md`.
 
 ## Topology — Slint Is the `_ui` Layer
 
