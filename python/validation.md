@@ -35,6 +35,11 @@ PATTERN: `Model.model_validate(data)` — raises `ValidationError` on invalid in
 PATTERN: `Model.model_validate_json(text)` — parse JSON string directly
 BANNED: `json.loads(response.text)` without model_validate — raw dict crosses boundary
 
+## Exemption: tools/ directory
+
+`json.loads()` and `response.json()` without pydantic are allowed in `tools/` files.
+Build scripts and CLI tools parse data directly — they are not system boundaries.
+
 ## beartype — Function Parameter Enforcement
 
 ```python

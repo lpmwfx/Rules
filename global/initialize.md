@@ -59,6 +59,17 @@ PROJECT INITIALIZATION SEQUENCE:
 8. VERIFY             → run startup.md checklist — all proj/ files must be readable
 ```
 
+## Protected directories
+
+`tools/` at the project root is a protected zone for build scripts and CLI tools.
+Files there are exempt from: `no-print` (Python), `json.loads` validation (Python).
+Rust files in `tools/` are not scanned (Rust scanner only walks `src/`).
+
+RULE: Build scripts, index generators, and one-off CLI tools belong in `tools/`
+BANNED: Build scripts or print-based CLI scripts outside `tools/`
+
+---
+
 RULE: All proj/ files are created in one session — do not leave initialization partial
 RULE: Ask the user before creating proj/UIUX — confirm it is a GUI project
 RULE: proj/PROJECT.Current.phase must be "1" after initialization

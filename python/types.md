@@ -43,3 +43,12 @@ BANNED: `Optional[T]` — write `T | None` (requires `from __future__ import ann
 BANNED: Bare `except:` without exception type — always catch specific exceptions
 BANNED: Mutable default arguments (`def f(x=[])`) — use `None` and assign inside body
 BANNED: `global` keyword — use dependency injection or return values instead
+BANNED: `print()` in library/application code — use `logging` or `structlog`
+
+## Exemption: tools/ directory
+
+Files in `tools/` at the project root are build scripts and CLI tools — not library code.
+`print()` is allowed in `tools/` files. All other rules still apply.
+
+RULE: `tools/` is the only allowed location for build scripts and one-off CLI tools
+BANNED: Build scripts or print-based CLI scripts anywhere outside `tools/`
