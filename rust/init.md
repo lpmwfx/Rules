@@ -47,23 +47,19 @@ cargo init my-app && cd my-app
 
 ```toml
 [build-dependencies]
-rustscanners  = { git = "https://github.com/lpmwfx/RustScanners" }
-slintscanners = { git = "https://github.com/lpmwfx/SlintScanners" }  # if using Slint UI
+rustdocumenter = { git = "https://github.com/lpmwfx/RustDocumenter" }
+rustscanners   = { git = "https://github.com/lpmwfx/RustScanners" }
+slintscanners  = { git = "https://github.com/lpmwfx/SlintScanners" }  # if using Slint UI
 ```
 
-### 2.2 — Install RustDocumenter binary
-
-```bash
-cargo install --git https://github.com/lpmwfx/RustDocumenter rustdocumenter
-```
-
-### 2.3 — Create build.rs
+### 2.2 — Create build.rs
 
 ```rust
 // build.rs
 fn main() {
-    rustscanners::scan_project();   // Rust: zero-literal, unwrap, naming, threading, doc-comments, etc.
-    slintscanners::scan_project();  // Slint: zero-literal, tokens, structure, events (if using Slint)
+    rustdocumenter::document_project(); // AI: auto-generates /// for undocumented pub items
+    rustscanners::scan_project();       // Rust: zero-literal, unwrap, naming, threading, etc.
+    slintscanners::scan_project();      // Slint: zero-literal, tokens, structure, events (if using Slint)
 }
 ```
 
@@ -141,11 +137,10 @@ RULE: Gateway loads non-Rust formats into `_cfg` structs
 
 ```bash
 cargo build
-rustdocumenter        # AI auto-generates /// doc comments for all undocumented pub items
 rustdocumenter check .
 ```
 
-`cargo build` must produce zero scanner violations. `rustdocumenter` (no args) auto-generates missing `///` docs via AI. `rustdocumenter check` exits 0 only when all `pub` items have `///` doc comments.
+`cargo build` auto-generates missing `///` doc comments via AI (rustdocumenter runs as part of the build). `rustdocumenter check` exits 0 only when all `pub` items have `///` doc comments.
 
 ---
 

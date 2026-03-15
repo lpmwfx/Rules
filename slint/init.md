@@ -37,9 +37,10 @@ The Rust scanners are now unified in the `RulesTools` workspace. Ensure `Cargo.t
 
 ```toml
 [build-dependencies]
-rustscan    = { git = "https://github.com/lpmwfx/RulesTools" }
-slintscan   = { git = "https://github.com/lpmwfx/RulesTools" }
-slint-build = "1"
+rustdocumenter = { git = "https://github.com/lpmwfx/RustDocumenter" }
+rustscan       = { git = "https://github.com/lpmwfx/RulesTools" }
+slintscan      = { git = "https://github.com/lpmwfx/RulesTools" }
+slint-build    = "1"
 ```
 
 Create or update `build.rs`:
@@ -47,8 +48,9 @@ Create or update `build.rs`:
 ```rust
 // build.rs
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    rustscan::scan_project();     // Rust: zero-literal, unwrap, naming, docs, etc.
-    slintscan::scan_project();    // Slint: zero-literal, tokens, structure, events, etc.
+    rustdocumenter::document_project(); // AI: auto-generates /// for undocumented pub items
+    rustscan::scan_project();           // Rust: zero-literal, unwrap, naming, docs, etc.
+    slintscan::scan_project();          // Slint: zero-literal, tokens, structure, events, etc.
 
     slint_build::compile("ui/main.slint")?;
     Ok(())
