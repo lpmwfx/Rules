@@ -15,6 +15,65 @@ See [uiux/mother-child.md](../uiux/mother-child.md) for the general pattern. Thi
 
 ---
 
+## Three-Tier Component Hierarchy
+
+VITAL: The Slint UI has exactly three component tiers — Mother, View, Widget
+VITAL: Before creating a new child component, check `widgets/` for an existing generic component that covers it
+RULE: Generic component (only `in property` + `callback`, no view-specific logic) → `widgets/` not `views/`
+RULE: Views may only be imported by Mother — never by another View or Widget
+RULE: Widgets may be imported by Mother, Views, or other Widgets — they are the shared component library
+BANNED: A View importing another View — route shared composition through Mother or extract to `widgets/`
+BANNED: A Widget importing a View — Widgets are lower in the hierarchy and must never depend upward
+
+```
+Mother (app-window.slint — inherits Window)
+├── imports Views     ← screens, view-specific, stateless
+└── imports Widgets   ← generic, reusable, stateless
+
+Views (ui/views/*.slint)
+├── imports Widgets   ← OK — views compose from the widget library
+└── ONLY importable by Mother — never by another View
+
+Widgets (ui/widgets/*.slint or ui/components/*.slint)
+├── imports Widgets   ← OK — widgets may compose other widgets
+├── importable by Mother, Views, or Widgets
+├── MUST be stateless — in property + callback only, no in-out property
+└── MUST be zero-literal — all values via tokens
+```
+
+| Tier | Folder | State | Importable by |
+|------|--------|-------|---------------|
+| **Mother** | `app-window.slint` | Owns all (`in-out property`) | — top level |
+| **View** | `ui/views/` | Stateless (`in` + `callback`) | Mother only |
+| **Widget** | `ui/widgets/` | Stateless (`in` + `callback`) | Mother, Views, Widgets |
+
+Decision flow for every new component:
+1. Does `widgets/` already have something that covers this? → use it as-is
+2. Is this component generic — no view-specific state or logic, only `in property` + `callback`? → create in `widgets/`
+3. Only if truly view-specific → create as a child in `views/`
+
+```slint
+// CORRECT — Mother imports both Views and Widgets
+import { HomeView }   from "views/home-view.slint";       // view — only Mother imports this
+import { SearchBar }  from "widgets/search-bar.slint";     // widget — reusable everywhere
+
+// CORRECT — View composes from widget library
+import { Card }  from "widgets/card.slint";
+import { Badge } from "widgets/badge.slint";
+// import { SettingsView } from "views/settings-view.slint";  // ERROR: view imports sibling view
+
+// ui/widgets/card.slint — WIDGET (generic, reusable, stateless)
+export component Card {
+    in property <string> title;
+    in property <string> subtitle;
+    callback selected();
+    // NO in-out property — pure interface
+    // NO literals — tokens only (Card.Sizes.*, Colors.*)
+}
+```
+
+---
+
 ## Property Direction as Enforcement
 
 In Slint, property direction is the enforcement mechanism for mother-child:

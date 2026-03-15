@@ -57,28 +57,43 @@ RULE: Mother is the **only** place where `if activeView === 'A'` logic lives
 RULE: NavBar does not know that ViewA exists — it only emits `navigate(viewId)`
 RULE: EditorPanel does not know what selected the item — it only receives it
 
-## 3-Level Hierarchy: Mother → View → Module
+## 3-Level Hierarchy: Mother → View → Widget
 
 The pattern is recursive. A real app typically has 3 levels:
 
 ```
 Mother (Window / AppShell — owns ALL state)
-├── NavBar (view)             ← stateless, in property + callback
-├── WorkspaceView (view)      ← stateless, but composes sub-modules
-│   ├── LeftPanel (module)    ← stateless child of WorkspaceView
-│   ├── Canvas (module)       ← stateless child of WorkspaceView
-│   └── Inspector (module)    ← stateless child of WorkspaceView
-├── OutputView (view)         ← stateless
-└── Overlays (view-level)     ← modal/dialog children, visibility controlled by mother
+├── imports Views              ← screens/pages, view-specific, stateless
+└── imports Widgets            ← generic, reusable across views, stateless
+
+Views (views/)
+├── NavBar                     ← stateless, in property + callback
+├── WorkspaceView              ← stateless, composes widgets
+└── OutputView                 ← stateless
+
+Widgets (widgets/ or components/ or shared/)
+├── Card, Badge, SearchBar     ← generic UI — in property + callback only
+├── reusable across any view   ← promoted here when used in 2+ views
+└── zero-literal               ← tokens only, no hardcoded values
 ```
 
 VITAL: Views are direct children of mother — they see only what mother gives them
-VITAL: Modules are children of views — they see only what their parent view gives them
-RULE: A view that composes modules becomes mother for its own subtree
+VITAL: Widgets are the shared component library — generic, stateless, importable by anyone
+RULE: Views may only be imported by Mother — never by another View
+RULE: A component used in 2+ views must be promoted to `widgets/` — never copied
 RULE: Overlays (modals, dialogs, toasts) are children of mother — not of the view that triggered them
 RULE: Overlay visibility is state owned by mother — children emit `show-overlay()`, mother toggles it
-BANNED: A module reaching up past its parent view to access mother state
+RULE: When a view grows beyond ~10 children, check `widgets/` before creating more view-specific children
+BANNED: A View importing another View — extract shared components to `widgets/` instead
+BANNED: Copying a component into multiple views — promote to widgets/
 BANNED: An overlay owned by or embedded inside a child view
+
+Decision flow for every new child component:
+1. Does `widgets/` (or `shared/`) already cover this? → use it
+2. Is this component generic — no screen-specific logic? → create in `widgets/`
+3. Only if truly screen-specific → create as a view child
+
+> **Slint**: Views live in `ui/views/`, widgets in `ui/widgets/` — see [slint/mother-child.md](../slint/mother-child.md)
 
 ## Layout Ownership
 
