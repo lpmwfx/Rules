@@ -7,9 +7,12 @@ Mother file: imports children (register_config, register_parse) and composes.
 from __future__ import annotations
 
 import json
+import logging
 import re
 import sys
 from pathlib import Path
+
+logging.basicConfig(format="%(message)s", level=logging.INFO)
 
 from register_config import CATEGORIES, assign_layer
 from register_parse import (
@@ -19,6 +22,7 @@ from register_parse import (
     extract_sections,
     extract_rules,
     extract_banned,
+    extract_axioms,
     extract_refs,
     extract_code_languages,
     extract_keywords,
@@ -84,6 +88,7 @@ def parse_file(category: str, filepath: Path) -> dict:
     sections = extract_sections(lines)
     rules = extract_rules(lines)
     banned = extract_banned(lines)
+    axioms = extract_axioms(lines)
     refs = extract_refs(content)
     code_languages = extract_code_languages(content)
     has_examples = bool(re.search(r"```\w+", content))
@@ -110,6 +115,8 @@ def parse_file(category: str, filepath: Path) -> dict:
     else:
         layer = assign_layer(category, filepath.stem, file_type)
 
+    binding = bool(fm.get("binding", False))
+
     edges: dict[str, list[str]] = {}
     for edge_type in ("requires", "feeds", "related"):
         if edge_type in fm and fm[edge_type]:
@@ -125,11 +132,13 @@ def parse_file(category: str, filepath: Path) -> dict:
         "category": category,
         "type": file_type,
         "layer": layer,
+        "binding": binding,
         "title": title,
         "subtitle": subtitle,
         "sections": sections,
         "rules": rules,
         "banned": banned,
+        "axioms": axioms,
         "refs": refs,
         "code_languages": code_languages,
         "has_examples": has_examples,
@@ -173,18 +182,17 @@ def main() -> None:
         for k in ["requires", "feeds", "related", "required_by", "fed_by"]
     )
 
-    print(f"Wrote {len(entries)} entries to register.jsonl")
-    print(
-        f"  {len(entries)} entries, "
-        f"{total_rules} rules, {total_banned} banned, "
-        f"{total_tags} total tags"
+    logging.info("Wrote %d entries to register.jsonl", len(entries))
+    logging.info(
+        "  %d entries, %d rules, %d banned, %d total tags",
+        len(entries), total_rules, total_banned, total_tags,
     )
-    print(f"  {with_edges}/{len(entries)} files with edges, {total_edges} edges total")
+    logging.info("  %d/%d files with edges, %d edges total", with_edges, len(entries), total_edges)
 
     if warnings:
-        print(f"\nEdge warnings ({len(warnings)}):")
+        logging.warning("\nEdge warnings (%d):", len(warnings))
         for w in warnings:
-            print(w)
+            logging.warning(w)
         sys.exit(1)
 
 

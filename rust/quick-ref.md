@@ -3,10 +3,19 @@ tags: [rust, quick-ref, reference, summary, scanners, enforcement]
 concepts: [reference, summary, enforcement]
 related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/verification.md, global/topology.md, global/file-limits.md, global/language.md, rust/docs.md]
 layer: 6
+binding: true
 ---
 # Rust Quick Reference
 
 > All enforced rules at a glance — scanners test these automatically
+
+---
+
+## Contract
+
+AXIOM: This ruleset is binding for humans and AI agents — not subject to interpretation.
+AXIOM: These are not suggestions or guidelines. They are constraints enforced by scanners.
+AXIOM: Rule violations block `cargo build` and block commits. There are no exceptions.
 
 ---
 

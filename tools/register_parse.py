@@ -48,6 +48,9 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
                 continue  # skip empty lists
             items = [item.strip().strip('"').strip("'") for item in inner.split(",")]
             meta[key] = [item for item in items if item]
+        # bool field
+        elif value in ("true", "false"):
+            meta[key] = value == "true"
         # int field
         elif value.isdigit():
             meta[key] = int(value)
@@ -114,6 +117,18 @@ def extract_banned(lines: list[str]) -> list[str]:
         s = line.strip()
         if s.startswith("BANNED: "):
             result.append(s[8:])
+    return result
+
+
+def extract_axioms(lines: list[str]) -> list[str]:
+    """Lines starting with AXIOM: or VITAL: — strip prefix. These are non-negotiable constraints."""
+    result: list[str] = []
+    for line in lines:
+        s = line.strip()
+        if s.startswith("AXIOM: "):
+            result.append(s[7:])
+        elif s.startswith("VITAL: "):
+            result.append(s[7:])
     return result
 
 

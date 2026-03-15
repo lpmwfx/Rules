@@ -4,10 +4,19 @@ concepts: [reference, summary, enforcement, declarative-ui]
 requires: [slint/README.md]
 related: [slint/component-model.md, slint/mother-child.md, slint/rust-bridge.md, slint/globals.md, slint/states.md, slint/themes.md, slint/responsive-layout.md, slint/threading.md, slint/validation.md, slint/docs.md, rust/quick-ref.md, global/topology.md, global/file-limits.md, global/language.md]
 layer: 6
+binding: true
 ---
 # Slint Quick Reference
 
 > All enforced rules at a glance — slintscan tests these automatically on `cargo build`
+
+---
+
+## Contract
+
+AXIOM: This ruleset is binding for humans and AI agents — not subject to interpretation.
+AXIOM: These are not suggestions or guidelines. They are constraints enforced by scanners.
+AXIOM: Rule violations block `cargo build` and block commits. There are no exceptions.
 
 ---
 

@@ -6,12 +6,17 @@ feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-stat
 related: [global/app-model.md]
 keywords: [ui, adapter, core, pal, gateway, shared, folder-structure, import-rules, dag, placement, project, setup, app-layout, src, init, directory, mother, child, owner, stateless, modular]
 layer: 1
+binding: true
 ---
 # Application Topology
 
 > 6-layer hexagonal MVVM — every file has a home, every import has a direction
 
 ---
+
+AXIOM: This topology is non-negotiable — it is the foundation all other rules build on.
+AXIOM: No project may deviate from this structure — not partially, not temporarily, not "for simplicity".
+AXIOM: If a rule seems to conflict with topology, topology wins.
 
 VITAL: All projects follow this 6-layer folder topology — no exceptions
 VITAL: Import direction is one-way — lower layers never import higher layers
