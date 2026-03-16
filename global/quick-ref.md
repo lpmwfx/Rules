@@ -2,7 +2,7 @@
 tags: [global, quick-ref, reference, summary, architecture, topology, enforcement]
 concepts: [reference, summary, architecture, enforcement]
 requires: [global/topology.md, global/mother-tree.md]
-related: [global/adapter-layer.md, global/app-model.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/language.md, global/error-flow.md, global/nesting.md, global/module-tree.md, global/naming-suffix.md, global/stereotypes.md, global/consistency.md, global/validation.md, rust/quick-ref.md, slint/quick-ref.md]
+related: [global/adapter-layer.md, global/app-model.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/language.md, global/error-flow.md, global/nesting.md, global/module-tree.md, global/naming-suffix.md, global/stereotypes.md, global/consistency.md, global/validation.md, global/commit-early.md, rust/quick-ref.md, slint/quick-ref.md]
 layer: 6
 ---
 # Global Quick Reference
@@ -194,6 +194,12 @@ Map dependencies, exports, imports before touching code.
 Install rulestools in every project — scan on every commit, watch on every edit.
 Fix all errors before committing — warnings inform, errors block.
 
+## Commit Early — [global/commit-early.md](commit-early.md)
+
+Commit every error-free file immediately — never let a clean queue grow.
+Pre-commit hooks reject files with errors; files that pass are ready now.
+Small, frequent commits keep diffs reviewable and prevent lost work.
+
 ## BANNED — Universal
 
 - Files over their type's line limit
@@ -209,6 +215,7 @@ Fix all errors before committing — warnings inform, errors block.
 - `TODO`/`FIXME`/`HACK` in committed code
 - Wildcard error arms that discard without action
 - Writing to files without reading them first
+- Batching clean files instead of committing them immediately
 
 ## Contract
 
