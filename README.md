@@ -72,14 +72,46 @@ These are three aspects of one graph. Mother-Tree defines the **shape** (rooted 
 | [pal/](pal/) | 2 | Platform abstraction |
 | [ipc/](ipc/) | 2 | Unix socket + JSON-RPC 2.0 |
 
-## MCP Server
+## Tooling — RulesTools
 
-Install the companion MCP server for IDE integration:
+These rules are enforced by [RulesTools](https://github.com/lpmwfx/RulesTools) — a unified Rust scanner that runs at compile time (build.rs), pre-commit, and via MCP.
+
+### Install
 
 ```bash
-pipx install git+https://github.com/lpmwfx/RulesMCP.git
-claude mcp add -s user rules -- rules-mcp
+# CLI scanner
+cargo install --git https://github.com/lpmwfx/RulesTools rulestools
+
+# MCP servers (Claude Code integration)
+claude mcp add --transport stdio --scope user rules -- mcp-rules
+claude mcp add --transport stdio --scope user rulestools -- mcp-tools
+
+# Documentation viewer
+cargo install --git https://github.com/lpmwfx/ManViewer
 ```
+
+### build.rs integration
+
+```toml
+[build-dependencies]
+rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
+rulestools-documenter = { git = "https://github.com/lpmwfx/RulesTools" }
+```
+
+```rust
+fn main() {
+    rulestools_documenter::document_project();
+    rulestools_scanner::scan_project();
+}
+```
+
+### Ecosystem
+
+| Component | Repository | Purpose |
+|---|---|---|
+| **Rules** | This repo | Markdown rule definitions |
+| **RulesTools** | [lpmwfx/RulesTools](https://github.com/lpmwfx/RulesTools) | Scanner, documenter, CLI, MCP servers |
+| **ManViewer** | [lpmwfx/ManViewer](https://github.com/lpmwfx/ManViewer) | GUI viewer for generated documentation |
 
 ## License
 
