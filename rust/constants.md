@@ -1,7 +1,7 @@
 ---
 tags: [rust, constants, no-hardcoding, zero-literals, states, no-literals, rustscanners, create-before-use]
 concepts: [zero-literals, named-values, state-files, data-driven, rust-build-scan, create-before-use, workflow]
-requires: [global/config-driven.md, rust/types.md]
+requires: [global/config-driven.md, rust/types.md, global/data-driven-ui.md]
 feeds: [rust/naming.md, rust/init.md]
 related: [slint/states.md, uiux/tokens.md, global/topology.md, rust/init.md]
 keywords: [const, static, magic-number, duration, timeout, literal, state, state-folder, zero-literal, rustscanners, build-scan, cargo-scan, create-before-use, workflow, create-const]

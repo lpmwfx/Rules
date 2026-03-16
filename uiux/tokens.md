@@ -1,7 +1,7 @@
 ---
 tags: [uiux, tokens, design-tokens, no-hardcoding, theming, declarative, slintscanners, create-before-use]
 concepts: [design-tokens, declarative-ui, theme-config, slint-build-scan, create-before-use, workflow]
-requires: [global/config-driven.md]
+requires: [global/config-driven.md, global/data-driven-ui.md]
 feeds: [uiux/theming.md, uiux/components.md, slint/init.md, slint/states.md, rust/constants.md]
 related: [css/custom-properties.md, css/themes.md, global/file-limits.md, global/module-tree.md, slint/init.md, slint/states.md, rust/constants.md]
 keywords: [design-tokens, magic-values, px, hex, color, spacing, typography, slint-global, css-variables, theme-config, modular-tokens, declarative, slintscanners, build-scan, create-before-use, workflow, create-token]

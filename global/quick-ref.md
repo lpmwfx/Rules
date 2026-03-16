@@ -2,7 +2,7 @@
 tags: [global, quick-ref, reference, summary, architecture, topology, enforcement]
 concepts: [reference, summary, architecture, enforcement]
 requires: [global/topology.md, global/mother-tree.md]
-related: [global/adapter-layer.md, global/app-model.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/language.md, global/error-flow.md, global/nesting.md, global/module-tree.md, global/naming-suffix.md, global/stereotypes.md, global/consistency.md, global/validation.md, global/commit-early.md, rust/quick-ref.md, slint/quick-ref.md]
+related: [global/adapter-layer.md, global/app-model.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/language.md, global/error-flow.md, global/nesting.md, global/module-tree.md, global/naming-suffix.md, global/stereotypes.md, global/consistency.md, global/validation.md, global/commit-early.md, global/data-driven-ui.md, rust/quick-ref.md, slint/quick-ref.md]
 layer: 6
 ---
 # Global Quick Reference
@@ -85,6 +85,14 @@ One module = one file — the file boundary is the encapsulation boundary.
 "Nested modules" means a folder of files — never nested code inside one file.
 When a module spawns sub-modules, it becomes a folder; its code moves to an index/root file.
 The parent after a split is a compositor — it imports and arranges, adds no new logic.
+
+## Data-Driven UI — [global/data-driven-ui.md](data-driven-ui.md)
+
+UI is a reactive projection of data. All values live in globals (`out property`). Adapter controls them via `set_*()`. Components contain zero values and zero logic — they bind to globals and react.
+
+Every token is a data endpoint: `Sizes.pct-100` is not "a name for 100%" — it is a data source the Adapter can manipulate at runtime. `Strings.kind-dialogue` could be dynamic from a localization system. Theming, localization, accessibility, runtime config — all just data pushed into globals.
+
+**Create-before-use:** globals start empty. Need a value → create the `out property` first → then bind to it. You are building the data API of your UI.
 
 ## Config-Driven Design
 

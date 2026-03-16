@@ -1,7 +1,7 @@
 ---
 tags: [slint, states, state-files, constants, enums, no-hardcoding, zero-literals, slintscanners, create-before-use]
 concepts: [state-files, state-folder, zero-literals, named-constants, data-driven, slint-build-scan, create-before-use, workflow, string-comparison]
-requires: [slint/validation.md, slint/themes.md, uiux/tokens.md]
+requires: [slint/validation.md, slint/themes.md, uiux/tokens.md, global/data-driven-ui.md]
 feeds: [slint/globals.md, slint/init.md]
 related: [slint/component-model.md, global/config-driven.md, uiux/state-flow.md, slint/init.md, rust/constants.md, uiux/tokens.md]
 keywords: [state, states, enum, constant, hardcoded, variable, state-folder, Sizes, Durations, ViewStates, Strings, slintscanners, build-scan, cargo-scan, create-before-use, workflow, create-token, string-comparison]

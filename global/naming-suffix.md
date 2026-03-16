@@ -2,7 +2,7 @@
 tags: [naming, suffix, layer-tag, type-naming, architecture, grep]
 concepts: [layer-tag-naming, type-placement, grep-topology]
 requires: [global/stereotypes.md, global/topology.md]
-related: [global/persistent-state.md, global/config-driven.md, adapter/viewmodel.md, core/design.md, pal/design.md, gateway/io.md, uiux/state-flow.md, slint/component-model.md]
+related: [global/persistent-state.md, global/config-driven.md, adapter/viewmodel.md, core/design.md, pal/design.md, gateway/io.md, uiux/state-flow.md, slint/component-model.md, global/data-driven-ui.md]
 keywords: [suffix, _adp, _core, _pal, _gtw, _ui, _x, _sta, _cfg, _test, layer-tag, type-name, grep, placement, PascalCase]
 layer: 1
 ---
