@@ -1,10 +1,10 @@
 ---
-tags: [uiux, tokens, design-tokens, no-hardcoding, theming, declarative, slintscanners]
-concepts: [design-tokens, declarative-ui, theme-config, slint-build-scan]
+tags: [uiux, tokens, design-tokens, no-hardcoding, theming, declarative, slintscanners, create-before-use]
+concepts: [design-tokens, declarative-ui, theme-config, slint-build-scan, create-before-use, workflow]
 requires: [global/config-driven.md]
-feeds: [uiux/theming.md, uiux/components.md, slint/init.md]
-related: [css/custom-properties.md, css/themes.md, global/file-limits.md, global/module-tree.md, slint/init.md]
-keywords: [design-tokens, magic-values, px, hex, color, spacing, typography, slint-global, css-variables, theme-config, modular-tokens, declarative, slintscanners, build-scan]
+feeds: [uiux/theming.md, uiux/components.md, slint/init.md, slint/states.md, rust/constants.md]
+related: [css/custom-properties.md, css/themes.md, global/file-limits.md, global/module-tree.md, slint/init.md, slint/states.md, rust/constants.md]
+keywords: [design-tokens, magic-values, px, hex, color, spacing, typography, slint-global, css-variables, theme-config, modular-tokens, declarative, slintscanners, build-scan, create-before-use, workflow, create-token]
 layer: 2
 ---
 # Design Tokens — No Magic Values in UI
@@ -56,12 +56,28 @@ RULE: The developer creates tokens — they are not pre-populated
 RULE: Every new value means a new token — create it in the definition file first
 RULE: If you cannot find a token, that means it has not been created yet — create it
 
-## Why Tokens
+## Why — Declarative Architecture
 
-The declarative UI principle: describe **what** a component is, not **what it looks like numerically**.
-A button is "primary background, standard padding, body font" — not `#1a73e8`, `12px 24px`, `14px Roboto`.
+This is NOT a design system like Bootstrap. It is the opposite.
 
-Change the theme → change one token file → entire app updates. No component changes.
+The idea: **move every real value down into state/token files**. The code above becomes purely declarative — it references names, never numbers. The state files are the data layer; the components are just structure.
+
+```
+WITHOUT tokens (imperative):
+  Button { background: #4a90d9; padding: 12px 24px; font-size: 14px; }
+  → Values are scattered. Changing one means hunting through every file.
+  → The component describes HOW it looks — coupled to specific numbers.
+
+WITH tokens (declarative):
+  Button { background: Colors.accent; padding: Spacing.md; font-size: Type.body; }
+  → Values live in ONE place (token files). Components are pure structure.
+  → The component describes WHAT it is — decoupled from any specific value.
+  → Change Colors.accent → every component updates. Zero search-and-replace.
+```
+
+The same principle applies to Rust code: move durations, limits, paths, URLs into `state/` modules → function bodies become declarative expressions with zero literals. See [rust/constants.md](../rust/constants.md).
+
+This makes the system **dynamic** — the concrete values are data, not code. Swap the data layer (different theme, different config) and the entire application changes without touching a single component or function.
 
 ## Token File Structure
 

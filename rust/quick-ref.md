@@ -58,6 +58,13 @@ Missing doc comments are **errors** — they block `cargo build` (via rustscanne
 Minimum: one sentence explaining what the item does.
 `pub use` re-exports and `#[cfg(test)]` items are exempt.
 
+## Zero Literals — [rust/constants.md](../rust/constants.md)
+
+Function bodies contain zero literal values. Only `0` and `1` are allowed bare.
+All other numbers, durations, paths, URLs, and thresholds are named constants from `state/` modules or `_cfg` structs.
+
+**Create-before-use:** Constants do not pre-exist. When you need a value: search the state module → not found → `pub const NAME: Type = value;` in `state/sizes.rs` (or `durations.rs`, `limits.rs`, `paths.rs`) FIRST → then reference it. Never write the literal in the function body.
+
 ## File Size — 300 Lines Max
 
 Rust modules have a **300-line hard limit**. Slint components have a **200-line hard limit**.

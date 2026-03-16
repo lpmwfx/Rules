@@ -3,8 +3,8 @@ tags: [config, configuration, no-hardcoding, cfg, constants, settings]
 concepts: [config-driven-design, settings-management, configuration]
 requires: [global/topology.md]
 feeds: [gateway/lifecycle.md, core/design.md]
-related: [global/persistent-state.md, global/app-model.md, uiux/tokens.md]
-keywords: [config, constants, magic-numbers, hardcoded, gateway, cfg, struct, default]
+related: [global/persistent-state.md, global/app-model.md, uiux/tokens.md, rust/constants.md, slint/states.md]
+keywords: [config, constants, magic-numbers, hardcoded, gateway, cfg, struct, default, create-before-use]
 layer: 1
 ---
 # Config-Driven Design

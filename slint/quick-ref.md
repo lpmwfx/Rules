@@ -151,6 +151,10 @@ Every value in a component is a variable reference — no hardcoded numbers, col
 Only `true`/`false` are allowed as literals in components.
 Three compiler exceptions: `GridLayout row:/col:`, `@image-url("...")`, `@tr("...")`.
 
+**Create-before-use:** Tokens do not pre-exist. When you need a value: search the global → not found → create it in the global file FIRST → then reference it. See [slint/states.md](../slint/states.md) and [uiux/tokens.md](../uiux/tokens.md).
+
+**String comparisons:** Never `== "literal"` — use `== Strings.kind-dialogue`. Create the constant in Strings global first.
+
 ## Globals — Tokens, Strings, Bridge
 
 | Global | Purpose | Property type |

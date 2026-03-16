@@ -1,10 +1,10 @@
 ---
-tags: [rust, constants, no-hardcoding, zero-literals, states, no-literals, rustscanners]
-concepts: [zero-literals, named-values, state-files, data-driven, rust-build-scan]
+tags: [rust, constants, no-hardcoding, zero-literals, states, no-literals, rustscanners, create-before-use]
+concepts: [zero-literals, named-values, state-files, data-driven, rust-build-scan, create-before-use, workflow]
 requires: [global/config-driven.md, rust/types.md]
 feeds: [rust/naming.md, rust/init.md]
 related: [slint/states.md, uiux/tokens.md, global/topology.md, rust/init.md]
-keywords: [const, static, magic-number, duration, timeout, literal, state, state-folder, zero-literal, rustscanners, build-scan, cargo-scan]
+keywords: [const, static, magic-number, duration, timeout, literal, state, state-folder, zero-literal, rustscanners, build-scan, cargo-scan, create-before-use, workflow, create-const]
 layer: 3
 ---
 # Rust Zero Literals — All Values Named
@@ -104,5 +104,25 @@ RULE: Gateway loads non-Rust formats → `_cfg` struct. Rust `const` files are u
 
 RULE: "Is this value changeable without recompile?" → config `_cfg`. Otherwise → `state/` module.
 
-RESULT: Every value has a named source — function bodies are pure expressions with zero literals
-REASON: The scanner catches ANY literal ≥ 2 in function bodies as ERROR — enforceable architecture
+## Why — Data-Driven Paradigm
+
+This is the same principle as UI tokens, applied to Rust code: **separate data from logic**.
+
+Function bodies are logic — they describe WHAT happens and in WHAT order.
+State modules are data — they hold every concrete value (sizes, durations, limits, paths).
+
+```
+WITHOUT state modules:
+  fn connect() { let timeout = Duration::from_secs(30); retry(3, timeout) }
+  → Logic and data are mixed. Values are trapped in function bodies.
+
+WITH state modules:
+  fn connect() { retry(limits::MAX_RETRIES, durations::CONNECT_TIMEOUT) }
+  → Function is pure logic. All concrete values live in state/ modules.
+  → Change CONNECT_TIMEOUT in ONE place → every connection path updates.
+```
+
+The state modules are the data layer. The functions are declarative consumers of that data. This makes the system dynamic — swap the data (different limits, different timeouts via `_cfg`) and behaviour changes without touching a single function.
+
+RESULT: Every value has a named source — function bodies are pure declarative logic
+REASON: The scanner catches ANY literal ≥ 2 in function bodies as ERROR — the paradigm is enforced, not optional

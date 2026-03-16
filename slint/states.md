@@ -1,10 +1,10 @@
 ---
-tags: [slint, states, state-files, constants, enums, no-hardcoding, zero-literals, slintscanners]
-concepts: [state-files, state-folder, zero-literals, named-constants, data-driven, slint-build-scan]
-requires: [slint/validation.md, slint/themes.md]
+tags: [slint, states, state-files, constants, enums, no-hardcoding, zero-literals, slintscanners, create-before-use]
+concepts: [state-files, state-folder, zero-literals, named-constants, data-driven, slint-build-scan, create-before-use, workflow, string-comparison]
+requires: [slint/validation.md, slint/themes.md, uiux/tokens.md]
 feeds: [slint/globals.md, slint/init.md]
-related: [slint/component-model.md, global/config-driven.md, uiux/state-flow.md, slint/init.md]
-keywords: [state, states, enum, constant, hardcoded, variable, state-folder, Sizes, Durations, ViewStates, slintscanners, build-scan, cargo-scan]
+related: [slint/component-model.md, global/config-driven.md, uiux/state-flow.md, slint/init.md, rust/constants.md, uiux/tokens.md]
+keywords: [state, states, enum, constant, hardcoded, variable, state-folder, Sizes, Durations, ViewStates, Strings, slintscanners, build-scan, cargo-scan, create-before-use, workflow, create-token, string-comparison]
 layer: 3
 ---
 # Slint State Files — Zero Literals in UI
@@ -145,5 +145,27 @@ export global ViewStates {
 
 RULE: "Is this visual identity?" → `globals/theme/`. Otherwise → `state/`.
 
-RESULT: Every value has a named source — stateless, data-driven, zero-literal UI
-REASON: The scanner catches ANY literal in a component as ERROR — making the architecture enforceable
+## Why — Data-Driven Paradigm
+
+This is not cosmetic. It is an architectural separation: **data vs. structure**.
+
+Components are structure — they describe WHAT exists and HOW it is arranged.
+State files are data — they hold every concrete value (sizes, durations, enums, strings).
+
+```
+WITHOUT state files:
+  Rectangle { width: 240px; animate x { duration: 200ms; } }
+  → Component mixes structure and data. Values are trapped in layout code.
+
+WITH state files:
+  Rectangle { width: Sizes.sidebar-width; animate x { duration: Durations.slide; } }
+  → Component is pure structure. All concrete values live in state/ files.
+  → Change Sizes.sidebar-width in ONE place → every sidebar updates.
+```
+
+The state files are the data layer. The components are declarative consumers of that data. This is what makes the system dynamic — swap the data (different sizes, different durations) and the UI changes without touching a single component.
+
+Same principle in Rust: `state/` modules hold all concrete values → function bodies are declarative expressions. See [rust/constants.md](../rust/constants.md).
+
+RESULT: Every value has a named source — the entire UI is data-driven and declarative
+REASON: The scanner catches ANY literal in a component as ERROR — the paradigm is enforced, not optional
