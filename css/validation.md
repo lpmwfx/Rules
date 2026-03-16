@@ -1,7 +1,7 @@
 ---
 tags: [css, validation, tokens, custom-properties]
 concepts: [validation, design-tokens, boundaries]
-requires: [global/validation.md, css/custom-properties.md]
+requires: [global/validation.md, css/tokens.md]
 related: [uiux/tokens.md]
 keywords: [css-variables, hardcoded, token-enforcement]
 layer: 4
@@ -40,4 +40,4 @@ The `css/checks/tokens.py` scanner (rulestools) flags:
 - Font-size in px
 - `!important` declarations
 
-See `css/custom-properties.md` for the full token catalog.
+See `css/tokens.md` for the full token catalog.

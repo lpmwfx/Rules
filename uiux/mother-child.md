@@ -2,12 +2,12 @@
 tags: [uiux, mother-child, composition-root, stateless, layout-ownership, modular]
 concepts: [mother-child-pattern, composition-root, stateless-children, layout-ownership]
 requires: [global/mother-tree.md, uiux/components.md, uiux/state-flow.md]
-feeds: [uiux/file-structure.md, slint/mother-child.md]
+feeds: [uiux/file-structure.md, slint/mother-child.md, uiux/mother-child-react.md, uiux/mother-child-compose.md, rust/proc-macro-exemption.md]
 related: [global/topology.md, global/adapter-layer.md, uiux/tokens.md, slint/globals.md, global/module-tree.md, slint/mother-child.md, global/data-driven-ui.md]
 keywords: [mother, child, root, shell, view, nav, editor, sidebar, layout, size, state-owner, props, stateless, modular, single-owner, in-out, in-property, callback, overlay, 3-level]
 layer: 2
 ---
-# Mother–Child UI Composition
+# Mother-Child UI Composition
 
 > One mother owns everything — children know nothing except what mother gives them
 
@@ -124,70 +124,6 @@ RULE: Children use `width: 100%`, `flex: 1`, `fill-available`, or the equivalent
 
 > **Slint**: property direction (`in`, `in-out`, `callback`) and ViewModel structs — see [slint/mother-child.md](../slint/mother-child.md)
 
-## Cross-Toolkit Examples
-
-### React / SolidJS
-
-```tsx
-// AppShell.tsx — MOTHER
-export function AppShell({ state }: { state: AppState_adp }) {
-  return (
-    <div className="shell" style={{ '--sidebar-w': '240px' }}>
-      <NavBar activeView={state.activeView} onNavigate={state.navigate} />
-      <main className="content">
-        {state.activeView === 'editor' && (
-          <EditorPanel item={state.selectedItem} onSave={state.saveItem} />
-        )}
-        {state.activeView === 'list' && (
-          <ItemList items={state.items} onSelect={state.selectItem} />
-        )}
-      </main>
-    </div>
-  )
-}
-
-// NavBar.tsx — CHILD (stateless, no sizes)
-export function NavBar({ activeView, onNavigate }: NavBarProps) {
-  return (
-    <nav>  {/* fills 100% of whatever slot mother provides */}
-      <NavItem id="list"   active={activeView === 'list'}   onNavigate={onNavigate} />
-      <NavItem id="editor" active={activeView === 'editor'} onNavigate={onNavigate} />
-    </nav>
-  )
-}
-```
-
-### Jetpack Compose
-
-```kotlin
-// AppShell.kt — MOTHER
-@Composable
-fun AppShell(state: AppState_adp) {
-    Row {
-        NavBar(
-            modifier = Modifier.width(240.dp),  // ← size in mother
-            activeView = state.activeView,
-            onNavigate = state::navigate
-        )
-        Box(modifier = Modifier.weight(1f)) {
-            when (state.activeView) {
-                "editor" -> EditorPanel(item = state.selectedItem, onSave = state::saveItem)
-                "list"   -> ItemList(items = state.items, onSelect = state::selectItem)
-            }
-        }
-    }
-}
-
-// NavBar.kt — CHILD (no Modifier.width — fills what mother passes)
-@Composable
-fun NavBar(modifier: Modifier = Modifier, activeView: String, onNavigate: (String) -> Unit) {
-    Column(modifier = modifier) {  // ← accepts modifier from mother, adds nothing to size
-        NavItem("list",   activeView, onNavigate)
-        NavItem("editor", activeView, onNavigate)
-    }
-}
-```
-
 ## The Topology Rule Applied to UI
 
 The same DAG that governs layers governs components:
@@ -207,42 +143,5 @@ RULE: At each level there is exactly one owner of state and layout for that subt
 
 > **Rust**: the same mother-child pattern applied to module structure — see [global/topology.md](../global/topology.md)
 
-## Proc-Macro Exemption (Rust)
-
-Some proc macros require all handler functions in a single `impl` block — this is a compiler constraint,
-not a design choice. The fn-count limit is waived for these cases.
-
-RULE: When a proc macro requires all functions in one impl block, the fn-count limit does not apply —
-      PROVIDED each fn body is a thin delegation (≤ ~5 lines) forwarding to a child module.
-RULE: The impl block itself stays in the mother file — only the logic moves to children.
-REASON: The macro is the constraint. Splitting the impl would break compilation. The developer
-        has no choice — enforcing the limit here would be counterproductive.
-
-Known bundling macros (scanner-exempt):
-- `#[tool_router]` — rmcp MCP server tool dispatch (all tool handlers in one impl)
-- `#[async_trait]` — trait impl with async methods (async-trait crate requirement)
-- `#[tonic::async_trait]` — gRPC service impl (tonic framework requirement)
-
-```rust
-// lib.rs — MOTHER: tool router stays here (macro requires it), logic goes to children
-#[tool_router]
-impl MyMcpServer {
-    #[tool(description = "Get selection")]
-    async fn get_selection(&self, ...) -> ... {
-        selection_ui::get(&self.state).await  // ← thin delegation: 1-2 lines
-    }
-
-    #[tool(description = "Insert block")]
-    async fn insert_block(&self, ...) -> ... {
-        build_block_ui::insert(&self.state, params).await  // ← thin delegation
-    }
-}
-
-// src/ui/selection_ui.rs — CHILD: all logic here
-pub async fn get(state: &AppState) -> Result<...> {
-    // real implementation
-}
-```
-
-BANNED: Tool handler fn bodies with business logic — delegate to a child module
-BANNED: Tool handler fn bodies longer than ~5 lines — that is logic leaking into the router
+Cross-toolkit implementations: [uiux/mother-child-react.md](mother-child-react.md) | [uiux/mother-child-compose.md](mother-child-compose.md)
+Proc-macro exemption (Rust): [rust/proc-macro-exemption.md](../rust/proc-macro-exemption.md)

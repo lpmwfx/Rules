@@ -1,7 +1,7 @@
 ---
 tags: [css, themes, dark-mode, theming]
 concepts: [theming, dark-mode]
-requires: [css/custom-properties.md]
+requires: [css/tokens.md]
 related: [css/cascade.md]
 keywords: [prefers-color-scheme, theme-toggle]
 layer: 4

@@ -2,7 +2,7 @@
 tags: [slint, states, state-files, constants, enums, no-hardcoding, zero-literals, slintscanners, create-before-use]
 concepts: [state-files, state-folder, zero-literals, named-constants, data-driven, slint-build-scan, create-before-use, workflow, string-comparison]
 requires: [slint/validation.md, slint/themes.md, uiux/tokens.md, global/data-driven-ui.md]
-feeds: [slint/globals.md, slint/init.md]
+feeds: [slint/globals.md, slint/init.md, slint/create-before-use.md, slint/string-comparisons.md]
 related: [slint/component-model.md, global/config-driven.md, uiux/state-flow.md, slint/init.md, rust/constants.md, uiux/tokens.md]
 keywords: [state, states, enum, constant, hardcoded, variable, state-folder, Sizes, Durations, ViewStates, Strings, slintscanners, build-scan, cargo-scan, create-before-use, workflow, create-token, string-comparison]
 layer: 3
@@ -23,68 +23,6 @@ BANNED: ANY number in a component — integers, floats, px, %, ms, all of it
 BANNED: `0px` — use `Sizes.zero`. `1px` — use `Sizes.hairline`. `100%` — use `Sizes.full`
 BANNED: `200ms` — use `Durations.slide`. `/ 2` — use `/ Sizes.half-divisor`
 BANNED: `0`, `1`, `2` as state values — use `ViewStates.nav-home`
-
-## Create-Before-Use Workflow
-
-VITAL: State globals start empty — YOU populate them as you build components.
-VITAL: When you need a value, create the token FIRST, then reference it.
-
-```
-Before writing ANY value in a .slint component:
-
-1. IDENTIFY where the value belongs:
-   - Color, spacing, visual effect → globals/theme/  (see uiux/tokens.md)
-   - Size, percentage, divisor     → state/sizes.slint
-   - Animation duration            → state/durations.slint
-   - View/navigation enum          → state/view-states.slint
-   - Text label, discriminator     → globals/strings.slint
-
-2. SEARCH the target file for an existing token
-   - Need 100%?  → search Sizes for "full"
-   - Need 240px? → search Sizes for "sidebar-width"
-   - Need 200ms? → search Durations for "slide"
-
-3. Token EXISTS → reference it:  Sizes.full, Durations.slide
-
-4. Token does NOT EXIST →
-   a. OPEN the state/global file (e.g. ui/state/sizes.slint)
-   b. ADD:  out property <length> sidebar-width: 240px;
-   c. SAVE the file
-   d. THEN use Sizes.sidebar-width in your component
-
-5. NEVER write the literal in the component — not even as a placeholder
-```
-
-RULE: The developer creates state tokens — they are not pre-populated
-RULE: "Token not found" means "create it now" — not "use the literal instead"
-
-## String State Comparisons
-
-VITAL: All string comparisons in .slint must reference Strings.* constants — never bare string literals
-
-```slint
-// globals/strings.slint
-export global Strings {
-    out property <string> kind-dialogue:  "dialogue";
-    out property <string> kind-panel:     "panel";
-    out property <string> mode-edit:      "edit";
-    out property <string> mode-view:      "view";
-    out property <string> tab-general:    "general";
-    out property <string> tab-settings:   "settings";
-}
-```
-
-```slint
-// BANNED:  root.kind == "dialogue"
-// CORRECT: root.kind == Strings.kind-dialogue
-
-// BANNED:  if active-tab == "settings" { ... }
-// CORRECT: if active-tab == Strings.tab-settings { ... }
-```
-
-RULE: Create the string constant in Strings global FIRST, then reference it
-RULE: State discriminators (kind-*, mode-*, tab-*) always go in Strings
-BANNED: `== "any-string-literal"` in component code — use Strings.* constant
 
 ## Slint Syntax Exceptions (3 total)
 
@@ -166,6 +104,9 @@ WITH state files:
 The state files are the data layer. The components are declarative consumers of that data. This is what makes the system dynamic — swap the data (different sizes, different durations) and the UI changes without touching a single component.
 
 Same principle in Rust: `state/` modules hold all concrete values → function bodies are declarative expressions. See [rust/constants.md](../rust/constants.md).
+
+Create-before-use workflow: [slint/create-before-use.md](create-before-use.md)
+String state comparisons: [slint/string-comparisons.md](string-comparisons.md)
 
 RESULT: Every value has a named source — the entire UI is data-driven and declarative
 REASON: The scanner catches ANY literal in a component as ERROR — the paradigm is enforced, not optional

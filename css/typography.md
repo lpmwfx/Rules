@@ -1,7 +1,7 @@
 ---
 tags: [css, typography, fonts, spacing]
 concepts: [fonts, spacing]
-related: [css/responsive.md, css/custom-properties.md]
+related: [css/responsive.md, css/tokens.md]
 keywords: [system-fonts, line-height, modular-scale]
 layer: 4
 ---
