@@ -24,6 +24,38 @@ BANNED: Hardcoded pixel values (`48px`, `16px`, `1.5rem`) inside component files
 BANNED: Hardcoded font names or sizes in component files
 BANNED: 800 scattered magic values — if you are writing numbers in a component, stop and create a token
 
+## Create-Before-Use Workflow
+
+VITAL: Tokens do not exist until YOU create them. The global files start empty.
+VITAL: When you need a value, you MUST create the token first, then reference it.
+
+```
+Before writing ANY literal value in a UI component:
+
+1. IDENTIFY the value type:
+   - Color, spacing, typography, radius, shadow → token file (globals/theme/)
+   - Size, duration, divisor                   → state file (state/)
+   - Text label, state discriminator           → strings file (globals/strings)
+
+2. SEARCH the appropriate global/state file for an existing token
+   - e.g. need 100% → search Sizes for "full"
+   - e.g. need 240px → search Sizes for "sidebar" or similar
+
+3. Token EXISTS → reference it in your component
+
+4. Token does NOT EXIST →
+   a. OPEN the token/state file
+   b. ADD the new token with a descriptive name
+   c. SAVE the token file
+   d. THEN reference the new token in your component
+
+5. NEVER write the literal in the component — not even temporarily
+```
+
+RULE: The developer creates tokens — they are not pre-populated
+RULE: Every new value means a new token — create it in the definition file first
+RULE: If you cannot find a token, that means it has not been created yet — create it
+
 ## Why Tokens
 
 The declarative UI principle: describe **what** a component is, not **what it looks like numerically**.

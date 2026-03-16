@@ -24,6 +24,68 @@ BANNED: `0px` — use `Sizes.zero`. `1px` — use `Sizes.hairline`. `100%` — u
 BANNED: `200ms` — use `Durations.slide`. `/ 2` — use `/ Sizes.half-divisor`
 BANNED: `0`, `1`, `2` as state values — use `ViewStates.nav-home`
 
+## Create-Before-Use Workflow
+
+VITAL: State globals start empty — YOU populate them as you build components.
+VITAL: When you need a value, create the token FIRST, then reference it.
+
+```
+Before writing ANY value in a .slint component:
+
+1. IDENTIFY where the value belongs:
+   - Color, spacing, visual effect → globals/theme/  (see uiux/tokens.md)
+   - Size, percentage, divisor     → state/sizes.slint
+   - Animation duration            → state/durations.slint
+   - View/navigation enum          → state/view-states.slint
+   - Text label, discriminator     → globals/strings.slint
+
+2. SEARCH the target file for an existing token
+   - Need 100%?  → search Sizes for "full"
+   - Need 240px? → search Sizes for "sidebar-width"
+   - Need 200ms? → search Durations for "slide"
+
+3. Token EXISTS → reference it:  Sizes.full, Durations.slide
+
+4. Token does NOT EXIST →
+   a. OPEN the state/global file (e.g. ui/state/sizes.slint)
+   b. ADD:  out property <length> sidebar-width: 240px;
+   c. SAVE the file
+   d. THEN use Sizes.sidebar-width in your component
+
+5. NEVER write the literal in the component — not even as a placeholder
+```
+
+RULE: The developer creates state tokens — they are not pre-populated
+RULE: "Token not found" means "create it now" — not "use the literal instead"
+
+## String State Comparisons
+
+VITAL: All string comparisons in .slint must reference Strings.* constants — never bare string literals
+
+```slint
+// globals/strings.slint
+export global Strings {
+    out property <string> kind-dialogue:  "dialogue";
+    out property <string> kind-panel:     "panel";
+    out property <string> mode-edit:      "edit";
+    out property <string> mode-view:      "view";
+    out property <string> tab-general:    "general";
+    out property <string> tab-settings:   "settings";
+}
+```
+
+```slint
+// BANNED:  root.kind == "dialogue"
+// CORRECT: root.kind == Strings.kind-dialogue
+
+// BANNED:  if active-tab == "settings" { ... }
+// CORRECT: if active-tab == Strings.tab-settings { ... }
+```
+
+RULE: Create the string constant in Strings global FIRST, then reference it
+RULE: State discriminators (kind-*, mode-*, tab-*) always go in Strings
+BANNED: `== "any-string-literal"` in component code — use Strings.* constant
+
 ## Slint Syntax Exceptions (3 total)
 
 Three constructs REQUIRE literals — the compiler rejects property references:

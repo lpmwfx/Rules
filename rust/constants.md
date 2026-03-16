@@ -27,6 +27,41 @@ BANNED: `Vec::with_capacity(1024)` — use `Vec::with_capacity(BUF_SIZE)`
 BANNED: `"https://..."` / `"http://..."` outside state/const — URLs are named values
 BANNED: `if retries > 3` — use `if retries > MAX_RETRIES`
 
+## Create-Before-Use Workflow
+
+VITAL: Named constants do not pre-exist — YOU create them as you write code.
+VITAL: When you need a value, define the const FIRST, then reference it.
+
+```
+Before writing ANY literal number, path, URL, or duration in Rust:
+
+1. IDENTIFY where the value belongs:
+   - Buffer size, capacity, divisor → state/sizes.rs     (const)
+   - Timeout, interval, delay       → state/durations.rs (const)
+   - Max count, threshold, limit    → state/limits.rs    (const)
+   - File path, extension           → state/paths.rs     (const)
+   - URL, endpoint                  → state/urls.rs      (const or _cfg)
+   - Runtime-changeable value       → _cfg struct        (loaded by Gateway)
+
+2. SEARCH the target module for an existing const
+   - Need 1024? → search sizes for "BUF_SIZE" or "CAPACITY"
+   - Need 30?   → search durations for "TIMEOUT" or limits for "MAX_RETRIES"
+
+3. Const EXISTS → reference it:  sizes::BUF_SIZE
+
+4. Const does NOT EXIST →
+   a. OPEN the state module (e.g. src/state/sizes.rs)
+   b. ADD:  pub const BUF_SIZE: usize = 1024;
+   c. SAVE the file
+   d. THEN use sizes::BUF_SIZE in your function
+
+5. NEVER write the literal in the function body — not even temporarily
+```
+
+RULE: The developer creates constants — state/ modules start minimal
+RULE: "No const for this value" means "create it now" — not "use the literal"
+RULE: If the state/ folder does not exist yet, create it (see rust/init.md)
+
 ## Rust Exemptions (6 total)
 
 Six constructs where bare literals are required or idiomatic:
