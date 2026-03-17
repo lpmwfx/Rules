@@ -13,7 +13,8 @@ layer: 3
 Standard foundation library for topology-compliant Slint apps.
 Provides a near-complete `_ui` and `_adp` layer — your project adds the remaining layers.
 
-> For repo URL and install command: `list_libraries(["slint", "rust"])` in rulestools-mcp.
+> **crates.io:** `https://crates.io/crates/slint-ui-templates`
+> **Install:** `cargo add slint-ui-templates`
 
 ---
 
@@ -40,7 +41,10 @@ Live preview — edit `ui/views/*.slint`, see changes instantly. No Cargo build 
 
 ### 2. Library (add to existing project)
 
-Add `slint-ui-templates` to Cargo.toml, then:
+```toml
+[dependencies]
+slint-ui-templates = "0.3"
+```
 
 ```rust
 use slint_ui_templates::layout;
