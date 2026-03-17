@@ -1,6 +1,7 @@
 ---
 tags: [startup, checklist, session, mandatory]
 concepts: [workflow, initialization]
+keywords: [startup, session, checklist, init, begin, rules, context]
 feeds: [project-files/workflow.md, global/initialize.md]
 related: [global/graph-position-paradigm.md, global/read-before-write.md, global/know-before-change.md, global/file-limits.md]
 requires: [global/graph-position-paradigm.md, global/language.md]

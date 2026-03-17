@@ -1,6 +1,7 @@
 ---
 tags: [validation, boundaries, runtime-checking]
 concepts: [runtime-checking, boundaries, validation]
+keywords: [validate, input, boundary, schema, check, sanitize]
 feeds: [python/types.md, js/validation.md, js/safety.md, slint/validation.md]
 layer: 1
 ---

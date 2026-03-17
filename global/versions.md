@@ -1,6 +1,7 @@
 ---
 tags: [versions, lts, modern]
 concepts: [language-versions, compatibility]
+keywords: [version, semver, cargo, package, bump, release]
 related: [global/consistency.md, devops/packaging.md]
 layer: 1
 ---

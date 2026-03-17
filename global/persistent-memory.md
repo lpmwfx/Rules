@@ -1,6 +1,7 @@
 ---
 tags: [rag, fixes, ai-memory, persistent]
 concepts: [ai-memory, knowledge-base]
+keywords: [memory, persist, context, session, recall]
 feeds: [project-files/rag-file.md, project-files/fixes-file.md]
 layer: 1
 ---

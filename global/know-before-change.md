@@ -1,6 +1,7 @@
 ---
 tags: [understand-first, dependencies, refactoring]
 concepts: [code-safety, know-before-change]
+keywords: [know, read, before, change, existing, code, understand]
 related: [global/read-before-write.md]
 layer: 1
 ---

@@ -1,6 +1,7 @@
 ---
 tags: [secrets, env, security]
 concepts: [security, environment]
+keywords: [secrets, password, api-key, token, credential, env, security]
 related: [devops/publishing.md, devops/cicd.md]
 layer: 1
 ---

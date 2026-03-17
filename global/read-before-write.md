@@ -1,6 +1,7 @@
 ---
 tags: [read-first, safety, refactoring]
 concepts: [code-safety, read-before-write]
+keywords: [read, write, understand, existing, code, modify]
 related: [global/know-before-change.md]
 layer: 1
 ---
