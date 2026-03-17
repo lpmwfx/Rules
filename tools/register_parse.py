@@ -231,6 +231,13 @@ def compute_reverse_edges(entries: list[dict]) -> None:
                 if src not in fb:
                     fb.append(src)
 
+        for target in edges.get("related", []):
+            if target in file_map:
+                target_edges = file_map[target].setdefault("edges", {})
+                rel = target_edges.setdefault("related", [])
+                if src not in rel:
+                    rel.append(src)
+
 
 def validate_edges(entries: list[dict]) -> list[str]:
     """Warn about edges pointing to non-existent files. Returns warnings."""

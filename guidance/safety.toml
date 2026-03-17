@@ -1,0 +1,32 @@
+# SAFETY — decision tree for unwrap/panic/unsafe violations
+
+[[node]]
+question = "Can this operation fail?"
+
+[[node.branch]]
+condition = "Never fails (guaranteed by type system)"
+action = "Use unwrap_or_default() or document with // SAFETY: why this cannot fail."
+ref = "rust/errors.md"
+
+[[node.branch]]
+condition = "Caller should handle the error"
+action = "Use ? operator. Return Result<T, E> from function."
+ref = "rust/errors.md"
+
+[[node.branch]]
+condition = "Must crash on failure (invariant violation)"
+action = "Add // SAFETY: comment explaining the invariant. Consider debug_assert! instead."
+ref = "rust/errors.md"
+
+[[node]]
+question = "Using unsafe block"
+
+[[node.branch]]
+condition = "FFI call to external library"
+action = "Add // SAFETY: comment documenting preconditions (pointer validity, alignment, lifetime)."
+ref = "rust/safety.md"
+
+[[node.branch]]
+condition = "Performance optimization"
+action = "Benchmark first. Only use unsafe if measurably faster. Document with // SAFETY:."
+ref = "rust/safety.md"

@@ -1,0 +1,32 @@
+# MOTHER-CHILD — decision tree for mother/child violations
+
+[[node]]
+question = "How to reduce mother complexity?"
+
+[[node.branch]]
+condition = "Duplicate functions exist across siblings"
+action = "Extract shared logic to shared/ FIRST (run shared-candidate check). Then split remaining into children."
+ref = "global/mother-tree.md"
+
+[[node.branch]]
+condition = "Functions can be grouped by responsibility"
+action = "Create one child module per group. Mother delegates to children. Children receive state as props."
+ref = "global/mother-tree.md"
+
+[[node.branch]]
+condition = "Mother only delegates (no own logic)"
+action = "This is correct. Mother should only wire children together."
+ref = "global/mother-tree.md"
+
+[[node]]
+question = "Child has in-out property (owns state)"
+
+[[node.branch]]
+condition = "Child genuinely needs to modify parent state"
+action = "Use <=> delegation binding to parent property. Or use callback to emit event upward."
+ref = "uiux/mother-child.md"
+
+[[node.branch]]
+condition = "Child uses state for local UI only"
+action = "Change to `in property` (read-only from parent) or `private property` (internal only)."
+ref = "uiux/mother-child.md"

@@ -12,7 +12,7 @@ layer: 6
 
 ## Philosophy
 
-RULE: 100% pure Kotlin — no Java interop, no JNI/C++
+RULE: Pure Kotlin API — Java imports only in platform layer, encapsulated behind Kotlin interfaces
 RULE: Amper for builds (Gradle hidden for Android, Gradle-free for Desktop)
 RULE: Encapsulation and modularity first — `private` by default, expose only at module boundary
 RULE: Null-safe, type-safe, AI-friendly code

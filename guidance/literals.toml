@@ -1,0 +1,24 @@
+# LITERALS — decision tree for magic numbers and hardcoded values
+
+[[node]]
+question = "What does this value represent?"
+
+[[node.branch]]
+condition = "Configuration value (port, timeout, path)"
+action = "Move to config file or rulestools.toml. Load at runtime."
+ref = "global/config-driven.md"
+
+[[node.branch]]
+condition = "Domain constant (max retries, buffer size)"
+action = "Extract to named const: `const MAX_RETRIES: u32 = 3;` — name by PURPOSE."
+ref = "global/config-driven.md"
+
+[[node.branch]]
+condition = "Threshold or limit"
+action = "Extract to const with _MAX/_MIN/_LIMIT suffix: `const NESTING_MAX: usize = 4;`"
+ref = "global/config-driven.md"
+
+[[node.branch]]
+condition = "Mathematical constant (0.5, PI, etc.)"
+action = "Use std constant if available, otherwise named const: `const HALF: f64 = 0.5;`"
+ref = "global/config-driven.md"

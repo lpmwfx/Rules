@@ -1,0 +1,33 @@
+# TOPOLOGY — decision tree for layer violations
+# Scanner prints this when errors in TOPOLOGY group
+
+[[node]]
+question = "Where does the import belong?"
+
+[[node.branch]]
+condition = "Needs data from another layer"
+action = "Add a method in adapter/ that bridges the two layers. UI calls adapter, adapter calls core/gateway."
+ref = "global/topology.md"
+
+[[node.branch]]
+condition = "Is an event or callback"
+action = "Move handler to adapter/. Adapter is the hub for all cross-layer communication."
+ref = "global/adapter-layer.md"
+
+[[node.branch]]
+condition = "File is in wrong layer"
+action = "Relocate file to correct layer folder. Check suffix matches new layer (_ui, _adp, _core, _gtw, _pal)."
+ref = "global/topology.md"
+
+[[node]]
+question = "Is the folder name correct?"
+
+[[node.branch]]
+condition = "Using banned name (infra, helpers, utils)"
+action = "Rename: infra → gateway, helpers/utils/common → shared"
+ref = "global/stereotypes.md"
+
+[[node.branch]]
+condition = "Unknown folder in crates/"
+action = "Only registered topology names allowed. Add to [topology].crates in rulestools.toml or remove."
+ref = "global/topology.md"

@@ -1,0 +1,24 @@
+# HYGIENE — decision tree for file size, nesting, naming violations
+
+[[node]]
+question = "What makes this file too complex?"
+
+[[node.branch]]
+condition = "File too long (>300 lines)"
+action = "Split by responsibility. Each file = one concept. Mother delegates to children."
+ref = "global/file-limits.md"
+
+[[node.branch]]
+condition = "Too deeply nested (>4 levels)"
+action = "Use early returns, guard clauses. Flatten with `if !condition { return; }`"
+ref = "global/nesting.md"
+
+[[node.branch]]
+condition = "Too many clones"
+action = "Use references (&T) or Cow<T>. Clone only at ownership boundaries."
+ref = "rust/ownership.md"
+
+[[node.branch]]
+condition = "Bad naming (utils, helpers, misc)"
+action = "Name by responsibility: parser.rs, validator.rs, formatter.rs — not by grab-bag category."
+ref = "global/stereotypes.md"

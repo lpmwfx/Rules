@@ -1,0 +1,27 @@
+# PURITY — decision tree for shared-guard and single-gateway violations
+
+[[node]]
+question = "Why does shared/ need this import?"
+
+[[node.branch]]
+condition = "Shared logic genuinely needs project-internal code"
+action = "Extract a dependency-free version. Copy only the types/traits needed, or pass as parameter."
+ref = "global/stereotypes.md"
+
+[[node.branch]]
+condition = "This code is not truly shared"
+action = "Move file out of shared/ into the layer it belongs to (core/, gateway/, adapter/)."
+ref = "global/topology.md"
+
+[[node]]
+question = "Why are there multiple gateway receivers?"
+
+[[node.branch]]
+condition = "Different objects handle different concerns"
+action = "Create one AppAdapter/Gateway that delegates internally. UI sees ONE entry point."
+ref = "uiux/state-flow.md"
+
+[[node.branch]]
+condition = "Some are Slint builtins or enums"
+action = "Add to builtin whitelist in slint_gateway.rs (false positive)."
+ref = "uiux/state-flow.md"
