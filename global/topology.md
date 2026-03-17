@@ -139,9 +139,27 @@ RULE: If a type spans two layers, split it or move it to `_x`
 RULE: Tests live in `tests/` mirroring `src/` — test types use `_test` tag
 BANNED: `utils/`, `helpers/`, `misc/` folders — every file belongs to a layer
 BANNED: Adapter logic in Core or PAL
+BANNED: Code files (`.rs`, `.slint`) in `proj/`, `doc/`, `man/` — these are metadata
 
 RESULT: Folder structure is self-documenting — grep `_gtw` to find all gateway types
 REASON: Placement is architectural enforcement — wrong folder = wrong design
+
+## Scan Scope
+
+The scanner only runs on **project source code**. These folders are excluded:
+
+| Excluded | Reason |
+|----------|--------|
+| `vendor/`, `third_party/`, `external/` | Third-party code — you don't own it |
+| `target/`, `build/`, `dist/` | Build output — generated |
+| `proj/`, `doc/`, `docs/`, `man/` | Metadata — not source code (placement check only) |
+| `.git/`, `node_modules/`, `__pycache__/` | VCS and package manager |
+
+RULE: Never scan code you don't own — vendor/third-party is always excluded
+RULE: Metadata folders (`proj/`, `doc/`, `man/`) skip code checks but get placement validation
+RULE: Nested folders inside `src/` are always scanned — `src/docs/` is code, not metadata
+BANNED: Running code quality checks on vendor/third-party code
+BANNED: Reporting issues in generated/build output
 
 ## Mother–Child Ownership (applies at every level)
 
