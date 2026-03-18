@@ -24,6 +24,7 @@ CATEGORIES = [
     "kotlin",
     "csharp",
     "catalog",
+    "quick-ref",
 ]
 
 CONCEPT_MAP = {
