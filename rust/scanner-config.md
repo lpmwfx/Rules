@@ -1,9 +1,9 @@
 ---
-tags: [rust, scanner, rulestools, build-rs, topology, workspace, flat, slintscanners, rustscanners]
+tags: [rust, scanner, rulestools, build-rs, topology, workspace, flat]
 concepts: [scanner-topology, scan-root, two-tier-scanning]
 requires: [rust/workspace.md]
 related: [global/topology.md, slint/states.md]
-keywords: [rulestools-toml, topology-flat, topology-workspace, scan-root, build-rs, rustscanners, slintscanners, scan-project, cargo-build, deny]
+keywords: [rulestools-toml, topology-flat, topology-workspace, scan-root, build-rs, rulestools-scanner, scan-project, cargo-build, deny]
 layer: 3
 binding: true
 ---
@@ -30,16 +30,13 @@ languages = ["rust", "slint"]
 # topology is set per-crate by overriding in the member's own proj/rulestools.toml,
 # or the workspace root value is used as default.
 
-[rustscanners]
+[scan]
 deny = false             # set true before release
-
-[slintscanners]
-deny = false
 ```
 
 **What `topology` controls:**
 
-| Value | RustScanners | SlintScanners |
+| Value | Rust files | Slint files |
 |---|---|---|
 | `"flat"` (default) | scans own `src/` only | scans own `ui/` or `src/` only |
 | `"workspace"` | scans all `apps/*/src/` + `crates/*/src/` | scans all `apps/*/ui/` + `apps/*/src/` |
@@ -63,7 +60,7 @@ cargo build (full)
        apps/cli/build.rs       → flat → scans itself
 ```
 
-RULE: Every member crate that contains Rust source code has its own `build.rs` calling `rustscanners::scan_project()`
+RULE: Every member crate that contains Rust source code has its own `build.rs` calling `rulestools_scanner::scan_project()`
 RULE: Library crates (`crates/*`) use `topology = "flat"` — they scan only their own `src/`
 RULE: The scan root (`apps/desktop`) uses `topology = "workspace"` — it supplements flat scans with cross-workspace visibility
 RULE: `apps/desktop` is always the scan root — it is always built as part of `cargo build`
@@ -72,13 +69,13 @@ BANNED: A member crate with Rust source and no `build.rs` — building it indivi
 ```rust
 // crates/core/build.rs — flat: scans only crates/core/src/
 fn main() {
-    rustscanners::scan_project();   // reads proj/rulestools.toml, topology = "flat"
+    rulestools_scanner::scan_project();   // reads proj/rulestools.toml, topology = "flat"
 }
 
 // apps/desktop/build.rs — workspace: scans all members + slint files
 fn main() {
-    rustscanners::scan_project();   // topology = "workspace" → sees entire workspace
-    slintscanners::scan_project();  // topology = "workspace" → finds all .slint files
+    rulestools_scanner::scan_project();   // topology = "workspace" → sees entire workspace
+    rulestools_scanner::scan_project();  // topology = "workspace" → finds all .slint files
 }
 ```
 

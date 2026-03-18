@@ -1,5 +1,5 @@
 ---
-tags: [rust, init, initialize, bootstrap, setup, new-project, build-scanners, rustscanners, slintscanners, rustdocumenter, scanner-install]
+tags: [rust, init, initialize, bootstrap, setup, new-project, build-scanners, rulestools, scanner-install]
 concepts: [project-initialization, project-setup, zero-literal, rust-build-scan, build-time-enforcement, documentation]
 requires: [global/initialize.md, rust/constants.md, rust/modules.md]
 related: [rust/README.md, rust/workspace.md, project-files/project-file.md, project-files/rules-file.md, slint/init.md]
@@ -47,9 +47,8 @@ cargo init my-app && cd my-app
 
 ```toml
 [build-dependencies]
-rustdocumenter = { git = "https://github.com/lpmwfx/RustDocumenter" }
-rustscanners   = { git = "https://github.com/lpmwfx/RustScanners" }
-slintscanners  = { git = "https://github.com/lpmwfx/SlintScanners" }  # if using Slint UI
+rulestools-documenter = { git = "https://github.com/lpmwfx/RulesTools" }
+rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
 ```
 
 ### 2.2 — Create build.rs
@@ -57,9 +56,8 @@ slintscanners  = { git = "https://github.com/lpmwfx/SlintScanners" }  # if using
 ```rust
 // build.rs
 fn main() {
-    rustdocumenter::document_project(); // AI: auto-generates /// for undocumented pub items
-    rustscanners::scan_project();       // Rust: zero-literal, unwrap, naming, threading, etc.
-    slintscanners::scan_project();      // Slint: zero-literal, tokens, structure, events (if using Slint)
+    rulestools_documenter::document_project(); // AI: auto-generates /// for undocumented pub items
+    rulestools_scanner::scan_project();        // Rust: zero-literal, unwrap, naming, threading, etc.
 }
 ```
 
@@ -147,6 +145,6 @@ rustdocumenter check .
 RULE: Steps 1–6 run in one session — do not leave initialization partial
 RULE: `src/state/` exists before any business logic is written
 RULE: First `cargo build` after init must be clean (zero violations)
-BANNED: Writing code before RustScanners is installed
+BANNED: Writing code before rulestools scanner is installed
 BANNED: Hardcoding values in function bodies — use `src/state/` from day one
 BANNED: Adding `pub` items without `///` doc comments

@@ -1,9 +1,9 @@
 ---
-tags: [rust, slint, scanners, add-scanners, build-dependency, rustdocumenter, rustscanners, slintscanners, existing-project, setup]
+tags: [rust, slint, scanners, add-scanners, build-dependency, rulestools, existing-project, setup]
 concepts: [build-time-enforcement, documentation, zero-literal, project-setup]
 requires: [rust/init.md]
 related: [slint/init.md, rust/docs.md, slint/docs.md]
-keywords: [add scanners, existing project, build-dependencies, build.rs, rustdocumenter, rustscanners, slintscanners, document_project, scan_project, cargo build]
+keywords: [add scanners, existing project, build-dependencies, build.rs, rulestools-documenter, rustscanners, slintscanners, document_project, scan_project, cargo build]
 layer: 2
 ---
 # Add Scanners to an Existing Project
@@ -14,18 +14,19 @@ layer: 2
 ---
 
 VITAL: All three scanner calls must be present in build.rs — in this order
-VITAL: rustdocumenter runs FIRST — it fills in missing docs before scanners validate them
+VITAL: rulestools-documenter runs FIRST — it fills in missing docs before scanners validate them
 RULE: Never add scanners in the wrong order — docs before checks
 
 ---
 
-## The complete scanner stack
+## The unified scanner stack
 
 | Crate | What it does | Required for |
 |---|---|---|
-| `rustdocumenter` | AI generates `///` for undocumented pub items | All Rust projects |
-| `rustscanners` | Zero-literal, unwrap, naming, threading, doc checks | All Rust projects |
-| `slintscanners` | Zero-literal, tokens, structure, events | Projects with Slint UI |
+| `rulestools-documenter` | AI generates `///` for undocumented pub items | All Rust projects |
+| `rulestools-scanner` | Zero-literal, unwrap, naming, threading, doc checks + Slint checks | All Rust projects |
+
+Both crates live in the unified `RulesTools` workspace on GitHub.
 
 ---
 
@@ -35,18 +36,17 @@ RULE: Never add scanners in the wrong order — docs before checks
 
 ```toml
 [build-dependencies]
-rustdocumenter = { git = "https://github.com/lpmwfx/RustDocumenter" }
-rustscanners   = { git = "https://github.com/lpmwfx/RustScanners" }
+rulestools-documenter = { git = "https://github.com/lpmwfx/RulesTools" }
+rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
 ```
 
 ### Rust + Slint project
 
 ```toml
 [build-dependencies]
-rustdocumenter = { git = "https://github.com/lpmwfx/RustDocumenter" }
-rustscanners   = { git = "https://github.com/lpmwfx/RustScanners" }
-slintscanners  = { git = "https://github.com/lpmwfx/SlintScanners" }
-slint-build    = "1"
+rulestools-documenter = { git = "https://github.com/lpmwfx/RulesTools" }
+rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
+slint-build           = "1"
 ```
 
 ### Workspace projects
@@ -62,8 +62,8 @@ Only one crate in the workspace needs to drive the scanners.
 
 ```rust
 fn main() {
-    rustdocumenter::document_project(); // AI: fills in missing /// doc comments
-    rustscanners::scan_project();       // validates: zero-literal, naming, docs, etc.
+    rulestools_documenter::document_project(); // AI: fills in missing /// doc comments
+    rulestools_scanner::scan_project();        // validates: zero-literal, naming, docs, etc.
 }
 ```
 
@@ -71,9 +71,8 @@ fn main() {
 
 ```rust
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    rustdocumenter::document_project(); // AI: fills in missing /// doc comments
-    rustscanners::scan_project();       // validates: zero-literal, naming, docs, etc.
-    slintscanners::scan_project();      // validates: tokens, structure, events, etc.
+    rulestools_documenter::document_project(); // AI: fills in missing /// doc comments
+    rulestools_scanner::scan_project();        // validates: zero-literal, naming, docs, Slint tokens, etc.
 
     slint_build::compile("ui/main.slint")?;
     Ok(())
@@ -88,11 +87,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 cargo build
 ```
 
-**First build:** rustdocumenter walks all `.rs` and `.slint` files, calls AI for each
+**First build:** rulestools-documenter walks all `.rs` and `.slint` files, calls AI for each
 undocumented pub item, and writes `///` comments directly into the source files.
 The build then continues with the scanners validating the now-documented code.
 
-**Subsequent builds:** docs are already present — rustdocumenter writes nothing,
+**Subsequent builds:** docs are already present — rulestools-documenter writes nothing,
 scanners validate, build is fast.
 
 ---
@@ -100,7 +99,7 @@ scanners validate, build is fast.
 ## Step 4 — Verify
 
 ```bash
-rustdocumenter check .
+rulestools-documenter check .
 ```
 
 Exits 0 when all pub items have `///`. Exits 1 with a list of missing items if not.
@@ -109,18 +108,18 @@ Exits 0 when all pub items have `///`. Exits 1 with a list of missing items if n
 
 ## Diagnosing problems
 
-**`cargo build` shows `rustdocumenter: 0 items documented` but missing docs exist:**
+**`cargo build` shows `rulestools-documenter: 0 items documented` but missing docs exist:**
 ```bash
-rustdocumenter diag
+rulestools-documenter diag
 ```
 Tests Claude CLI and Codex CLI availability. Shows exact error if AI is unreachable.
 
 **Scanner errors after first build:**
-rustdocumenter only adds `///` comments — it does not fix zero-literal or other violations.
+rulestools-documenter only adds `///` comments — it does not fix zero-literal or other violations.
 Fix those manually.
 
 ---
 
-RULE: rustdocumenter must come before rustscanners in build.rs — docs must exist before the doc check runs
-RULE: One build.rs per workspace drives all three scanners — don't split across crates
-BANNED: Calling rustscanners before rustdocumenter — doc-required check will always fail on first build
+RULE: rulestools-documenter must come before rulestools-scanner in build.rs — docs must exist before the doc check runs
+RULE: One build.rs per workspace drives the scanners — don't split across crates
+BANNED: Calling rulestools-scanner before rulestools-documenter — doc-required check will always fail on first build

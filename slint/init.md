@@ -1,5 +1,5 @@
 ---
-tags: [slint, init, initialize, bootstrap, setup, new-project, build-scanners, rustscanners, slintscanners, rustdocumenter, scanner-install]
+tags: [slint, init, initialize, bootstrap, setup, new-project, build-scanners, rulestools, scanner-install]
 concepts: [project-initialization, project-setup, zero-literal, slint-build-scan, build-time-enforcement, documentation]
 requires: [global/initialize.md, slint/states.md, slint/validation.md, uiux/tokens.md, rust/init.md]
 related: [slint/README.md, rust/init.md, slint/themes.md, slint/globals.md]
@@ -37,10 +37,9 @@ The Rust scanners are now unified in the `RulesTools` workspace. Ensure `Cargo.t
 
 ```toml
 [build-dependencies]
-rustdocumenter = { git = "https://github.com/lpmwfx/RustDocumenter" }
-rustscan       = { git = "https://github.com/lpmwfx/RulesTools" }
-slintscan      = { git = "https://github.com/lpmwfx/RulesTools" }
-slint-build    = "1"
+rulestools-documenter = { git = "https://github.com/lpmwfx/RulesTools" }
+rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
+slint-build           = "1"
 ```
 
 Create or update `build.rs`:
@@ -48,9 +47,8 @@ Create or update `build.rs`:
 ```rust
 // build.rs
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    rustdocumenter::document_project(); // AI: auto-generates /// for undocumented pub items
-    rustscan::scan_project();           // Rust: zero-literal, unwrap, naming, docs, etc.
-    slintscan::scan_project();          // Slint: zero-literal, tokens, structure, events, etc.
+    rulestools_documenter::document_project(); // AI: auto-generates /// for undocumented pub items
+    rulestools_scanner::scan_project();        // Rust + Slint: zero-literal, naming, tokens, etc.
 
     slint_build::compile("ui/main.slint")?;
     Ok(())
@@ -68,7 +66,7 @@ languages = ["rust", "slint"]
 
 **VITAL RULE: Both scanners must be available before first `cargo build`**
 RULE: `cargo build` must pass both scanners with zero violations
-RULE: RustScanners + SlintScanners coexist in the same `build.rs`
+RULE: Both Rust and Slint checks run via `rulestools_scanner::scan_project()` in the same `build.rs`
 RULE: Add `///` doc comments to every `export component`, callback, and `in/out property` — see `slint/docs.md`
 
 ---
@@ -147,12 +145,12 @@ RULE: All children are stateless — they receive data via `in property`
 cargo build
 ```
 
-Build should succeed with zero SlintScanners warnings. If violations appear, fix them before writing more UI.
+Build should succeed with zero scanner warnings. If violations appear, fix them before writing more UI.
 
 ---
 
 RULE: Steps 1–4 run in one session — do not leave initialization partial
 RULE: Definition folders exist before any UI components are written
 RULE: First `cargo build` after init must be clean (zero violations)
-BANNED: Writing Slint components before SlintScanners is installed
+BANNED: Writing Slint components before rulestools scanner is configured
 BANNED: Hardcoding colors, sizes, or durations in component files

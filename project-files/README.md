@@ -74,4 +74,6 @@ my-project/
 | [rules-file.md](rules-file.md) | RULES spec |
 | [authors-file.md](authors-file.md) | AUTHORS spec |
 | [goal-chain.md](goal-chain.md) | Goal chain + DONES |
+| [license-file.md](license-file.md) | LICENSE spec |
+| [project-process.md](project-process.md) | Project process state machine |
 | [workflow.md](workflow.md) | Workflow, relations, publishing |

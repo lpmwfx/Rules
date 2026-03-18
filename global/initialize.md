@@ -27,9 +27,9 @@ PROJECT INITIALIZATION SEQUENCE:
                          writes proj/rulestools.toml with detected languages
 
 1b. LANGUAGE INIT     → if a language-specific init.md exists, run it BEFORE step 3:
-                         Rust       → get_rule("rust/init.md")    — installs RustScanners,
+                         Rust       → get_rule("rust/init.md")    — configures rulestools scanner,
                                        creates src/state/ folder, build.rs, proj/rulestools.toml
-                         Slint      → get_rule("slint/init.md")   — installs SlintScanners,
+                         Slint      → get_rule("slint/init.md")   — configures rulestools scanner for Slint,
                                        creates ui/ definition folders, tokens, theme globals
                          C# / .NET  → get_rule("csharp/init.md")  — scaffolds sln, csproj,
                                        Directory.Build.props, .editorconfig, .gitignore

@@ -22,9 +22,15 @@ VITAL: Moving or deleting the source repo must NOT affect any running MCP server
 ## Canonical Install Commands
 
 ```bash
-pip install --upgrade git+https://github.com/lpmwfx/RulesTools.git
-pip install --upgrade git+https://github.com/lpmwfx/RulesToolsMCP.git
-pip install --upgrade git+https://github.com/lpmwfx/Rules.git
+cargo install --git https://github.com/lpmwfx/RulesTools rulestools
+```
+
+For build.rs integration (scanner + documenter as library crates):
+
+```toml
+[build-dependencies]
+rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
+rulestools-documenter = { git = "https://github.com/lpmwfx/RulesTools" }
 ```
 
 ## Update Workflow
@@ -32,7 +38,7 @@ pip install --upgrade git+https://github.com/lpmwfx/Rules.git
 ```
 edit files in local repo
   → git push
-  → pip install --upgrade git+https://github.com/lpmwfx/...
+  → cargo install --git https://github.com/lpmwfx/RulesTools rulestools --force
   → restart Claude Code (MCP server reloads)
 ```
 
@@ -43,11 +49,9 @@ If any server dies: a runtime path dependency exists and must be fixed.
 
 ## BANNED
 
-BANNED: `pip install -e .` (editable — creates runtime dependency on local path)
-BANNED: `pip install .` from a local D:\ or C:\ path
-BANNED: `sys.path.insert(0, "D:/REPO/...")` in any installed package
-BANNED: Hardcoded local paths in `pyproject.toml`, `server.py`, or `scanner.py`
-BANNED: `direct_url.json` referencing a local drive path after install
+BANNED: `path = "..."` dependencies in Cargo.toml (creates build-time dependency on local path)
+BANNED: Hardcoded local paths in Cargo.toml, build.rs, or any installed binary
+BANNED: `cargo install --path .` from a local D:\ or C:\ path for production use
 
 ## Why
 
