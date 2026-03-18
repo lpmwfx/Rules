@@ -1,9 +1,9 @@
 ---
-tags: [rust, docs, documentation, rustdocumenter]
+tags: [rust, docs, documentation, rulestools]
 concepts: [documentation, public-api, discoverability]
 requires: []
 related: [slint/docs.md]
-keywords: [doc-comment, triple-slash, rustdoc, pub, rustdocumenter]
+keywords: [doc-comment, triple-slash, rustdoc, pub, rulestools]
 layer: 2
 ---
 # Documentation Rules
@@ -25,15 +25,15 @@ RULE: Doc comment must appear before any `#[...]` attribute lines that precede t
 
 ## Enforcement
 
-Three enforcement layers — all report as **errors** (blocks build and commit):
+One binary (`rulestools`), three enforcement modes — all report as **errors**:
 
 | Tool | Trigger | Severity | Output |
 |---|---|---|---|
-| `rustscanners` (cargo build) | Automatic on `cargo build` | error | stderr, blocks build |
-| `rustdocumenter gen` | Manual | error | `proj/ISSUES` + `man/`, blocks further steps |
-| `rustdocumenter check` | Pre-commit hook | error | stderr, blocks commit |
+| `rulestools scan .` | Manual / MCP | error | `proj/ISSUES` + `man/`, auto-inserts `///` stubs |
+| `rulestools check .` | Pre-commit hook | error | stderr, blocks commit |
+| `rulestools_scanner::scan_project()` | `cargo build` (build.rs) | error | stderr, blocks build |
 
-Missing `///` doc comments are reported as **errors** and block `cargo build`, pre-commit hooks, and CI/CD pipelines. Every `pub` item must be documented before code can be shipped.
+Missing `///` doc comments are reported as **errors**. `rulestools scan` also auto-inserts stub doc comments and generates `man/` documentation.
 
 ## Format
 
@@ -76,7 +76,7 @@ BANNED: Items with no `///` comment:
 pub fn load_config(path: &Path) -> Result<Config, ConfigError> { ... }
 ```
 
-BANNED: Only inline comments (not picked up by rustdocumenter):
+BANNED: Only inline comments (not picked up by rulestools):
 ```rust
 // BAD — // is not a doc comment
 pub struct Manifest { ... }
@@ -84,10 +84,10 @@ pub struct Manifest { ... }
 
 ## Workflow
 
-1. Run `rustdocumenter gen` after adding new pub items → `man/` is updated and `proj/ISSUES` lists gaps
+1. Run `rulestools gen` after adding new pub items → `man/` is updated and `proj/ISSUES` lists gaps
 2. Add `///` to every item listed in `proj/ISSUES`
-3. Run `rustdocumenter gen` again — `proj/ISSUES` shrinks or disappears
-4. Pre-commit: `rustdocumenter check` exits 0 only when all pub items are documented
+3. Run `rulestools gen` again — `proj/ISSUES` shrinks or disappears
+4. Pre-commit: `rulestools check` exits 0 only when all pub items are documented
 
 ## `man/` — Design Evaluation Reference
 
@@ -108,7 +108,7 @@ The `man/` folder is a generated **design reference** for evaluating project arc
 
 RULE: Use `man/` to evaluate whether the project's public API design is sound — it is a design review tool, not a coding aid
 RULE: A man page that looks wrong reveals a design problem — fix the design, not just the doc comment
-RULE: After writing new pub items, run `rustdocumenter gen` and verify the item appears in `man/` — missing entry = missing doc comment
+RULE: After writing new pub items, run `rulestools gen` and verify the item appears in `man/` — missing entry = missing doc comment
 
 ### `man/` folder structure
 
@@ -129,7 +129,7 @@ Each `.md` file lists every `pub` item from its corresponding source file with t
 
 ## Viewing documentation
 
-After running `rustdocumenter gen`, browse the generated `man/` documentation:
+After running `rulestools gen`, browse the generated `man/` documentation:
 
 ```bash
 # Install the viewer (one-time)
