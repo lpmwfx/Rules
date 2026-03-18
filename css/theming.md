@@ -1,8 +1,8 @@
 ---
-tags: [css, theming, dark-mode, prefers-color-scheme, web, pwa]
+tags: [theming, dark-mode, prefers-color-scheme, web, pwa]
 concepts: [css-dark-mode, prefers-color-scheme, web-theming]
 requires: [uiux/theming.md, css/tokens.md]
-related: [css/themes.md, js/modules.md]
+related: [css/themes.md]
 keywords: [prefers-color-scheme, dark, light, matchMedia, css-variables, root, localStorage, theme-toggle]
 layer: 4
 ---

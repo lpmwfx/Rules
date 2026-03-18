@@ -1,8 +1,8 @@
 ---
-tags: [javascript, validation, zod, runtime]
+tags: [validation, zod, runtime]
 concepts: [runtime-checking, boundaries, validation]
 requires: [global/validation.md]
-related: [js/safety.md, python/types.md]
+related: [js/safety.md]
 keywords: [zod, schema, parse, boundary]
 layer: 4
 ---

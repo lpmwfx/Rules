@@ -1,5 +1,5 @@
 ---
-tags: [cpp, build, cmake, configuration]
+tags: [build, cmake, configuration]
 concepts: [build-system, configuration]
 related: [cpp/errors.md, cpp/threading.md]
 keywords: [cmake, presets, vcpkg, conan]

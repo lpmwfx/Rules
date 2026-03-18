@@ -1,6 +1,6 @@
 ---
-tags: [devops, overview, ci-cd]
-concepts: [devops, overview]
+tags: [devops, ci-cd]
+concepts: [devops]
 related: [devops/publishing.md, devops/cicd.md, devops/packaging.md, devops/workflow.md]
 layer: 6
 ---

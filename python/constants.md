@@ -1,9 +1,8 @@
 ---
-tags: [python, constants, configuration, magic-numbers]
+tags: [constants, configuration, magic-numbers]
 concepts: [named-constants, configuration, immutability]
 requires: [global/config-driven.md]
 feeds: [python/types.md]
-related: [rust/constants.md, cpp/constants.md, js/constants.md, kotlin/constants.md, csharp/constants.md]
 keywords: [upper-case, dataclass, cfg, magic-number, hardcoded]
 layer: 3
 ---

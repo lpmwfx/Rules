@@ -1,5 +1,5 @@
 ---
-tags: [rules, ai-coding, standards, overview]
+tags: [ai-coding, standards]
 concepts: [coding-standards, ai-rules]
 layer: 6
 ---

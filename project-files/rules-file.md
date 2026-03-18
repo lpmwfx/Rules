@@ -1,8 +1,8 @@
 ---
-tags: [rules, project-rules, observations, conventions, project-files]
+tags: [project-rules, observations, conventions, project-files]
 concepts: [project-rules, rule-observations, local-conventions]
 related: [project-files/rag-file.md, project-files/fixes-file.md, project-files/project-file.md]
-keywords: [rules, observations, conventions, local-rules, RULES, active-rules, project-specific]
+keywords: [observations, conventions, local-rules, active-rules, project-specific]
 layer: 2
 ---
 # RULES File

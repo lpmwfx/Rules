@@ -1,8 +1,7 @@
 ---
-tags: [python, async, threading, concurrency, asyncio]
+tags: [async, threading, concurrency, asyncio]
 concepts: [async-io, thread-pool, GIL, event-loop]
 requires: [python/error-handling.md]
-related: [rust/threading.md, cpp/threading.md, kotlin/coroutines.md, csharp/threading.md]
 keywords: [asyncio, concurrent-futures, ThreadPoolExecutor, await, GIL]
 layer: 4
 ---

@@ -1,8 +1,7 @@
 ---
-tags: [python, testing, tdd, pytest]
+tags: [testing, tdd, pytest]
 concepts: [tdd, quality, testing]
 requires: [python/types.md, python/ack-pattern.md]
-related: [rust/verification.md, cpp/testing.md, js/testing.md]
 keywords: [pytest, real-db, sqlite, no-mocks]
 layer: 4
 ---

@@ -1,8 +1,7 @@
 ---
-tags: [cpp, types, strong-types, concepts]
+tags: [types, strong-types, concepts]
 concepts: [type-safety, type-checking]
 requires: [global/validation.md]
-related: [python/types.md, rust/types.md]
 keywords: [strong-typedef, concepts, constexpr]
 layer: 3
 ---

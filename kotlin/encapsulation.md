@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, encapsulation, visibility, internal]
+tags: [encapsulation, visibility, internal]
 concepts: [architecture, privacy, encapsulation]
 requires: [global/consistency.md]
-related: [rust/modules.md, js/modules.md]
 layer: 3
 ---
 # Encapsulation

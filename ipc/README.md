@@ -1,6 +1,6 @@
 ---
-tags: [ipc, overview, inter-process]
-concepts: [ipc, overview]
+tags: [ipc, inter-process]
+concepts: [ipc]
 related: [ipc/contract.md]
 layer: 6
 ---

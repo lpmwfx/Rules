@@ -1,5 +1,5 @@
 ---
-tags: [slint, themes, theming, multi-theme, material, solid, mica, acrylic]
+tags: [themes, theming, multi-theme, material, solid, mica, acrylic]
 concepts: [multi-theme, theme-file, material-theme, theme-switching]
 requires: [uiux/tokens.md, slint/globals.md]
 feeds: [uiux/theming.md]

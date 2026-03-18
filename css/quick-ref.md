@@ -1,6 +1,6 @@
 ---
-tags: [css, quick-ref, reference, summary]
-concepts: [reference, summary]
+tags: []
+concepts: []
 related: [css/cascade.md, css/modules.md, css/naming.md, css/tokens.md, css/themes.md]
 layer: 6
 ---

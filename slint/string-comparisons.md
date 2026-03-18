@@ -1,5 +1,5 @@
 ---
-tags: [slint, strings, string-comparison, constants, zero-literals]
+tags: [strings, string-comparison, constants, zero-literals]
 concepts: [string-state-comparisons, strings-global]
 requires: [slint/states.md]
 related: [slint/globals.md, slint/create-before-use.md]

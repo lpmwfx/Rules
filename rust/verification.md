@@ -1,8 +1,7 @@
 ---
-tags: [rust, verification, clippy, testing]
+tags: [verification, clippy, testing]
 concepts: [testing, clippy]
 requires: [rust/types.md]
-related: [python/testing.md, cpp/testing.md]
 keywords: [clippy, cargo-test, miri]
 layer: 4
 ---

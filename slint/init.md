@@ -1,9 +1,9 @@
 ---
-tags: [slint, init, initialize, bootstrap, setup, new-project, build-scanners, rulestools, scanner-install]
+tags: [init, initialize, bootstrap, setup, new-project, build-scanners, rulestools, scanner-install]
 concepts: [project-initialization, project-setup, zero-literal, slint-build-scan, build-time-enforcement, documentation]
 requires: [global/initialize.md, slint/states.md, slint/validation.md, uiux/tokens.md, rust/init.md]
-related: [slint/README.md, rust/init.md, slint/themes.md, slint/globals.md]
-keywords: [slint, init, cargo, build.rs, rustscanners, slintscanners, rustdocumenter, tokens, zero-literal, install, cargo-scan, build-scan, theme, globals, state, doc-comment, man, viewer]
+related: [slint/README.md, slint/themes.md, slint/globals.md]
+keywords: [init, cargo, build.rs, rustscanners, slintscanners, rustdocumenter, tokens, zero-literal, install, cargo-scan, build-scan, theme, globals, state, doc-comment, man, viewer]
 layer: 2
 ---
 # Slint Project Initialization

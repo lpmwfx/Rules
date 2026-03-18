@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, naming, conventions, suffix]
+tags: [naming, conventions, suffix]
 concepts: [naming-conventions, readability, layer-tags]
 requires: [global/naming-suffix.md]
-related: [rust/naming.md, python/naming.md, js/naming.md, csharp/naming.md, cpp/naming.md]
 keywords: [camelCase, PascalCase, UPPER_SNAKE_CASE, suffix, boolean-prefix]
 layer: 3
 ---

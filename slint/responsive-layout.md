@@ -1,5 +1,5 @@
 ---
-tags: [slint, responsive, layout, mother-child, breakpoints, preferred-width, stretch, sizing]
+tags: [responsive, layout, mother-child, breakpoints, preferred-width, stretch, sizing]
 concepts: [responsive-layout, constraint-layout, breakpoints, mother-child-pattern, stretch-factors]
 requires: [slint/component-model.md, uiux/mother-child.md]
 related: [slint/globals.md, uiux/tokens.md, uiux/file-structure.md]

@@ -1,5 +1,5 @@
 ---
-tags: [slint, app-bridge, callbacks, event-routing, global]
+tags: [app-bridge, callbacks, event-routing, global]
 concepts: [centralised-event-routing, app-bridge-global]
 requires: [slint/globals.md, slint/component-model.md]
 related: [slint/rust-bridge.md, global/adapter-layer.md]

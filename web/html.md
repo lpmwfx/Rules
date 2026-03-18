@@ -1,8 +1,8 @@
 ---
-tags: [web, html, semantic, template, accessibility, aria, web-components]
+tags: [html, semantic, template, accessibility, aria, web-components]
 concepts: [semantic-html, html-templates, accessibility-rules, component-templates]
 requires: [global/module-tree.md, web/topology.md]
-related: [web/components.md, uiux/file-structure.md, css/modules.md]
+related: [web/components.md, uiux/file-structure.md]
 keywords: [html, semantic, nav, main, article, section, aside, template, slot, aria, accessibility, keyboard, web-component, div-soup, inline-style, inline-script]
 layer: 3
 ---

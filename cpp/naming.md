@@ -1,9 +1,8 @@
 ---
-tags: [cpp, naming, conventions, layer-tag]
+tags: [naming, conventions, layer-tag]
 concepts: [naming-conventions, readability, consistency]
 requires: [global/naming-suffix.md]
 feeds: [cpp/docs.md]
-related: [rust/naming.md, python/naming.md, js/naming.md, kotlin/naming.md, csharp/naming.md]
 keywords: [snake_case, PascalCase, UPPER_SNAKE_CASE, hungarian, naming, prefix, suffix]
 layer: 3
 ---

@@ -1,6 +1,6 @@
 ---
-tags: [cpp, overview, rules, c++20]
-concepts: [cpp-rules, overview]
+tags: [c++20]
+concepts: [cpp-rules]
 related: [cpp/types.md, cpp/modules.md, cpp/errors.md, cpp/memory.md, cpp/testing.md, cpp/build.md, cpp/threading.md, cpp/nesting.md, cpp/posix.md, global/module-tree.md]
 layer: 6
 ---

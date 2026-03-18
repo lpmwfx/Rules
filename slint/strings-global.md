@@ -1,5 +1,5 @@
 ---
-tags: [slint, strings, localization, global, i18n]
+tags: [strings, localization, global, i18n]
 concepts: [localization-strings, slint-strings-global]
 requires: [slint/globals.md]
 related: [slint/string-comparisons.md, slint/rust-bridge.md]

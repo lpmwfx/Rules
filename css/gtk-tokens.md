@@ -1,5 +1,5 @@
 ---
-tags: [css, gtk, adwaita, tokens, design-tokens, system-colors]
+tags: [gtk, adwaita, tokens, design-tokens, system-colors]
 concepts: [gtk-design-tokens, adwaita-variables]
 requires: [uiux/tokens.md, css/tokens.md]
 related: [uiux/theming.md, uiux/gtk.md]

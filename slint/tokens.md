@@ -1,5 +1,5 @@
 ---
-tags: [slint, tokens, design-tokens, no-hardcoding, globals, zero-literals]
+tags: [tokens, design-tokens, no-hardcoding, globals, zero-literals]
 concepts: [slint-token-globals, slint-design-tokens]
 requires: [uiux/tokens.md, uiux/token-structure.md]
 feeds: [slint/themes.md, slint/globals.md]

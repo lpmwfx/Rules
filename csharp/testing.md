@@ -1,9 +1,8 @@
 ---
-tags: [csharp, testing, xunit, testcontainers, arrange-act-assert]
+tags: [testing, xunit, testcontainers, arrange-act-assert]
 concepts: [unit-testing, integration-testing, test-naming, test-isolation]
 requires: [csharp/types.md, csharp/errors.md]
 feeds: [csharp/verification.md]
-related: [rust/testing.md, python/testing.md, js/testing.md, cpp/testing.md, kotlin/testing.md]
 keywords: [xunit, testcontainers, fact, theory, assert, mock, arrange-act-assert]
 layer: 4
 ---

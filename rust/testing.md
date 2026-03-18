@@ -1,8 +1,7 @@
 ---
-tags: [rust, testing, tdd, cargo-test]
+tags: [testing, tdd, cargo-test]
 concepts: [tdd, quality, testing]
 requires: [rust/errors.md]
-related: [python/testing.md, js/testing.md, cpp/testing.md]
 keywords: [test, cargo-test, assert, rstest, integration, unit-test]
 layer: 4
 ---

@@ -1,5 +1,5 @@
 ---
-tags: [rust, error-handling, thiserror, result, exhaustive-match]
+tags: [error-handling, thiserror, result, exhaustive-match]
 concepts: [rust-error-enum, exhaustive-matching, error-recovery]
 requires: [global/error-flow.md, rust/types.md]
 feeds: [rust/errors.md]

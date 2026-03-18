@@ -1,5 +1,5 @@
 ---
-tags: [css, typography, fonts, spacing]
+tags: [typography, fonts, spacing]
 concepts: [fonts, spacing]
 related: [css/responsive.md, css/tokens.md]
 keywords: [system-fonts, line-height, modular-scale]

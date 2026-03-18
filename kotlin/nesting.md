@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, nesting, flat, readability]
+tags: [nesting, flat, readability]
 concepts: [code-style, readability]
 requires: [global/nesting.md]
-related: [python/nesting.md, rust/nesting.md, js/nesting.md]
 keywords: [nesting, flat, early-return, when, guard]
 layer: 4
 ---

@@ -1,8 +1,7 @@
 ---
-tags: [rust, types, enums, newtype]
+tags: [types, enums, newtype]
 concepts: [type-safety, type-checking]
 requires: [global/validation.md]
-related: [python/types.md, cpp/types.md]
 keywords: [newtype, enum, derive, serde]
 layer: 3
 ---

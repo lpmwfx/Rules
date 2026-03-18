@@ -1,8 +1,7 @@
 ---
-tags: [cpp, threading, jthread, concurrency]
+tags: [threading, jthread, concurrency]
 concepts: [concurrency, async]
 requires: [cpp/memory.md]
-related: [rust/threading.md, kotlin/coroutines.md]
 keywords: [jthread, mutex, atomic, stop-token]
 layer: 4
 ---

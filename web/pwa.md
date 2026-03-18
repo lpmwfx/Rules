@@ -1,5 +1,5 @@
 ---
-tags: [web, pwa, service-worker, manifest, offline-first, cache-api]
+tags: [pwa, service-worker, manifest, offline-first, cache-api]
 concepts: [pwa-architecture, service-worker-pattern, offline-first-data]
 requires: [web/topology.md, web/gateway.md]
 related: [web/pal.md, global/app-model.md]

@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, docs, kdoc, documentation, api]
+tags: [docs, kdoc, documentation, api]
 concepts: [documentation, api-surface, kdoc]
 requires: [kotlin/types.md]
-related: [rust/docs.md, python/docs.md, js/docs.md, csharp/docs.md, cpp/docs.md]
 keywords: [kdoc, param, return, throws, public-api, documentation]
 layer: 4
 ---

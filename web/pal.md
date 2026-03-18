@@ -1,5 +1,5 @@
 ---
-tags: [web, pal, platform-abstraction, web-api, browser]
+tags: [pal, platform-abstraction, web-api, browser]
 concepts: [web-pal, browser-api-abstraction, web-platform-layer]
 requires: [pal/design.md, web/topology.md]
 related: [web/gateway.md, web/components.md]

@@ -1,8 +1,7 @@
 ---
-tags: [csharp, verification, analyzers, testing, dotnet]
+tags: [verification, analyzers, testing, dotnet]
 concepts: [testing, static-analysis, code-quality]
 requires: [csharp/types.md]
-related: [rust/verification.md, python/testing.md]
 keywords: [roslyn, analyzer, dotnet-format, xunit, coverlet]
 layer: 4
 ---

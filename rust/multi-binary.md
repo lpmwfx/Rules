@@ -1,5 +1,5 @@
 ---
-tags: [rust, multi-binary, cargo-install, workspace, pitfall]
+tags: [multi-binary, cargo-install, workspace, pitfall]
 concepts: [multi-binary-install, cargo-install-disambiguation]
 requires: [rust/workspace.md]
 related: [rust/init.md]

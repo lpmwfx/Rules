@@ -1,9 +1,8 @@
 ---
-tags: [python, docs, docstrings, google-style]
+tags: [docs, docstrings, google-style]
 concepts: [documentation, api-surface, discoverability]
 requires: [python/types.md]
 feeds: [python/testing.md]
-related: [rust/docs.md, cpp/docs.md, js/jsdoc.md, kotlin/docs.md, csharp/docs.md]
 keywords: [google-style, docstring, Args, Returns, Raises, module-docstring]
 layer: 4
 ---

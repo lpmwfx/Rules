@@ -1,10 +1,9 @@
 ---
-tags: [csharp, docs, xml-comments, api-documentation]
+tags: [docs, xml-comments, api-documentation]
 concepts: [xml-doc-comments, public-api-documentation, summary-param-returns]
 requires: [csharp/types.md]
 feeds: [csharp/verification.md]
-related: [rust/docs.md, python/docs.md, cpp/docs.md]
-keywords: [summary, param, returns, exception, cref, xml-doc, triple-slash]
+keywords: [param, returns, exception, cref, xml-doc, triple-slash]
 layer: 4
 ---
 # Documentation

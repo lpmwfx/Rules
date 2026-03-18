@@ -1,8 +1,7 @@
 ---
-tags: [javascript, nesting, flat, readability]
+tags: [nesting, flat, readability]
 concepts: [code-style, readability]
 requires: [global/nesting.md]
-related: [python/nesting.md, rust/nesting.md, cpp/nesting.md]
 keywords: [nesting, flat, early-return, guard-clause]
 layer: 4
 ---

@@ -1,5 +1,5 @@
 ---
-tags: [css, themes, dark-mode, theming]
+tags: [themes, dark-mode, theming]
 concepts: [theming, dark-mode]
 requires: [css/tokens.md]
 related: [css/cascade.md]

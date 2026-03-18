@@ -1,8 +1,8 @@
 ---
-tags: [slint, quick-ref, reference, summary, scanners, enforcement, SlintUITemplates]
-concepts: [reference, summary, enforcement, declarative-ui]
+tags: [scanners, enforcement, SlintUITemplates]
+concepts: [enforcement, declarative-ui]
 requires: [slint/README.md]
-related: [slint/component-model.md, slint/mother-child.md, slint/rust-bridge.md, slint/globals.md, slint/states.md, slint/themes.md, slint/responsive-layout.md, slint/threading.md, slint/validation.md, slint/docs.md, rust/quick-ref.md, global/topology.md, global/file-limits.md, global/language.md]
+related: [slint/component-model.md, slint/mother-child.md, slint/rust-bridge.md, slint/globals.md, slint/states.md, slint/themes.md, slint/responsive-layout.md, slint/threading.md, slint/validation.md, slint/docs.md, global/topology.md, global/file-limits.md, global/language.md]
 layer: 6
 binding: true
 ---

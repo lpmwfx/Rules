@@ -1,5 +1,5 @@
 ---
-tags: [kotlin, stability, compose-stability, immutable]
+tags: [stability, compose-stability, immutable]
 concepts: [build-system, ci]
 related: [uiux/components.md]
 keywords: [stable, immutable, compose-compiler]

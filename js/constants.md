@@ -1,9 +1,8 @@
 ---
-tags: [javascript, constants, configuration, magic-values]
+tags: [constants, configuration, magic-values]
 concepts: [named-constants, configuration, immutability]
 requires: [global/config-driven.md]
 feeds: [js/safety.md]
-related: [python/constants.md, rust/constants.md, cpp/constants.md, kotlin/constants.md, csharp/constants.md]
 keywords: [const, freeze, magic-number, hardcoded, environment, config]
 layer: 3
 ---

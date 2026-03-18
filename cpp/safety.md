@@ -1,9 +1,8 @@
 ---
-tags: [cpp, safety, memory-safety, smart-pointers, sanitizers]
+tags: [safety, memory-safety, smart-pointers, sanitizers]
 concepts: [memory-safety, ownership, undefined-behavior, safe-casts]
 requires: [cpp/memory.md, cpp/types.md]
 feeds: []
-related: [rust/safety.md, js/safety.md, python/safety.md, csharp/safety.md]
 keywords: [unique_ptr, shared_ptr, span, sanitizer, asan, ubsan, new, delete, reinterpret_cast, void-pointer]
 layer: 4
 ---

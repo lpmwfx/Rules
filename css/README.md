@@ -1,6 +1,6 @@
 ---
-tags: [css, overview, rules]
-concepts: [css-rules, overview]
+tags: []
+concepts: [css-rules]
 related: [css/cascade.md, css/modules.md, css/naming.md, css/tokens.md, css/themes.md, css/separation.md, css/responsive.md, css/typography.md]
 layer: 6
 ---

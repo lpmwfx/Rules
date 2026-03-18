@@ -1,9 +1,9 @@
 ---
-tags: [slint, uiux, overview, dsl, rust, declarative]
+tags: [uiux, dsl, rust, declarative]
 concepts: [slint-overview, component-model, rust-slint-bridge]
 feeds: [slint/component-model.md, slint/rust-bridge.md, slint/globals.md, slint/threading.md, slint/validation.md]
 related: [uiux/tokens.md, uiux/menus-slint.md, uiux/theming.md, uiux/state-flow.md, global/adapter-layer.md, global/topology.md]
-keywords: [slint, dsl, rust, declarative-ui, cross-platform, desktop, embedded]
+keywords: [dsl, rust, declarative-ui, cross-platform, desktop, embedded]
 layer: 1
 ---
 # Slint

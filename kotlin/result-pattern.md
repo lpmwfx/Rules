@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, result-pattern, error-handling, sealed]
+tags: [result-pattern, error-handling, sealed]
 concepts: [error-handling, result-types]
 requires: [global/validation.md]
-related: [python/ack-pattern.md, rust/errors.md, cpp/errors.md]
 keywords: [sealed-class, result, fold]
 layer: 3
 ---

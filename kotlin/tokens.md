@@ -1,5 +1,5 @@
 ---
-tags: [kotlin, tokens, compose, design-tokens, material-theme]
+tags: [tokens, compose, design-tokens, material-theme]
 concepts: [compose-theming, material-design-tokens]
 requires: [uiux/tokens.md]
 related: [uiux/token-switching.md, uiux/theming.md]

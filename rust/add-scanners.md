@@ -1,8 +1,8 @@
 ---
-tags: [rust, slint, scanners, add-scanners, build-dependency, rulestools, existing-project, setup]
+tags: [slint, scanners, add-scanners, build-dependency, rulestools, existing-project, setup]
 concepts: [build-time-enforcement, documentation, zero-literal, project-setup]
 requires: [rust/init.md]
-related: [slint/init.md, rust/docs.md, slint/docs.md]
+related: [rust/docs.md]
 keywords: [add scanners, existing project, build-dependencies, build.rs, rulestools-documenter, rustscanners, slintscanners, document_project, scan_project, cargo build]
 layer: 2
 ---

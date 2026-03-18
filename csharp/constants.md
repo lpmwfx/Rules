@@ -1,9 +1,8 @@
 ---
-tags: [csharp, constants, configuration, magic-numbers]
+tags: [constants, configuration, magic-numbers]
 concepts: [compile-time-constants, runtime-constants, config-records]
 requires: [global/config-driven.md]
 feeds: [csharp/types.md]
-related: [rust/constants.md, python/constants.md, js/constants.md, cpp/constants.md]
 keywords: [const, static-readonly, magic-number, configuration, hardcoded]
 layer: 3
 ---

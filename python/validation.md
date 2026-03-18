@@ -1,8 +1,8 @@
 ---
-tags: [python, validation, pydantic, beartype, runtime]
+tags: [validation, pydantic, beartype, runtime]
 concepts: [runtime-checking, boundaries, validation, structured-types]
 requires: [global/validation.md]
-related: [js/validation.md, python/types.md]
+related: [python/types.md]
 keywords: [pydantic, beartype, BaseModel, model_validate, parse_obj, schema]
 layer: 4
 ---

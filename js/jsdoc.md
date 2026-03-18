@@ -1,8 +1,8 @@
 ---
-tags: [javascript, jsdoc, types, documentation]
+tags: [jsdoc, types, documentation]
 concepts: [type-annotations, documentation]
 requires: [global/validation.md]
-related: [python/types.md, js/typescript-cli.md]
+related: [js/typescript-cli.md]
 keywords: [jsdoc, typedef, param, returns]
 layer: 4
 ---

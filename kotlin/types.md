@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, types, null-safety, sealed, inline-class]
+tags: [types, null-safety, sealed, inline-class]
 concepts: [type-safety, null-safety, sealed-types, value-classes]
 requires: [global/validation.md]
-related: [rust/types.md, python/types.md, cpp/types.md, csharp/types.md]
 feeds: [kotlin/result-pattern.md, kotlin/data-classes.md]
 keywords: [nullable, sealed-interface, value-class, smart-cast, platform-type]
 layer: 3

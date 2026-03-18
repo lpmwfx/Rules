@@ -1,8 +1,7 @@
 ---
-tags: [csharp, threading, async, cancellation, channels]
+tags: [threading, async, cancellation, channels]
 concepts: [concurrency, async-await, task]
 requires: [csharp/types.md]
-related: [rust/threading.md, kotlin/coroutines.md]
 keywords: [async, await, task, cancellationtoken, channel, mutex]
 layer: 4
 ---

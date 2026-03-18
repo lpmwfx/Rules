@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, constants, magic-numbers, config]
+tags: [constants, magic-numbers, config]
 concepts: [named-constants, configuration, compile-time-values]
 requires: [global/config-driven.md]
-related: [rust/constants.md, python/constants.md, js/constants.md, csharp/constants.md, cpp/constants.md]
 feeds: [kotlin/tokens.md]
 keywords: [const-val, companion-object, magic-number, config-class]
 layer: 3

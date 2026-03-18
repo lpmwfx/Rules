@@ -1,8 +1,7 @@
 ---
-tags: [javascript, modules, esm, encapsulation]
+tags: [modules, esm, encapsulation]
 concepts: [encapsulation, architecture, modules]
 requires: [global/consistency.md, global/module-tree.md, global/mother-tree.md]
-related: [python/structure.md, rust/modules.md, css/modules.md, web/components.md]
 keywords: [esm, closed-modules, export, import]
 layer: 3
 ---

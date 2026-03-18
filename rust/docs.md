@@ -1,8 +1,7 @@
 ---
-tags: [rust, docs, documentation, rulestools]
+tags: [docs, documentation, rulestools]
 concepts: [documentation, public-api, discoverability]
 requires: []
-related: [slint/docs.md]
 keywords: [doc-comment, triple-slash, rustdoc, pub, rulestools]
 layer: 2
 ---

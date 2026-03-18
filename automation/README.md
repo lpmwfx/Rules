@@ -1,5 +1,5 @@
 ---
-tags: [automation, session, overview]
+tags: [automation, session]
 concepts: [automation, session-management]
 related: [automation/startup-script.md, automation/system-prompt.md, automation/language-detection.md, automation/tool-configs.md, automation/maintenance.md]
 layer: 6

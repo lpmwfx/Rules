@@ -1,5 +1,5 @@
 ---
-tags: [slint, rust, adapter, bridge, api, event-listeners, state-push, mvvm]
+tags: [rust, adapter, bridge, api, event-listeners, state-push, mvvm]
 concepts: [rust-slint-bridge, adapter-event-routing, state-push, type-mapping]
 requires: [slint/component-model.md, global/adapter-layer.md, global/topology.md]
 feeds: [slint/threading.md]

@@ -1,7 +1,7 @@
 ---
-tags: [global, quick-ref, reference, summary, architecture, topology, enforcement]
-concepts: [reference, summary, architecture, enforcement]
-keywords: [quick, reference, summary, cheatsheet, overview]
+tags: [global, architecture, topology, enforcement]
+concepts: [architecture, enforcement]
+keywords: [quick, cheatsheet]
 requires: [global/topology.md, global/mother-tree.md]
 related: [global/adapter-layer.md, global/app-model.md, global/config-driven.md, global/persistent-state.md, global/file-limits.md, global/language.md, global/error-flow.md, global/nesting.md, global/module-tree.md, global/naming-suffix.md, global/stereotypes.md, global/consistency.md, global/validation.md, global/commit-early.md, global/data-driven-ui.md, rust/quick-ref.md, slint/quick-ref.md]
 layer: 6

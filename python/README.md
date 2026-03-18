@@ -1,6 +1,6 @@
 ---
-tags: [python, overview, rules]
-concepts: [python-rules, overview]
+tags: []
+concepts: [python-rules]
 related: [python/types.md, python/structure.md, python/naming.md, python/ack-pattern.md, python/nesting.md, python/testing.md, python/dependencies.md, python/distribution.md, global/module-tree.md]
 layer: 6
 ---

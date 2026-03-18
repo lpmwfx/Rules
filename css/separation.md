@@ -1,5 +1,5 @@
 ---
-tags: [css, separation, concerns, architecture]
+tags: [separation, concerns, architecture]
 concepts: [architecture, concerns]
 related: [css/cascade.md, css/modules.md]
 layer: 4

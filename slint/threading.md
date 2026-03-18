@@ -1,5 +1,5 @@
 ---
-tags: [slint, threading, async, event-loop, invoke-from-event-loop, spawn-local]
+tags: [threading, async, event-loop, invoke-from-event-loop, spawn-local]
 concepts: [thread-safety, event-loop, async-ui-update]
 requires: [slint/rust-bridge.md, rust/threading.md]
 related: [global/adapter-layer.md]

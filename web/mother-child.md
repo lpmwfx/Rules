@@ -1,9 +1,9 @@
 ---
-tags: [web, mother-child, composition, stateless, shell, views, widgets]
+tags: [mother-child, composition, stateless, shell, views, widgets]
 concepts: [web-mother-child, shell-views-widgets, web-state-ownership]
 requires: [uiux/mother-child.md, web/topology.md, global/mother-tree.md]
 feeds: [uiux/mother-child-react.md]
-related: [web/components.md, web/html.md, slint/mother-child.md]
+related: [web/components.md, web/html.md]
 keywords: [mother, child, shell, view, widget, stateless, state-owner, AppShell, web-component, vanilla, react, solid, svelte, layout, css-custom-properties]
 layer: 3
 ---

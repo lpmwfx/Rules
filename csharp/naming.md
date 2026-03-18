@@ -1,8 +1,8 @@
 ---
-tags: [csharp, naming, conventions, layer-tag]
+tags: [naming, conventions, layer-tag]
 concepts: [naming-conventions, readability]
 requires: [global/consistency.md, global/topology.md]
-related: [rust/naming.md, python/naming.md, global/naming-suffix.md]
+related: [global/naming-suffix.md]
 keywords: [pascal-case, camel-case, interface, layer-tag]
 layer: 3
 ---

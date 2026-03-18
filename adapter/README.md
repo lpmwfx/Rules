@@ -1,5 +1,5 @@
 ---
-tags: [adapter, overview, data-exchange, viewmodel, events]
+tags: [adapter, data-exchange, viewmodel, events]
 concepts: [adapter-layer, data-hub, event-routing]
 related: [adapter/viewmodel.md, adapter/event-flow.md, global/adapter-layer.md, global/topology.md, global/app-model.md]
 layer: 6

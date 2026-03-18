@@ -1,7 +1,6 @@
 ---
-tags: [kotlin, testing, tdd, junit]
+tags: [testing, tdd, junit]
 concepts: [tdd, quality, testing]
-related: [python/testing.md, rust/testing.md, js/testing.md]
 keywords: [test, junit, kotest, assert, integration, unit-test]
 layer: 4
 ---

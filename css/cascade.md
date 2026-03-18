@@ -1,5 +1,5 @@
 ---
-tags: [css, cascade, specificity, layers]
+tags: [cascade, specificity, layers]
 concepts: [css-architecture, separation]
 requires: [global/consistency.md]
 feeds: [css/themes.md]

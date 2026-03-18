@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, modules, packages, visibility, structure]
+tags: [modules, packages, visibility, structure]
 concepts: [package-structure, visibility, encapsulation, topology]
 requires: [global/module-tree.md, global/topology.md, kotlin/encapsulation.md]
-related: [rust/modules.md, python/modules.md, js/modules.md, csharp/modules.md, cpp/modules.md]
 keywords: [package, internal, import, file-structure, circular-dependency]
 layer: 3
 ---

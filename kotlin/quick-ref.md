@@ -1,6 +1,6 @@
 ---
-tags: [kotlin, quick-ref, reference, summary]
-concepts: [reference, summary]
+tags: []
+concepts: []
 related: [kotlin/result-pattern.md, kotlin/encapsulation.md, kotlin/coroutines.md, uiux/components.md]
 layer: 6
 ---

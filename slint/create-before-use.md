@@ -1,5 +1,5 @@
 ---
-tags: [slint, create-before-use, workflow, tokens, state-files, zero-literals]
+tags: [create-before-use, workflow, tokens, state-files, zero-literals]
 concepts: [create-before-use, slint-token-workflow]
 requires: [slint/states.md, uiux/tokens.md]
 related: [slint/globals.md, slint/themes.md]

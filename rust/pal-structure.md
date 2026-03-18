@@ -1,5 +1,5 @@
 ---
-tags: [rust, pal, cross-platform, multi-platform, android, ios, windows, macos, kde, gnome, steam, sailfish]
+tags: [pal, cross-platform, multi-platform, android, ios, windows, macos, kde, gnome, steam, sailfish]
 concepts: [platform-abstraction, cross-platform-architecture, mobile-targets]
 requires: [rust/workspace.md, global/topology.md]
 feeds: [pal/traits.md]

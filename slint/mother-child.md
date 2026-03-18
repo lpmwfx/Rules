@@ -1,5 +1,5 @@
 ---
-tags: [slint, mother-child, property-direction, viewmodel, in-property, callback, in-out-property, structs]
+tags: [mother-child, property-direction, viewmodel, in-property, callback, in-out-property, structs]
 concepts: [mother-child-pattern, property-direction, viewmodel-structs, stateless-children]
 requires: [uiux/mother-child.md, slint/globals.md]
 feeds: []

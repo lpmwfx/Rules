@@ -1,5 +1,5 @@
 ---
-tags: [css, validation, tokens, custom-properties]
+tags: [validation, tokens, custom-properties]
 concepts: [validation, design-tokens, boundaries]
 requires: [global/validation.md, css/tokens.md]
 related: [uiux/tokens.md]

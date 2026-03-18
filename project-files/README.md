@@ -1,5 +1,5 @@
 ---
-tags: [project-files, overview, specification]
+tags: [project-files, specification]
 concepts: [project-methodology, file-specification]
 related: [project-files/project-file.md, project-files/phases-file.md, project-files/todo-file.md, project-files/done-file.md, project-files/issues-file.md, project-files/fixes-file.md, project-files/rag-file.md, project-files/workflow.md, project-files/changelog-file.md, project-files/install-file.md, project-files/uiux-file.md, project-files/authors-file.md, project-files/goal-chain.md]
 layer: 6

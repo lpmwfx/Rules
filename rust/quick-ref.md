@@ -1,6 +1,6 @@
 ---
-tags: [rust, quick-ref, reference, summary, scanners, enforcement]
-concepts: [reference, summary, enforcement]
+tags: [scanners, enforcement]
+concepts: [enforcement]
 related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/verification.md, global/topology.md, global/file-limits.md, global/language.md, rust/docs.md]
 layer: 6
 binding: true

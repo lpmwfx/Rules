@@ -1,9 +1,8 @@
 ---
-tags: [python, modules, imports, encapsulation]
+tags: [modules, imports, encapsulation]
 concepts: [module-structure, re-export, encapsulation]
 requires: [global/module-tree.md, global/topology.md]
 feeds: [python/structure.md]
-related: [rust/modules.md, cpp/modules.md, js/modules.md, kotlin/modules.md, csharp/modules.md]
 keywords: [init-py, relative-import, circular-import, star-import]
 layer: 3
 ---

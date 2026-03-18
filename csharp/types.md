@@ -1,8 +1,7 @@
 ---
-tags: [csharp, types, records, nullable, generics]
+tags: [types, records, nullable, generics]
 concepts: [type-safety, immutability, nullable-reference-types]
 requires: [global/validation.md]
-related: [rust/types.md, kotlin/data-classes.md]
 keywords: [record, struct, nullable, generic, value-type]
 layer: 3
 ---

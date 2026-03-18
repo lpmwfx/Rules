@@ -1,8 +1,7 @@
 ---
-tags: [slint, docs, documentation, rustdocumenter]
+tags: [docs, documentation, rustdocumenter]
 concepts: [documentation, public-api, discoverability]
 requires: []
-related: [rust/docs.md]
 keywords: [doc-comment, triple-slash, export, component, callback, property, rustdocumenter]
 layer: 2
 ---

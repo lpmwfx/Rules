@@ -1,5 +1,5 @@
 ---
-tags: [javascript, eslint, linting, code-quality]
+tags: [eslint, linting, code-quality]
 concepts: [linting, code-quality]
 related: [js/typescript-cli.md]
 keywords: [eslint, flat-config]

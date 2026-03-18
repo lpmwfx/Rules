@@ -1,8 +1,7 @@
 ---
-tags: [rust, modules, crate, visibility]
+tags: [modules, crate, visibility]
 concepts: [encapsulation, architecture]
 requires: [global/consistency.md, global/module-tree.md]
-related: [python/structure.md, cpp/modules.md, js/modules.md]
 keywords: [mod, pub, crate, workspace]
 layer: 3
 ---

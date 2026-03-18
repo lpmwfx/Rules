@@ -1,8 +1,7 @@
 ---
-tags: [csharp, nesting, flat, readability, guard-clauses]
+tags: [nesting, flat, readability, guard-clauses]
 concepts: [code-style, readability]
 requires: [global/nesting.md]
-related: [rust/nesting.md, python/nesting.md]
 keywords: [guard-clause, early-return, pattern-matching]
 layer: 4
 ---

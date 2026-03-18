@@ -1,9 +1,9 @@
 ---
-tags: [web, overview, wa, pwa, browser, platform]
+tags: [wa, pwa, browser, platform]
 concepts: [web-overview, web-platform, browser-apps]
 feeds: [web/topology.md, web/gateway.md, web/pal.md, web/pwa.md, web/html.md, web/components.md, web/mother-child.md]
-related: [slint/README.md, global/consistency.md, global/app-model.md, uiux/about-web.md]
-keywords: [web, browser, wa, pwa, react, solidjs, svelte, vanilla, esm, declarative, tokens, css-custom-properties]
+related: [global/consistency.md, global/app-model.md, uiux/about-web.md]
+keywords: [browser, wa, pwa, react, solidjs, svelte, vanilla, esm, declarative, tokens, css-custom-properties]
 layer: 6
 ---
 # Web

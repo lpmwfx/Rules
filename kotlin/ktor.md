@@ -1,5 +1,5 @@
 ---
-tags: [kotlin, ktor, http, networking]
+tags: [ktor, http, networking]
 concepts: [http, networking]
 requires: [kotlin/coroutines.md]
 keywords: [ktor-client, serialization, content-negotiation]

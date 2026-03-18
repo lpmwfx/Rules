@@ -1,8 +1,7 @@
 ---
-tags: [python, nesting, flat, readability]
+tags: [nesting, flat, readability]
 concepts: [code-style, readability]
 requires: [global/nesting.md, python/structure.md]
-related: [rust/nesting.md, cpp/nesting.md]
 keywords: [try-except, flat]
 layer: 4
 ---

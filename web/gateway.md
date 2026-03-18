@@ -1,5 +1,5 @@
 ---
-tags: [web, gateway, fetch, localstorage, indexeddb, cache-api, io]
+tags: [gateway, fetch, localstorage, indexeddb, cache-api, io]
 concepts: [web-gateway, browser-io, fetch-pattern, storage-pattern]
 requires: [web/topology.md, global/adapter-layer.md]
 related: [gateway/io.md, web/pwa.md, web/pal.md]

@@ -1,9 +1,8 @@
 ---
-tags: [cpp, validation, static-assert, concepts, nodiscard]
+tags: [validation, static-assert, concepts, nodiscard]
 concepts: [compile-time-validation, boundary-validation, type-constraints]
 requires: [cpp/types.md, global/validation.md]
 feeds: [cpp/safety.md]
-related: [rust/validation.md, python/validation.md, js/validation.md, csharp/validation.md]
 keywords: [static_assert, concepts, nodiscard, narrowing, cast, boundary, invariant]
 layer: 4
 ---

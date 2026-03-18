@@ -1,8 +1,7 @@
 ---
-tags: [csharp, modules, namespaces, project-structure]
+tags: [modules, namespaces, project-structure]
 concepts: [encapsulation, architecture, project-layout]
 requires: [global/consistency.md]
-related: [rust/modules.md, kotlin/encapsulation.md, js/modules.md]
 keywords: [namespace, assembly, project, solution, internal, global-using, implicit-usings, alias]
 layer: 3
 ---

@@ -1,9 +1,8 @@
 ---
-tags: [rust, validation, boundary, newtype, tryfrom]
+tags: [validation, boundary, newtype, tryfrom]
 concepts: [boundary-validation, parse-dont-validate, typed-construction]
 requires: [rust/types.md, rust/errors.md, global/validation.md]
 feeds: [rust/safety.md]
-related: [python/validation.md, js/validation.md, cpp/validation.md, csharp/validation.md, kotlin/validation.md]
 keywords: [validate, boundary, TryFrom, newtype, parse, gateway, adapter, builder, ValidationError, Port, Email, NonEmpty]
 layer: 4
 ---

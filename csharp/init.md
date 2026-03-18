@@ -1,9 +1,9 @@
 ---
-tags: [csharp, dotnet, init, initialize, bootstrap, setup, new-project]
+tags: [dotnet, init, initialize, bootstrap, setup, new-project]
 concepts: [project-initialization, project-setup]
 requires: [global/initialize.md, csharp/modules.md, csharp/verification.md]
 related: [csharp/README.md, project-files/project-file.md, project-files/rules-file.md]
-keywords: [dotnet, csharp, init, sln, csproj, editorconfig, gitignore, analyzers, directory.build.props]
+keywords: [dotnet, init, sln, csproj, editorconfig, gitignore, analyzers, directory.build.props]
 layer: 2
 ---
 # C# / .NET Project Initialization

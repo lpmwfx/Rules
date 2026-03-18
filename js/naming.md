@@ -1,9 +1,8 @@
 ---
-tags: [javascript, naming, conventions, camelcase]
+tags: [naming, conventions, camelcase]
 concepts: [naming-conventions, readability, consistency]
 requires: [global/naming-suffix.md]
 feeds: [js/modules.md]
-related: [python/naming.md, rust/naming.md, kotlin/naming.md, csharp/naming.md, cpp/naming.md]
 keywords: [camelCase, PascalCase, UPPER_SNAKE, boolean-prefix, event-handler]
 layer: 3
 ---

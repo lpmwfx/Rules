@@ -1,5 +1,5 @@
 ---
-tags: [rust, workspace, cargo, cross-platform, multi-platform, crates, apps, desktop, mobile, pal, topology, virtual-workspace, multi-target, rulestools, scanner, build-rs, topology-config]
+tags: [workspace, cargo, cross-platform, multi-platform, crates, apps, desktop, mobile, pal, topology, virtual-workspace, multi-target, rulestools, scanner, build-rs, topology-config]
 concepts: [workspace-topology, crate-layout, cross-platform-architecture, cargo-dag-enforcement, multi-target, scanner-topology, scan-root]
 requires: [global/topology.md, rust/modules.md, pal/design.md]
 feeds: [rust/init.md, pal/traits.md, rust/pal-structure.md, rust/multi-binary.md, rust/scanner-config.md]

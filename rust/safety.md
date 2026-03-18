@@ -1,5 +1,5 @@
 ---
-tags: [rust, safety, unsafe, ffi, memory]
+tags: [safety, unsafe, ffi, memory]
 concepts: [memory-safety, unsafe-code, ffi, invariant-documentation]
 requires: [rust/errors.md, rust/ownership.md]
 related: [rust/threading.md, global/topology.md]

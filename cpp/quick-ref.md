@@ -1,6 +1,6 @@
 ---
-tags: [cpp, quick-ref, reference, summary]
-concepts: [reference, summary]
+tags: []
+concepts: []
 related: [cpp/types.md, cpp/modules.md, cpp/errors.md, cpp/memory.md, cpp/testing.md]
 layer: 6
 ---

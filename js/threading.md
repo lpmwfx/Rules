@@ -1,8 +1,7 @@
 ---
-tags: [javascript, async, promises, workers, concurrency]
+tags: [async, promises, workers, concurrency]
 concepts: [async-patterns, error-handling, parallelism, cancellation]
 requires: [js/safety.md, global/error-flow.md]
-related: [python/threading.md, rust/threading.md, kotlin/coroutines.md, csharp/threading.md]
 keywords: [async, await, Promise, Worker, AbortController, then, catch, concurrency]
 layer: 4
 ---

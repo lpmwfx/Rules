@@ -1,8 +1,7 @@
 ---
-tags: [rust, nesting, flat, readability]
+tags: [nesting, flat, readability]
 concepts: [code-style, readability]
 requires: [global/nesting.md]
-related: [python/nesting.md, cpp/nesting.md]
 keywords: [question-mark-operator, pattern-match]
 layer: 4
 ---

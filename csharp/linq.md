@@ -1,5 +1,5 @@
 ---
-tags: [csharp, linq, collections, querying]
+tags: [linq, collections, querying]
 concepts: [linq, functional, collections]
 requires: [csharp/types.md]
 related: [csharp/nesting.md]

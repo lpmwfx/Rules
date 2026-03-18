@@ -1,8 +1,8 @@
 ---
-tags: [python, naming, conventions, snake-case]
+tags: [naming, conventions, snake-case]
 concepts: [naming-conventions, readability]
 requires: [global/consistency.md]
-related: [rust/naming.md, css/naming.md, global/naming-suffix.md]
+related: [global/naming-suffix.md]
 layer: 3
 ---
 # Naming Conventions

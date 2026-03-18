@@ -1,6 +1,6 @@
 ---
-tags: [csharp, quick-ref, reference, summary]
-concepts: [reference, summary]
+tags: []
+concepts: []
 related: [csharp/types.md, csharp/modules.md, csharp/errors.md, csharp/naming.md, csharp/threading.md, csharp/verification.md]
 layer: 6
 ---

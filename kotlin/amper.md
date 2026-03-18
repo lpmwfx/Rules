@@ -1,5 +1,5 @@
 ---
-tags: [kotlin, amper, build-system, configuration]
+tags: [amper, build-system, configuration]
 concepts: [build-system, configuration]
 related: [kotlin/stability.md, uiux/components.md]
 keywords: [amper, module-yaml, kmp]

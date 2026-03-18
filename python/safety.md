@@ -1,8 +1,7 @@
 ---
-tags: [python, safety, security, input-validation]
+tags: [safety, security, input-validation]
 concepts: [code-injection, subprocess-safety, deserialization]
 requires: [python/types.md, global/validation.md]
-related: [rust/safety.md, js/safety.md, cpp/safety.md, kotlin/safety.md, csharp/safety.md]
 keywords: [eval, exec, subprocess, pickle, shell-injection, sanitize]
 layer: 4
 ---

@@ -1,5 +1,5 @@
 ---
-tags: [js, typescript, error-handling, discriminated-union, exhaustive]
+tags: [typescript, error-handling, discriminated-union, exhaustive]
 concepts: [typescript-error-union, exhaustive-check, error-recovery]
 requires: [global/error-flow.md]
 feeds: [js/safety.md]

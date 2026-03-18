@@ -1,5 +1,5 @@
 ---
-tags: [rust, proc-macro, exemption, tool-router, async-trait, fn-count]
+tags: [proc-macro, exemption, tool-router, async-trait, fn-count]
 concepts: [proc-macro-exemption, bundling-macros, thin-delegation]
 requires: [uiux/mother-child.md, global/file-limits.md]
 related: [rust/modules.md, rust/workspace.md]

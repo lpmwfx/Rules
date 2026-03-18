@@ -1,9 +1,9 @@
 ---
-tags: [css, nesting, specificity, selectors, layers]
+tags: [nesting, specificity, selectors, layers]
 concepts: [selector-nesting, specificity-management, cascade-layers]
 requires: [css/cascade.md]
 feeds: [css/modules.md]
-related: [global/nesting.md, python/nesting.md, rust/nesting.md, js/nesting.md, cpp/nesting.md]
+related: [global/nesting.md]
 keywords: [nesting, ampersand, parent-selector, at-layer, important, specificity, id-selector, hover, focus, modifier, flat-selector]
 layer: 4
 ---

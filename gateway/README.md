@@ -1,5 +1,5 @@
 ---
-tags: [gateway, overview, io, boundary, lifecycle]
+tags: [gateway, io, boundary, lifecycle]
 concepts: [gateway-layer, io-boundary, startup-shutdown]
 related: [gateway/io.md, gateway/lifecycle.md, global/topology.md, global/app-model.md]
 layer: 6

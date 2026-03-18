@@ -1,8 +1,7 @@
 ---
-tags: [python, structure, modules, flat]
+tags: [structure, modules, flat]
 concepts: [file-organization, architecture]
 requires: [global/consistency.md]
-related: [js/modules.md, rust/modules.md]
 keywords: [flat-structure, init-py, max-lines]
 layer: 3
 ---

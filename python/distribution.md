@@ -1,5 +1,5 @@
 ---
-tags: [python, distribution, packaging, pipx]
+tags: [distribution, packaging, pipx]
 concepts: [packaging, distribution]
 requires: [python/dependencies.md]
 related: [project-files/install-file.md, devops/packaging.md]

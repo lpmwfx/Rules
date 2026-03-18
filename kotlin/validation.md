@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, validation, require, check, precondition]
+tags: [validation, require, check, precondition]
 concepts: [input-validation, preconditions, state-invariants, boundary-validation]
 requires: [kotlin/types.md, global/validation.md]
-related: [rust/validation.md, python/validation.md, js/validation.md, csharp/validation.md, cpp/validation.md]
 keywords: [require, check, precondition, invariant, boundary, IllegalArgumentException]
 layer: 4
 ---

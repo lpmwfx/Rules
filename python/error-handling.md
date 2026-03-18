@@ -1,9 +1,8 @@
 ---
-tags: [python, errors, exceptions, error-handling]
+tags: [errors, exceptions, error-handling]
 concepts: [error-taxonomy, recovery, custom-exceptions]
 requires: [python/types.md, global/error-flow.md]
 feeds: [python/testing.md]
-related: [rust/errors.md, cpp/errors.md, kotlin/result-pattern.md, csharp/errors.md, js/error-handling.md]
 keywords: [try-except, AppError, transient, user-error, system-error]
 layer: 3
 ---

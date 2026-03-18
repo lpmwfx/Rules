@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, errors, exception, sealed, error-handling]
+tags: [errors, exception, sealed, error-handling]
 concepts: [error-handling, error-taxonomy, exception-boundaries]
 requires: [kotlin/result-pattern.md, global/error-flow.md]
-related: [rust/errors.md, python/error-handling.md, cpp/errors.md, csharp/errors.md, js/error-handling.md]
 feeds: [kotlin/coroutines.md]
 keywords: [throw, catch, runCatching, sealed-result, exception, error-taxonomy]
 layer: 3

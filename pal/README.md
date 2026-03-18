@@ -1,5 +1,5 @@
 ---
-tags: [pal, overview, platform, abstraction, traits, ffi]
+tags: [pal, platform, abstraction, traits, ffi]
 concepts: [pal-layer, platform-abstraction, trait-per-concern]
 related: [pal/design.md, pal/traits.md, global/topology.md, global/app-model.md]
 layer: 6

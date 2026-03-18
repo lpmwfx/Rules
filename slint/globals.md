@@ -1,5 +1,5 @@
 ---
-tags: [slint, globals, singletons, tokens, app-bridge, strings, theming]
+tags: [globals, singletons, tokens, app-bridge, strings, theming]
 concepts: [slint-globals, design-tokens, event-routing-global, localization]
 requires: [slint/component-model.md, uiux/tokens.md]
 feeds: [uiux/theming.md, slint/app-bridge.md, slint/strings-global.md]

@@ -1,8 +1,7 @@
 ---
-tags: [javascript, structure, project-layout, topology]
+tags: [structure, project-layout, topology]
 concepts: [file-organization, architecture, topology-mapping]
 requires: [global/consistency.md, global/topology.md]
-related: [python/structure.md, web/topology.md]
 layer: 3
 ---
 # Project Structure

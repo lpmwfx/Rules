@@ -1,5 +1,5 @@
 ---
-tags: [slint, theming, dark-mode, appearance, pal, adapter, invoke-from-event-loop]
+tags: [theming, dark-mode, appearance, pal, adapter, invoke-from-event-loop]
 concepts: [slint-dark-mode, pal-appearance-injection]
 requires: [uiux/theming.md, slint/globals.md]
 related: [slint/themes.md, slint/tokens.md, pal/traits.md]

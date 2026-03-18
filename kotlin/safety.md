@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, safety, lateinit, reflection, suppress]
+tags: [safety, lateinit, reflection, suppress]
 concepts: [unsafe-patterns, reflection, lateinit, null-assertion]
 requires: [kotlin/types.md, kotlin/encapsulation.md]
-related: [rust/safety.md, csharp/safety.md, cpp/safety.md, python/safety.md, js/safety.md]
 keywords: [lateinit, suppress, reflection, not-null-assertion, unsafe, lazy]
 layer: 4
 ---

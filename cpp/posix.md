@@ -1,5 +1,5 @@
 ---
-tags: [cpp, posix, linux, system]
+tags: [posix, linux, system]
 concepts: [linux, system-programming]
 related: [cpp/threading.md, cpp/build.md]
 keywords: [posix, file-descriptors, signals]

@@ -1,5 +1,5 @@
 ---
-tags: [core, overview, business-logic, pure, isolation]
+tags: [core, business-logic, pure, isolation]
 concepts: [core-layer, pure-logic, domain-isolation]
 related: [core/design.md, core/state.md, global/topology.md, global/app-model.md]
 layer: 6

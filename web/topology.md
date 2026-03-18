@@ -1,9 +1,9 @@
 ---
-tags: [web, topology, architecture, hexagonal, layers, dag, folder-structure, wa, pwa]
+tags: [topology, architecture, hexagonal, layers, dag, folder-structure, wa, pwa]
 concepts: [web-topology, browser-layer-mapping, esm-import-dag]
 requires: [global/topology.md, global/app-model.md]
 feeds: [web/gateway.md, web/pal.md, js/project-structure.md]
-related: [web/README.md, web/mother-child.md, rust/workspace.md]
+related: [web/README.md, web/mother-child.md]
 keywords: [topology, layers, folder, src, ui, adapter, core, gateway, pal, shared, esm, import, dag, wa, pwa, service-worker, manifest]
 layer: 2
 ---

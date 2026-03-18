@@ -1,5 +1,5 @@
 ---
-tags: [javascript, typescript, type-checking, jsconfig]
+tags: [typescript, type-checking, jsconfig]
 concepts: [type-checking, jsconfig]
 related: [js/jsdoc.md, js/eslint.md]
 keywords: [tsc, jsconfig, check-js]

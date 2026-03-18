@@ -1,6 +1,6 @@
 ---
-tags: [mcp, overview, integration, ai-access, ui]
-concepts: [mcp, overview]
+tags: [mcp, integration, ai-access, ui]
+concepts: [mcp]
 related: [mcp/event-adapter.md, mcp/app-server.md]
 layer: 6
 ---

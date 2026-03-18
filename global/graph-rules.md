@@ -1,5 +1,5 @@
 ---
-tags: [graph-position, edit-authority, boundary, rules, overwrite-prevention]
+tags: [graph-position, edit-authority, boundary, overwrite-prevention]
 concepts: [edit-authority-rules, graph-position-rules, rule-relationship]
 requires: [global/graph-position-paradigm.md]
 related: [global/topology.md, global/naming-suffix.md, global/module-tree.md, global/file-limits.md]

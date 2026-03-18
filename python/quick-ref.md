@@ -1,6 +1,6 @@
 ---
-tags: [python, quick-ref, reference, summary]
-concepts: [reference, summary]
+tags: []
+concepts: []
 related: [python/types.md, python/structure.md, python/naming.md, python/ack-pattern.md, python/testing.md]
 layer: 6
 ---

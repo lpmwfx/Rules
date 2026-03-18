@@ -1,8 +1,7 @@
 ---
-tags: [cpp, nesting, flat, readability]
+tags: [nesting, flat, readability]
 concepts: [code-style, readability]
 requires: [global/nesting.md]
-related: [python/nesting.md, rust/nesting.md]
 keywords: [early-return, result-type]
 layer: 4
 ---

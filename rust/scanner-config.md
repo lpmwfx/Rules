@@ -1,8 +1,8 @@
 ---
-tags: [rust, scanner, rulestools, build-rs, topology, workspace, flat]
+tags: [scanner, rulestools, build-rs, topology, workspace, flat]
 concepts: [scanner-topology, scan-root, two-tier-scanning]
 requires: [rust/workspace.md]
-related: [global/topology.md, slint/states.md]
+related: [global/topology.md]
 keywords: [rulestools-toml, topology-flat, topology-workspace, scan-root, build-rs, rulestools-scanner, scan-project, cargo-build, deny]
 layer: 3
 binding: true

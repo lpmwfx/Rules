@@ -1,8 +1,7 @@
 ---
-tags: [kotlin, threading, dispatchers, structured-concurrency, channels]
+tags: [threading, dispatchers, structured-concurrency, channels]
 concepts: [concurrency, structured-concurrency, dispatcher-selection, channels]
 requires: [kotlin/coroutines.md, kotlin/errors.md]
-related: [rust/threading.md, python/threading.md, csharp/threading.md, cpp/threading.md, js/threading.md]
 keywords: [dispatcher, GlobalScope, channel, flow, withContext, supervisorJob]
 layer: 4
 ---

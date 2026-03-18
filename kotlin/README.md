@@ -1,6 +1,6 @@
 ---
-tags: [kotlin, overview, rules]
-concepts: [kotlin-rules, overview]
+tags: []
+concepts: [kotlin-rules]
 related: [kotlin/result-pattern.md, kotlin/encapsulation.md, kotlin/data-classes.md, kotlin/coroutines.md, kotlin/ktor.md, kotlin/amper.md, kotlin/stability.md, uiux/components.md, uiux/state-flow.md, global/module-tree.md]
 layer: 6
 ---

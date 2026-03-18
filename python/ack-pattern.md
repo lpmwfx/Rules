@@ -1,8 +1,7 @@
 ---
-tags: [python, ack-pattern, result-type, return-format]
+tags: [ack-pattern, result-type, return-format]
 concepts: [result-types, return-format, error-handling]
 requires: [python/types.md]
-related: [rust/errors.md, cpp/errors.md, kotlin/result-pattern.md]
 keywords: [success, data, error, ack]
 layer: 3
 ---

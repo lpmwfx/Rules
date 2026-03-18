@@ -1,5 +1,5 @@
 ---
-tags: [javascript, philosophy, design-principles]
+tags: [philosophy, design-principles]
 concepts: [design-principles, approach]
 related: [global/consistency.md]
 layer: 4

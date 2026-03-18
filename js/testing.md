@@ -1,8 +1,7 @@
 ---
-tags: [javascript, testing, tdd, vitest]
+tags: [testing, tdd, vitest]
 concepts: [tdd, quality, testing]
 requires: [js/modules.md]
-related: [python/testing.md, rust/verification.md]
 keywords: [vitest, real-data, no-mocks]
 layer: 4
 ---

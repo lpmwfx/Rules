@@ -1,8 +1,7 @@
 ---
-tags: [csharp, errors, exceptions, result-pattern, error-reporting, multi-channel]
+tags: [errors, exceptions, result-pattern, error-reporting, multi-channel]
 concepts: [error-handling, result-types, validation, error-reporting, debug-notifications]
 requires: [csharp/types.md, global/error-flow.md]
-related: [rust/errors.md, kotlin/result-pattern.md]
 keywords: [exception, result, oneOf, validation, try-catch, when-filter, apperror, stdio, mcp, gui, appdomain, unhandled]
 layer: 3
 ---

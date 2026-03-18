@@ -1,9 +1,8 @@
 ---
-tags: [cpp, constants, no-hardcoding, zero-literals, constexpr]
+tags: [constants, no-hardcoding, zero-literals, constexpr]
 concepts: [zero-literals, named-values, state-files, compile-time-constants]
 requires: [global/config-driven.md]
 feeds: [cpp/naming.md]
-related: [rust/constants.md, python/constants.md, js/constants.md, kotlin/constants.md]
 keywords: [constexpr, const, magic-number, define, literal, timeout, state-folder]
 layer: 3
 ---

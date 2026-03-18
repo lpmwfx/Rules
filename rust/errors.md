@@ -1,8 +1,7 @@
 ---
-tags: [rust, errors, result, thiserror]
+tags: [errors, result, thiserror]
 concepts: [error-handling, result-types]
 requires: [rust/types.md, global/error-flow.md]
-related: [python/ack-pattern.md, cpp/errors.md, kotlin/result-pattern.md]
 keywords: [result, thiserror, anyhow, question-mark, exhaustive-match]
 layer: 3
 ---

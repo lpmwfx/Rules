@@ -1,9 +1,8 @@
 ---
-tags: [cpp, documentation, doxygen, api-docs]
+tags: [documentation, doxygen, api-docs]
 concepts: [documentation, api-surface, self-documenting]
 requires: [cpp/types.md]
 feeds: []
-related: [rust/docs.md, python/docs.md, js/docs.md, kotlin/docs.md, csharp/docs.md]
 keywords: [doxygen, param, return, throws, brief, comment, header, public-api]
 layer: 4
 ---

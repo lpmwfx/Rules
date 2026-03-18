@@ -1,9 +1,8 @@
 ---
-tags: [csharp, validation, fluent-validation, data-annotations, boundaries]
+tags: [validation, fluent-validation, data-annotations, boundaries]
 concepts: [boundary-validation, null-guards, domain-trust, input-validation]
 requires: [csharp/types.md, global/validation.md]
 feeds: [csharp/errors.md]
-related: [python/validation.md, js/validation.md, cpp/validation.md]
 keywords: [fluentvalidation, dataannotations, throwifnull, required, boundary, guard]
 layer: 4
 ---

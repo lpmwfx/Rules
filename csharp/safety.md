@@ -1,9 +1,8 @@
 ---
-tags: [csharp, safety, unsafe, nullable, span, memory]
+tags: [safety, unsafe, nullable, span, memory]
 concepts: [memory-safety, unsafe-code, nullable-reference-types, stack-allocation]
 requires: [csharp/types.md, csharp/threading.md]
 feeds: [csharp/verification.md]
-related: [rust/safety.md, js/safety.md, python/safety.md]
 keywords: [unsafe, span, stackalloc, nullable, dynamic, pointer, pal-layer]
 layer: 4
 ---

@@ -1,9 +1,8 @@
 ---
-tags: [javascript, documentation, jsdoc, exports]
+tags: [documentation, jsdoc, exports]
 concepts: [documentation, public-api, maintainability]
 requires: [js/jsdoc.md]
 feeds: [js/modules.md]
-related: [python/docs.md, rust/docs.md, cpp/docs.md, kotlin/docs.md, csharp/docs.md]
 keywords: [jsdoc, param, returns, throws, example, module-doc, exported]
 layer: 4
 ---

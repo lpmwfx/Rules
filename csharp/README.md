@@ -1,6 +1,6 @@
 ---
-tags: [csharp, dotnet, overview, rules]
-concepts: [csharp-rules, overview]
+tags: [dotnet]
+concepts: [csharp-rules]
 related: [csharp/types.md, csharp/modules.md, csharp/errors.md, csharp/naming.md, csharp/threading.md, csharp/nesting.md, csharp/linq.md, csharp/verification.md, uiux/components.md, uiux/state-flow.md, global/module-tree.md]
 layer: 6
 ---

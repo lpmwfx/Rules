@@ -1,9 +1,9 @@
 ---
-tags: [rust, init, initialize, bootstrap, setup, new-project, build-scanners, rulestools, scanner-install]
+tags: [init, initialize, bootstrap, setup, new-project, build-scanners, rulestools, scanner-install]
 concepts: [project-initialization, project-setup, zero-literal, rust-build-scan, build-time-enforcement, documentation]
 requires: [global/initialize.md, rust/constants.md, rust/modules.md]
-related: [rust/README.md, rust/workspace.md, project-files/project-file.md, project-files/rules-file.md, slint/init.md]
-keywords: [rust, init, cargo, build.rs, rustscanners, slintscanners, rustdocumenter, state, zero-literal, install, cargo-scan, build-scan, doc-comment, man, viewer, workspace, multi-target]
+related: [rust/README.md, rust/workspace.md, project-files/project-file.md, project-files/rules-file.md]
+keywords: [init, cargo, build.rs, rustscanners, slintscanners, rustdocumenter, state, zero-literal, install, cargo-scan, build-scan, doc-comment, man, viewer, workspace, multi-target]
 layer: 2
 ---
 # Rust Project Initialization

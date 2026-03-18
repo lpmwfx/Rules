@@ -1,6 +1,6 @@
 ---
-tags: [rust, overview, rules]
-concepts: [rust-rules, overview]
+tags: []
+concepts: [rust-rules]
 related: [rust/types.md, rust/ownership.md, rust/modules.md, rust/errors.md, rust/naming.md, rust/threading.md, rust/nesting.md, rust/verification.md, uiux/gtk.md, uiux/menus-slint.md]
 layer: 6
 ---

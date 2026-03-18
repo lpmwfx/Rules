@@ -1,5 +1,5 @@
 ---
-tags: [javascript, typescript, safety, runtime, boundaries, error-handling]
+tags: [typescript, safety, runtime, boundaries, error-handling]
 concepts: [runtime-validation, boundaries, error-flow, discriminated-union]
 keywords: [eval, console, var, let, const, runtime, validation, zod, schema, boundary, eslint]
 requires: [global/validation.md, global/error-flow.md]

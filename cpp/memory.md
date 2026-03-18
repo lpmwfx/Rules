@@ -1,8 +1,7 @@
 ---
-tags: [cpp, memory, raii, smart-pointers]
+tags: [memory, raii, smart-pointers]
 concepts: [memory-management, lifecycle, raii]
 requires: [cpp/types.md]
-related: [rust/ownership.md]
 keywords: [unique-ptr, shared-ptr, raii]
 layer: 3
 ---

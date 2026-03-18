@@ -1,8 +1,8 @@
 ---
-tags: [web, web-components, custom-elements, shadow-dom, encapsulation, mother-child]
+tags: [web-components, custom-elements, shadow-dom, encapsulation, mother-child]
 concepts: [web-components, custom-elements-pattern, shadow-dom-encapsulation, slint-web-parallel]
 requires: [uiux/mother-child.md, web/html.md, global/mother-tree.md]
-related: [web/mother-child.md, slint/component-model.md, global/data-driven-ui.md, css/modules.md]
+related: [web/mother-child.md, global/data-driven-ui.md]
 keywords: [web-component, custom-element, shadow-dom, slot, attributeChangedCallback, CustomEvent, observed-attribute, property, encapsulation, mother-child]
 layer: 3
 ---

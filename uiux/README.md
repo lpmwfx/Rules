@@ -1,5 +1,5 @@
 ---
-tags: [uiux, overview, ui-paradigm, declarative, cross-platform, platform-ux]
+tags: [uiux, ui-paradigm, declarative, cross-platform, platform-ux]
 concepts: [ui-paradigm, component-design, cross-platform-ui, platform-ux]
 related: [uiux/tokens.md, uiux/components.md, uiux/file-structure.md, uiux/state-flow.md, uiux/theming.md, uiux/keyboard.md, uiux/checklist.md, uiux/help-about.md, global/topology.md, global/adapter-layer.md, global/config-driven.md, global/persistent-state.md]
 layer: 6

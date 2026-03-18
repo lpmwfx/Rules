@@ -1,6 +1,6 @@
 ---
-tags: [javascript, quick-ref, reference, summary]
-concepts: [reference, summary]
+tags: []
+concepts: []
 related: [js/modules.md, js/jsdoc.md, js/validation.md, js/testing.md, js/eslint.md]
 layer: 6
 ---

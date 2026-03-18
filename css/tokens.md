@@ -1,5 +1,5 @@
 ---
-tags: [css, tokens, design-tokens, custom-properties, variables, no-hardcoding]
+tags: [tokens, design-tokens, custom-properties, variables, no-hardcoding]
 concepts: [css-design-tokens, css-custom-properties, token-hierarchy]
 requires: [uiux/tokens.md, uiux/token-structure.md]
 related: [css/themes.md, css/cascade.md, uiux/token-switching.md]
