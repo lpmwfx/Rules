@@ -2,7 +2,7 @@
 tags: [css, modules, scoping, isolation]
 concepts: [encapsulation, architecture]
 requires: [global/consistency.md]
-related: [js/modules.md, css/naming.md]
+related: [js/modules.md, css/naming.md, web/html.md, web/components.md]
 layer: 3
 ---
 # Modular Architecture

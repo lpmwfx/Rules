@@ -2,7 +2,7 @@
 tags: [uiux, file-structure, folder-by-feature, organisation, ui-layout]
 concepts: [file-organisation, feature-folders, ui-structure]
 requires: [global/topology.md, uiux/components.md]
-related: [uiux/state-flow.md]
+related: [uiux/state-flow.md, web/html.md]
 keywords: [folder, feature, screen, area, file, organisation, src-ui, shared, co-locate, promote]
 layer: 2
 ---

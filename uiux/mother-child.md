@@ -2,7 +2,7 @@
 tags: [uiux, mother-child, composition-root, stateless, layout-ownership, modular]
 concepts: [mother-child-pattern, composition-root, stateless-children, layout-ownership]
 requires: [global/mother-tree.md, uiux/components.md, uiux/state-flow.md]
-feeds: [uiux/file-structure.md, slint/mother-child.md, uiux/mother-child-react.md, uiux/mother-child-compose.md, rust/proc-macro-exemption.md]
+feeds: [uiux/file-structure.md, slint/mother-child.md, uiux/mother-child-react.md, uiux/mother-child-compose.md, rust/proc-macro-exemption.md, web/mother-child.md]
 related: [global/topology.md, global/adapter-layer.md, uiux/tokens.md, slint/globals.md, global/module-tree.md, slint/mother-child.md, global/data-driven-ui.md]
 keywords: [mother, child, root, shell, view, nav, editor, sidebar, layout, size, state-owner, props, stateless, modular, single-owner, in-out, in-property, callback, overlay, 3-level]
 layer: 2

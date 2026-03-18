@@ -27,7 +27,7 @@ RULE: Native menus are handled by `muda` alongside Slint — see uiux/menus-slin
 | [threading.md](threading.md) | `invoke_from_event_loop`, `spawn_local`, `as_weak` |
 | [validation.md](validation.md) | Token enforcement and callback discipline scanners |
 
-## Four invariants
+## Five invariants
 
 1. **`in property`** — Adapter pushes state in; component renders it
 2. **`callback`** — component fires event; Adapter registers handler with `on_*()`

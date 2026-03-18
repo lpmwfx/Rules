@@ -1,7 +1,7 @@
 ---
 tags: [uiux, mother-child, react, solidjs, jsx, stateless]
 concepts: [react-mother-child, composition-pattern-react]
-requires: [uiux/mother-child.md]
+requires: [uiux/mother-child.md, web/mother-child.md]
 related: [js/modules.md, uiux/state-flow.md]
 keywords: [AppShell, NavBar, EditorPanel, props, stateless, React, SolidJS, JSX, className, onNavigate]
 layer: 4

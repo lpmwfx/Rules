@@ -2,7 +2,7 @@
 tags: [pal, platform, abstraction, stateless, trait, interface, cross-platform]
 concepts: [platform-abstraction, trait-interface, multiple-implementations, dependency-inversion]
 requires: [global/topology.md, global/app-model.md]
-feeds: [pal/traits.md]
+feeds: [pal/traits.md, web/pal.md]
 related: [gateway/io.md, core/design.md, uiux/theming.md]
 keywords: [pal, trait, FilePal-pal, WindowPal-pal, AppearancePal-pal, platform, stateless, cfg-target-os, injection, implementation, Windows, macOS, Linux, iOS, Android, Web]
 layer: 3

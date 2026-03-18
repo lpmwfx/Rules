@@ -1,7 +1,7 @@
 ---
 tags: [rust, modules, crate, visibility]
 concepts: [encapsulation, architecture]
-requires: [global/consistency.md]
+requires: [global/consistency.md, global/module-tree.md]
 related: [python/structure.md, cpp/modules.md, js/modules.md]
 keywords: [mod, pub, crate, workspace]
 layer: 3
@@ -16,7 +16,7 @@ RULE: One module per file (`mod.rs` only for re-exports)
 RULE: `pub(crate)` for internal APIs
 RULE: `pub` for public APIs only
 RULE: No circular dependencies
-RULE: Max ~300 LOC per file
+RULE: Max ~200 LOC per file (see global/module-tree.md — Rust's density allows up to ~300 for complex trait implementations)
 RULE: Max ~10 pub items per module
 RULE: No `utils.rs`, `helpers.rs`, `common.rs` without explicit domain
 

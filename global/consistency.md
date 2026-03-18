@@ -2,7 +2,7 @@
 tags: [cross-language, patterns, consistency]
 concepts: [cross-language, patterns, consistency]
 feeds: [python/ack-pattern.md, cpp/errors.md, rust/errors.md, kotlin/result-pattern.md]
-related: [global/nesting.md, global/validation.md]
+related: [global/nesting.md, global/validation.md, web/README.md]
 keywords: [same-pattern, all-languages]
 layer: 1
 ---

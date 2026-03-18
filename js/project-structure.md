@@ -1,8 +1,8 @@
 ---
-tags: [javascript, structure, project-layout]
-concepts: [file-organization, architecture]
-requires: [global/consistency.md]
-related: [python/structure.md]
+tags: [javascript, structure, project-layout, topology]
+concepts: [file-organization, architecture, topology-mapping]
+requires: [global/consistency.md, global/topology.md]
+related: [python/structure.md, web/topology.md]
 layer: 3
 ---
 # Project Structure
@@ -54,6 +54,28 @@ project/
   "tabWidth": 2
 }
 ```
+
+## Topology Layout
+
+For WA/PWA web projects, the flat layout above expands to the full 6-layer topology.
+See [web/topology.md](../web/topology.md) for the complete browser folder mapping.
+
+```
+project/
+├── src/
+│   ├── ui/           ← views, components (_ui)
+│   ├── adapter/      ← ViewModel, event routing (_adp)
+│   ├── core/         ← pure business logic (_core)
+│   ├── gateway/      ← fetch, localStorage, IndexedDB (_gtw)
+│   ├── pal/          ← Web API abstractions (_pal)
+│   └── shared/       ← errors, result types (_x)
+├── dist/
+└── package.json
+```
+
+RULE: CLI projects use the flat layout — `src/index.js` + feature modules
+RULE: WA/PWA projects use the full topology — all six layers under `src/`
+RULE: Suffix tags apply: `feedAdapter_adp.js`, `storageGateway_gtw.js`
 
 ## Additional Tools
 

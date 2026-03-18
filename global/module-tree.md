@@ -2,6 +2,7 @@
 tags: [module-tree, encapsulation, file-split, architecture, gui, ui, global, slint, js, html]
 concepts: [module-design, encapsulation, file-splitting, tree-structure, single-responsibility, ai-comprehension]
 requires: [global/mother-tree.md, global/file-limits.md]
+feeds: [web/html.md]
 related: [uiux/components.md, uiux/file-structure.md, global/nesting.md, uiux/mother-child.md]
 keywords: [module, nested, encapsulation, split, folder, file, tree, slint, js, html, import, export, comprehension, 200-lines, dealbreaker]
 layer: 1

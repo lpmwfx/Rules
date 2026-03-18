@@ -2,7 +2,7 @@
 tags: [topology, architecture, hexagonal, mvvm, layers, dag, folder-structure, project-structure, ui, mother-child, composition-root]
 concepts: [architecture, layer-topology, dependency-graph, hexagonal-mvvm, app-structure, mother-child-pattern]
 requires: [global/mother-tree.md]
-feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, core/design.md, pal/design.md, uiux/mother-child.md, rust/workspace.md]
+feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, core/design.md, pal/design.md, uiux/mother-child.md, rust/workspace.md, web/topology.md]
 related: [global/app-model.md, rust/workspace.md, global/data-driven-ui.md]
 keywords: [ui, adapter, core, pal, gateway, shared, folder-structure, import-rules, dag, placement, project, setup, app-layout, src, init, directory, mother, child, owner, stateless, modular, workspace, cargo, crates, apps, multi-crate, multi-target]
 layer: 1

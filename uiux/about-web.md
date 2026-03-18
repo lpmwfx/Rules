@@ -2,7 +2,7 @@
 tags: [uiux, about, web, pwa, shortcuts-overlay]
 concepts: [about-web, web-shortcuts-overlay]
 requires: [uiux/help-about.md]
-related: [js/modules.md]
+related: [js/modules.md, web/README.md]
 keywords: [modal, about-route, shortcuts-overlay, keydown, PWA, web]
 layer: 4
 ---

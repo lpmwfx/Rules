@@ -3,7 +3,7 @@ tags: [paradigm, data-driven, declarative, tokens, globals, adapter, reactive, a
 concepts: [data-driven-architecture, declarative-ui, adapter-controls-data, reactive-projection]
 requires: [global/topology.md, global/config-driven.md]
 feeds: [uiux/tokens.md, slint/states.md, rust/constants.md, slint/globals.md, global/naming-suffix.md]
-related: [global/adapter-layer.md, global/persistent-state.md, uiux/theming.md, slint/themes.md, uiux/mother-child.md, global/mother-tree.md]
+related: [global/adapter-layer.md, global/persistent-state.md, uiux/theming.md, slint/themes.md, uiux/mother-child.md, global/mother-tree.md, web/components.md]
 keywords: [data-driven, declarative, paradigm, out-property, set, adapter, reactive, projection, localization, theming, runtime, globals, state-files, create-before-use]
 layer: 1
 ---

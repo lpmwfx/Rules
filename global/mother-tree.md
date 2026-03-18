@@ -2,7 +2,7 @@
 tags: [mother-tree, root, stateless, state-owner, architecture, paradigm, vector, dag, growth]
 concepts: [mother-tree-architecture, root-rule, state-rule, growth-rule, stateless-children, recursive-ownership]
 requires: [global/graph-position-paradigm.md]
-feeds: [global/topology.md, uiux/mother-child.md, uiux/state-flow.md, global/module-tree.md, global/file-limits.md]
+feeds: [global/topology.md, uiux/mother-child.md, uiux/state-flow.md, global/module-tree.md, global/file-limits.md, web/mother-child.md]
 related: [global/adapter-layer.md, global/persistent-state.md]
 keywords: [mother, child, root, state, stateless, tree, vector, edge, node, origin, growth, complexity, expansion, compositor, owner]
 layer: 1
