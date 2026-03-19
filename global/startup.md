@@ -2,7 +2,7 @@
 tags: [startup, checklist, session, mandatory]
 concepts: [workflow, initialization]
 keywords: [startup, session, checklist, init, begin, context]
-feeds: [project-files/workflow.md, global/initialize.md, workflow/always-compliant.md]
+feeds: [workflow/dev-cycle.md, global/initialize.md, workflow/always-compliant.md]
 related: [global/graph-position-paradigm.md, global/read-before-write.md, global/know-before-change.md, global/file-limits.md]
 requires: [global/graph-position-paradigm.md, global/language.md]
 layer: 1
@@ -38,14 +38,15 @@ PRE-CHECK: Does proj/ exist?
 
 0. INSTALL hooks             → mcp__rulestools__setup(".")  — idempotent, safe to run every session
 1. VERIFY index.yaml         → python tools/index_generator.py --verify (if exists)
-2. READ proj/PROJECT         → Only source of truth: state, phase, stack, infra
+2. READ proj/PROJECT         → Only source of truth: state, phase, stack, infra, decisions
 3. READ proj/RULES           → Active MCP rules + project-specific conventions
-4. READ proj/UIUX            → UI/UX source of truth (GUI projects — ALL UI work requires this)
-5. READ proj/FIXES           → Known problems (DON'T repeat mistakes)
-6. READ proj/TODO            → Current tasks (WHAT to do)
-7. SCAN for oversized files  → find src/ -name "*.py" -o -name "*.ts" -o -name "*.css" | xargs wc -l | sort -rn | head -20
-8. SCAN relevant code        → Understand current state
-9. THEN form solution        → Simple, minimal, targeted
+4. READ proj/PHASES          → Phase tracking — what's done, what's next
+5. READ proj/UIUX            → UI/UX source of truth (GUI projects — ALL UI work requires this)
+6. READ proj/FIXES           → Known problems (DON'T repeat mistakes)
+7. READ proj/TODO            → Current tasks (WHAT to do)
+8. SCAN for oversized files  → find src/ -name "*.py" -o -name "*.ts" -o -name "*.css" | xargs wc -l | sort -rn | head -20
+9. SCAN relevant code        → Understand current state
+10. THEN follow dev-cycle    → workflow/dev-cycle.md: PLAN → IMPLEMENT → TEST → DOCUMENT → COMMIT
 
 If you skip this: You WILL make mistakes that are already documented.
 If you follow this: You will produce excellent results.
