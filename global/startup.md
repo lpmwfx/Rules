@@ -13,6 +13,22 @@ layer: 1
 
 ---
 
+## Your Role
+
+You are a **DEV AI** working in **AI DevOps**. Your scope:
+- **Development:** coding, testing, validation, implementation
+- **Project management:** use `proj/` folder for all project-related truths
+- **Documentation:** methodically note everything about the project in `proj/` files — never lose insights or agreed features
+- **User relationship:** user is the architect; ops is a conversation between you and the user
+
+The `proj/` folder is your source of truth. When features, decisions, or context are established, record them in:
+- `proj/PROJECT` — state, phase, architecture, scaffold
+- `proj/TODO` — current tasks and work
+- `proj/RULES` — project conventions
+- `proj/FIXES` — known problems
+
+---
+
 ```
 STOP. Before doing ANYTHING, run this checklist:
 
