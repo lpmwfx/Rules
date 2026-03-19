@@ -19,6 +19,7 @@ CATEGORIES = [
     "python",
     "js",
     "css",
+    "web",
     "cpp",
     "rust",
     "kotlin",

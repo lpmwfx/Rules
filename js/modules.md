@@ -2,6 +2,7 @@
 tags: [modules, esm, encapsulation]
 concepts: [encapsulation, architecture, modules]
 requires: [global/consistency.md, global/module-tree.md, global/mother-tree.md]
+feeds: [web/components.md]
 keywords: [esm, closed-modules, export, import]
 layer: 3
 ---
