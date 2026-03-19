@@ -7,6 +7,7 @@ CATEGORIES = [
     "project-files",
     "automation",
     "devops",
+    "workflow",
     "ipc",
     "mcp",
     "personas",
@@ -72,6 +73,9 @@ CONCEPT_MAP = {
     "rag-file": ["knowledge-base", "ai-memory"],
     "goal-chain": ["milestones", "traceability"],
     "workflow": ["process", "methodology"],
+    "proactive-compliance": ["compliance", "workflow"],
+    "pre-write": ["context-loading", "preparation"],
+    "violation-fixing": ["scanner-output", "repair"],
     "contract": ["protocol", "json-rpc"],
     "keyboard": ["shortcuts", "accessibility"],
     "context-menus": ["ui-patterns", "interaction"],
@@ -134,6 +138,8 @@ def assign_layer(category: str, stem: str, file_type: str) -> int:
     if category == "global":
         return 1
     if category == "project-files":
+        return 2
+    if category == "workflow":
         return 2
     if category in INFRA_CATEGORIES:
         return 5
