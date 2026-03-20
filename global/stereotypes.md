@@ -122,3 +122,12 @@ RULE: Stereotype names the container (folder). Suffix tag names the content (typ
 
 RESULT: Any AI can navigate an unknown project instantly — the names are always the same
 REASON: Stereotypes eliminate ambiguity; the dictionary replaces design discussions with lookups
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
