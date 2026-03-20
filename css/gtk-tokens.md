@@ -32,3 +32,12 @@ RULE: Components reference app tokens, never Adwaita variables directly — allo
 
 RESULT: GTK apps inherit system theme automatically while maintaining app-level token consistency
 REASON: Direct Adwaita variable usage scatters platform dependency through every component
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
