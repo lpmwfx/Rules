@@ -46,3 +46,12 @@ RULE: All functions returning results use this pattern
 
 BANNED: `JSON.parse(text)` without schema validation — parse result is `any`
 BANNED: `fetch().then(r => r.json())` without schema validation — validate with Zod/Valibot at boundary
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
