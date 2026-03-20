@@ -58,3 +58,12 @@ BANNED: Mock objects for data layer — use TestContainers or in-memory provider
 BANNED: Tests that depend on external services without containers
 BANNED: `[Fact]` methods without assertions
 BANNED: Test names that don't describe the scenario (`Test1`, `ItWorks`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
