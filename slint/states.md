@@ -110,3 +110,12 @@ String state comparisons: [slint/string-comparisons.md](string-comparisons.md)
 
 RESULT: Every value has a named source — the entire UI is data-driven and declarative
 REASON: The scanner catches ANY literal in a component as ERROR — the paradigm is enforced, not optional
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
