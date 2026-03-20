@@ -100,3 +100,12 @@ RULE: Boot order: Gateway → Core → Adapter → UI mount
 
 RESULT: All IO is in one place — `grep "_gtw" src/` finds every IO operation
 REASON: Browser IO is fragmented (fetch, localStorage, IndexedDB) — Gateway centralizes it
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
