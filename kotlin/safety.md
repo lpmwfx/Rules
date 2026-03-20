@@ -38,3 +38,12 @@ val user = cache[userId]!!  // guaranteed present: checked in require() above
 BANNED: `lateinit` for regular properties — use `lazy` or nullable
 BANNED: `@Suppress("UNCHECKED_CAST")` without type proof
 BANNED: Reflection in domain/core layer
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
