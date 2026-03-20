@@ -34,3 +34,12 @@ JS module = Python module = CSS file = Same structure:
 - Clear interface (exports / class prefix)
 - No side effects on others
 - One file, one responsibility
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
