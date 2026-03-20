@@ -332,3 +332,12 @@ If still unclear, check `workflow/always-compliant.md` for MCP tools to get help
 ## Next: VERIFY Phase
 
 Read `workflow/commit-clean.md` for pre-commit gate enforcement.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
