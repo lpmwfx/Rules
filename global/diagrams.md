@@ -58,3 +58,12 @@ NOTE: GitHub mobile app shows raw code (not rendered) — acceptable tradeoff.
 Mermaid syntax is readable as text anyway.
 
 REFERENCE: https://mermaid.js.org/syntax/
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
