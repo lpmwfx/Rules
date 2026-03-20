@@ -155,3 +155,12 @@ graph TB
 
 RESULT: Predictable apps — state distributed per layer, IO centralized in Gateway
 REASON: AI can reason about each layer independently; grep `_sta` finds all state, grep `_gtw` finds all IO
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
