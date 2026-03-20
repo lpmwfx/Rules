@@ -41,3 +41,12 @@ BANNED: `localStorage` theme toggle as the ONLY mechanism — system preference 
 
 RESULT: Browser automatically applies the correct theme based on OS preference — zero JS required
 REASON: Users who set dark mode in their OS expect every web app to respect it without configuration
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
