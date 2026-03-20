@@ -78,3 +78,12 @@ Those rules belong in the language or tooling category, not in global.
 
 RESULT: Every rule has a clear role in the paradigm — no orphaned conventions
 REASON: Rules without a position in the system become cargo-cult — followed but not understood
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
