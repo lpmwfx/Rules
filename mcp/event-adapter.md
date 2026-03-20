@@ -57,3 +57,12 @@ RULE: MCP tool names are derived from Adapter event names — they are not indep
 
 This pattern applies regardless of platform (Windows, macOS, Linux, Android, iOS).
 The Adapter event surface is platform-neutral; platform-specific input binding is PAL's concern.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
