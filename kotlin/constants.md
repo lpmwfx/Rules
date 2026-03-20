@@ -43,3 +43,12 @@ data class ServerConfig_cfg(
 
 BANNED: Hardcoded URLs, paths, timeouts, port numbers
 BANNED: Numeric literals without named constant
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
