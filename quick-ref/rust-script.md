@@ -100,3 +100,12 @@ When promoting: run `rulestools new . --kind tool` and apply full Rust rules.
 - Hardcoded paths without constants
 - Deep nesting (4+ levels)
 - Non-English code or comments
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
