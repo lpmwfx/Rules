@@ -57,3 +57,12 @@ RULE: AI reads RAG.md for context before starting new areas
 
 RULE: Only write facts that are true now — remove stale entries
 RULE: Link to FIXES.md for problems already solved (`see FIXES YYYY-MM-DD`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
