@@ -27,3 +27,12 @@ Categories: `global`, `project-files`, `automation`, `devops`, `ipc`, `uiux`, `p
 ## Superprojekt
 
 This repo is part of Rules-dev. See `../proj/PROJECT` for ecosystem overview and `../proj/TODO` for all tasks.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
