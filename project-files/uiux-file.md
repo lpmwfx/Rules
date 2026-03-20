@@ -147,3 +147,12 @@ A GUI project without proj/UIUX produces:
 
 proj/UIUX gives every GUI session a shared ground truth — platform, toolkit, conventions, flows.
 AI reads it first, follows it throughout, and updates it as conventions emerge.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
