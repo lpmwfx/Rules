@@ -122,3 +122,12 @@ component AboutDialog inherits Dialog {
 
 RULE: About dialog shows: name, version, description, author, website, license — all fields
 RULE: Website and license are clickable links, not plain text
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
