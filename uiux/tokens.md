@@ -85,3 +85,12 @@ Light/dark switching and config: [uiux/token-switching.md](token-switching.md)
 
 RESULT: Changing one token file updates every component that references it — zero hunting for scattered values
 REASON: 800 hardcoded values in one component is a bug, not a style choice
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
