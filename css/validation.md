@@ -41,3 +41,12 @@ The `css/checks/tokens.py` scanner (rulestools) flags:
 - `!important` declarations
 
 See `css/tokens.md` for the full token catalog.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
