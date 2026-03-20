@@ -37,3 +37,12 @@ RULE: `unsafe` REQUIRES:
   - Test that attempts to break the invariant
 RULE: No fire-and-forget async tasks
 RULE: All spawned tasks must be stoppable deterministically
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
