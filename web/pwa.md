@@ -113,3 +113,12 @@ RULE: Never auto-prompt — let the user trigger install from a UI button
 
 RESULT: A PWA is a WA with a cache layer — the topology is identical, only Gateway gains offline capability
 REASON: Keeping service worker as Gateway extension prevents a parallel architecture from forming
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
