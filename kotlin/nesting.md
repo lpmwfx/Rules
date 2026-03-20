@@ -20,3 +20,12 @@ RULE: `?.let { }` instead of `if (x != null) { }`
 BANNED: Nested `if-else` beyond 3 levels
 BANNED: Deep `when` nesting — extract to function
 BANNED: `else` after `return` / `throw`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
