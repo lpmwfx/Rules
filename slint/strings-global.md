@@ -35,3 +35,12 @@ RULE: Default values in `.slint` are the fallback language — always complete
 
 RESULT: Language switch = re-inject Strings from a different file — zero component changes
 REASON: Hardcoded strings in components make localization a search-and-replace nightmare
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
