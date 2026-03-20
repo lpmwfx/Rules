@@ -12,3 +12,12 @@ layer: 4
 ---
 
 RULE: Simple try/except at top level only — never nested
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
