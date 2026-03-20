@@ -45,3 +45,12 @@ Claude Sonnet 4.6 (Anthropic)
 Mistral Small (Mistral AI)
   - Translation, content review
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
