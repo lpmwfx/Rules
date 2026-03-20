@@ -70,3 +70,12 @@ RULE: Each Gateway method does one IO operation — no compound multi-step metho
 
 RESULT: IO errors have one origin — Gateway — making failure modes easy to reason about
 REASON: Layers that cannot do IO cannot corrupt state or leave partial writes
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
