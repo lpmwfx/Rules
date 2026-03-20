@@ -33,3 +33,12 @@ See: [global/module-tree.md](../global/module-tree.md) | [uiux/state-flow.md](..
 | [testing.md](testing.md) | Node.js test runner |
 | [project-structure.md](project-structure.md) | Package.json, scripts, structure |
 | [quick-ref.md](quick-ref.md) | Quick reference table |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
