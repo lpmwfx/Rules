@@ -52,3 +52,12 @@ RULE: Every app MUST include in the primary menu:
 - About [AppName]
 
 BANNED: Close/Quit in the primary menu
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
