@@ -85,3 +85,12 @@ BANNED: MCP tools caching state independently of `AdapterState_sta`
 
 The principle: AI sees everything a human can see, plus structured access to logs and files
 that a human would have to open manually. This is the full "external AI UI" contract.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
