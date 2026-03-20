@@ -130,3 +130,12 @@ Scanner configuration: [rust/scanner-config.md](scanner-config.md)
 
 RESULT: All app surfaces (desktop GUI, CLI, MCP, Android, iOS) share identical Core, Gateway, and Adapter
 REASON: Cargo-enforced DAG eliminates architecture drift — violations are compile errors, not code review findings
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
