@@ -16,3 +16,12 @@ VITAL: Initialize context — read all related files first
 VITAL: Map dependencies, exports, imports before touching code
 VITAL: If you don't understand it, you can't safely change it
 REASON: AI rushes to solutions — slow down, understand first
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
