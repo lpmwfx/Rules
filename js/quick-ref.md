@@ -22,3 +22,12 @@ layer: 6
 | Returns | `{ success: true, data }` or `{ success: false, error }` |
 | Testing | `node:test` + `node:assert/strict` |
 | Formatting | Prettier, semi, single quotes |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
