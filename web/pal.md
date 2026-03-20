@@ -98,3 +98,12 @@ export function hasIndexedDb() {
 RULE: Feature detection is a PAL responsibility — other layers call `hasOpfs()`, never check directly
 RESULT: Swapping a Web API for a polyfill = changing one PAL module — nothing else touches platform
 REASON: Browser API fragmentation is real — PAL contains it in one place
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
