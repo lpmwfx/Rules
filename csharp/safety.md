@@ -49,3 +49,12 @@ BANNED: Suppressing nullable warnings (`null!`) without a comment explaining why
 BANNED: `dynamic` type in domain code — use generics, interfaces, or pattern matching
 BANNED: `stackalloc` with user-controlled or unbounded size — stack overflow risk
 BANNED: Raw pointer arithmetic when `Span<T>` would work
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
