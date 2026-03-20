@@ -152,3 +152,12 @@ const [items, setItems] = useState<Item[]>([])  // belongs in Adapter
 
 RESULT: UI is a pure projection of Adapter state — predictable, testable, replaceable
 REASON: When state only flows one direction, every render is reproducible from state alone
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
