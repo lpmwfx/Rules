@@ -68,3 +68,12 @@ RULE: Index is deterministic: same input = same output
 - Deterministic = verifiable in CI
 - No content duplication = minimal size
 - Each repo self-contained
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
