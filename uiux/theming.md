@@ -120,3 +120,12 @@ Add to [checklist.md](checklist.md):
 
 RESULT: Users get the appearance they expect without configuring the app
 REASON: Respecting system appearance is a platform citizenship requirement, not a feature
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
