@@ -139,3 +139,12 @@ Rules extracted from recurring problems — see proj/FIXES for full context.
 | FIXES | Problem → Cause → Solution — what went wrong | After fixing a bug or mistake |
 
 RULE: If in doubt — a rule is a RULE, a fact is RAG, a bug story is FIXES
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
