@@ -45,3 +45,12 @@ BANNED: Hardcoded connection strings, paths, URLs, or timeouts in source code
 BANNED: Magic numbers without named constant — every literal needs a name
 BANNED: `const` for values that change between environments — use configuration
 BANNED: Constants spread across unrelated classes — centralize in `_cfg` types
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
