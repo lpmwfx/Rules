@@ -51,3 +51,12 @@ Files in `tools/` at the project root are build scripts and CLI tools — not li
 
 RULE: `tools/` is the only allowed location for build scripts and one-off CLI tools
 BANNED: Build scripts or print-based CLI scripts anywhere outside `tools/`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
