@@ -140,3 +140,12 @@ RULE: Every persona file must have a `requires:` list in frontmatter — these a
       that must also be loaded alongside the persona for complete behavioral coverage
 RULE: The persona body uses XML tags for all major sections
 RULE: RULE/VITAL/BANNED markers in the body are enforceable — they also appear in register.jsonl
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
