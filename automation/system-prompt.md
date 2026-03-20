@@ -46,3 +46,12 @@ Configure IDE to inject context:
 | RAG | Project knowledge | READ for context, WRITE discoveries |
 | DONE | Completed work | Reference for what exists |
 | ISSUES | Known problems | Log here, check here |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
