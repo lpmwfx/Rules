@@ -45,3 +45,12 @@ This is not documentation for humans — it's knowledge transfer between AI sess
 - Format: What broke, why, how to fix
 
 Both files grow over time = AI gets smarter on the project.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
