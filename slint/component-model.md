@@ -101,3 +101,12 @@ RULE: Call `include_modules!()` in the file that creates the `AppWindow`
 
 RESULT: Component interfaces are typed contracts verified at compile time
 REASON: One direction per channel — every data flow is explicit and traceable
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
