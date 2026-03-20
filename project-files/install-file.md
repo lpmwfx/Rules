@@ -104,3 +104,12 @@ Public repo (GitHub/Codeberg)
 | Node.js | npm / npx | npm registry |
 | Rust | cargo install | crates.io |
 | Go | go install | Go modules |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
