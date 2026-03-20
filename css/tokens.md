@@ -94,3 +94,12 @@ layer: 3
 
 RESULT: All CSS values live in `:root` custom properties — components are pure structure
 REASON: Scattered hex values and px sizes make theming and consistency impossible
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
