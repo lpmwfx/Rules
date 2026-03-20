@@ -85,3 +85,12 @@ BANNED: Passing `java.io.File` across layer boundaries (use String paths)
 BANNED: Initializing Swing LookAndFeel per-call (causes state corruption)
 BANNED: `!!` non-null assertion — use `?: return`, `?: throw`, or restructure to non-nullable
 BANNED: Multiple top-level classes in one file — one class per file
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
