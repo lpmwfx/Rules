@@ -48,3 +48,12 @@ async function withTimeout(promise, ms) {
 BANNED: Callback pyramids — use `async/await`
 BANNED: Unhandled Promise rejections — every async path must catch
 BANNED: Fire-and-forget — always `await`, handle, or track async operations
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
