@@ -126,3 +126,12 @@ Early returns to keep the happy path flat.
 
 This ruleset is binding for humans and AI agents — not subject to interpretation.
 Rule violations are flagged by scanners and block builds and commits.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
