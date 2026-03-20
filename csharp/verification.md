@@ -62,3 +62,12 @@ Add to `.csproj` (all projects):
 | `StyleCop.Analyzers` | Style enforcement |
 | `SonarAnalyzer.CSharp` | Bug and smell detection |
 | `Meziantou.Analyzer` | Best practices, async patterns |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
