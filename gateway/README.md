@@ -31,3 +31,12 @@ RULE: All IO returns `Result<T, AppError_x>` — Gateway never panics on IO fail
 RULE: No business logic in Gateway — IO marshalling only
 
 See: [global/topology.md](../global/topology.md) | [global/app-model.md](../global/app-model.md)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
