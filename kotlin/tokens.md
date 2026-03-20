@@ -45,3 +45,12 @@ fun PrimaryButton(text: String, onClick: () -> Unit) {
 
 RESULT: Compose uses MaterialTheme as the single token source — swap color scheme, entire app updates
 REASON: Hardcoded Color() and TextStyle() values bypass the theme system and break dark mode
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
