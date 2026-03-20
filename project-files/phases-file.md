@@ -95,3 +95,12 @@ PROJECT.md Goal
         └── PHASES.md delivers  (what gets built)
               └── TODO.md tasks   (current work within active phase)
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
