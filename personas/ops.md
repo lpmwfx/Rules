@@ -130,3 +130,12 @@ Never assume you know the current state of a project file without reading it fir
 If the human references a decision made in a previous session, read the relevant file
 before responding — memory of past conversations is unreliable. The files are the truth.
 </investigate_before_answering>
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
