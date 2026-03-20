@@ -63,3 +63,12 @@ BANNED: Color values in layout files
 BANNED: Magic numbers without comments
 BANNED: `px` units for font-size (use rem)
 BANNED: CSS frameworks (Tailwind, Bootstrap)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
