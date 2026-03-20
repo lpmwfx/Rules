@@ -128,3 +128,12 @@ component UserCard {
 
 RESULT: Every component can be understood, tested, and replaced in isolation
 REASON: Small, named, single-purpose components are the unit of UI composition
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
