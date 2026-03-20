@@ -43,3 +43,12 @@ author = "TwistedBrain"
 
 BANNED: Committing code without a LICENSE file.
 BANNED: Using a license that contradicts project dependencies.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
