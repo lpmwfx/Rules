@@ -53,3 +53,12 @@ The calling AI agent maps the prefix to the error taxonomy:
 
 RESULT: Every error message tells the user what failed and what to do — never raw internals
 REASON: An error the user cannot act on is worse than no message at all
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
