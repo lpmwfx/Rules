@@ -98,3 +98,12 @@ RULE: MCP uses stdio transport (not Unix sockets) — see mcp/ category
 RULE: Each JSON-RPC message is a single line
 RULE: The receiver must ignore blank lines
 RULE: Messages must not contain unescaped newlines
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
