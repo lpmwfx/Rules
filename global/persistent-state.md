@@ -119,3 +119,12 @@ sequenceDiagram
 
 RESULT: State survives app restarts — users return to where they left off
 REASON: Centralized IO means state corruption is Gateway's problem, not every layer's
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
