@@ -81,3 +81,12 @@ FocusScope {
 Without this pattern, adding a new input source (e.g., MCP tool, voice command)
 requires finding and duplicating logic from existing handlers. With the adapter pattern,
 adding a new source = one line connecting it to the existing event.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
