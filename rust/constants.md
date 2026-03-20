@@ -126,3 +126,12 @@ The state modules are the data layer. The functions are declarative consumers of
 
 RESULT: Every value has a named source — function bodies are pure declarative logic
 REASON: The scanner catches ANY literal ≥ 2 in function bodies as ERROR — the paradigm is enforced, not optional
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
