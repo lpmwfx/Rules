@@ -30,3 +30,12 @@ val updated = product.copy(price = 19.99)
 
 BANNED: Mutable public properties
 BANNED: `var` for state (use MutableStateFlow)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
