@@ -85,3 +85,12 @@ impl RuntimeGateway_gtw {
 
 RESULT: Every app has a predictable startup — layers always receive config and state, never fetch them
 REASON: Layers that cannot initiate IO cannot fail at IO — Gateway is the single point of recovery
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
