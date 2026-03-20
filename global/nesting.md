@@ -60,3 +60,12 @@ Python uses indentation, not braces. Nesting depth = indentation level on contro
 
 `global/nesting` — measures control-flow depth per function.
 Struct/enum/impl bodies are tracked for brace-matching but do not increment flow depth.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
