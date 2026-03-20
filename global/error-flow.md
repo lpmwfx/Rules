@@ -98,3 +98,12 @@ BANNED: Showing stack traces, internal paths, or raw error types to the user
 BANNED: `unwrap()`/`expect()` in application code outside tests
 BANNED: `throw new Error("something failed")` without a typed discriminated error
 BANNED: Single catch-all error type — variants must be distinguishable for recovery
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
