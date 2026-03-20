@@ -44,3 +44,12 @@ RULE: Import order: reset → base → layout → components → themes
 BANNED: Cross-module selectors (`.nav .card-title`)
 BANNED: Styles for multiple components in one file
 BANNED: Generic class names without module prefix
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
