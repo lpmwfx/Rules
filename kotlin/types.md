@@ -43,3 +43,12 @@ fun describe(state: LoadState<String>): String = when (state) {
 BANNED: Platform types (`!`) — annotate nullability explicitly
 BANNED: Unchecked casts (`as`) without `is` guard
 BANNED: `Any` as parameter type — use sealed interface or generics
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
