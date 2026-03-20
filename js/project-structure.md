@@ -84,3 +84,12 @@ TOOL: publint — validate package.json for publishing
 TOOL: depcheck — find unused dependencies
 TOOL: madge — detect circular dependencies
 TOOL: husky + lint-staged for pre-commit hooks
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
