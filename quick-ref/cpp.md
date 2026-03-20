@@ -81,3 +81,12 @@ static int s_instance_count;    // s_ prefix for static
 
 Every project has `proj/` — see [project-files/](../project-files/) for formats:
 PROJECT, TODO, FIXES, RULES, PHASES, `rulestools.toml`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
