@@ -38,3 +38,12 @@ PATTERN: `/** @type {z.infer<typeof Schema>} */` for Zod inference
 PATTERN: `/** @returns {value is Type} */` for type predicates
 PATTERN: `/** @template T */` for generics
 PATTERN: `/** @type {Type} */ (value)` for inline casts
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
