@@ -93,3 +93,12 @@ RULE: Same boot order as desktop/mobile — only the IO primitives differ
 
 RESULT: A web project's folder structure reveals its architecture — `ls src/` shows all six layers
 REASON: ESM static imports make the dependency DAG visible and enforceable at lint time
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
