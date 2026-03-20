@@ -21,3 +21,12 @@ BANNED: Nested `if-else` beyond 3 levels
 BANNED: Callback hell — use async/await
 BANNED: Nested ternary operators
 BANNED: `else` after `return` / `throw` / `continue`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
