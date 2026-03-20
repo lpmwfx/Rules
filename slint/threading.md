@@ -91,3 +91,12 @@ slint::invoke_from_event_loop(move || {
 
 RESULT: Threading bugs are prevented at the call site — the pattern is always the same weak+invoke pair
 REASON: Slint's single-thread guarantee makes rendering deterministic; crossing it safely is one pattern only
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
