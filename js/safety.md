@@ -137,3 +137,12 @@ BANNED: `catch(e) {}` empty catch block
 BANNED: `catch(e) { console.error(e) }` — log without recovery is silent swallow
 BANNED: `throw new Error("message")` without a typed discriminated error
 BANNED: Catch-all `default:` in error switch that does nothing — log or report
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
