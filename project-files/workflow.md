@@ -106,3 +106,12 @@ RULE: Private repo is source of truth for development
 RULE: Public repo is clean, publishable subset
 RULE: Never push proj/ to public repo
 
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
