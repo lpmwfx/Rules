@@ -102,3 +102,12 @@ Split file when:
 - More than one concept explained at file top
 - Multiple lifecycles mixed (init, runtime, shutdown)
 - File exceeds 300 LOC
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
