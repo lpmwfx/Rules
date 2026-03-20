@@ -26,3 +26,12 @@ std::optional<User> load_user(int id);
 
 BANNED: Undocumented public headers — every `.h` export needs Doxygen
 BANNED: Comments that restate the code (`// increment i` above `i++`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
