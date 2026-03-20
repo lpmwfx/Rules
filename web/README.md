@@ -42,3 +42,12 @@ RULE: ESM only — `"type": "module"` in package.json, `import`/`export` everywh
 `js/` defines language-level rules (ESM, JSDoc, testing, validation).
 `web/` defines platform-level rules (browser APIs, HTML, Web Components, PWA).
 A web project uses both: `js/` for how you write JavaScript, `web/` for how you structure a browser app.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
