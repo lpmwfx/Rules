@@ -39,3 +39,12 @@ except ConnectionError as e:
 BANNED: Bare `except:` without exception type
 BANNED: `except Exception: pass` — swallowing errors
 BANNED: Raising built-in `Exception` directly — use typed subclasses
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
