@@ -30,3 +30,12 @@ See: [global/module-tree.md](../global/module-tree.md)
 | [testing.md](testing.md) | TDD, real DBs, no mocks |
 | [dependencies.md](dependencies.md) | Preferred libs + linting config |
 | [quick-ref.md](quick-ref.md) | Quick reference table |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
