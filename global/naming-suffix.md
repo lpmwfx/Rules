@@ -75,3 +75,12 @@ RULE: If a type spans two layers, move it to `_x` (shared)
 
 RESULT: Type origin is readable without opening the file — the tag is the address
 REASON: AI and humans can navigate the codebase by grep alone — no IDE required
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
