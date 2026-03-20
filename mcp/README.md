@@ -39,3 +39,12 @@ It is activated by the `--mcp` CLI flag and communicates via stdio transport.
 - `global/topology.md` — folder/tag mapping (`_ui` = `src/ui/`)
 - `global/adapter-layer.md` — Adapter event surface rules
 - `ipc/contract.md` — JSON-RPC contract (Unix socket IPC, separate from MCP)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
