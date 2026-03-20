@@ -69,3 +69,12 @@ packages = ["package_name"]
 BANNED: Tests, scripts, dev config in public release repo
 BANNED: `__pycache__`, `.env`, local paths in public repo
 RULE: Public repo is minimal — only what's needed to install
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
