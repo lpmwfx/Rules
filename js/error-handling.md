@@ -42,3 +42,12 @@ RULE: Each variant's `kind` maps to a taxonomy class (Transient/UserError/System
 
 RESULT: TypeScript compiler catches missing error cases before runtime
 REASON: A `default: break` without `never` silently swallows new error variants
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
