@@ -59,3 +59,12 @@ RULE: CHANGELOG.md is published to the public repo — DONE.md stays private
 | Content | All tasks, phase details | Features and fixes users notice |
 | Granularity | Every task | Summarized per release |
 | Published | No (stays in proj/) | Yes (goes to public repo) |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
