@@ -52,3 +52,12 @@ BANNED: Tool handler fn bodies longer than ~5 lines — that is logic leaking in
 
 RESULT: Macro-constrained impl blocks stay compilable while logic lives in focused child modules
 REASON: Splitting the impl would break the macro — the exemption is mechanical, not a loophole
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
