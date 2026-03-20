@@ -64,3 +64,12 @@ var message = status switch
 BANNED: `else` after a `return` or `throw`
 BANNED: More than 3 levels of `{ }` nesting
 BANNED: `_ => { }` switch arm that silently discards — always throw or log+recover
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
