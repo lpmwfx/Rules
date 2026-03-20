@@ -73,3 +73,12 @@ dependencies:
   - org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3
   - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
