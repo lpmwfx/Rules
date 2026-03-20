@@ -61,3 +61,12 @@ BANNED: Children fetching data directly — mother provides all inputs
 
 RESULT: Each child is a pure function of its bindings — independently previewable
 REASON: Scattered `@StateObject` creates multiple sources of truth that drift apart
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
