@@ -26,3 +26,12 @@ layer: 6
 | Testing | Fakes not mocks, test Adapter state transitions |
 | Naming | PascalCase classes, camelCase functions, SCREAMING constants |
 | BANNED | Java interop, JNI, mutable public props, Gradle files, god classes |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
