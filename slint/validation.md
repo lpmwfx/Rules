@@ -56,3 +56,12 @@ The `slint/checks/` scanners (rulestools) enforce these rules:
 - `slint/checks/tokens.py` — hardcoded colors/sizes (`uiux/tokens.md`)
 - `slint/checks/events.py` — callback logic violations (`uiux/state-flow.md`)
 - `slint/checks/structure.py` — multiple components per file (`global/module-tree.md`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
