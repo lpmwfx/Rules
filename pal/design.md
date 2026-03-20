@@ -72,3 +72,12 @@ RULE: After construction, the rest of the app sees only `Arc<dyn FilePal_pal>` â
 
 RESULT: The entire app compiles and runs on a new platform by adding one PAL implementation
 REASON: Platform coupling is contained â€” everything else is portable
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
