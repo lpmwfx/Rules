@@ -105,3 +105,12 @@ Build exactly what the task asks for. Nothing more.
 No helper utilities, no extra error handling, no refactoring of surrounding code.
 If the task says "add login endpoint", add the login endpoint — not a full auth system.
 </avoid_overengineering>
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
