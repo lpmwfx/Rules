@@ -221,3 +221,12 @@ A: No. Violations are preventable. The 5-second investment prevents 5-minute rew
 ## Next: DURING Phase
 
 Read `workflow/coding-discipline.md` to maintain compliance while coding.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
