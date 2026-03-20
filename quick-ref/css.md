@@ -55,3 +55,12 @@ binding: true
 - Hardcoded color values outside theme files
 - Files over 150 lines
 - Non-English comments or class names
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
