@@ -42,3 +42,12 @@ RULE: Stateless logic — all app state in a central struct; functions transform
 | [build.md](build.md) | CMake configuration |
 | [testing.md](testing.md) | Catch2/doctest |
 | [quick-ref.md](quick-ref.md) | Quick reference |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
