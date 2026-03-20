@@ -74,3 +74,12 @@ Theme selection is compile-time or config-driven (`UiConfig_cfg.theme`) — see 
 
 RESULT: Themes are isolated, self-contained files — no values leak across state files
 REASON: One file per theme with built-in light/dark eliminates scattered ternaries
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
