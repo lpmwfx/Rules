@@ -34,3 +34,12 @@ RULE: Native menus are handled by `muda` alongside Slint — see uiux/menus-slin
 3. **Token globals** — all literal values live in `Colors`, `Spacing`, `Type` globals
 4. **No logic in .slint** — callback body = one delegation call, nothing else
 5. **Mother–child layout** — `AppWindow` owns all sizes and breakpoints; modules use `preferred-width: 100%` and stretch factors
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
