@@ -56,3 +56,12 @@ PREFER: vcpkg or Conan for complex dependencies
 - nlohmann/json (JSON)
 - Catch2 or doctest (testing)
 - systemd (service integration)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
