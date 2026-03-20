@@ -44,3 +44,12 @@ function onConnectionLost(event) { /* ... */ }
 
 BANNED: Single-letter variables outside loop indices (`i`, `j`, `k` are fine in `for`)
 BANNED: Abbreviations that obscure meaning (`mgr`, `ctx`, `btn`, `val`, `tmp`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
