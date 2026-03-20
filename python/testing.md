@@ -18,3 +18,12 @@ RULE: Test name: `test_<what_it_tests>`
 RULE: Docstring explains expected behavior
 BANNED: Mock objects for data layer
 BANNED: Fixtures that fake behavior
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
