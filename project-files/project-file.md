@@ -118,3 +118,12 @@ RULE: Everything that comes up during development is added to proj/PROJECT, not 
 RULE: After bootstrapping, the source document is frozen — it is not updated, not referenced again
 BANNED: Treating the bootstrap source as a living document alongside proj/PROJECT
 BANNED: Splitting truth between the source document and proj/PROJECT at any point after init
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
