@@ -70,3 +70,12 @@ component PrimaryButton inherits Rectangle {
 
 RESULT: All Slint values live in token globals — components are pure structure
 REASON: The scanner catches ANY literal in a component as ERROR — the paradigm is enforced
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
