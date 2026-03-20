@@ -154,3 +154,12 @@ RULE: Definition folders exist before any UI components are written
 RULE: First `cargo build` after init must be clean (zero violations)
 BANNED: Writing Slint components before rulestools scanner is configured
 BANNED: Hardcoding colors, sizes, or durations in component files
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
