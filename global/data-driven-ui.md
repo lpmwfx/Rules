@@ -134,3 +134,12 @@ This paradigm is non-negotiable. Scanners enforce it:
 - `rulestools` — ERROR on hardcoded values across all languages
 
 The enforcement is automatic. The paradigm is not a style choice — it is the architecture.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
