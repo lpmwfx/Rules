@@ -52,3 +52,12 @@ BANNED: Hardcoded colors in components
 
 RESULT: OS appearance change updates every Slint component instantly via token globals
 REASON: Without PAL → Adapter injection, Slint has no system appearance awareness at all
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
