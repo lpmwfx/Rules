@@ -35,3 +35,12 @@ void process(const std::string&); // forces copy or temp
 BANNED: Macros for constants (use `constexpr`)
 BANNED: `std::endl` (use `'\n'`)
 BANNED: `using namespace std` (in headers)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
