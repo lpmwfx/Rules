@@ -82,3 +82,12 @@ RULE: Validation of business rules belongs here — validation of input shape be
 
 RESULT: Core can be tested without a UI, disk, or OS — pure `cargo test` with no mocking of platform
 REASON: Isolated Core means business logic survives a UI toolkit change, OS port, or storage engine swap
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
