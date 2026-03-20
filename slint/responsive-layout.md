@@ -175,3 +175,12 @@ RULE: `app-window.slint` is the single entry point compiled by `build.rs`
 
 RESULT: Modules declare constraints — `AppWindow` owns all topology and breakpoints
 REASON: Single ownership of layout means changing any child is safe; all breakpoint logic is in one file
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
