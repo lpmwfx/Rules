@@ -39,3 +39,12 @@ BANNED: Undocumented public API — every `public` type, method, and property ne
 BANNED: `<summary>` that restates the member name — "Gets the name" on `GetName()`
 BANNED: Missing `<param>` tags when parameters exist
 BANNED: `// TODO: add docs` as a substitute for actual documentation
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
