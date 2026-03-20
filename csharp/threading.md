@@ -53,3 +53,12 @@ BANNED: `Thread.Sleep` — use `await Task.Delay(ms, ct)`
 BANNED: `async void` — use `async Task` except for event handlers (document why)
 BANNED: Fire-and-forget `Task.Run(...)` without storing and cancelling the task
 BANNED: Shared mutable state without synchronization primitive
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
