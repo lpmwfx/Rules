@@ -106,3 +106,12 @@ RULE: Default config is written by Gateway on first run if config file is absent
 
 RESULT: Every configurable behavior is visible and changeable without code changes
 REASON: Config-driven code is testable — inject any `_cfg` struct to control behavior
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
