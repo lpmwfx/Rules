@@ -91,3 +91,12 @@ fn register_rhai(engine: &mut Engine) {
 - Rhai mutable global state — functions are stateless transforms
 - Rhai scripts over 150 lines — split by concern
 - Hardcoded values in Rhai — use registered constants from Rust
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
