@@ -37,3 +37,12 @@ Load a persona via: `get_rule("personas/<name>.md")`
 2. Load its required rules (listed in frontmatter `requires:`)
 3. Paste persona text as system prompt or first context block
 4. The AI now operates under the persona's constraints for the session
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
