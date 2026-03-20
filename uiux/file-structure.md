@@ -78,3 +78,12 @@ RULE: File name = component name — no suffix like `UserCardComponent` or `User
 
 RESULT: Any developer can find `SettingsScreen` in `src/ui/settings/` without searching
 REASON: Feature folders make the UI structure self-documenting — the folder IS the navigation map
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
