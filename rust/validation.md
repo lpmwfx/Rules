@@ -53,3 +53,12 @@ BANNED: Manual validation scattered through business logic
 BANNED: Stringly-typed APIs in domain code — use newtypes
 BANNED: Constructing domain types without validation (`Port(0)` directly)
 BANNED: Re-validating inside Core what was already validated at the boundary
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
