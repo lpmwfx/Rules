@@ -67,3 +67,12 @@ BANNED: `transition: all` (performance issue)
 RULE: Fixed size (1.25rem or 1.5rem)
 RULE: Use `filter: invert(1)` for dark mode if needed
 RULE: `display: block` to remove inline spacing
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
