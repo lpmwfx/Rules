@@ -35,3 +35,12 @@ Inject project context BEFORE AI responds to first message.
 | [language-detection.md](language-detection.md) | Language detection patterns |
 | [tool-configs.md](tool-configs.md) | Claude/Cursor/Aider/Continue configs |
 | [maintenance.md](maintenance.md) | Keeping files updated |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
