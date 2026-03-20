@@ -78,3 +78,12 @@ RULE: `pass:` is binary — it either passes or it doesn't
 RULE: Completed tasks are removed when the whole TODO file moves to `proj/DONES/`
 RULE: New tasks discovered during work go to ISSUES first, not directly to TODO
 RULE: Keep TODO files to a manageable size — split into named TODO files if needed
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
