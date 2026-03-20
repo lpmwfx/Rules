@@ -122,3 +122,12 @@ These principles apply regardless of whether you use vanilla Web Components, Rea
 RULE: The enforcement mechanism varies by framework — the mother-child pattern is identical
 RESULT: Components are independently testable — set attributes, assert events
 REASON: Web Components enforce encapsulation at the platform level — no framework required
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
