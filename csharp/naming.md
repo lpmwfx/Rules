@@ -79,3 +79,12 @@ RULE: Interfaces use `I` prefix: `IUserRepository_adp`, `IEventBus_x`
 RULE: The layer-tag comes AFTER the I-prefixed name
 
 BANNED: Concrete class named `ISomething` — that prefix is reserved for interfaces
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
