@@ -47,3 +47,12 @@ RULE: Commit messages describe what changed — not "batch commit" or "fix every
 
 BANNED: Holding back clean files to "commit everything at once"
 BANNED: Commit messages like "batch update" or "fix all files" — each commit has a purpose
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
