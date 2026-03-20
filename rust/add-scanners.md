@@ -123,3 +123,12 @@ Fix those manually.
 RULE: rulestools-documenter must come before rulestools-scanner in build.rs — docs must exist before the doc check runs
 RULE: One build.rs per workspace drives the scanners — don't split across crates
 BANNED: Calling rulestools-scanner before rulestools-documenter — doc-required check will always fail on first build
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
