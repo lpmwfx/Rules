@@ -78,3 +78,12 @@ RULE: One file per concern — component, token group, state type, feature area 
 
 State persistence: [global/persistent-state.md](../global/persistent-state.md)
 Config-driven values: [global/config-driven.md](../global/config-driven.md)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
