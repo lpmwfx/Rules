@@ -52,3 +52,12 @@ BANNED: `Count() > 0` — use `Any()`
 BANNED: `Select(...).Where(...)` when `Where(...).Select(...)` is clearer
 BANNED: LINQ to materialise only to iterate once — keep as `IEnumerable<T>`
 BANNED: Side effects inside LINQ expressions (`Select(x => { Log(x); return x; })`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
