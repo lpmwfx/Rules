@@ -87,3 +87,12 @@ Strings/localization: [slint/strings-global.md](strings-global.md)
 
 RESULT: AI can edit a child file by reading only that file + the Theme global — no hidden state
 REASON: Separating state (mother) from tokens (global) keeps both files small and focused
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
