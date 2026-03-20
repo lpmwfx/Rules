@@ -207,3 +207,12 @@ TaskScheduler.UnobservedTaskException += (_, e) =>
     e.SetObserved();   // prevents process termination — still reported as Bug
 };
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
