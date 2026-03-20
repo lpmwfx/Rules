@@ -31,3 +31,12 @@ retry(3, std::chrono::seconds(30));
 
 BANNED: `#define` for numeric constants — use `constexpr`
 BANNED: Hardcoded paths, URLs, timeouts in function bodies — extract to `state/`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
