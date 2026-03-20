@@ -210,3 +210,12 @@ BANNED: Skipping `Directory.Build.props` — nullable and analyzers are non-nego
 BANNED: One `.csproj` for everything — Core must be separate from Infrastructure
 BANNED: Putting business logic in the entry point project (Cli/Api/UI)
 BANNED: Skipping proj/ files — init is not done until all proj/ files exist
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
