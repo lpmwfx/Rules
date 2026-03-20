@@ -45,3 +45,12 @@ Each file is the original TODO content — no transformation required.
 
 RULE: Do not summarize or transform TODO content when archiving — dump the file as-is
 RULE: If a TODO was only partially done when replaced, note `archived:` date at top
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
