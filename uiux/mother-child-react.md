@@ -46,3 +46,12 @@ RULE: Children accept a props interface — never import from sibling components
 
 RESULT: Each component file is independently testable — pass props, assert output
 REASON: Global state in children creates hidden coupling that breaks when views are reordered
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
