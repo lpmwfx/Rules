@@ -46,3 +46,12 @@ RULE: "Token not found" means "create it now" — not "use the literal instead"
 
 RESULT: Every value has a named source before it is used — no orphaned literals
 REASON: Writing the literal "temporarily" always becomes permanent — the scanner catches it
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
