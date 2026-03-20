@@ -31,3 +31,12 @@ T safe_add(T a, T b);
 
 BANNED: Unchecked casts — use `static_cast` with validation
 BANNED: Implicit narrowing conversions — use `gsl::narrow` or explicit check
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
