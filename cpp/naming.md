@@ -33,3 +33,12 @@ int iCount;              // Hungarian
 
 BANNED: Hungarian notation (`strName`, `iCount`, `bFlag`, `pNode`)
 BANNED: Single-letter names outside loop indices (`i`, `j`, `k` allowed in `for`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
