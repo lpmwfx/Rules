@@ -133,3 +133,12 @@ RULE: Use `actions/cache@v4` with version-pinned keys
 RULE: Release title = tag name (e.g., `v0.1.0`)
 RULE: Artifact names include platform and version: `project-0.1.0-linux-amd64.deb`
 BANNED: Generic artifact names like `build.zip` or `output.tar.gz`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
