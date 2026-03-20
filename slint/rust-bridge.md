@@ -115,3 +115,12 @@ RULE: Use `FilterModel` / `SortModel` for filtered views — do not pre-filter i
 
 RESULT: All state changes originate in the Adapter and are traceable through `set_*()` calls
 REASON: Centralised Slint ownership means every UI update is one grep away from the source
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
