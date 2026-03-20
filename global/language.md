@@ -40,3 +40,12 @@ label = t("save_file")  # en: "Save file", da: "Gem fil"
 ```
 
 UI text starts as English. Add i18n only when the project explicitly requires it.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
