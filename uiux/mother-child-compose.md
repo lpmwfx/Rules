@@ -47,3 +47,12 @@ RULE: `when` block in mother selects active view — children do not know about 
 
 RESULT: Adding a view = one new composable file + one `when` arm in mother — nothing else changes
 REASON: Children with hardcoded `Modifier.width` create layout conflicts when mother rearranges them
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
