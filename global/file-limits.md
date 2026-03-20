@@ -141,3 +141,12 @@ everything is in the same file.
 
 RESULT: Small files make changes local — a fix in `HomeFeed.tsx` cannot touch `HomeSidebar.tsx`
 REASON: File boundary = change boundary; keeping files small keeps changes contained
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
