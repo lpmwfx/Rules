@@ -135,3 +135,12 @@ KShortcutsDialog::showDialog(actionCollection(), KShortcutsEditor::LetterShortcu
 
 RESULT: Each desktop platform uses its native About/Shortcuts mechanism — zero custom dialogs where standards exist
 REASON: Custom About dialogs look out of place and miss platform features (license display, action search)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
