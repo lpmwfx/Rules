@@ -62,3 +62,12 @@ The "improvement" caused more damage than the original inconvenience.
 
 PRINCIPLE: Stability over cleverness — the boring solution that always works
 beats the elegant solution that sometimes breaks.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
