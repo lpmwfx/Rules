@@ -51,3 +51,12 @@ BANNED: `panic!()` for recoverable errors
 BANNED: `Box<dyn Error>` (use concrete error types)
 BANNED: Wildcard `_ => {}` error arm that discards without action
 BANNED: `_ => eprintln!(...)` — log without recovery at a recoverable call site
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
