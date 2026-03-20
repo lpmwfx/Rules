@@ -72,3 +72,12 @@ Add to [checklist.md](checklist.md):
 
 RESULT: Users can always discover what the app is, who made it, and how to use it efficiently
 REASON: About + shortcuts are platform citizenship requirements — not optional polish
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
