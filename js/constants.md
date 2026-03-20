@@ -41,3 +41,12 @@ export const config = Object.freeze({
 
 BANNED: Hardcoded URLs, ports, paths, timeouts in function bodies
 BANNED: Magic numbers without a named constant (`if (retries > 3)` — use `MAX_RETRIES`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
