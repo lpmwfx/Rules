@@ -342,3 +342,12 @@ Once habits form: optional (pre-commit gate is enough).
 
 Read `workflow/commit-clean.md` for pre-commit discipline.
 Read `workflow/read-violations.md` to understand scanner violations.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
