@@ -34,3 +34,12 @@ async def compress(data: bytes) -> bytes:
 
 BANNED: `time.sleep()` in async code — use `asyncio.sleep()`
 BANNED: Fire-and-forget tasks — always await or track
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
