@@ -40,3 +40,12 @@ BANNED: `== "any-string-literal"` in component code — use Strings.* constant
 
 RESULT: All string discriminators have a single source — rename in one place, updates everywhere
 REASON: A typo in a string literal is a silent bug — a missing Strings.* property is a compile error
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
