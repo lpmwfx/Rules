@@ -15,3 +15,12 @@ layer: 6
 | File | Topic |
 |------|-------|
 | [contract.md](contract.md) | Transport, protocol, message shapes |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
