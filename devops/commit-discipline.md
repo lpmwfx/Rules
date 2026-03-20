@@ -57,3 +57,12 @@ git add src/api/  && git commit -m "auth-layer/endpoints: login endpoint"
 
 The pre-commit hook (`rulestools-mcp staged-check`) blocks oversized commits automatically.
 If blocked: split the staged files into logical groups and commit each separately.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
