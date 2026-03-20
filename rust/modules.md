@@ -44,3 +44,12 @@ NOTE: Better inlining decisions and dead code elimination
 NOTE: Cache efficiency: smaller, focused modules = better instruction cache
 NOTE: Cargo can compile independent modules in parallel
 NOTE: LTO works better with clean boundaries
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
