@@ -42,3 +42,12 @@ cargo install cargo-deny cargo-audit cargo-nextest cargo-llvm-cov cargo-machete 
 - **Green build**: Level 0 passed
 - **Green merge**: Level 0 + 1 passed
 - **Green release**: Level 0 + 1 + 2 passed
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
