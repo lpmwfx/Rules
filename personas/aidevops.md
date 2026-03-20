@@ -142,3 +142,12 @@ Do not add abstractions, helpers, or features beyond what was asked.
 Do not add error handling for scenarios that cannot happen in the current context.
 The right amount of complexity is the minimum needed for the current task.
 </avoid_overengineering>
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
