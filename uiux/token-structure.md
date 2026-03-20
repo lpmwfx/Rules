@@ -47,3 +47,12 @@ RULE: Dark mode values use the SAME token names — tokens switch values, compon
 
 RESULT: One import point, consistent naming — AI can find and create tokens without guessing
 REASON: Scattered file imports and inconsistent names cause duplication and lookup failures
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
