@@ -95,3 +95,12 @@ Edit authority rules and relationships: [global/graph-rules.md](graph-rules.md)
 *This document introduces the Graph-Position Paradigm as the unifying conceptual frame
 for the rule system. Individual rule files implement specific constraints within this frame.
 The paradigm itself lives here — the rules live in their respective category files.*
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
