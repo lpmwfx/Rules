@@ -35,3 +35,12 @@ def parse_config(path: str, *, strict: bool = False) -> AppConfig:
 
 BANNED: Undocumented public API
 BANNED: Docstrings that just repeat the function name
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
