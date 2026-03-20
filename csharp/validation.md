@@ -56,3 +56,12 @@ BANNED: Manual null-check chains in domain code — validate at boundaries, trus
 BANNED: Validation logic scattered in business methods — centralize in validator classes
 BANNED: `string.IsNullOrEmpty()` deep in domain code — use `required` and boundary validation
 BANNED: Silently accepting invalid input — fail fast at the boundary
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
