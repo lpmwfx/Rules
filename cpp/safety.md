@@ -32,3 +32,12 @@ BANNED: Raw `new` / `delete`
 BANNED: C-style casts `(int)x` — use `static_cast<int>(x)`
 BANNED: `reinterpret_cast` without `// SAFETY:` comment explaining invariant
 BANNED: `void*` without documented invariant describing the pointed-to type
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
