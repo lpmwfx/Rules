@@ -29,3 +29,12 @@ REASON: AI generates TODO markers as placeholders — they accumulate silently
 
 `NOCOMMIT` and `HACK` → error (blocks commit)
 `TODO`, `FIXME`, `XXX` → warning (shown in ISSUES, does not block)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
