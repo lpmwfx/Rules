@@ -53,3 +53,12 @@ Files add layers, never fight
 
 RESULT: More CSS files = SIMPLER maintenance, not harder
 REASON: AI changes colors? Only touch theme.css. Layout? Only site.css.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
