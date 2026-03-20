@@ -52,3 +52,12 @@ RULE: `max-width` + `margin: 0 auto` for containers
   min-height: 100vh;
 }
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
