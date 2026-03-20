@@ -27,3 +27,12 @@ Adapter sits between Core/Gateway and UI. It owns `AdapterState_sta`, maps `_cor
 | [event-flow.md](event-flow.md) | Event routing, callback dispatch |
 
 See: [global/adapter-layer.md](../global/adapter-layer.md) | [global/topology.md](../global/topology.md)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
