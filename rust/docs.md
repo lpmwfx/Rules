@@ -146,3 +146,12 @@ The viewer displays:
 - **Left sidebar**: project folder hierarchy (`src/`, `src/checks/`, etc.)
 - **Right panel**: all `///` doc comments for items in the selected file
 - **Search**: find items by name or doc text across the entire project
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
