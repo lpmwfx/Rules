@@ -42,3 +42,12 @@ BANNED: `!important` — restructure cascade instead
 BANNED: Nesting deeper than 3 levels
 BANNED: ID selectors for styling (`#myId`)
 BANNED: Overqualified selectors (`div.card`, `ul.nav-list`) — class alone is sufficient
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
