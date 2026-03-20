@@ -61,3 +61,12 @@ struct AboutView: View {
 
 RESULT: Mobile users find About via standard navigation (drawer, settings) — no hidden discovery
 REASON: Mobile apps without About/license information fail app store review and user trust
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
