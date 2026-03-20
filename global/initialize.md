@@ -76,3 +76,12 @@ RULE: proj/PROJECT.Current.phase must be "1" after initialization
 BANNED: Skipping step 0 — hooks must be installed before any code is written
 BANNED: Creating proj/ files from assumptions — always read the source doc or ask the user
 BANNED: Leaving initialization partial — either complete all steps or none
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
