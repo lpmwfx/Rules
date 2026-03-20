@@ -60,3 +60,12 @@ RULE: If proj/ does not exist → follow global/initialize.md — do not improvi
 
 These rules apply to ALL code — Python, JavaScript, CSS, and any other language.
 They are non-negotiable habits that make AI collaboration reliable.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
