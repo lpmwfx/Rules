@@ -36,3 +36,12 @@ BANNED: `eval()`, `exec()`
 BANNED: `subprocess.call(cmd, shell=True)`
 BANNED: `pickle.loads()` on untrusted data
 BANNED: `os.system()` — use `subprocess.run()`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
