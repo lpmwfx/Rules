@@ -53,3 +53,12 @@ RULE: Never read theme config inside a component — Gateway passes `UiConfig_cf
 
 RESULT: Theme changes propagate from one config entry to every component
 REASON: Scattering theme logic across components makes switching impossible
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
