@@ -56,3 +56,12 @@ unsafe fn read_aligned(ptr: *const u8) -> u32 {
 
 `rust/safety/unsafe-needs-comment` — errors on any `unsafe` block or `unsafe fn`
 without a `// SAFETY:` comment within 3 lines above.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
