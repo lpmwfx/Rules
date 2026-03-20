@@ -15,3 +15,12 @@ FORMAT: `{"success": True, "data": result}`
 FORMAT: `{"success": False, "error": "message"}`
 RULE: ALL functions returning results use ACK format
 RULE: Check `ack["success"]` before using data
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
