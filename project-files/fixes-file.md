@@ -55,3 +55,12 @@ RULE: Problem → Cause → Solution format — never skip Cause
 RULE: `Cause:` is mandatory — without it the fix cannot be understood or reused
 RULE: `Solution:` must reference the specific file/line changed where relevant
 RULE: Short title on `##` heading — enough to find it by scanning
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
