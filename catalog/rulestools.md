@@ -52,3 +52,12 @@ rulestools_scanner::scan_project();
 Tool → CliApp → Library → SlintApp → Super
 
 Scanner adapts severity per kind. Same checks, different enforcement.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
