@@ -43,3 +43,12 @@ class ConnectionPool_pal {
 
 BANNED: Manual null-check chains — use safe calls `?.` or `require()`
 BANNED: Validation logic scattered through business methods
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
