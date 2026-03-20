@@ -95,3 +95,12 @@ close_issue(number: 4, comment: "Fixed: same-layer imports now allowed")
 BANNED: Reporting without checking for duplicates first
 BANNED: Closing issues without a comment explaining the fix
 BANNED: Manual editing of `proj/ISSUES` — scanner owns that file
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
