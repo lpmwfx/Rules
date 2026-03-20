@@ -46,3 +46,12 @@ export function isRateLimited(key, maxRequests, windowMs) {
 
 BANNED: Undocumented exports — every `export` needs a JSDoc block
 BANNED: Comments that restate the code (`// increment i` above `i++`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
