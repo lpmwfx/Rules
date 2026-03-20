@@ -110,3 +110,12 @@ RULE: `TODO.phase` must match `PROJECT.Current.phase`
 RULE: `TODO.id` must match `PROJECT.Current.id`
 RULE: Active phase in PHASES must match PROJECT phase
 RULE: If any check fails → STOP and ask user before proceeding
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
