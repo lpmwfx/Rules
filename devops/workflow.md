@@ -38,3 +38,12 @@ RULE: Clear notes about next step and dependencies
 - AI codes and implements solutions within agreed scope
 - Human is system designer and architect: defines goals, flows, constraints, priorities
 - The flow below is followed, where design and architecture drive implementation
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
