@@ -27,3 +27,12 @@ RULE: About page must contain: app name, version, author, license, source link
 
 RESULT: Web users discover shortcuts with a single keypress — same as desktop Ctrl+?
 REASON: Web apps without discoverable shortcuts lose power users to competitors
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
