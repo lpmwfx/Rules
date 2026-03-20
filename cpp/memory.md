@@ -33,3 +33,12 @@ delete ptr;               // NO
 BANNED: `new/delete` (use smart pointers)
 BANNED: Raw owning pointers
 BANNED: C-style casts (use `static_cast` etc.)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
