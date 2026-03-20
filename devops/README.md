@@ -21,3 +21,12 @@ Human is system designer and architect: defines goals, flows, constraints, prior
 | [publishing.md](publishing.md) | Private-to-public repo sync and release flow |
 | [cicd.md](cicd.md) | CI/CD pipeline rules and GitHub Actions template |
 | [packaging.md](packaging.md) | Package formats (DEB, RPM, MSI, DMG, tar.gz, APK, IPA) |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
