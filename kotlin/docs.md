@@ -38,3 +38,12 @@ fun searchProducts(query: String, limit: Int = 20): List<Product> {
 
 BANNED: Undocumented public API
 BANNED: KDoc that restates the function name (`/** Gets products. */` on `getProducts`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
