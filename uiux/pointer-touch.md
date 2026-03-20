@@ -29,3 +29,12 @@ BANNED: Hover-only menus or buttons
 RULE: Long press = right-click (context menu)
 RULE: Two-finger gestures available for app use (pinch zoom, two-finger scroll)
 BANNED: Three/four-finger gestures — reserved for system
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
