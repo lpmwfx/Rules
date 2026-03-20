@@ -50,3 +50,12 @@ RULE: Each variant carries enough context for the recovery strategy
 
 RESULT: Compiler enforces that every error case has a recovery path — no silent swallowing
 REASON: A `_ => {}` arm defeats the entire purpose of typed error handling
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
