@@ -109,3 +109,12 @@ Item_core { id: Uuid_x, price: Money_core, tax_rules: Vec<TaxRule_core> }
 
 RESULT: UI never needs to understand domain rules — it only renders what Adapter gives it
 REASON: Adapter decoupling means Core and UI can evolve independently
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
