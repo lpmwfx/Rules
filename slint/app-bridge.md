@@ -49,3 +49,12 @@ RULE: All routing decisions live in the Adapter's `AppBridge` handlers, not in `
 
 RESULT: All event routing is in one Rust file — adding a new event means one handler, not a chain of re-exports
 REASON: `AppBridge` eliminates callback bubbling through the component tree
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
