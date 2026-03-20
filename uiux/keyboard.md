@@ -131,3 +131,12 @@ RULE: Tooltips on buttons mention shortcuts: `"Zen Mode (Ctrl+Shift+Z)"`
 RULE: Context menus expose actions for right-click users
 RULE: Shortcuts dialog (`Ctrl+?`) lists all available shortcuts
 RULE: Header bar menu includes "Keyboard Shortcuts" entry
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
