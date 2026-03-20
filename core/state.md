@@ -65,3 +65,12 @@ RULE: `Default` implementation is the first-run state — no separate init logic
 
 RESULT: Core starts from a known state every session — Gateway is the only code that touches the file
 REASON: `grep CoreState_sta` finds every place domain session state is read or written
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
