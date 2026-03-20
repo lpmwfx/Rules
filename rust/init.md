@@ -148,3 +148,12 @@ RULE: First `cargo build` after init must be clean (zero violations)
 BANNED: Writing code before rulestools scanner is installed
 BANNED: Hardcoding values in function bodies — use `src/state/` from day one
 BANNED: Adding `pub` items without `///` doc comments
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
