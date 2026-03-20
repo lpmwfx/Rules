@@ -43,3 +43,12 @@ See: [global/module-tree.md](../global/module-tree.md) | [uiux/state-flow.md](..
 | [types.md](types.md) | Newtype, Option, slices |
 | [verification.md](verification.md) | Gating levels (clippy, deny, miri) |
 | [quick-ref.md](quick-ref.md) | Quick reference |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
