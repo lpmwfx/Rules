@@ -101,3 +101,12 @@ BANNED: Connections justified by "it works" — if the table says no, it is no
 
 RESULT: Node types + edge types + adjacency = complete typed graph specification
 REASON: A typed graph can be validated mechanically — the missing step is the graph builder
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
