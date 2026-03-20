@@ -70,3 +70,12 @@ Each rule is enforced in its own file — this file only states the shared found
 
 RESULT: AI can modify any child without understanding the whole system
 REASON: The surface area for any edit is exactly one file with no hidden dependencies
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
