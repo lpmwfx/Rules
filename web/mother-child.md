@@ -181,3 +181,12 @@ See [uiux/mother-child-react.md](../uiux/mother-child-react.md) for the React-sp
 
 RESULT: Any view can be understood by reading one file — it receives props, emits events, done
 REASON: Mother-child in the browser is the same pattern as desktop — only the API surface differs
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
