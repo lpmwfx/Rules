@@ -52,3 +52,12 @@ issue-reporter --app-id <app_id> --crash --crash-log <path_to_log>
 | Sailfish | `Qt.openUrlExternally` or `QProcess` |
 
 RULE: Launch as detached process — must survive host crash
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
