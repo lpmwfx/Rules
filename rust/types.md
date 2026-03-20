@@ -37,3 +37,12 @@ BANNED: Global mutable state (use dependency injection)
 BANNED: `&Vec<T>` as function parameter — use `&[T]` (accepts Vec, array, slice)
 BANNED: `&String` as function parameter — use `&str` (accepts String, literals, slices)
 BANNED: `static mut` — use `Mutex<T>`, `RwLock<T>`, or `OnceLock<T>`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
