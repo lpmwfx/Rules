@@ -27,3 +27,12 @@ RULE: Point `parserOptions.project` to jsconfig.json
 - `eqeqeq`: always (`===` only, never `==`)
 - `no-var`: error (`const/let` only)
 - `prefer-const`: error
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
