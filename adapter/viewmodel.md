@@ -85,3 +85,12 @@ RULE: Dates, prices, counts — format to display strings in the mapping, not in
 
 RESULT: Changing domain type `Collection_core` requires updating only `src/adapter/mapping.rs`
 REASON: UI never depends on domain representation — the mapping is the only coupling point
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
