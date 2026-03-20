@@ -90,3 +90,12 @@ RULE: Mobile PAL implementations (`android.rs`, `ios.rs`) handle platform paths,
 
 RESULT: Platform support scales by adding PAL implementations — shared crates are untouched
 REASON: `#[cfg]` outside PAL scatters platform knowledge and breaks the abstraction boundary
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
