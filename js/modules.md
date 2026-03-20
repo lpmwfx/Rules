@@ -78,3 +78,12 @@ BANNED: Reaching into module internals
 BANNED: Global state outside modules
 BANNED: Side effects on import (except initialization)
 BANNED: `require()` / `module.exports` — ESM only (`import`/`export`)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
