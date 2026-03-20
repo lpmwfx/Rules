@@ -23,3 +23,12 @@ layer: 6
 | [responsive.md](responsive.md) | Mobile-first, 768px breakpoint |
 | [typography.md](typography.md) | Typography, spacing, layout |
 | [quick-ref.md](quick-ref.md) | Quick reference table |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
