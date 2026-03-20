@@ -48,3 +48,12 @@ rust/errors/no-unwrap  →  mcp__rules__get_rule(file="rust/errors.md")
 ```
 
 AI assistants fixing issues should read `proj/RULES-MCP.md` for the full lookup workflow.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
