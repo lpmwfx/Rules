@@ -29,3 +29,12 @@ AI that starts informed:
 - No guessing, no scope creep
 
 RULE: The more you maintain these files, the smarter AI becomes on your project
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
