@@ -31,3 +31,12 @@ RULE: Only layer allowed to use `unsafe` code and OS-specific crates
 RULE: Adding a new platform = one new `_pal` implementation — zero changes elsewhere
 
 See: [global/topology.md](../global/topology.md) | [global/app-model.md](../global/app-model.md)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
