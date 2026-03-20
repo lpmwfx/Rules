@@ -180,3 +180,12 @@ Dialog {
 
 RULE: About shows: name, version, description, website link, license link
 RULE: Website and license are clickable links via `onLinkActivated`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
