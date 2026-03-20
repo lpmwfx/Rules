@@ -124,3 +124,12 @@ No custom dialog needed — fill the metadata struct completely.
 
 RULE: Always set name, version, authors, website, license, copyright in AboutMetadata
 RULE: issue_url optional but recommended — shows as "Report a Bug" link on macOS
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
