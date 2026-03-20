@@ -33,3 +33,12 @@ from other_package.api import fetch
 BANNED: Circular imports
 BANNED: Star imports (`from module import *`)
 BANNED: Logic in `__init__.py`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
