@@ -120,3 +120,12 @@ BANNED: Custom widgets without ARIA roles
 
 RESULT: Semantic HTML is self-documenting — the element names describe the content
 REASON: AI reads HTML literally — semantic elements are unambiguous, `<div>` is not
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
