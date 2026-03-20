@@ -192,3 +192,12 @@ Start here → read → apply:
 - Read `workflow/coding-discipline.md` — internalize naming/size/error rules
 - Read `workflow/read-violations.md` — learn violation Q&A
 - Read `workflow/commit-clean.md` — pre-commit discipline
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
