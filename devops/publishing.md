@@ -98,3 +98,12 @@ RULE: MAJOR = breaking changes, MINOR = new features, PATCH = fixes
 RULE: First release is `v0.1.0` (pre-1.0 = unstable API)
 BANNED: Untagged releases
 BANNED: Manual version bumps in multiple places — single source of truth
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
