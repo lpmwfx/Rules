@@ -66,3 +66,12 @@ fn load_config();           // snake_case functions
 const MAX_RETRIES: u32 = 3; // SCREAMING_SNAKE constants
 let file_path: PathBuf;     // snake_case variables
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
