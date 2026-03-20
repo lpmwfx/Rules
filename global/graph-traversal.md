@@ -92,3 +92,12 @@ The import DAG is the graph. The suffix tags are the node addresses.
 
 RESULT: Every edit is bounded by declared edges — no silent cross-boundary changes
 REASON: Unbounded traversal is the root cause of AI overwrite errors
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
