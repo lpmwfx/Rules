@@ -118,3 +118,12 @@ project/
 - UI calling Core/Gateway/PAL directly — only via Adapter
 - `utils.rs`, `helpers.rs`, `common.rs`
 - `static mut`, fire-and-forget spawns
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
