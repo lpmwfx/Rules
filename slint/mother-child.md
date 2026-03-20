@@ -209,3 +209,12 @@ export component NavBar inherits Rectangle {
     // NO in-out property — fills the slot mother provides
 }
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
