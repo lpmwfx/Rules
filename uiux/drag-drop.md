@@ -64,3 +64,12 @@ RULE: Every drag-and-drop action MUST have a keyboard/menu alternative
 - "Copy Path" in context menu = alternative to drag-to-terminal
 - "Move to..." menu item = alternative to drag-to-folder
 - Arrow keys + modifier for reordering = alternative to drag-reorder
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
