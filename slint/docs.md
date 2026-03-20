@@ -87,3 +87,12 @@ callback book-selected(id: int);
 1. Run `rustdocumenter gen` to scan all `.slint` files → `proj/ISSUES` lists undocumented exports
 2. Add `///` above each item listed in `proj/ISSUES`
 3. Re-run `rustdocumenter gen` — `proj/ISSUES` shrinks or disappears
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
