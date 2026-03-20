@@ -139,3 +139,12 @@ BANNED: A flat cluster of sibling files with no compositor — there is always o
 
 RESULT: Each file is a unit of change and a unit of AI comprehension — one edit, one file, no surprises
 REASON: The encapsulation boundary and the file boundary are the same thing — they must stay aligned
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
