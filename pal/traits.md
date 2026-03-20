@@ -90,3 +90,12 @@ RULE: Test doubles live in `src/pal/` alongside real implementations
 
 RESULT: Core and Gateway are fully testable without a real OS or filesystem
 REASON: `TestFilePal_pal` is a PAL implementation like any other — the trait makes it interchangeable
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
