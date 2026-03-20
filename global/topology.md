@@ -210,3 +210,12 @@ BANNED: Children that own state shared with siblings — route through mother
 BANNED: Children that reach outside their subtree for state — mother passes it down
 RESULT: Any module can be understood, tested, and replaced by reading exactly one file
 REASON: Single ownership eliminates hidden coupling — AI only needs one file's context to reason correctly
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
