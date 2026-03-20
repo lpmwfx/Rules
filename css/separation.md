@@ -29,3 +29,12 @@ css/
 RULE: Layout files contain ZERO color values
 RULE: Theme files contain ONLY color values and color-dependent styles
 RULE: Each file has a header comment explaining its purpose
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
