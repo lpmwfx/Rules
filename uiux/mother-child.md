@@ -145,3 +145,12 @@ RULE: At each level there is exactly one owner of state and layout for that subt
 
 Cross-toolkit implementations: [uiux/mother-child-react.md](mother-child-react.md) | [uiux/mother-child-compose.md](mother-child-compose.md)
 Proc-macro exemption (Rust): [rust/proc-macro-exemption.md](../rust/proc-macro-exemption.md)
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
