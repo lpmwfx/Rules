@@ -52,7 +52,9 @@
       "WebFetch(domain:spec.modelcontextprotocol.io)",
       "Bash(python3:*)",
       "mcp__rulestools__setup",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "mcp__mcp-proxy__rules__get_rule",
+      "mcp__mcp-proxy__rules__search_rules"
     ]
   }
 }
