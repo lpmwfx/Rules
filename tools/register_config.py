@@ -25,6 +25,8 @@ CATEGORIES = [
     "rust",
     "kotlin",
     "csharp",
+    "php",
+    "php/laravel",
     "catalog",
     "quick-ref",
 ]
