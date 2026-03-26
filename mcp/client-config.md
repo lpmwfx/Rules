@@ -153,16 +153,16 @@ Servers behind Tailscale need no additional auth — the network is the perimete
 ```json
 {
   "mcpServers": {
-    "articles": {
+    "internal-tool": {
       "type": "http",
-      "url": "https://articles.lpmintra.com/mcp"
+      "url": "http://mimer:PORT/mcp"
     }
   }
 }
 ```
 
 RULE: Tailscale-internal servers skip auth — MagicDNS hostname is sufficient
-RULE: Public-facing servers MUST use one of the auth methods above
+RULE: Public-facing servers (VPS, cloud) MUST use one of the auth methods above
 
 ---
 
@@ -181,7 +181,7 @@ RULE: Public-facing servers MUST use one of the auth methods above
 |--------|-----|---------|-------|
 | `issuesmcp` | Tailscale / localhost | Forgejo/GitHub issue CRUD | 8 |
 
-### Content & Publishing
+### Content & Publishing (public VPS — auth required)
 
 | Server | URL | Purpose | Tools |
 |--------|-----|---------|-------|
@@ -281,11 +281,17 @@ RULE: Public-facing servers MUST use one of the auth methods above
     },
     "articles": {
       "type": "http",
-      "url": "https://articles.lpmintra.com/mcp"
+      "url": "https://articles.lpmintra.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCP_ARTICLES_TOKEN}"
+      }
     },
     "audience": {
       "type": "http",
-      "url": "https://audienceintelligence.lpmintra.com/mcp"
+      "url": "https://audienceintelligence.lpmintra.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCP_AUDIENCE_TOKEN}"
+      }
     }
   }
 }
@@ -363,11 +369,13 @@ RULE: After creation, verify each server responds before continuing
 
 MCP server URLs come from these sources, in priority order:
 
-1. **Tailscale MagicDNS** — `*.lpmintra.com` for Tailscale-internal services
-2. **localhost** — for locally running servers during development
-3. **Environment variables** — `MCP_RULES_URL`, `MCP_TOOLS_URL` etc. for CI/CD
+1. **Public VPS** — `*.lpmintra.com` for public-facing MCP services (auth required)
+2. **Tailscale MagicDNS** — internal hostnames for private services (no auth needed)
+3. **localhost** — for locally running servers during development
+4. **Environment variables** — `MCP_RULES_URL`, `MCP_TOOLS_URL` etc. for CI/CD
 
-RULE: Use Tailscale hostnames for servers on other machines
+RULE: Public VPS servers (`*.lpmintra.com`) MUST use auth headers with `${VAR}` tokens
+RULE: Tailscale-internal servers use MagicDNS hostnames — no auth needed
 RULE: Use localhost for servers on the dev machine
 RULE: Never hardcode IP addresses — they change
 
@@ -376,7 +384,7 @@ RULE: Never hardcode IP addresses — they change
 ## Security
 
 RULE: No plaintext secrets in `.claude/mcp.json` — use `${VAR}` interpolation or `headersHelper`
-RULE: Tailscale-internal servers (`*.lpmintra.com`) do not need additional auth
+RULE: Tailscale-internal servers do not need additional auth
 RULE: Public-facing MCP endpoints MUST require authentication
 RULE: `.claude/mcp.json` is safe to commit — URLs and `${VAR}` references are not secrets
 RULE: OAuth tokens are stored in system keychain — never in config files
