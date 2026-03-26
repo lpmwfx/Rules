@@ -27,6 +27,7 @@ RULE: All PHP rules from [php/](../README.md) apply — Laravel adds framework-s
 
 | File | Topic |
 |------|-------|
+| [init.md](init.md) | Full setup sequence — install, stack, proj/ templates |
 | [architecture.md](architecture.md) | Project structure, Actions, Services, thin controllers |
 | [eloquent.md](eloquent.md) | Models, relationships, scopes — no fat models |
 | [state-flow.md](state-flow.md) | Explicit state, enums, transitions |
