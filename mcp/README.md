@@ -12,27 +12,32 @@ layer: 6
 
 ## What This Category Covers
 
-MCP (Model Context Protocol) integration gives an AI assistant the same access to your app
-as a human user — via the existing Adapter event surface. No separate API, no duplicated logic.
+Two sides of MCP:
 
-The MCP server is a UI component (`_ui`) that lives in `src/ui/`.
-It is the AI's user interface — parallel to the GUI, not a bus or gateway.
-It is activated by the `--mcp` CLI flag and communicates via stdio transport.
+1. **Client config** — how your project declares which MCP servers it needs (`.claude/mcp.json`)
+2. **Server building** — how your app exposes itself as an MCP server for AI assistants
 
 ## Files in This Category
 
 | File | Layer | Description |
 |------|-------|-------------|
+| `client-config.md` | 2 | Per-project `.claude/mcp.json` — HTTP transport, server selection |
 | `event-adapter.md` | 3 | Adapter as the single event API — all input sources use the same named events |
-| `app-server.md` | 4 | MCP server as Gateway component — `--mcp` flag, stdio transport, dev workflow |
+| `app-server.md` | 4 | MCP server as Gateway component — `--mcp` flag, dev workflow |
 
 ## Key Principles
 
+### Client (consuming MCP servers)
+- **Per-project config**: Each project declares its own MCP servers in `.claude/mcp.json`
+- **HTTP-only transport**: All servers use `streamable-http` — no stdio in project configs
+- **Committed to repo**: `.claude/mcp.json` is part of the project — portable and reproducible
+- **Minimal set**: Only declare servers the project actually uses
+
+### Server (building MCP servers)
 - **MCP = another UI for AI**: AI gets exactly the same access as a human using the UI
 - **Adapter events are the contract**: MCP tools are thin wrappers over Adapter events — no own logic
-- **stdio transport**: App is launched as a subprocess; no Unix sockets, no TCP
+- **HTTP transport**: Servers expose HTTP endpoints — proxy translates to stdio where needed
 - **Early adoption**: Introduce `--mcp` at project start so AI can test before UI is built
-- **Cross-platform**: stdio transport works on Windows, macOS, Linux, Android, and iOS
 
 ## Related Categories
 
