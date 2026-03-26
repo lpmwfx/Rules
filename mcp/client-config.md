@@ -58,9 +58,16 @@ Claude Code reads `.claude/mcp.json` in the project root:
 
 ## Authentication
 
-### 1. Environment Variable Interpolation (recommended)
+### Recommended: Dashboard Token + Environment Variable
 
-Secrets stay in environment, not in committed files:
+Each MCP server has a PWA dashboard where you generate a long-lived API token.
+The token goes in an environment variable, referenced from `.mcp.json` via `${VAR}`.
+
+**Flow:**
+1. Open the system's PWA dashboard (e.g. `https://articles.lpmintra.com/dash`)
+2. Log in → generate API token
+3. Set env var: `export ARTICLES_TOKEN=ey...`
+4. `.mcp.json` picks it up automatically
 
 ```json
 {
@@ -69,7 +76,7 @@ Secrets stay in environment, not in committed files:
       "type": "http",
       "url": "https://articles.lpmintra.com/mcp",
       "headers": {
-        "Authorization": "Bearer ${MCP_ARTICLES_TOKEN}"
+        "Authorization": "Bearer ${ARTICLES_TOKEN}"
       }
     }
   }
@@ -79,74 +86,31 @@ Secrets stay in environment, not in committed files:
 Syntax: `${VAR}` expands at runtime. `${VAR:-default}` provides fallback.
 Works in: `url`, `headers`, `command`, `args`, `env`.
 
-### 2. Static Headers (simple, non-secret environments)
+Same pattern as GitHub Personal Access Tokens — generate in web UI, put in config.
 
-```json
-{
-  "mcpServers": {
-    "internal-api": {
-      "type": "http",
-      "url": "https://api.internal.com/mcp",
-      "headers": {
-        "X-API-Key": "fixed-key"
-      }
-    }
-  }
-}
+**Server-side requirements:**
+- `/dash` — PWA dashboard with login (password, magic link, etc.)
+- Token generation — JWT or opaque token with expiry + scope
+- Middleware on `/mcp` — validates `Authorization: Bearer` header
+- Optional: `/token/refresh`, token revocation, TTL display in dashboard
+
+RULE: Each MCP server provides its own dashboard for token management
+RULE: Tokens are stored in environment variables, never in committed files
+RULE: Dashboard shows token status, allows regeneration, and sets TTL
+
+### Known Bug: `.mcp.json` headers
+
+As of Claude Code v2.1.84, there is a bug (#28293) where `headers` defined in
+`.mcp.json` may not be forwarded on tool-call POST requests. Headers added via
+`claude mcp add --header` CLI command DO work reliably.
+
+**Workaround** if `.mcp.json` headers fail:
+```bash
+claude mcp add --transport http articles https://articles.lpmintra.com/mcp \
+  --header "Authorization: Bearer $ARTICLES_TOKEN"
 ```
 
-RULE: Only use static headers for non-secret values or Tailscale-internal servers
-
-### 3. Headers Helper (dynamic tokens)
-
-Shell command runs on each connection, outputs JSON headers to stdout:
-
-```json
-{
-  "mcpServers": {
-    "secure-api": {
-      "type": "http",
-      "url": "https://api.example.com/mcp",
-      "headersHelper": "get-mcp-token.sh"
-    }
-  }
-}
-```
-
-The command must:
-- Output valid JSON: `{"Authorization": "Bearer xyz"}`
-- Complete within 10 seconds
-- Dynamic headers override static `headers` with same name
-
-### 4. OAuth 2.0 (browser login flow)
-
-For servers supporting OAuth — user authenticates via browser:
-
-```json
-{
-  "mcpServers": {
-    "cloud-service": {
-      "type": "http",
-      "url": "https://mcp.service.com/mcp",
-      "oauth": {
-        "clientId": "your-client-id",
-        "callbackPort": 8080
-      }
-    }
-  }
-}
-```
-
-After adding: run `/mcp` in Claude Code → follow browser login → tokens stored in keychain.
-
-Override metadata discovery for OIDC:
-```json
-"oauth": {
-  "authServerMetadataUrl": "https://auth.example.com/.well-known/openid-configuration"
-}
-```
-
-### 5. Tailscale Network (no auth needed)
+### Tailscale Network (no auth needed)
 
 Servers behind Tailscale need no additional auth — the network is the perimeter:
 
@@ -161,8 +125,15 @@ Servers behind Tailscale need no additional auth — the network is the perimete
 }
 ```
 
+### OAuth 2.0 (not recommended yet)
+
+Claude Code has OAuth support via DCR (Dynamic Client Registration), but it has
+multiple open bugs (#11585, #38102) — pre-registered client IDs are often ignored,
+and the browser auth flow does not always trigger. Use dashboard tokens instead
+until OAuth stabilizes in Claude Code.
+
 RULE: Tailscale-internal servers skip auth — MagicDNS hostname is sufficient
-RULE: Public-facing servers (VPS, cloud) MUST use one of the auth methods above
+RULE: Public-facing servers (VPS) use dashboard token + `${VAR}` pattern
 
 ---
 
@@ -181,12 +152,14 @@ RULE: Public-facing servers (VPS, cloud) MUST use one of the auth methods above
 |--------|-----|---------|-------|
 | `issuesmcp` | Tailscale / localhost | Forgejo/GitHub issue CRUD | 8 |
 
-### Content & Publishing (public VPS — auth required)
+### Content & Publishing (public VPS)
 
 | Server | URL | Purpose | Tools |
 |--------|-----|---------|-------|
 | `articles` | `https://articles.lpmintra.com/mcp` | Article publish pipeline | 15 |
 | `audience` | `https://audienceintelligence.lpmintra.com/mcp` | SEO, web intelligence, inspiration | 18 |
+
+Auth: Bearer token from each system's PWA dashboard (`/dash`). Token → env var → `${VAR}` in mcp.json.
 
 ### Desktop & Automation
 
@@ -283,14 +256,14 @@ RULE: Public-facing servers (VPS, cloud) MUST use one of the auth methods above
       "type": "http",
       "url": "https://articles.lpmintra.com/mcp",
       "headers": {
-        "Authorization": "Bearer ${MCP_ARTICLES_TOKEN}"
+        "Authorization": "Bearer ${ARTICLES_TOKEN}"
       }
     },
     "audience": {
       "type": "http",
       "url": "https://audienceintelligence.lpmintra.com/mcp",
       "headers": {
-        "Authorization": "Bearer ${MCP_AUDIENCE_TOKEN}"
+        "Authorization": "Bearer ${AUDIENCE_TOKEN}"
       }
     }
   }
@@ -383,13 +356,13 @@ RULE: Never hardcode IP addresses — they change
 
 ## Security
 
-RULE: No plaintext secrets in `.claude/mcp.json` — use `${VAR}` interpolation or `headersHelper`
+RULE: No plaintext secrets in `.claude/mcp.json` — use `${VAR}` interpolation
 RULE: Tailscale-internal servers do not need additional auth
-RULE: Public-facing MCP endpoints MUST require authentication
+RULE: Public-facing MCP endpoints MUST validate Bearer token from dashboard
 RULE: `.claude/mcp.json` is safe to commit — URLs and `${VAR}` references are not secrets
-RULE: OAuth tokens are stored in system keychain — never in config files
+RULE: Each public MCP server manages its own tokens via its PWA dashboard
 
 BANNED: Hardcoded Bearer tokens in committed mcp.json
-BANNED: MCP servers exposed on 0.0.0.0 without authentication
+BANNED: MCP servers exposed on 0.0.0.0 without token validation
 BANNED: Storing secrets in `.claude/` directory
 BANNED: Using `"type": "stdio"` in project mcp.json — HTTP only
