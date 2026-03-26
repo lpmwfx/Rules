@@ -3,7 +3,7 @@ tags: [mcp, client, config, claude-code, http, project-setup]
 concepts: [mcp-client-config, per-project-mcp, http-transport]
 requires: [mcp/README.md, global/initialize.md]
 related: [mcp/app-server.md, project-files/project-file.md]
-keywords: [mcp.json, claude-code, streamable-http, mcpServers, per-project, http-transport]
+keywords: [mcp.json, claude-code, http, mcpServers, per-project, http-transport, oauth, headers]
 layer: 2
 ---
 # MCP Client Configuration
@@ -23,7 +23,7 @@ Per-project config means:
 - HTTP-only — no subprocess management, no binary path issues
 
 RULE: Every project MUST have `.claude/mcp.json` declaring its MCP servers
-RULE: All MCP servers use HTTP transport (`streamable-http`) — no stdio in project configs
+RULE: All MCP servers use HTTP transport (`"type": "http"`) — no stdio in project configs
 RULE: `.claude/mcp.json` is committed to the repo — it is part of the project
 RULE: Only declare servers the project actually uses — no "include everything"
 
@@ -37,8 +37,8 @@ Claude Code reads `.claude/mcp.json` in the project root:
 {
   "mcpServers": {
     "server-name": {
-      "type": "streamable-http",
-      "url": "http://host:port/path"
+      "type": "http",
+      "url": "https://host/mcp"
     }
   }
 }
@@ -48,13 +48,121 @@ Claude Code reads `.claude/mcp.json` in the project root:
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `type` | Yes | Transport — always `"streamable-http"` |
-| `url` | Yes | HTTP endpoint for the MCP server |
-| `headers` | No | Auth headers — `{"Authorization": "Bearer ..."}` |
+| `type` | Yes | Transport — `"http"` for streamable HTTP, `"sse"` for SSE |
+| `url` | Yes | HTTP endpoint — supports `${VAR}` interpolation |
+| `headers` | No | Static auth headers — supports `${VAR}` interpolation |
+| `headersHelper` | No | Shell command that outputs JSON headers (dynamic auth) |
+| `oauth` | No | OAuth 2.0 configuration (browser login flow) |
 
-RULE: Use `streamable-http` transport — not `sse`, not `stdio`
-RULE: URLs must use hostname, not IP — use Tailscale hostnames or localhost
-RULE: No secrets in mcp.json — use environment variable references where supported
+---
+
+## Authentication
+
+### 1. Environment Variable Interpolation (recommended)
+
+Secrets stay in environment, not in committed files:
+
+```json
+{
+  "mcpServers": {
+    "articles": {
+      "type": "http",
+      "url": "https://articles.lpmintra.com/mcp",
+      "headers": {
+        "Authorization": "Bearer ${MCP_ARTICLES_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+Syntax: `${VAR}` expands at runtime. `${VAR:-default}` provides fallback.
+Works in: `url`, `headers`, `command`, `args`, `env`.
+
+### 2. Static Headers (simple, non-secret environments)
+
+```json
+{
+  "mcpServers": {
+    "internal-api": {
+      "type": "http",
+      "url": "https://api.internal.com/mcp",
+      "headers": {
+        "X-API-Key": "fixed-key"
+      }
+    }
+  }
+}
+```
+
+RULE: Only use static headers for non-secret values or Tailscale-internal servers
+
+### 3. Headers Helper (dynamic tokens)
+
+Shell command runs on each connection, outputs JSON headers to stdout:
+
+```json
+{
+  "mcpServers": {
+    "secure-api": {
+      "type": "http",
+      "url": "https://api.example.com/mcp",
+      "headersHelper": "get-mcp-token.sh"
+    }
+  }
+}
+```
+
+The command must:
+- Output valid JSON: `{"Authorization": "Bearer xyz"}`
+- Complete within 10 seconds
+- Dynamic headers override static `headers` with same name
+
+### 4. OAuth 2.0 (browser login flow)
+
+For servers supporting OAuth — user authenticates via browser:
+
+```json
+{
+  "mcpServers": {
+    "cloud-service": {
+      "type": "http",
+      "url": "https://mcp.service.com/mcp",
+      "oauth": {
+        "clientId": "your-client-id",
+        "callbackPort": 8080
+      }
+    }
+  }
+}
+```
+
+After adding: run `/mcp` in Claude Code → follow browser login → tokens stored in keychain.
+
+Override metadata discovery for OIDC:
+```json
+"oauth": {
+  "authServerMetadataUrl": "https://auth.example.com/.well-known/openid-configuration"
+}
+```
+
+### 5. Tailscale Network (no auth needed)
+
+Servers behind Tailscale need no additional auth — the network is the perimeter:
+
+```json
+{
+  "mcpServers": {
+    "articles": {
+      "type": "http",
+      "url": "https://articles.lpmintra.com/mcp"
+    }
+  }
+}
+```
+
+RULE: Tailscale-internal servers skip auth — MagicDNS hostname is sufficient
+RULE: Public-facing servers MUST use one of the auth methods above
 
 ---
 
@@ -64,28 +172,28 @@ RULE: No secrets in mcp.json — use environment variable references where suppo
 
 | Server | URL | Purpose | Tools |
 |--------|-----|---------|-------|
-| `rules` | `http://localhost:PORT/rules` | Rule lookup, search, context | 7 tools |
-| `rulestools` | `http://localhost:PORT/tools` | Scan, setup, init, publish | 16 tools |
+| `rules` | Tailscale / localhost | Rule lookup, search, context | 7 |
+| `rulestools` | Tailscale / localhost | Scan, setup, init, publish | 16 |
 
 ### Development
 
 | Server | URL | Purpose | Tools |
 |--------|-----|---------|-------|
-| `issuesmcp` | `http://localhost:PORT/issues` | Forgejo/GitHub issue CRUD | 8 tools |
+| `issuesmcp` | Tailscale / localhost | Forgejo/GitHub issue CRUD | 8 |
 
 ### Content & Publishing
 
 | Server | URL | Purpose | Tools |
 |--------|-----|---------|-------|
-| `articles` | `http://HOST/articles` | Article publish pipeline | 15 tools |
-| `audience` | `http://HOST/audience` | Audience intelligence, SEO | 18 tools |
+| `articles` | `https://articles.lpmintra.com/mcp` | Article publish pipeline | 15 |
+| `audience` | `https://audienceintelligence.lpmintra.com/mcp` | SEO, web intelligence, inspiration | 18 |
 
 ### Desktop & Automation
 
 | Server | URL | Purpose | Tools |
 |--------|-----|---------|-------|
-| `gui-mcp` | `http://localhost:PORT/gui` | Windows GUI automation | 15 tools |
-| `carussel` | `http://localhost:PORT/carussel` | Badge injection | 3 tools |
+| `gui-mcp` | localhost | Windows GUI automation | 15 |
+| `carussel` | localhost | Badge injection | 3 |
 
 ---
 
@@ -97,16 +205,16 @@ RULE: No secrets in mcp.json — use environment variable references where suppo
 {
   "mcpServers": {
     "rules": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/rules"
+      "type": "http",
+      "url": "${MCP_RULES_URL:-http://localhost:PORT/rules}"
     },
     "rulestools": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/tools"
+      "type": "http",
+      "url": "${MCP_TOOLS_URL:-http://localhost:PORT/tools}"
     },
     "issuesmcp": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/issues"
+      "type": "http",
+      "url": "${MCP_ISSUES_URL:-http://localhost:PORT/issues}"
     }
   }
 }
@@ -118,20 +226,20 @@ RULE: No secrets in mcp.json — use environment variable references where suppo
 {
   "mcpServers": {
     "rules": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/rules"
+      "type": "http",
+      "url": "${MCP_RULES_URL:-http://localhost:PORT/rules}"
     },
     "rulestools": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/tools"
+      "type": "http",
+      "url": "${MCP_TOOLS_URL:-http://localhost:PORT/tools}"
     },
     "issuesmcp": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/issues"
+      "type": "http",
+      "url": "${MCP_ISSUES_URL:-http://localhost:PORT/issues}"
     },
     "gui-mcp": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/gui"
+      "type": "http",
+      "url": "${MCP_GUI_URL:-http://localhost:PORT/gui}"
     }
   }
 }
@@ -143,16 +251,16 @@ RULE: No secrets in mcp.json — use environment variable references where suppo
 {
   "mcpServers": {
     "rules": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/rules"
+      "type": "http",
+      "url": "${MCP_RULES_URL:-http://localhost:PORT/rules}"
     },
     "rulestools": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/tools"
+      "type": "http",
+      "url": "${MCP_TOOLS_URL:-http://localhost:PORT/tools}"
     },
     "issuesmcp": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/issues"
+      "type": "http",
+      "url": "${MCP_ISSUES_URL:-http://localhost:PORT/issues}"
     }
   }
 }
@@ -164,20 +272,20 @@ RULE: No secrets in mcp.json — use environment variable references where suppo
 {
   "mcpServers": {
     "rules": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/rules"
+      "type": "http",
+      "url": "${MCP_RULES_URL:-http://localhost:PORT/rules}"
     },
     "rulestools": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/tools"
+      "type": "http",
+      "url": "${MCP_TOOLS_URL:-http://localhost:PORT/tools}"
     },
     "articles": {
-      "type": "streamable-http",
-      "url": "http://HOST/articles"
+      "type": "http",
+      "url": "https://articles.lpmintra.com/mcp"
     },
     "audience": {
-      "type": "streamable-http",
-      "url": "http://HOST/audience"
+      "type": "http",
+      "url": "https://audienceintelligence.lpmintra.com/mcp"
     }
   }
 }
@@ -189,19 +297,45 @@ RULE: No secrets in mcp.json — use environment variable references where suppo
 {
   "mcpServers": {
     "rules": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/rules"
+      "type": "http",
+      "url": "${MCP_RULES_URL:-http://localhost:PORT/rules}"
     },
     "rulestools": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/tools"
+      "type": "http",
+      "url": "${MCP_TOOLS_URL:-http://localhost:PORT/tools}"
     },
     "issuesmcp": {
-      "type": "streamable-http",
-      "url": "http://localhost:PORT/issues"
+      "type": "http",
+      "url": "${MCP_ISSUES_URL:-http://localhost:PORT/issues}"
     }
   }
 }
+```
+
+---
+
+## CLI Management
+
+```bash
+# Add a server
+claude mcp add --transport http articles https://articles.lpmintra.com/mcp
+
+# Add with auth header
+claude mcp add --transport http secure-api https://api.example.com/mcp \
+  --header "Authorization: Bearer ${TOKEN}"
+
+# Add with OAuth
+claude mcp add --transport http cloud-svc https://mcp.service.com/mcp \
+  --client-id my-client-id --callback-port 8080
+
+# List configured servers
+claude mcp list
+
+# Remove a server
+claude mcp remove articles
+
+# Authenticate / clear auth
+/mcp   # inside Claude Code session
 ```
 
 ---
@@ -214,12 +348,13 @@ During `global/initialize.md` step 0, after `rulestools setup .`:
 0b. CREATE .claude/mcp.json
     → Detect project type from proj/PROJECT stack
     → Select template (see Project Type Templates above)
-    → Write .claude/mcp.json with correct URLs
-    → Verify: all declared servers respond to health check
+    → Replace PORT placeholders with actual ports
+    → Write .claude/mcp.json
+    → Verify: all declared servers respond
 ```
 
 RULE: `.claude/mcp.json` is created during project initialization — not ad-hoc
-RULE: URLs are filled from environment or Tailscale — never hardcoded IPs
+RULE: URLs use env var interpolation with sensible defaults
 RULE: After creation, verify each server responds before continuing
 
 ---
@@ -228,9 +363,9 @@ RULE: After creation, verify each server responds before continuing
 
 MCP server URLs come from these sources, in priority order:
 
-1. **Tailscale** — `tailscale status` for remote hosts (production MCP servers)
+1. **Tailscale MagicDNS** — `*.lpmintra.com` for Tailscale-internal services
 2. **localhost** — for locally running servers during development
-3. **Environment** — `MCP_RULES_URL`, `MCP_TOOLS_URL` etc. for CI/CD
+3. **Environment variables** — `MCP_RULES_URL`, `MCP_TOOLS_URL` etc. for CI/CD
 
 RULE: Use Tailscale hostnames for servers on other machines
 RULE: Use localhost for servers on the dev machine
@@ -240,11 +375,13 @@ RULE: Never hardcode IP addresses — they change
 
 ## Security
 
-RULE: No API keys or tokens in `.claude/mcp.json` — use env vars or auth middleware
-RULE: MCP servers behind Tailscale do not need additional auth — network is the perimeter
-RULE: Public-facing MCP endpoints MUST require authentication headers
-RULE: `.claude/mcp.json` is safe to commit — it contains URLs, not secrets
+RULE: No plaintext secrets in `.claude/mcp.json` — use `${VAR}` interpolation or `headersHelper`
+RULE: Tailscale-internal servers (`*.lpmintra.com`) do not need additional auth
+RULE: Public-facing MCP endpoints MUST require authentication
+RULE: `.claude/mcp.json` is safe to commit — URLs and `${VAR}` references are not secrets
+RULE: OAuth tokens are stored in system keychain — never in config files
 
-BANNED: Hardcoded Bearer tokens in mcp.json
+BANNED: Hardcoded Bearer tokens in committed mcp.json
 BANNED: MCP servers exposed on 0.0.0.0 without authentication
 BANNED: Storing secrets in `.claude/` directory
+BANNED: Using `"type": "stdio"` in project mcp.json — HTTP only
