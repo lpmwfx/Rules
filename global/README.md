@@ -36,6 +36,8 @@ These are non-negotiable habits that make AI collaboration reliable.
 | [file-limits.md](file-limits.md) | Max file sizes — check before writing, split when at limit |
 | [module-tree.md](module-tree.md) | Module = file, nested = folder — never nested code in one file |
 | [language.md](language.md) | English-only code and docs — ASCII source, English-first UI |
+| [topology-profiles.md](topology-profiles.md) | Topology per project type — GUI, CLI, MCP, daemon, Blade |
+| [tools-and-scripts.md](tools-and-scripts.md) | Tools are dependencies, scripts are owned code — runtime and location rules |
 
 
 ---

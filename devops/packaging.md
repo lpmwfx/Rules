@@ -1,7 +1,7 @@
 ---
 tags: [devops, packaging, distribution, artifacts]
 concepts: [packaging, distribution]
-related: [python/distribution.md, devops/publishing.md]
+related: [python/distribution.md, devops/publishing.md, global/tools-and-scripts.md]
 keywords: [wheel, npm-pack, cargo-publish]
 layer: 5
 ---

@@ -76,8 +76,8 @@ Copy the matching rows to proj/RULES → ## Active Rules → ### UI.
 | iOS                | uiux/theming.md |
 | Qt6 / QML          | uiux/theming.md |
 | React/Svelte/Vue   | covered by js/README.md + Web/PWA row |
-| Compose Android    | covered by kotlin/README.md |
-| Compose Desktop    | covered by kotlin/README.md + Windows/macOS rows |
+| Compose Android    | uiux/mother-child-compose.md |
+| Compose Desktop    | uiux/mother-child-compose.md + Windows/macOS rows |
 
 RULE: A project targeting 3 platforms loads exactly 3 platform files — not "uiux/ (all)"
 NOTE: Android/iOS/Qt6 have dedicated files planned (TODO #25–27) — current entries are interim

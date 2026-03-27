@@ -1,7 +1,7 @@
 ---
 tags: [install, publishing, dual-repo, ci-cd]
 concepts: [publishing-flow, dual-repo, distribution]
-related: [project-files/workflow.md, project-files/changelog-file.md]
+related: [project-files/workflow.md, project-files/changelog-file.md, global/tools-and-scripts.md]
 keywords: [dual-repo, public-repo, identity]
 layer: 2
 ---

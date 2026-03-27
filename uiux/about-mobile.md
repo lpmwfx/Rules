@@ -2,7 +2,7 @@
 tags: [uiux, about, mobile, android, ios, compose, swiftui]
 concepts: [about-screen-mobile, mobile-about]
 requires: [uiux/help-about.md]
-related: [uiux/menus-android.md, uiux/menus-ios.md, kotlin/tokens.md]
+related: [uiux/menus-android.md, uiux/menus-ios.md]
 keywords: [AboutScreen, AboutView, Composable, SwiftUI, List, Section, LabeledContent, navigation-drawer, settings]
 layer: 4
 ---

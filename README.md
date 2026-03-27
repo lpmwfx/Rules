@@ -62,7 +62,6 @@ These are three aspects of one graph. Mother-Tree defines the **shape** (rooted 
 | [css/](css/) | 11 | CSS (cascade by design) |
 | [cpp/](cpp/) | 11 | C++20/23 |
 | [rust/](rust/) | 10 | Rust 2021 |
-| [kotlin/](kotlin/) | 9 | Kotlin Compose + Amper |
 | [slint/](slint/) | 7 | Slint DSL + Rust bridge |
 | [automation/](automation/) | 6 | Session startup, context injection |
 | [devops/](devops/) | 6 | CI/CD, publishing, packaging |

@@ -3,7 +3,7 @@ tags: [core, business-logic, pure-functions, domain, stateless, hexagonal]
 concepts: [pure-business-logic, domain-rules, core-isolation, input-output]
 requires: [global/topology.md, global/app-model.md]
 feeds: [core/state.md]
-related: [global/adapter-layer.md, pal/design.md]
+related: [global/adapter-layer.md, global/topology-profiles.md, pal/design.md]
 keywords: [core, pure-function, domain, business-logic, no-ui, no-io, no-platform, CoreState-sta, _core, isolation, same-input-same-output]
 layer: 3
 ---

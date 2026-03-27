@@ -2,7 +2,7 @@
 tags: [laravel, framework]
 concepts: [laravel-rules]
 requires: [php/README.md]
-related: [php/laravel/architecture.md, php/laravel/eloquent.md, php/laravel/state-flow.md, php/laravel/validation.md, php/laravel/routing.md, php/laravel/blade.md, php/laravel/migrations.md, php/laravel/testing.md, php/laravel/services.md, php/laravel/artisan.md]
+related: [php/laravel/architecture.md, php/laravel/stacks.md, php/laravel/eloquent.md, php/laravel/state-flow.md, php/laravel/validation.md, php/laravel/routing.md, php/laravel/blade.md, php/laravel/migrations.md, php/laravel/testing.md, php/laravel/services.md, php/laravel/artisan.md]
 layer: 6
 ---
 # Laravel Rules
@@ -27,7 +27,12 @@ RULE: All PHP rules from [php/](../README.md) apply — Laravel adds framework-s
 
 | File | Topic |
 |------|-------|
-| [init.md](init.md) | Full setup sequence — install, stack, proj/ templates |
+| [stacks.md](stacks.md) | Two stacks — Blade (internal) or Svelte+Inertia (user-facing) |
+| [stack-blade.md](stack-blade.md) | Stack 1 — Laravel + Blade for admin/internal |
+| [stack-svelte.md](stack-svelte.md) | Stack 2 — Laravel + Inertia + Svelte for user-facing |
+| [init.md](init.md) | Init entry point — choose stack, install, create proj/ |
+| [init-install.md](init-install.md) | Install steps per stack |
+| [init-proj.md](init-proj.md) | proj/ file templates for Laravel projects |
 | [architecture.md](architecture.md) | Project structure, Actions, Services, thin controllers |
 | [eloquent.md](eloquent.md) | Models, relationships, scopes — no fat models |
 | [state-flow.md](state-flow.md) | Explicit state, enums, transitions |

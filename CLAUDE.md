@@ -12,7 +12,7 @@ cd Rules && python tools/build-register.py    # Rebuild metadata index
 
 YAML frontmatter: `tags`, `concepts`, `keywords`, `layer` (1-6), `requires`, `feeds`, `related`.
 Content markers: `RULE:`, `BANNED:`, `VITAL:` — extracted into `register.jsonl`.
-Categories: `global`, `project-files`, `automation`, `devops`, `ipc`, `uiux`, `python`, `js`, `css`, `cpp`, `rust`, `kotlin`.
+Categories: `global`, `project-files`, `automation`, `devops`, `ipc`, `uiux`, `python`, `js`, `css`, `cpp`, `rust`, `php`.
 
 ## Key Files
 

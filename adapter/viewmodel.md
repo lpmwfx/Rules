@@ -3,7 +3,7 @@ tags: [adapter, viewmodel, adp, state, mapping, flat-struct, ui-ready]
 concepts: [viewmodel, domain-mapping, adapter-state, ui-ready-struct]
 requires: [global/topology.md, global/adapter-layer.md]
 feeds: [adapter/event-flow.md]
-related: [global/persistent-state.md, uiux/state-flow.md, slint/rust-bridge.md]
+related: [global/persistent-state.md, global/topology-profiles.md, uiux/state-flow.md, slint/rust-bridge.md]
 keywords: [AdapterState-sta, ItemViewModel-adp, flat-struct, domain-mapping, _adp, _core, ui-ready, selected, is-loading, error-message, ViewModelType]
 layer: 3
 ---

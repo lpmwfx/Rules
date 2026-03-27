@@ -1,8 +1,8 @@
 ---
-tags: [uiux, mother-child, compose, kotlin, jetpack, stateless]
+tags: [uiux, mother-child, compose, jetpack, stateless]
 concepts: [compose-mother-child, composition-pattern-compose]
 requires: [uiux/mother-child.md]
-related: [kotlin/data-classes.md, uiux/state-flow.md]
+related: [uiux/state-flow.md]
 keywords: [AppShell, NavBar, Modifier, width, weight, Composable, Column, Row, state, onNavigate]
 layer: 4
 ---

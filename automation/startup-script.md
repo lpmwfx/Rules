@@ -91,8 +91,8 @@ if find . -maxdepth 3 -name "*.rs" -type f | head -1 | grep -q .; then
     echo "RUST detected - load: rust/README.md"
 fi
 
-if find . -maxdepth 3 -name "*.kt" -type f | head -1 | grep -q .; then
-    echo "KOTLIN detected - load: kotlin/README.md"
+if find . -maxdepth 3 -name "*.php" -type f | head -1 | grep -q .; then
+    echo "PHP detected - load: php/README.md"
 fi
 
 if [[ -f "*.sln" ]] || find . -maxdepth 3 -name "*.csproj" -o -name "*.sln" -type f 2>/dev/null | head -1 | grep -q .; then

@@ -2,7 +2,7 @@
 tags: [topology, architecture, hexagonal, mvvm, layers, dag, folder-structure, project-structure, ui, mother-child, composition-root]
 concepts: [architecture, layer-topology, dependency-graph, hexagonal-mvvm, app-structure, mother-child-pattern]
 requires: [global/mother-tree.md]
-feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, core/design.md, pal/design.md, uiux/mother-child.md, rust/workspace.md, web/topology.md]
+feeds: [global/adapter-layer.md, global/config-driven.md, global/persistent-state.md, global/topology-profiles.md, core/design.md, pal/design.md, uiux/mother-child.md, rust/workspace.md, web/topology.md]
 related: [global/app-model.md, rust/workspace.md, global/data-driven-ui.md]
 keywords: [ui, adapter, core, pal, gateway, shared, folder-structure, import-rules, dag, placement, project, setup, app-layout, src, init, directory, mother, child, owner, stateless, modular, workspace, cargo, crates, apps, multi-crate, multi-target]
 layer: 1
@@ -38,7 +38,7 @@ BANNED: Types living outside their designated folder
 | `src/core/` | `_core` | Business logic — pure functions, domain rules |
 | `src/pal/` | `_pal` | Platform abstraction — OS, window, filesystem interface |
 | `src/gateway/` | `_gtw` | IO adapter — loads config+state, saves at shutdown |
-| `src/shared/` | `_x` | Cross-cutting — errors, results, shared traits |
+| `src/shared/` | `_x` | Cross-layer types — errors, results, enums used by 2+ layers (NOT utils) |
 
 RULE: A type tagged `_adp` lives in `src/adapter/` — tag and folder always agree
 RULE: State structs use `_sta` tag regardless of layer — see persistent-state.md

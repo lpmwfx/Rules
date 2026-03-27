@@ -1,8 +1,9 @@
 ---
 tags: [structure, project-layout, topology]
 concepts: [file-organization, architecture, topology-mapping]
-requires: [global/consistency.md, global/topology.md]
+requires: [global/consistency.md, global/topology.md, global/tools-and-scripts.md]
 feeds: [web/topology.md]
+related: [php/laravel/stack-svelte.md]
 layer: 3
 ---
 # Project Structure

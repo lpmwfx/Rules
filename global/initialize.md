@@ -1,7 +1,7 @@
 ---
 tags: [initialize, project-init, setup, bootstrap, one-time, mandatory]
 concepts: [project-initialization, project-setup, bootstrap]
-requires: [global/startup.md]
+requires: [global/startup.md, global/tools-and-scripts.md]
 feeds: [project-files/project-file.md, project-files/rules-file.md, project-files/todo-file.md, project-files/fixes-file.md, project-files/uiux-file.md]
 related: [automation/startup-script.md, rust/init.md, csharp/init.md, slint/init.md]
 keywords: [initialize, init, bootstrap, setup, new project, proj, create, initialiser]

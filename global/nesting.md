@@ -1,7 +1,7 @@
 ---
 tags: [nesting, flat, readability, early-return, control-flow]
 concepts: [code-style, readability, control-flow-complexity]
-feeds: [python/nesting.md, cpp/nesting.md, rust/nesting.md, js/nesting.md, kotlin/nesting.md]
+feeds: [python/nesting.md, cpp/nesting.md, rust/nesting.md, js/nesting.md, php/nesting.md]
 related: [global/consistency.md, global/file-limits.md]
 keywords: [max-nesting, early-return, extract-helper, flat-code, control-flow, depth]
 layer: 1

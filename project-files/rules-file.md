@@ -51,7 +51,7 @@ When proj/RULES is empty or missing, derive the active rule set as follows:
    global/persistent-state.md
 
 3. For each Language → load:
-   <lang>/README.md        (e.g. rust/README.md, kotlin/README.md)
+   <lang>/README.md        (e.g. rust/README.md, php/README.md)
 
 4. For each Platform → load the matching file (see full table in project-files/uiux-file.md):
    Windows      → uiux/menus-windows.md

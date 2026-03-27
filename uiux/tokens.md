@@ -2,7 +2,7 @@
 tags: [uiux, tokens, design-tokens, no-hardcoding, theming, declarative, slintscanners, create-before-use]
 concepts: [design-tokens, declarative-ui, theme-config, slint-build-scan, create-before-use, workflow]
 requires: [global/config-driven.md, global/data-driven-ui.md]
-feeds: [uiux/theming.md, uiux/components.md, slint/init.md, slint/states.md, rust/constants.md, uiux/token-structure.md, uiux/token-switching.md, slint/tokens.md, css/tokens.md, kotlin/tokens.md, css/gtk-tokens.md]
+feeds: [uiux/theming.md, uiux/components.md, slint/init.md, slint/states.md, rust/constants.md, uiux/token-structure.md, uiux/token-switching.md, slint/tokens.md, css/tokens.md, css/gtk-tokens.md]
 related: [css/tokens.md, css/themes.md, global/file-limits.md, global/module-tree.md, slint/init.md, slint/states.md, rust/constants.md]
 keywords: [design-tokens, magic-values, px, hex, color, spacing, typography, slint-global, css-variables, theme-config, modular-tokens, declarative, slintscanners, build-scan, create-before-use, workflow, create-token]
 layer: 2
@@ -79,7 +79,7 @@ The same principle applies to Rust code: move durations, limits, paths, URLs int
 
 This makes the system **dynamic** — the concrete values are data, not code. Swap the data layer (different theme, different config) and the entire application changes without touching a single component or function.
 
-Per-toolkit implementations: [slint/tokens.md](../slint/tokens.md) | [css/tokens.md](../css/tokens.md) | [kotlin/tokens.md](../kotlin/tokens.md) | [css/gtk-tokens.md](../css/gtk-tokens.md)
+Per-toolkit implementations: [slint/tokens.md](../slint/tokens.md) | [css/tokens.md](../css/tokens.md) | [css/gtk-tokens.md](../css/gtk-tokens.md)
 Token file structure and naming: [uiux/token-structure.md](token-structure.md)
 Light/dark switching and config: [uiux/token-switching.md](token-switching.md)
 

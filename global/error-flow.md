@@ -3,7 +3,7 @@ tags: [global, error-handling, error-flow, recovery, crash-safety, graceful-degr
 concepts: [error-taxonomy, recovery-strategy, graceful-degradation, user-feedback]
 keywords: [error, flow, result, handle, propagate, recover]
 requires: [global/validation.md]
-feeds: [rust/errors.md, js/safety.md, python/ack-pattern.md, kotlin/result-pattern.md, csharp/errors.md, global/error-messages.md, rust/error-handling.md, js/error-handling.md]
+feeds: [rust/errors.md, js/safety.md, python/ack-pattern.md, csharp/errors.md, global/error-messages.md, rust/error-handling.md, js/error-handling.md]
 related: [uiux/issue-reporter.md, global/persistent-state.md]
 layer: 2
 ---

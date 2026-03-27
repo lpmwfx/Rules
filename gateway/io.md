@@ -3,7 +3,7 @@ tags: [gateway, io, pal, disk, network, io-boundary, result]
 concepts: [io-boundary, gateway-pattern, pal-delegation, error-propagation]
 requires: [global/topology.md, global/persistent-state.md]
 feeds: [gateway/lifecycle.md]
-related: [global/app-model.md, web/gateway.md]
+related: [global/app-model.md, global/topology-profiles.md, web/gateway.md]
 keywords: [gateway, pal, disk, io, file, read, write, result, AppError, syscall, io-boundary, one-gateway]
 layer: 3
 ---

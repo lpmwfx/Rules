@@ -2,7 +2,7 @@
 tags: []
 concepts: [javascript-rules]
 requires: [global/module-tree.md]
-related: [js/modules.md, js/jsdoc.md, js/validation.md, js/safety.md, js/eslint.md, js/testing.md, js/philosophy.md, js/typescript-cli.md, js/project-structure.md, global/module-tree.md, uiux/state-flow.md, uiux/mother-child.md]
+related: [js/modules.md, js/jsdoc.md, js/validation.md, js/safety.md, js/eslint.md, js/testing.md, js/philosophy.md, js/typescript-cli.md, js/project-structure.md, global/module-tree.md, uiux/state-flow.md, uiux/mother-child.md, php/laravel/stack-svelte.md]
 layer: 6
 ---
 # JavaScript Rules (TS-like-JS)

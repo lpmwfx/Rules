@@ -1,7 +1,7 @@
 ---
-tags: [uiux, menus, android, kotlin, compose, material3, bottom-nav]
+tags: [uiux, menus, android, compose, material3, bottom-nav]
 concepts: [native-menus, android-navigation, material-design, bottom-navigation]
-related: [uiux/help-about.md, uiux/state-flow.md, kotlin/README.md]
+related: [uiux/help-about.md, uiux/state-flow.md]
 keywords: [android, compose, bottom-nav, navigationbar, overflow-menu, top-app-bar, material3, three-dot, drawersheet]
 layer: 4
 ---
