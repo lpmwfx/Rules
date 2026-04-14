@@ -20,7 +20,9 @@ RULE: Core and Gateway receive PAL as `Arc<dyn SomePal_pal>` — never import co
 RULE: Each target platform has one PAL implementation struct tagged `_pal`
 RULE: PAL implementations are the ONLY place that imports OS-specific crates (`winapi`, `objc2`, `libc`)
 BANNED: `#[cfg(target_os)]` outside `src/pal/`
-BANNED: PAL implementations holding mutable state — stateless delegate only
+<!-- DEPRECATED: state rules paused — see sid-architecture/code-free-of-mutables.md (prototype) -->
+<!-- BANNED: PAL implementations holding mutable state — stateless delegate only -->
+<!-- /DEPRECATED -->
 BANNED: Business logic or data transformation inside PAL — it executes, not decides
 BANNED: `_pal` file importing a `_core` type — PAL must not know domain exists
 BANNED: `_pal` file importing a `_adp` type — PAL must not know Adapter exists

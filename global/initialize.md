@@ -20,17 +20,19 @@ VITAL: After completion, run the full startup.md checklist to verify
 ```
 PROJECT INITIALIZATION SEQUENCE:
 
+<!-- DEPRECATED: scanner installation paused -->
+<!--
 0. INSTALL hooks      → mcp__rulestools__setup(".")
                          installs PostToolUse hook + pre-commit gate
 
 1. DETECT languages   → rulestools detect .
                          writes proj/rulestools.toml with detected languages
+-->
+<!-- /DEPRECATED -->
 
 1b. LANGUAGE INIT     → if a language-specific init.md exists, run it BEFORE step 3:
-                         Rust       → get_rule("rust/init.md")    — configures rulestools scanner,
-                                       creates src/state/ folder, build.rs, proj/rulestools.toml
-                         Slint      → get_rule("slint/init.md")   — configures rulestools scanner for Slint,
-                                       creates ui/ definition folders, tokens, theme globals
+                         Rust       → get_rule("rust/init.md")    — creates src/state/ folder, build.rs
+                         Slint      → get_rule("slint/init.md")   — creates ui/ definition folders, tokens, theme globals
                          C# / .NET  → get_rule("csharp/init.md")  — scaffolds sln, csproj,
                                        Directory.Build.props, .editorconfig, .gitignore
                          (other languages: add init.md when available)
@@ -73,7 +75,9 @@ BANNED: Build scripts or print-based CLI scripts outside `tools/`
 RULE: All proj/ files are created in one session — do not leave initialization partial
 RULE: Ask the user before creating proj/UIUX — confirm it is a GUI project
 RULE: proj/PROJECT.Current.phase must be "1" after initialization
-BANNED: Skipping step 0 — hooks must be installed before any code is written
+<!-- DEPRECATED: scanner installation paused -->
+<!-- BANNED: Skipping step 0 — hooks must be installed before any code is written -->
+<!-- /DEPRECATED -->
 BANNED: Creating proj/ files from assumptions — always read the source doc or ask the user
 BANNED: Leaving initialization partial — either complete all steps or none
 

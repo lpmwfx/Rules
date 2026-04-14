@@ -1,3 +1,5 @@
+DEPRECATED — see sid-architecture/code-free-of-mutables.md and sid-architecture/data-driven-runtime.md (prototype)
+
 ---
 tags: [core, state, CoreState-sta, domain-state, session, cache]
 concepts: [core-state, domain-session-state, state-ownership]

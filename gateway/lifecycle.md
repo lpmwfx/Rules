@@ -13,13 +13,17 @@ layer: 3
 ---
 
 VITAL: Gateway::init runs BEFORE Core, Adapter, and UI — it is the boot entry point
+<!-- DEPRECATED: state rules paused — see sid-architecture/data-driven-runtime.md (prototype) -->
+<!--
 VITAL: Gateway::shutdown runs AFTER ui.run() returns — all _sta structs are written to disk here
 RULE: Gateway returns fully parsed `_cfg` and `_sta` structs to the caller — layers receive, not fetch
 RULE: Gateway collects all `_sta` registrations at init time — no runtime state discovery
 RULE: If a state file does not exist, Gateway returns the default `_sta` — never an error
-RULE: Partial state corruption → log warning, use default — never abort the whole app
 BANNED: Layers fetching their own config or state from disk — Gateway hands it to them
 BANNED: Writing state mid-session from outside Gateway — flush via Gateway only
+-->
+<!-- /DEPRECATED -->
+RULE: Partial state corruption → log warning, use default — never abort the whole app
 BANNED: `_gtw` file importing a `_adp` type — Gateway must not know Adapter exists
 BANNED: `_gtw` file importing a `_ui` type — Gateway must not know UI exists
 

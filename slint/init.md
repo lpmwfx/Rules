@@ -29,11 +29,11 @@ Questions to ask:
 
 ---
 
+<!-- DEPRECATED: scanner installation paused -->
+<!--
 ## Step 1 — Unified Build Scanners
 
 **CRITICAL: Build-time scanners run during `cargo build` — configure them before writing UI code**
-
-The Rust scanners are now unified in the `RulesTools` workspace. Ensure `Cargo.toml` has:
 
 ```toml
 [build-dependencies]
@@ -42,31 +42,21 @@ rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
 slint-build           = "1"
 ```
 
-Create or update `build.rs`:
-
 ```rust
-// build.rs
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    rulestools_documenter::document_project(); // AI: auto-generates /// for undocumented pub items
-    rulestools_scanner::scan_project();        // Rust + Slint: zero-literal, naming, tokens, etc.
-
+    rulestools_documenter::document_project();
+    rulestools_scanner::scan_project();
     slint_build::compile("ui/main.slint")?;
     Ok(())
 }
 ```
 
-Ensure `proj/rulestools.toml` includes both languages:
-
-```toml
-[scan]
-languages = ["rust", "slint"]
-```
-
----
-
 **VITAL RULE: Both scanners must be available before first `cargo build`**
 RULE: `cargo build` must pass both scanners with zero violations
 RULE: Both Rust and Slint checks run via `rulestools_scanner::scan_project()` in the same `build.rs`
+-->
+<!-- /DEPRECATED -->
+
 RULE: Add `///` doc comments to every `export component`, callback, and `in/out property` — see `slint/docs.md`
 
 ---
@@ -152,7 +142,9 @@ Build should succeed with zero scanner warnings. If violations appear, fix them 
 RULE: Steps 1–4 run in one session — do not leave initialization partial
 RULE: Definition folders exist before any UI components are written
 RULE: First `cargo build` after init must be clean (zero violations)
-BANNED: Writing Slint components before rulestools scanner is configured
+<!-- DEPRECATED: scanner installation paused -->
+<!-- BANNED: Writing Slint components before rulestools scanner is configured -->
+<!-- /DEPRECATED -->
 BANNED: Hardcoding colors, sizes, or durations in component files
 
 

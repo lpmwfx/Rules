@@ -1,3 +1,5 @@
+DEPRECATED — see sid-architecture/data-driven-runtime.md (prototype)
+
 ---
 tags: [uiux, state-flow, state-in, events-out, adapter, reactive, declarative, slintscanners]
 concepts: [state-management, event-flow, adapter-binding, reactive-ui, slint-build-scan]

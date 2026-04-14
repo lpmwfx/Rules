@@ -1,3 +1,5 @@
+DEPRECATED — see sid-architecture/code-free-of-mutables.md (prototype)
+
 ---
 tags: [config, configuration, no-hardcoding, cfg, constants, settings]
 concepts: [config-driven-design, settings-management, configuration]
@@ -16,11 +18,12 @@ layer: 1
 VITAL: Zero hardcoded values in business logic, UI, or adapter code
 VITAL: Zero hardcoded values in UI styling — colors, sizes, spacing, fonts are design tokens (see uiux/tokens.md)
 VITAL: Gateway is the sole entry point for loading configuration
-RULE: Every configurable value lives in a `_cfg` struct
+RULE: Every configurable value lives in a `_cfg` struct in `src/state/`
 RULE: Config structs are passed as parameters — never accessed globally
 RULE: Gateway loads config from disk on startup, passes it down the call chain
 RULE: Config structs are immutable after startup — no runtime mutation
-RULE: Default values are defined in Gateway's load function, not scattered in code
+RULE: Default values are defined in `src/state/`, not scattered in code
+RULE: All literals (URLs, thresholds, labels, sizes) centralized in `src/state/`
 BANNED: Magic numbers in Core, Adapter, UI, or PAL
 BANNED: Hardcoded strings (URLs, paths, thresholds, labels) outside `_cfg` structs
 BANNED: `Config::default()` called outside Gateway — Gateway owns initialization

@@ -16,7 +16,9 @@ layer: 3
 VITAL: Gateway is the ONLY layer that performs IO — file read/write, network, subprocess, clipboard
 VITAL: All IO returns `Result<T, AppError_x>` — Gateway never panics on IO failure
 RULE: Gateway delegates all actual IO to PAL — no direct syscalls, no `std::fs` outside Gateway
-RULE: Gateway functions take `_cfg` and `_sta` types as parameters — no global state
+<!-- DEPRECATED: state rules paused — see sid-architecture/data-driven-runtime.md (prototype) -->
+<!-- RULE: Gateway functions take `_cfg` and `_sta` types as parameters — no global state -->
+<!-- /DEPRECATED -->
 RULE: One Gateway module per IO concern — `RuntimeGateway_gtw`, `PublishGateway_gtw`, `McpGateway_gtw`
 RULE: Path resolution always goes through PAL — never hardcode `~/.config` or platform paths
 BANNED: `std::fs::read`, `std::fs::write`, `reqwest::get` outside Gateway

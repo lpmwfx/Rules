@@ -16,7 +16,9 @@ layer: 3
 VITAL: Core imports ZERO UI, Adapter, Gateway, or platform code — it is fully isolated
 VITAL: Core functions are pure where possible — same input always produces the same output
 RULE: Platform operations (file paths, clipboard, appearance) go through PAL — Core defines the need, PAL provides it
-RULE: Core receives `AppConfig_cfg` and `CoreState_sta` as constructor parameters — never fetches them
+<!-- DEPRECATED: state rules paused — see sid-architecture/code-free-of-mutables.md (prototype) -->
+<!-- RULE: Core receives `AppConfig_cfg` and `CoreState_sta` as constructor parameters — never fetches them -->
+<!-- /DEPRECATED -->
 RULE: One module per domain concern — one file, one responsibility, one `_core` type family
 RULE: Core returns `Result<T, AppError_x>` — it never panics, never crashes silently
 BANNED: `use slint`, `use gtk`, `use winit`, `use tokio`, `use std::fs`, `use reqwest` in Core

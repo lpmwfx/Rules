@@ -39,6 +39,8 @@ cargo init my-app && cd my-app
 
 ---
 
+<!-- DEPRECATED: scanner installation paused -->
+<!--
 ## Step 2 — Set up Build Scanners
 
 **CRITICAL: Build-time scanners run during `cargo build` — configure them before writing code**
@@ -56,8 +58,8 @@ rulestools-scanner    = { git = "https://github.com/lpmwfx/RulesTools" }
 ```rust
 // build.rs
 fn main() {
-    rulestools_documenter::document_project(); // AI: auto-generates /// for undocumented pub items
-    rulestools_scanner::scan_project();        // Rust: zero-literal, unwrap, naming, threading, etc.
+    rulestools_documenter::document_project();
+    rulestools_scanner::scan_project();
 }
 ```
 
@@ -65,18 +67,17 @@ fn main() {
 
 ```toml
 [scan]
-languages = ["rust", "slint"]   # remove "slint" if not using Slint UI
-
+languages = ["rust", "slint"]
 [project]
-deny = false                     # Set to true before release
+deny = false
 ```
-
----
 
 **VITAL RULE: All scanners must be installed before first `cargo build`**
 RULE: `deny = false` during development, `deny = true` before release
 RULE: `cargo build` must pass all scanners with zero violations
 RULE: Never commit code that violates scanner rules
+-->
+<!-- /DEPRECATED -->
 
 ---
 
@@ -145,7 +146,9 @@ rustdocumenter check .
 RULE: Steps 1–6 run in one session — do not leave initialization partial
 RULE: `src/state/` exists before any business logic is written
 RULE: First `cargo build` after init must be clean (zero violations)
-BANNED: Writing code before rulestools scanner is installed
+<!-- DEPRECATED: scanner installation paused -->
+<!-- BANNED: Writing code before rulestools scanner is installed -->
+<!-- /DEPRECATED -->
 BANNED: Hardcoding values in function bodies — use `src/state/` from day one
 BANNED: Adding `pub` items without `///` doc comments
 

@@ -1,3 +1,5 @@
+DEPRECATED — see sid-architecture/code-free-of-mutables.md and sid-architecture/data-driven-runtime.md (prototype)
+
 ---
 tags: [state, persistence, gateway, sta, disk-io, shutdown, startup]
 concepts: [persistent-state, state-management, disk-io, gateway-pattern]
@@ -43,10 +45,10 @@ RULE: Prefix shows ownership — `grep <Layer>State` finds the owner immediately
 
 | Struct | Owner Layer | Location |
 |--------|-------------|----------|
-| `AdapterState_sta` | Adapter | `src/adapter/state.rs` |
-| `CoreState_sta` | Core | `src/core/state.rs` |
-| `GatewayState_sta` | Gateway | `src/gateway/state.rs` |
-| `UiState_sta` | UI | `src/ui/state.rs` |
+| `AdapterState_sta` | Adapter | `src/adapter/state.rs` (exception — Adapter owns its state) |
+| `CoreState_sta` | Core | `src/state/core.rs` |
+| `GatewayState_sta` | Gateway | `src/state/gateway.rs` |
+| `UiState_sta` | UI | `src/state/ui.rs` |
 
 RULE: `grep _sta` finds all state structs across all layers
 REASON: The `_sta` tag is grep-searchable topology — one command, all state types

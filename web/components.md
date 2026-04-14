@@ -22,7 +22,9 @@ RULE: Element name must contain a hyphen — `<app-shell>`, `<nav-bar>`, `<user-
 RULE: Children are stateless — they receive attributes, emit events, own nothing
 BANNED: Children querying parent DOM — parent passes data via attributes
 BANNED: Children dispatching to siblings — events bubble up to parent
-BANNED: Shared mutable state between components — all state routes through mother
+<!-- DEPRECATED: state rules paused — see sid-architecture/code-free-of-mutables.md (prototype) -->
+<!-- BANNED: Shared mutable state between components — all state routes through mother -->
+<!-- /DEPRECATED -->
 
 ## Slint ↔ Web Component Parallel
 

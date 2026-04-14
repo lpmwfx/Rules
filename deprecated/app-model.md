@@ -1,3 +1,5 @@
+DEPRECATED — see sid-architecture/code-free-of-mutables.md and sid-architecture/data-driven-runtime.md (prototype)
+
 ---
 tags: [app-model, architecture, mvvm, stateless, hexagonal, gateway]
 concepts: [architecture, state-management, mvvm, declarative, hexagonal-mvvm]

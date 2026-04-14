@@ -13,14 +13,19 @@ layer: 3
 ---
 
 VITAL: Adapter is the ONLY layer that registers `ui.on_*()` event listeners — in `Adapter::init()`
+<!-- DEPRECATED: state rules paused — see sid-architecture/code-free-of-mutables.md (prototype) -->
+<!--
 VITAL: After every event handler, push the COMPLETE updated `AdapterState_sta` to UI — not just changed fields
+BANNED: Pushing partial state updates — always push the whole `AdapterState_sta` after a change
+BANNED: Event handlers that read from `ui.get_*()` to decide what to do — state lives in Adapter, not UI
+-->
+<!-- /DEPRECATED -->
+
 RULE: Event handler steps in order: validate input shape → dispatch to Core → map result to _adp → push state
 RULE: Input shape validation belongs in Adapter — Core trusts its inputs and enforces business rules
 RULE: All `ui.on_*()` registrations happen before `ui.run()` — never registered lazily or conditionally
 RULE: Adapter::init() receives `ui`, `core`, and `state` — wires them together, returns self
 BANNED: Business logic in event handlers — one call to Core, no conditions around it
-BANNED: Pushing partial state updates — always push the whole `AdapterState_sta` after a change
-BANNED: Event handlers that read from `ui.get_*()` to decide what to do — state lives in Adapter, not UI
 
 ## Event handler cycle
 

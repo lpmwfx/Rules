@@ -14,14 +14,13 @@ layer: 3
 ---
 
 VITAL: Domain objects (`_core`) never reach the UI — Adapter maps them to `_adp` view models first
+<!-- DEPRECATED: state rules paused — see sid-architecture/code-free-of-mutables.md (prototype) -->
+<!--
 VITAL: `AdapterState_sta` is the complete description of what the UI renders right now
-RULE: View model types are flat, serializable structs tagged `_adp` — no methods, no domain logic
 RULE: One `AdapterState_sta` per Adapter module — it contains exactly what that view needs
-RULE: Map at the Adapter boundary — Core returns `_core`, Adapter converts to `_adp` immediately
 RULE: Status flags (`is_loading`, `error_message`, `is_empty`) are always explicit in `AdapterState_sta`
 RULE: `AdapterState_sta` is initialized from Gateway on startup and persisted on shutdown
 BANNED: `_core` types in `AdapterState_sta` or passed to `ui.set_*()`
-BANNED: Computed display values (formatted strings, derived booleans) in `_core` types — compute in Adapter
 BANNED: Optional fields that hide loading or error state — make all states explicit
 
 ## AdapterState_sta shape
@@ -30,20 +29,21 @@ BANNED: Optional fields that hide loading or error state — make all states exp
 // src/adapter/state.rs
 #[derive(Default, Serialize, Deserialize)]
 pub struct AdapterState_sta {
-    // Content — what the user sees
     pub collections: Vec<CollectionViewModel_adp>,
     pub selected:    Option<CollectionViewModel_adp>,
     pub items:       Vec<ItemViewModel_adp>,
-
-    // Status — always explicit, never inferred in UI
     pub is_loading:    bool,
     pub error_message: Option<String>,
-
-    // UI state — persisted so user returns to where they left off
     pub scroll_offset: u32,
     pub active_panel:  PanelId_adp,
 }
 ```
+-->
+<!-- /DEPRECATED -->
+
+RULE: View model types are flat, serializable structs tagged `_adp` — no methods, no domain logic
+RULE: Map at the Adapter boundary — Core returns `_core`, Adapter converts to `_adp` immediately
+BANNED: Computed display values (formatted strings, derived booleans) in `_core` types — compute in Adapter
 
 ## View model types
 
