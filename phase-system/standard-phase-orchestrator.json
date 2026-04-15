@@ -1,0 +1,224 @@
+{
+  "$schema": "standard-phase-orchestrator.v4",
+  "$note": "v0.3 — Orchestrator-skema for én phase-familie. Kopier til proj/PHASE/<n>-<label>/p<n>.json. <label> er fri (data, fundament, ink-tools, voice-pipeline) — kun '<n>-' præfix er fast. ALT phase-arbejde for major n (incl. n.5, n.6 sub-orchs) lever i SAMME folder <n>-<label>/. Sub-orchs (p<n>.5.json, p<n>.6.json) ligger i ROD af phase-folderen. Parts ligger i SUB-FOLDERS svarende til write-domain (typisk en layer-navn fra proj/data/current/architecture.json: pwa/, server/, research/, design/, ops/, ...). PARALLELISME ER FOLDER-AFLEDT — to parts i forskellige sub-folders kan parallel; same folder er serielle. Derfor er parts.items[].parallel_with FJERNET. Vokabular alignes med Anthropic Claude Agent SDK. Status-enums: pending → in_progress → completed | failed | stopped. Phase-status: planned → researching → ready → active → done | aborted.",
+
+  "identity": {
+    "$hint": "Phase-metadata. Status er overall-tilstand for hele phase'en. I split-mode AGGREGERES fra parts.items[].status: 'planned' hvis alle pending, 'active' hvis ≥1 har lock eller in_progress, 'done' hvis alle completed. Aggregering opdateres når en part skifter status. Brug ISO-dato-strings.",
+    "$example": "{phase: 1, id: 'setup', title: 'Dev-område og fundament', status: 'active', owner: 'LPM', startedAt: '2026-04-15', completedAt: null}",
+    "phase": 0,
+    "id": "",
+    "title": "",
+    "description": "",
+    "status": "planned",
+    "owner": "LPM",
+    "startedAt": null,
+    "completedAt": null,
+    "metadata": {}
+  },
+
+  "parts": {
+    "$hint": "Mode='single' = al phase-indhold lever i denne fil. Mode='split' = phasen er splittet i flere folder-placerede part-filer; items[] enumererer dem. file = relativ path INDE i <n>-data/ (inkluderer folder-prefix: 'research/p1.5-mistral.json'). folder = afledt af file-path; redundant men eksplicit for hurtigt overblik. PARALLELISME-AFGØRELSEN tages IKKE her — den afledes: parts i forskellige folders kan parallel. Brug runs_after for logiske deps (en part venter på en anden's resultat selvom de er i forskellige folders).",
+    "$example": "mode: 'split', items: [{file: 'research/p1.5-mistral.json', slug: 'mistral', folder: 'research', status: 'pending'}, {file: 'pwa/p1.5-oauth-fix.json', slug: 'oauth-fix', folder: 'pwa', status: 'pending', runs_after: []}]",
+    "mode": "single",
+    "items": [
+      {
+        "file": "",
+        "slug": "",
+        "folder": "",
+        "status": "pending",
+        "summary": "",
+        "owner": "",
+        "runs_after": [],
+        "blocks": [],
+        "locked_by_session": null,
+        "locked_at": null
+      }
+    ]
+  },
+
+  "context": {
+    "$hint": "HVORFOR phase'en eksisterer. Læses først af enhver der åbner phase'en. Problem = hvad er broken/missing nu. Outcome = hvad er anderledes når phase er done. Skal være forståeligt for en frisk session der intet ved om projektet.",
+    "$example": "problem: 'Ingen kørende infrastruktur, intet kan bygges på det'. outcome: 'Tom MCP+PWA+DAL kører end-to-end på inker.ai-intra.com, klar til at få indhold'.",
+    "problem": "",
+    "outcome": "",
+    "blockedBy": [],
+    "blocks": []
+  },
+
+  "milestone": {
+    "$hint": "Definition of done — ÉT målbart end-state-kriterium. Phase er done når dette er sandt og kun da. Skal være verificerbart, ikke en holdning. 'Tingen virker' er for vagt; 'curl X returnerer Y' er konkret.",
+    "$example": "criterion: 'Claude.ai connector mod /mcp gennemfører OAuth og kalder whoami → ai@lpmwfx.com'. verifyWith: 'verification.checks alle grønne'.",
+    "criterion": "",
+    "verifyWith": ""
+  },
+
+  "product": {
+    "$hint": "Hvad er det konkrete PRODUKT der 'bare virker' når phase er done. En sammenhængende brugs-oplevelse, ikke en checklist. Hver phase har præcis ét produkt — flere = flere phases. user_can[] lister hvad AI kan gøre med produktet; hvis AI ikke kan gøre det, er produktet ikke færdigt. demo_path = trin-for-trin-vej til at se det virke.",
+    "$example": "name: 'inker — kørende MCP+PWA fundament'. user_can: ['Koble Claude.ai til inker', 'Kalde tools', 'Logge ind i PWA']. demo_path: 'Åbn Claude.ai → Add MCP → URL → log ind → kald whoami'.",
+    "name": "",
+    "description": "",
+    "demo_path": "",
+    "user_can": []
+  },
+
+  "delivers": {
+    "$hint": "Konkrete artefakter phase'en producerer (filer, services, deploys, dokumentation). Liste, ikke prosa. Bruges til hurtig scan af hvad der reelt blev produceret.",
+    "$example": "['MCP-server som systemd service', 'PWA bygget og serveret', 'OAuth aktiv', 'SurrealDB provisioneret']",
+    "items": []
+  },
+
+  "research": {
+    "$hint": "Det informerede grundlag bygges HER, FØR plan. Hver ukendt: web-search/docs-fetch/agent-undersøgelse. Sammendrag i klartekst (ikke citater), sources som URL'er, open_questions for det der stadig er uafklaret. Tom research = ingen plan endnu. Spawn parallelle agenter for at researche flere topics samtidigt.",
+    "$example": "topic: 'Mistral Voxtral TTS', summary: 'Voxtral-mini-tts-2603, 9 sprog, $0.016/1K chars, no SSML, voice cloning fra 3s ref', sources: ['https://docs.mistral.ai/...'], open_questions: ['Dansk dækning?']",
+    "topics": [
+      {
+        "topic": "",
+        "summary": "",
+        "sources": [],
+        "open_questions": []
+      }
+    ]
+  },
+
+  "decisions": {
+    "$hint": "Beslutninger der skal tages før dev kan starte (typisk OPS: domæne, biblioteks-valg, infrastruktur). Hver beslutning: spørgsmål, kandidater (ikke kun valgt), valgt svar, rationale (hvorfor det og ikke en kandidat), lands_in (hvor svaret persisteres så det ikke forsvinder). Status: open → resolved. Beslutninger med status=open blokerer plan.",
+    "$example": "id: 'd1', question: 'Hvilket domæne?', candidates: ['x.com', 'y.com'], answer: 'x.com', rationale: 'Allerede TLS', lands_in: 'src/.env PUBLIC_SERVER_URL', status: 'resolved'",
+    "items": [
+      {
+        "id": "",
+        "question": "",
+        "candidates": [],
+        "answer": "",
+        "rationale": "",
+        "lands_in": "",
+        "status": "open"
+      }
+    ]
+  },
+
+  "plan": {
+    "$hint": "Step-by-step. Hvert step er en konkret handling med pass-kriterium. task_type discriminerer kategori (Anthropic-konvention: local_bash | local_agent | remote_agent | data | config | git). subagent_prompt udfyldes hvis stepet delegeres til en agent — så er det en self-contained briefing. depends_on holder DAG. status-enum aligned med Anthropic: pending → in_progress → completed | failed | stopped. Ingen step uden testbart pass.",
+    "$example": "id: 's1', task: 'Klon mcp_and_pwa til src/', task_type: 'local_bash', files: ['src/'], code_changes: 'none — clone+strip', depends_on: [], pass: 'src/server/main.ts findes', status: 'completed'",
+    "$markdown_step_convention": "Når task er kompleks, struktur task-feltet som markdown: ## Problem | ## Approach | ## Changes | ## Verification (matcher Claude Code Plan Mode konvention).",
+    "steps": [
+      {
+        "id": "",
+        "task": "",
+        "task_type": "local_bash",
+        "files": [],
+        "code_changes": "",
+        "depends_on": [],
+        "subagent_prompt": null,
+        "pass": "",
+        "status": "pending",
+        "result": "",
+        "$result_hint": "Udfyldes ved status-overgang til completed/failed/stopped. Hvis stopped: forklar hvorfor (fx 'flyttet til phase X jf. issues_logged')."
+      }
+    ]
+  },
+
+  "usage_tests": {
+    "$hint": "AI-kørte brugs-anvendelses-tests UNDERVEJS i phase'en (ikke unit-tests, ikke verification — de er forskellige). Spørgsmålet er: 'kan AI faktisk bruge produktet til formålet?'. Tilføj nye undervejs som funktionalitet kommer til. AI kører dem og rapporterer actual + status. Hvis AI ikke kan udføre scenario, er produktet ikke færdigt — så er det enten plan-step der mangler eller anti_creep_check der ikke matchede.",
+    "$example": "scenario: 'AI kalder whoami via Claude.ai connector', expected: 'Returnerer ai@lpmwfx.com', actual: 'Bekræftet 2026-04-15', status: 'passed'",
+    "tests": [
+      {
+        "id": "",
+        "scenario": "",
+        "performed_by": "ai",
+        "expected": "",
+        "actual": "",
+        "status": "pending",
+        "performed_at": null
+      }
+    ]
+  },
+
+  "anti_creep_check": {
+    "$hint": "Hooks ind i proj/data/current/architecture.json + dsl-guide.json. FØR plan-step udføres tjekker AI om det rører invariants, om det matcher anti_pattern (bad-side), om det følger en how_to_add-recipe. UNDERVEJS i phase'en, hvis et nyt anti_pattern eller invariant dukker op, log det i new_*_discovered. Disse foreslås til ny snapshot af proj/data/ ved phase-done — proj/data/ er låst, så nye opdagelser går i snapshot.",
+    "$example": "invariants_touched: ['Frontend kalder aldrig DAL direkte'], anti_patterns_to_avoid: ['from-scratch MCP-boilerplate'], new_anti_patterns_discovered: [{name: 'X', bad: 'Y', good: 'Z'}]",
+    "invariants_touched": [],
+    "anti_patterns_to_avoid": [],
+    "how_to_add_recipes_used": [],
+    "new_anti_patterns_discovered": [],
+    "new_invariants_discovered": []
+  },
+
+  "mcp_rules": {
+    "$hint": "Hvordan phase påvirker MCP-overfladen. Tools tilføjet/ændret/fjernet skal ALLE have AIUX help/manpage params (modul-konvention). OAuth-roller-affected: hvilke roller får ny adgang.",
+    "$example": "tools_added: ['project_create', 'scene_get'], aiux_help_required: true, oauth_roles_affected: ['forfatter']",
+    "tools_added": [],
+    "tools_changed": [],
+    "tools_removed": [],
+    "aiux_help_required": true,
+    "oauth_roles_affected": []
+  },
+
+  "data_layer_changes": {
+    "$hint": "Hvad phase'en tilføjer til data-laget. Tabeller dukker bare op (dev-db-as-filesystem, ingen migration). Edges, constants, invariants noteres her. Ved phase-done: snapshot af architecture.json gemmes i proj/data-<YYYYMMDD-HHMM>/ og linkes i architecture_snapshot_path.",
+    "$example": "tables_added: ['episode', 'knot'], edges_added: ['knot leads_to knot'], constants_added: ['sid_length=10']",
+    "tables_added": [],
+    "edges_added": [],
+    "constants_added": [],
+    "invariants_added": [],
+    "architecture_snapshot_path": ""
+  },
+
+  "verification": {
+    "$hint": "Konkrete kommandoer der beviser milestone er nået (definition-of-done-checks). Forskellig fra usage_tests: verification = 'systemet er i ønsket end-state', usage_tests = 'AI kan bruge produktet'. Begge skal grønne før ai_signoff. INGEN phase afsluttes med fejlede checks — enten fixes, eller flyttes eksplicit til ny phase med begrundelse i issues_logged.",
+    "$example": "what: 'MCP gated', how: 'curl -X POST /mcp uden auth', expected: '401 + WWW-Authenticate', result: 'passed', status: 'completed'",
+    "checks": [
+      {
+        "what": "",
+        "how": "",
+        "expected": "",
+        "result": "",
+        "status": "pending"
+      }
+    ]
+  },
+
+  "ai_signoff": {
+    "$hint": "Phase kan KUN markeres done når AI har kørt usage_tests + verification og selv har verificeret produktet virker. I split-mode kræves at ALLE parts.items[].status er 'completed'. ai_statement skal være konkret. AGENTEN UDFYLDER SELV uden at spørge brugeren — følg close_protocol.steps automatisk når kriterierne er opfyldt. Bruger godkender efter (user_approved).",
+    "$example": "ai_verified: true, ai_statement: 'Jeg har koblet Claude.ai til /mcp via OAuth, kaldt whoami (returnerede ai@lpmwfx.com), kaldt echo (round-trip OK), restartet inker (kom op grønt). Produktet virker.', user_approved: true",
+    "ai_verified": false,
+    "ai_verified_at": null,
+    "ai_statement": "",
+    "user_approved": false,
+    "user_approved_at": null
+  },
+
+  "issues_logged": {
+    "$hint": "Issues opdaget under phase'en der ikke løses i denne phase. Skal have severity (blocker/major/minor), moves_to (hvilken phase løser det — påkrævet hvis ikke 'wontfix'), og note (hvorfor ikke nu). Blocker-issues må ikke flyttes uden eksplicit beslutning.",
+    "$example": "id: 'phase1-i1', title: 'PWA OAuth-login fejler', severity: 'minor', moves_to: 'phase 1.5', note: 'Server-OAuth virker — frontend-callback isoleret bug. Phase 1 leverer fundament; flyttes.'",
+    "items": [
+      {
+        "id": "",
+        "title": "",
+        "severity": "minor",
+        "moves_to": "",
+        "note": ""
+      }
+    ]
+  },
+
+  "close_protocol": {
+    "$hint": "Eksplicit close-out for HELE phasen, eksekveret af agenten uden at spørge brugeren. Trigger: alle parts.items[].status === 'completed' AND alle verification.checks grønne. Ingen 'skal jeg lukke fasen?' — bare gør det.",
+    "steps": [
+      "1. Verificer parts.items.every(p => p.status === 'completed'). Hvis ikke: STOP — phase er ikke klar.",
+      "2. Verificer verification.checks.every(c => c.status === 'completed' AND c.result indikerer success).",
+      "3. Skriv ai_signoff.ai_statement konkret: 'Phase X er done. Jeg har: ... Produkt virker fordi ...'. Reference hver parts result.summary.",
+      "4. Sæt ai_signoff.ai_verified = true og ai_verified_at = nu.",
+      "5. Aggreger identity.status = 'done', identity.completedAt = nu.",
+      "6. Snapshot proj/data/current/architecture.json til proj/data-<YYYYMMDD>/ hvis data_layer_changes har nye invariants/edges/tables. Sæt data_layer_changes.architecture_snapshot_path.",
+      "7. Tilføj history-entry: 'Phase lukket. AI-signoff sat. Afventer user_approved.'",
+      "8. Opdater proj/PHASES (filen): flyt phase fra Active til DONES sektion med ai_signoff: true, user_approved: false, completed_at, snapshot, og kort notes."
+    ],
+    "user_approval_separate": "Bruger sætter user_approved + user_approved_at i et separat skridt (efter at have læst ai_statement). Agenten gør IKKE dette automatisk."
+  },
+
+  "history": {
+    "$hint": "Append-only log af væsentlige phase-state-overgange og store opdagelser. ISO-timestamp + kort beskrivelse. IKKE commit-historik (det er git til). Kun phase-events.",
+    "$example": "{at: '2026-04-15T08:00', what: 'inker.service installeret + mimer-registreret, https://inker.ai-intra.com live'}",
+    "entries": []
+  }
+}
