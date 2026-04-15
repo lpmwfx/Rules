@@ -29,6 +29,10 @@ CATEGORIES = [
     "php/laravel",
     "catalog",
     "quick-ref",
+    "sid-architecture",
+    "phase-system",
+    "deprecated",
+    "vcs",
 ]
 
 CONCEPT_MAP = {

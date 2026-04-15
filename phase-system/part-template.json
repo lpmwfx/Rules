@@ -1,0 +1,90 @@
+{
+  "$schema": "standard-phase-part.v4",
+  "$note": "v0.4 — Skema for en phase-part. Filer ligger i <n>-<label>/<folder>/p<n>-<slug>.json hvor <folder> matcher en write-domain (typisk en layer fra proj/data/current/architecture.json). PARALLELISME ER FOLDER-AFLEDT. v0.4 tilføjer: (a) locked_session_log på concurrency så claim → arbejd → genoptag-ved-afbrydelse er muligt via 'claude --resume <session-id>'; (b) excerpt + excerpt_stale på hver reference så onboarding ikke kræver at chase'e hvert link. references[] er read-graph: distinkt fra runs_after. Slug er fri.",
+
+  "part_meta": {
+    "$hint": "Identifikation + tilbage-reference til orchestrator. phase_ref matcher en eksisterende p<n>.json. slug matcher filnavnets <slug>-del. folder er den write-domain part'en lever i (typisk navn på en layer fra proj/data/current/architecture.json) — afgør parallelisme (forskellig folder = parallel; same folder = serielle).",
+    "$example": "phase_ref: 'p1.5', slug: 'mistral', folder: 'research', file: 'research/p1.5-mistral.json', title: 'Mistral API research', owner: 'research-agent'",
+    "phase_ref": "",
+    "slug": "",
+    "folder": "",
+    "file": "",
+    "title": "",
+    "description": "",
+    "owner": "",
+    "status": "pending",
+    "createdAt": null,
+    "completedAt": null
+  },
+
+  "concurrency": {
+    "$hint": "Runtime-state + logiske rækkefølge-deps. PARALLELISME afledes af folder-placering. runs_after[] = logiske deps (venter på anden parts resultat selvom forskellig folder). blocks[] = hvem der venter på mig. locked_by_session = Claude-session-ID (matcher filnavn på .jsonl-loggen). locked_session_log = absolut sti til ~/.claude/projects/<project>/<session-id>.jsonl — gør det muligt at åbne loggen som audit-trail OG at genoptage den afbrudte session med 'claude --resume <session-id>'. locked_at = ISO-timestamp. Hver Claude-agent der claim'er en part SKAL udfylde alle tre lock-felter selv. lock_policy: advisory_24h = anden session må stjæle lock hvis ingen status-ændring i 24h.",
+    "$example": "runs_after: ['mistral'], locked_by_session: '96b1778b-3ff3-4745-b31c-bd21a906405f', locked_session_log: '~/.claude/projects/-home-dev-AIGame-authoring-system/96b1778b-3ff3-4745-b31c-bd21a906405f.jsonl', locked_at: '2026-04-15T10:15Z'",
+    "runs_after": [],
+    "blocks": [],
+    "locked_by_session": null,
+    "locked_session_log": null,
+    "locked_at": null,
+    "lock_policy": "advisory_24h"
+  },
+
+  "references": {
+    "$hint": "Read-graph: hvad jeg skal læse/være-bevidst-om undervejs. DISTINKT fra runs_after og fra folder-placering. v0.4 tilføjer excerpt-felt: pre-destilleret citat eller sammendrag (~500 chars max) af det vigtige fra reference-filen, så onboarding ikke kræver at chase'e hvert link — du får insight med det samme. Planner udfylder excerpt én gang; alle senere sessioner får insight gratis. Hvis referenced fil ændres efter excerpt blev skrevet, sæt excerpt_stale: true (kombineret med change-notification). Anchor-syntaks 'path#section'. Eksterne MCP-references prefixes med 'rules-mcp:', 'docs-mcp:' osv. Brug-modes: (1) session-onboarding, (2) change-notification, (3) knowledge-DAG.",
+    "$example": "items: [{path: 'src/MANUAL.md', anchor: 'oauth-flows', why: 'Canonical doc for OAuth-design', excerpt: 'PWA login: 1) GET /oauth/login → form. 2) POST creds → server validerer argon2. 3) Set mcp_sess cookie. 4) Redirect /pwa/. Bug-area: cookie SameSite=Lax kan bryde callback i iframe.', excerpt_stale: false}]",
+    "items": [
+      {
+        "path": "",
+        "anchor": "",
+        "why": "",
+        "excerpt": "",
+        "excerpt_stale": false
+      }
+    ]
+  },
+
+  "scope": {
+    "$hint": "Hvad denne part dækker — den del af phasen den er ansvarlig for. Skarp grænse: hvad er IND og hvad er UD af scope. Forhindrer drift mod søsken-parts.",
+    "$example": "in_scope: ['Mistral LLM model catalog', 'Voxtral TTS+ASR', 'sprog-matrix', 'oversættelse'], out_of_scope: ['PWA bug-fix (hører til source-part)', 'arkitektur-snapshot (orchestrator)']",
+    "in_scope": [],
+    "out_of_scope": []
+  },
+
+  "content": {
+    "$hint": "Part-specifikt indhold. Strukturen følger relevant del af orchestrator-skemaet — fx en research-part har 'topics[]' og 'decisions[]'; en source-part har 'plan.steps[]' og 'data_layer_changes'; en verification-part har 'usage_tests[]' og 'checks[]'. Brug felterne fra orchestrator-skemaet der giver mening for slug'en. Lad ikke part'en gentage hvad orchestrator allerede holder (identity, milestone, product).",
+    "$example_research": "{topics: [...], decisions: [...]}",
+    "$example_source": "{plan: {steps: [...]}, data_layer_changes: {...}}",
+    "$example_verification": "{usage_tests: {tests: [...]}, verification: {checks: [...]}}"
+  },
+
+  "result": {
+    "$hint": "Skrives ved status-overgang til completed/failed/stopped. summary: hvad blev opnået. artifacts: hvilke filer/services/data blev produceret. handoff_to: hvilken anden part eller orchestrator-sektion skal opdateres med dette resultat.",
+    "$example": "summary: '4 markdown-research-filer skrevet til proj/MISTRAL/. Voxtral TTS sprog-liste bekræftet (8 sprog, IKKE Dansk).', artifacts: ['proj/MISTRAL/05-08_*.md'], handoff_to: 'p1-orchestrator data_layer_changes + p2 decisions'",
+    "summary": "",
+    "artifacts": [],
+    "handoff_to": ""
+  },
+
+  "close_protocol": {
+    "$hint": "Eksplicit close-out-procedure som agenten SELV udfører uden at spørge brugeren. Når alle plan.steps er completed og alle usage_tests er passed, kør disse trin i rækkefølge. Ingen 'skal jeg lukke nu?' — bare gør det. Trinene er default; en part kan tilpasse hvis specielle behov, men afvigelser skal noteres.",
+    "steps": [
+      "1. Verificer ALLE plan.steps har status 'completed' (eller 'stopped' med begrundelse i result-felt)",
+      "2. Kør ALLE usage_tests og opdater actual + status; alle skal være 'passed' (eller eksplicit 'stopped' med flytning til ny phase noteret)",
+      "3. Udfyld result.summary konkret: 'Jeg gjorde X, Y, Z og det virker'. Tom = ikke completed.",
+      "4. Udfyld result.artifacts med konkrete fil-stier/service-navne der blev produceret",
+      "5. Udfyld result.handoff_to med hvilke andre parts/orchestrator-sektioner der skal opdateres",
+      "6. Sæt part_meta.status = 'completed' og part_meta.completedAt = nu",
+      "7. Ryd concurrency.locked_by_session, locked_session_log, locked_at (sæt til null)",
+      "8. Tilføj history-entry: 'Part lukket. Result: <kort>'",
+      "9. ÅBN orchestrator-filen (p<n>.json eller p<n>.x.json) og opdater parts.items[<min slug>].status til 'completed'. Synces også locked_by_session og locked_at hvis aggregaten skal være korrekt.",
+      "10. Hvis ALLE parts.items i orchestrator nu er completed: aggreger identity.status til 'done', start phase-level ai_signoff (skriv ai_statement, sæt ai_verified=true), tilføj history-entry på orchestrator. Bruger godkender herefter (user_approved)."
+    ],
+    "abort_protocol": [
+      "Hvis part ikke kan completes (blocker, manglende dependency, scope ud-af-grænse): sæt status='stopped', udfyld result.summary med årsag, log issue i orchestrator's issues_logged med moves_to (hvilken phase løser det). Ryd lock som ovenfor."
+    ]
+  },
+
+  "history": {
+    "$hint": "Append-only log per part. ISO-timestamp + event. Lock-take, lock-release, status-overgange, og store opdagelser hører til.",
+    "entries": []
+  }
+}

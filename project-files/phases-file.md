@@ -3,7 +3,7 @@ tags: [phases, milestones, planning]
 concepts: [milestone-tracking, phase-management]
 requires: [project-files/project-file.md]
 feeds: [project-files/todo-file.md, project-files/done-file.md]
-related: [project-files/goal-chain.md]
+related: [project-files/goal-chain.md, phase-system/README.md]
 layer: 2
 ---
 # PHASES File
@@ -86,6 +86,10 @@ RULE: When phase completes → move below DONES, update PROJECT.md, archive TODO
 
 Phases move below `# --- DONES ---` when completed.
 See [workflow.md](workflow.md) for full DONES mechanics.
+
+## See also
+
+For larger projects with parallel workstreams, research-first planning, and AI-signoff, see [`phase-system/`](../phase-system/README.md) — a richer JSON-schema-based framework using `proj/PHASE/<n>-<label>/` folders with write-domain parallelism. The flat `proj/PHASES` described here remains the human-facing milestone index; phase-system adds the executable per-phase orchestrator.
 
 ## Relations
 
