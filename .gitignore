@@ -1,4 +1,6 @@
 proj/
 CLAUDE.md
 .claude/
-mcp-proxy.log__pycache__/
+mcp-proxy.log
+__pycache__/
+*.pyc
