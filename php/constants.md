@@ -46,3 +46,12 @@ enum Currency: string
 BANNED: `define()` for new constants — use `const` or enum
 BANNED: Magic numbers in method bodies
 BANNED: Hardcoded URLs, paths, or credentials
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
