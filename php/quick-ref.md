@@ -25,3 +25,12 @@ layer: 6
 | Safety | No eval, parameterized SQL, escape output |
 | Deps | Composer, PSR packages preferred |
 | Linting | PHPStan level 8+, PHP CS Fixer (PSR-12) |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
