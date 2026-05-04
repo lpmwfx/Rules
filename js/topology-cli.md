@@ -46,3 +46,12 @@ process.exit(result.errors > 0 ? 1 : 0);
 
 RULE: Adapter owns args parsing and output formatting — core never touches stdio
 RULE: Core is pure — receives data, returns results, no process.exit or console.log
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
