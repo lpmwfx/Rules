@@ -40,3 +40,12 @@ BANNED: `unserialize()` on untrusted data
 BANNED: `extract()` on user input
 BANNED: `$$variable` (variable variables) with user-controlled names
 BANNED: `include`/`require` with user-controlled paths
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
