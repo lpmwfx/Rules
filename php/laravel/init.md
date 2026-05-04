@@ -28,3 +28,12 @@ RULE: All steps are completed in one session — do not leave initialization par
 RULE: Stack choice (step 1) determines which install path to follow
 BANNED: Skipping stack choice — decide Blade or Svelte before installing anything
 BANNED: Installing all stack options blindly — pick what the project needs
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
