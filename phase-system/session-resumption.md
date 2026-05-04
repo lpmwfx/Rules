@@ -89,3 +89,12 @@ Because each Claude session has its own JSONL, a single user running multiple Cl
 - Phase-status aggregates from individual part statuses
 
 The session log is the unit of recoverable work. The part-file is the unit of coordination.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
