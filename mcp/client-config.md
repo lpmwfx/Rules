@@ -72,3 +72,12 @@ claude mcp remove articles
 BANNED: Hardcoded Bearer tokens in committed mcp.json
 BANNED: `"type": "stdio"` in project mcp.json — HTTP only
 BANNED: Storing secrets in `.claude/` directory
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
