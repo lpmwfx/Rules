@@ -78,3 +78,12 @@ BANNED: Business rules in Blade (state checks, locale fallback, routing decision
 BANNED: Complex conditionals in templates — resolve in controller/ViewModel
 BANNED: Rendering unsanitized AI-generated HTML directly to public output
 BANNED: Article files written to disk as primary source of truth — render from database
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
