@@ -64,3 +64,12 @@ BANNED: Implicit publication — "if `published_at` is set then maybe it's live"
 BANNED: State inferred only from timestamps or nullable columns
 BANNED: State transitions hidden in views or queries
 BANNED: Business rules in Blade templates that determine publication state
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
