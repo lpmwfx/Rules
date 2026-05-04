@@ -41,3 +41,12 @@ layer: 6
 | `env()` outside config | Config files mediate env access |
 | Facades in domain logic | Use DI |
 | Articles rendered from disk | Render from database state |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
