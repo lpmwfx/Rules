@@ -78,3 +78,12 @@ BANNED: Fat models with business workflow methods
 BANNED: `Article::publishNowAndInvalidateCachesAndNotify()` — split into Actions
 BANNED: Repository pattern unless there is a concrete need (e.g., swappable data source)
 BANNED: Repository interfaces for standard database access
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
