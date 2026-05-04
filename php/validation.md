@@ -48,3 +48,12 @@ final readonly class CreateUserRequest
 BANNED: Raw `$_GET`, `$_POST`, `$_REQUEST` in business logic
 BANNED: Passing unvalidated arrays across layer boundaries
 BANNED: `filter_input()` deep inside business logic — validate at the edge
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
