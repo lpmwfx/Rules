@@ -136,3 +136,12 @@ RULE: Store manpages in a `MANPAGES: Record<string, string>` — one entry per t
 BANNED: Long descriptions as the primary documentation method — tokens wasted on every list_tools call
 BANNED: Auto-calling help on first tool use — AI decides when to ask
 BANNED: Tool-specific help that differs from the system overview — help is always the same
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
