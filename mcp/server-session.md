@@ -67,3 +67,12 @@ RULE: Stale session IDs are recovered, not rejected
 RULE: Recovery is transparent — client sees no error
 RULE: Recovery creates a fresh server+transport pair with the same ID
 BANNED: Returning 404 or error for stale sessions — always recover
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
