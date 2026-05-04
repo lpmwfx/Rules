@@ -44,3 +44,12 @@ RULE: All PHP rules from [php/](../README.md) apply — Laravel adds framework-s
 | [services.md](services.md) | DI over facades, service classes |
 | [artisan.md](artisan.md) | Jobs, scheduler, custom commands |
 | [quick-ref.md](quick-ref.md) | Quick reference table |
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
