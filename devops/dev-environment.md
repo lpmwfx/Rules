@@ -46,3 +46,12 @@ An LXC container gives a full development environment for any target, no matter 
 
 BANNED: Developing directly on a host that cannot run the project's scanner and linter
 BANNED: Skipping scan/lint because "the host doesn't support it"
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
