@@ -81,3 +81,12 @@ BANNED: Random `helpers.php` with unstructured global functions
 BANNED: "Utility" classes with 40 mixed methods
 BANNED: Direct use of `env()` outside config files
 BANNED: No repository abstraction without a concrete need
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
