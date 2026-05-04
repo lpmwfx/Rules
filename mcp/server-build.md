@@ -138,3 +138,12 @@ BANNED: Monolithic server with 50+ tools — split by domain
 
 RULE: Use official MCP SDK — not custom protocol implementation
 RULE: Zod for schema validation — matches SDK's inputSchema pattern
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
