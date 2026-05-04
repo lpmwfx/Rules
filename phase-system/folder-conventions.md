@@ -167,3 +167,12 @@ If you have v0.2 phases with `<n.x>-data/` folders or `parallel_with` declaratio
 4. Add `folder` field to part-files' `part_meta` and orchestrator's `parts.items[]`
 5. Update path references in `parts.items[].file` to include folder prefix
 6. Add `references[]` blocks where parts read from outside their folder
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
