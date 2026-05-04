@@ -145,3 +145,12 @@ Stack 2 adds:
 ```bash
 mkdir -p resources/js/Pages resources/js/Components resources/js/Layouts
 ```
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
