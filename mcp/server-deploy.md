@@ -92,3 +92,12 @@ RULE: SSL terminates at VPS, not at container
 - [ ] Health check: `curl localhost:{port}/health`
 - [ ] AIUX verified: help + manpage on all tools
 - [ ] Session recovery: restart → tool call works
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
