@@ -98,3 +98,12 @@ BANNED: God classes — classes that handle multiple unrelated responsibilities
 BANNED: Custom abstractions duplicating built-in Laravel behavior
 BANNED: Custom framework layers on top of Laravel
 BANNED: Premature microservice splitting
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
