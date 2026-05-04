@@ -74,3 +74,12 @@ final class PublishArticleActionTest extends TestCase
 
 BANNED: Mocking Eloquent models or database layer
 BANNED: Tests that depend on execution order
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
