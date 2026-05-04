@@ -284,3 +284,12 @@ See `examples/close-with-attribution.md` for a worked before/after example.
 - Research-only work where there's no product — use docs/
 
 When you have a product to ship and an AI that needs to help build and verify it: that's when this earns its weight.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
