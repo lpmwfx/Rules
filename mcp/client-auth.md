@@ -72,3 +72,12 @@ Claude Code has OAuth support via DCR but has multiple open bugs — browser aut
 RULE: Never hardcode IP addresses — they change
 BANNED: MCP servers exposed on 0.0.0.0 without token validation
 BANNED: Plaintext secrets in `.claude/mcp.json`
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
