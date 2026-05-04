@@ -49,3 +49,12 @@ HTTP server setup, OAuth middleware, session management — these are platform c
 RULE: Tool handlers are adapter — transform input/output, delegate to core
 RULE: Transport and auth are pal — platform infrastructure, not business logic
 RULE: Core has no knowledge of MCP protocol — it receives data, returns results
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
