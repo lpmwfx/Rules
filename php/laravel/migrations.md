@@ -61,3 +61,12 @@ return new class extends Migration
 BANNED: Schema changes outside migrations
 BANNED: Updating revision rows — create new revision instead
 BANNED: Deleting event log entries in normal operation
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
