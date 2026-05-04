@@ -61,3 +61,12 @@ RULE: Domain resolution must be configuration-driven, never folder-driven
 
 BANNED: Business logic in middleware — only cross-cutting concerns
 BANNED: Domain-as-folder architecture
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
