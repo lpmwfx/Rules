@@ -42,3 +42,12 @@ RULE: Controllers are adapter — they transform, not decide
 RULE: Actions are core — business logic lives here, not in controllers or models
 RULE: Eloquent models are gateway — they touch the database
 RULE: Laravel itself is the platform — no separate PAL layer needed
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
