@@ -45,3 +45,12 @@ RULE: Use ViewModels when view data preparation becomes complex
 BANNED: Business logic in Blade templates
 BANNED: Building user-facing products with this stack — use Stack 2
 BANNED: Heavy JavaScript in Blade projects — if you need it, switch to Stack 2
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
