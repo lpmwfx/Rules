@@ -81,3 +81,12 @@ Rules + rulestools + articles (auth) + audience (auth).
 
 RULE: Replace PORT placeholders with actual ports during init
 RULE: Verify each server responds before continuing
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
