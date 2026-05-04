@@ -42,3 +42,12 @@ final class SendInvoiceEmail implements ShouldQueue
 BANNED: Long-running tasks in HTTP request cycle
 BANNED: `sleep()` in request handlers
 BANNED: Non-idempotent queue jobs
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
