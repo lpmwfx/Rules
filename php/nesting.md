@@ -48,3 +48,12 @@ public function processOrder(Order $order): Result
 
 BANNED: More than 3 levels of indentation
 BANNED: Nested try/catch blocks
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
