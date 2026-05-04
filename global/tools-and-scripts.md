@@ -128,3 +128,12 @@ Scripts are first-class project code — same quality standards as `src/`. They 
 
 RULE: Scripts follow the same naming and module conventions as project code
 RULE: One script, one job — no multi-purpose script files
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
