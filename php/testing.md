@@ -47,3 +47,12 @@ it('calculates total including tax', function () {
 BANNED: Mock objects for data layer — use real database
 BANNED: Tests that depend on execution order
 BANNED: `@doesNotPerformAssertions` — every test asserts
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
