@@ -76,3 +76,12 @@ final readonly class ArticleData
 BANNED: `$request->all()` or `$request->input()` when `$request->validated()` exists
 BANNED: Raw `$_GET`, `$_POST` anywhere
 BANNED: Passing unvalidated arrays deep into service/action layers
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
