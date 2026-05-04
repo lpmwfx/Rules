@@ -93,3 +93,12 @@ binding: true
 
 Every project has `proj/` — see [php/laravel/init.md](../php/laravel/init.md) for complete
 templates: PROJECT, RULES, PHASES, TODO, FIXES, UIUX, INSTALL.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
