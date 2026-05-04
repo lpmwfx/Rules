@@ -150,3 +150,12 @@ Don't add references for every file you happen to read while exploring. Reserve 
 Some parts are purely self-contained (e.g. a research-only part producing a fresh document with no prior dependencies). Empty `items: []` is fine — that's an honest signal that the part is greenfield.
 
 Don't fabricate references to look thorough. Empty is honest; padded is misleading.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
