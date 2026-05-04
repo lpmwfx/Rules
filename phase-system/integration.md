@@ -133,3 +133,12 @@ A project with rigging but no phase system: the AI knows the rules but every ses
 A project with phases but no rigging: each phase is well-planned but the AI keeps drifting back to default-app reflexes inside each phase.
 
 Together: the rules of the system are stable and clear; the changes through it are persistent and verified.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
