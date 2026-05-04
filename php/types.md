@@ -52,3 +52,12 @@ BANNED: Missing return type declarations
 BANNED: Untyped parameters on public methods
 BANNED: String/int constants where an enum fits
 BANNED: `mixed` type unless genuinely required
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
