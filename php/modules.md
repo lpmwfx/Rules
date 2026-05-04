@@ -53,3 +53,12 @@ src/
 BANNED: Multiple classes in one file
 BANNED: Global functions outside `helpers.php`
 BANNED: Circular namespace dependencies
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
