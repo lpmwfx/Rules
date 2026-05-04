@@ -254,3 +254,12 @@ v0.4.2 — attribution-bug fix: locked_session_log is now retained as attributio
 - [`docs/references-syntax.md`](docs/references-syntax.md) — anchor syntax + excerpt for the read-graph
 - [`docs/session-resumption.md`](docs/session-resumption.md) — `~/.claude/.../<session-id>.jsonl` audit + `claude --resume` recovery
 - [`examples/`](examples/) — phase JSON examples from real projects
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
