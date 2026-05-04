@@ -264,3 +264,12 @@ Persistent connections, long-running state. Adapter coordinates sessions.
 
 RESULT: Every project maps to exactly one profile — the profile determines folder structure and active layers
 REASON: No wasted layers, no missing layers — the topology fits the project exactly
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
