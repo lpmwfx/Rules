@@ -41,3 +41,12 @@ class InvoiceService
 BANNED: Hungarian notation (`$strName`, `$intCount`)
 BANNED: Abbreviations unless universally known (`$cfg` OK, `$inv` not OK)
 BANNED: Prefixing interfaces with `I` (`IPaymentGateway`) — use `Interface` suffix
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
