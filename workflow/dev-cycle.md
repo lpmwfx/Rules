@@ -207,3 +207,12 @@ Session start
 - **Rework loop:** Write → scan → fix → re-stage (should be 0 iterations)
 - **Proactive compliance:** Know rules BEFORE writing code
 - **proj/ files:** Source of truth for project state, decisions, lessons
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
