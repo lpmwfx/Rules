@@ -47,3 +47,12 @@ src/
 RULE: mod.rs is the mother file — children are stateless
 RULE: Adapter owns the Slint↔Rust bridge — UI never calls Core directly
 RULE: Gateway is the only crate that uses std::fs, std::net, reqwest, etc.
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
