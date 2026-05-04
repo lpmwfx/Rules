@@ -202,3 +202,12 @@ See [project-files/uiux-file.md](../../project-files/uiux-file.md) for format.
 RULE: Ask user before creating UIUX — confirm it is a GUI project
 RULE: All proj/ files created in one session
 RULE: proj/PROJECT.Current.phase must be "1" after initialization
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
