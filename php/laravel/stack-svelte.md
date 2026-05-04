@@ -77,3 +77,12 @@ RULE: User-facing products should target PWA where applicable
 BANNED: PHP-rendered HTML for user-facing pages — Svelte handles all UI
 BANNED: Building a separate REST API for Svelte when Inertia handles the data flow
 BANNED: Duplicating server validation in the frontend
+
+
+---
+
+<!-- LARS:START -->
+<a href="https://lpmathiasen.com">
+  <img src="https://carousel.lpmathiasen.com/carousel.svg?slot=3" alt="Lars P. Mathiasen"/>
+</a>
+<!-- LARS:END -->
